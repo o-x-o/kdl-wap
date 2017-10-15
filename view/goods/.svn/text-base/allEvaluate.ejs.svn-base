@@ -1,0 +1,105 @@
+<style type="text/css">
+    .content{padding-bottom: 1rem!important;}
+    .navbar2{background-image: none;}
+    .shoppingCart{ position: absolute; right: 1rem; top: .3rem; color: #666;}
+    /*商品评价*/
+    .recurrent>ul{border-top:1px solid #e5e5e5;}
+    .recurrent>ul>li{ border-bottom:1px solid #e5e5e5; height:.65rem; line-height:.65rem; font-size:.26rem; padding:0 .2rem; box-sizing:border-box;}
+    .recurrent>ul>li>i{ margin-right:.1rem; font-size:.42rem;vertical-align: middle;}
+    .evaluate .evaluate-con .list{ padding: .2rem; box-sizing: border-box; border-bottom: 1px solid #e5e5e5;}
+    .evaluate .evaluate-con .list>h5>em{  margin-right:.2rem; width:.5rem; display:inline-block; height:.5rem; border-radius:50%; background:pink;vertical-align: middle;}
+    .evaluate .evaluate-con .list>h5>em>img{width:100%; border-radius:50%;overflow:hidden;}
+    .evaluate .evaluate-con .list>div.pic>span{ overflow: hidden; border-radius:5px; width:1.2rem; height:1.2rem;display:inline-block; float:left;margin-right:.1rem;}
+    .evaluate .evaluate-con .list>div.pic>span>img{width:100%; height:100%;}
+    /*footer*/
+    .footer{height:1rem;position:fixed; bottom:0; width:100%; min-width:320px; max-width:640px;background-color:#fff; border-top: 1px solid #e5e5e5;}
+    .footer>div.kdl-left{width:40%;}
+    .footer>div.kdl-left>ul{margin-left:-1px;}
+    .footer>div.kdl-left>ul>li{width:33.33%; float:left; border-left:1px solid #e5e5e5; box-sizing: border-box;}
+    .footer>div.kdl-left>ul>li>a{display: block; text-align: center; height: 1rem;padding: .15rem 0;}
+    .footer>div.kdl-right{width:60%;}
+    .footer>div.kdl-right>a{width:50%; float:left; color:#fff; line-height:1rem; font-size:.36rem;text-align: center;}
+    /*评星*/
+    .starbg{ height: .5rem; line-height: .5rem; position: relative; width: 1.95rem; overflow: hidden;}
+    .starbg .bgone>i{ color: #999;}
+    .starbg .bgtwo{ position: absolute; left: 0; top: 0; width: 100%; display: block;}
+    .starbg .bgtwo>i{ color: #999;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:void(0);" id="returnBtn">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">全部评价</span>
+    <span  class="iconfont shoppingCart">&#xe604;</span>
+    <div class="nav-wrap-right">
+        <a href="javascript:;">
+            <span class="nav-btn">
+                <i class="iconfont icon-info">&#xe636; </i>
+            </span>
+            <s></s>
+        </a>
+    </div>
+    <div class="nav-dropdown">
+        <span class="triangle-up"></span>
+        <ul>
+            <li>
+                <a class="react" href="/">
+                    <i class="iconfont">&#xe602;</i>
+                    <space></space>首页
+                </a>
+            </li>
+            <li>
+                <a class="react" href="javascript:;">
+                    <i class="iconfont">&#xe603;</i>
+                    <space></space>搜索
+                </a>
+            </li>
+            <li>
+                <a class="react" href="javascript:;">
+                    <i class="iconfont">&#xe601;</i>
+                    <space></space>消息
+                    <em class="information">8+<s class="triangle-up"></s></em>
+                </a>
+            </li>
+        </ul>
+    </div>
+</header>
+<div class="content">
+    <div class="evaluate bg-white m-top10">
+        <div class="evaluate-con" id="evaluateList">
+          
+           
+        </div>
+    </div>
+</div>
+<div class="footer clearfix">
+    <div class="kdl-left">
+        <ul>
+            <li>
+                <a href="javascript:;">
+                    <i class="iconfont">&#xe62f;</i>
+                    <p>客服</p>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="iconfont">&#xe605;</i>
+                    <p>店铺</p>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" id="enshrine">
+                    <i class="iconfont">&#xe619;</i>
+                    <p>收藏</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="kdl-right">
+	    <a href="javascript:;" class="bg-orange">加入购物车</a>
+	    <a href="javascript:;"  class="bg-red">立即购买</a>
+	</div>
+</div>

@@ -1,0 +1,176 @@
+<style>
+    body{ padding-bottom: 0;}
+    .content{ padding-top: 1.66rem;}
+    .navbar2{background-image: none; border-bottom: 1px solid #e5e5e5;}
+    .navbar2 .box-search input{ font-size: .24rem; text-indent: .2rem; width: 100%; background-color: #f0f0f0; height: .5rem; line-height: .5rem; border: 0; border-radius: 5px;}
+    .navbar2 .nav-wrap-right>a>span{ font-size: .5rem; color: #999; width: .7rem;top: 0;height: .5rem; line-height: .9rem;border-radius: 3px;}
+    .content .hd{ position: fixed;top: .9rem; width: 100%; min-width: 320px; max-width: 640px;z-index: 3;}
+    .content .hd>ul{ padding: .15rem 0; box-sizing: border-box; margin-left: -1px; border-bottom: 1px solid #e5e5e5;}
+    .content .hd>ul>li{ width: 33.33%; float: left; height: .45rem; line-height: .45rem; border-left: 1px solid #e5e5e5; box-sizing: border-box;}
+    .content .hd>ul>li>a{ display: block; color: #333; text-align: center;}
+    .content .hd>ul>li.cur>a{ color: #cc3333;}
+    .content>h6{ position: relative; height: .4rem;border-bottom: 1px solid #e5e5e5; margin-bottom: 1rem;}
+    .content>h6>span{ padding: 0 .2rem; background-color: #f0f0f0; position: absolute; left: 50%; margin-left: -1.1rem; top: .25rem;}
+    .content .con-info{line-height: .4rem; padding: .2rem; box-sizing: border-box;}
+    .content .con-info>i{margin-top: -.06rem;}
+    .list>ul>li{margin-bottom: .1rem;}
+    .list>ul>li>a{display: block; position: relative; padding-left:2.2rem; box-sizing: border-box; border-bottom: 1px solid #e5e5e5;}
+    .list>ul>li>a>div.pic{ position: absolute; left: .2rem; top: .15rem; width: 1.8rem;}
+    .list>ul>li>a>div.pic>img{width: 100%;}
+    .list>ul>li>a>div.txt{padding-top:.15rem; padding-bottom: .1rem;}
+    .list>ul>li>a>div.txt>img{ margin: .1rem 0;}
+    .list>ul>li p { margin: .2rem .2rem .1rem 0;}
+    .victy{padding: .15rem .2rem; position: relative; padding-left: 2.2rem; box-sizing: border-box; }
+    .victy>button{position: absolute; left: .5rem; top:.2rem; width: 1.5rem; height: .5rem;background-color: transparent; line-height: .5rem; display: inline-block; border-radius: 3px; border: 1px solid #cc3333; color: #cc3333;}
+    .victy>ul>li>a{display: block; line-height: .5rem;}
+    /*筛选条件*/
+    .screen-box{position: absolute;top: 1.68rem; width: 100%; min-width: 320px; max-width: 640px; z-index: 8;}
+    .screen-box ul>li{ line-height: .8rem; padding: 0 .1rem; border-top: 1px solid #e5e5e5;}
+    .screen-box ul>li.cur a{ color: #df494b;}
+    .screen-box ul>li.cur a>i{ display: block;}
+    .screen-box ul>li>a{ display: block;}
+    .screen-box ul>li>a>i{ display: none;}
+    .screen-box>div{ position: relative; box-sizing: border-box; background-color: #fff; height: 100%;}
+    .screen-box>div>ul{ height: 100%;}
+    .screen-box>div>ul:first-child{width: 30%; float: left;  height: 100%; overflow-y: scroll;}
+    .screen-box>div>ul:first-child>li>a{text-align: center; display: block;}
+    .screen-box>div>ul>li.cur{ background-color: #f0f0f0;}
+    .screen-box>div>ul>li.cur>a{ color: #df494b;}
+    .screen-box>div>ul:last-child{ background-color: #f0f0f0; float: left; width: 70%;    height: 100%; overflow-y: scroll;}
+    .screen-box>div>ul:last-child>li{ border-left: 1px solid #e5e5e5; box-sizing: border-box;}
+    .screen-box>div>ul>li:last-child{ border-bottom: 1px solid #e5e5e5;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+        </a>
+    </div>
+    <div class="box-search" style="margin-left: 1rem;">
+        <a href="javascript:;" class=" color-gray3">
+            <input class="single-line" type="text" id="keyword" placeholder="搜索店铺" onkeydown="this.ctrl.monitor();"/>
+        </a>
+    </div>
+    <div class="nav-wrap-right">
+        <a href="javascript:;" onclick="this.ctrl.goDitu()">
+            <span class="iconfont color-orange">
+               &#xe613;
+            </span>
+        </a>
+    </div>
+</header>
+<div class="theme-popover-mask"></div>
+<div class="content">
+    <div class="hd bg-white contentHeader">
+        <ul class="clearfix" id="screen">
+            <li class="cur">
+                <a href="javascript:;">
+                	<span id="cateName">分类</span> <cite>▾</cite>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                	<span id="ordersName">离我最近</span> <cite>▾</cite>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    筛选 <cite>▾</cite>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="screen-box contentHeader">
+        <div id="classify"class="clearfix cateBox" style="display: none;">
+	        <ul id="categoryContent"></ul>
+	        <ul id="industContent"></ul>
+        </div>
+        <ul class="bg-white Sort" style="display: none;" id="Sort">
+            <li class="cur">
+	            <a href="javascript:;" onclick="this.ctrl.toSearchByOrder(this,'distance')"><cite>离我最近</cite><i class="iconfont kdl-right color-red"></i></a>
+	        </li>
+	        <li>
+	            <a href="javascript:;" onclick="this.ctrl.toSearchByOrder(this,'grade')"> <cite>好评最高</cite><i class="iconfont kdl-right color-red"></i></a>
+	        </li>
+        </ul>
+        <ul class="bg-white" style="display: none;" id="filtrate">
+            <li>
+                <a href="javascript:;">
+                    <cite>近期有活动</cite>
+                    <span class="kdl-right">
+                        <label onselectstart="return false;">
+                            <input type="checkbox" onclick="this.ctrl.switchActiviy(this)" class="ios-switch tinyswitch">
+                            <span>
+                                <span> </span>
+                            </span>
+                        </label>
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="bg-gray con-info color-gray9">
+        <span id="position"></span><i class="iconfont kdl-right" onclick="RELOAD()">&#xe600;</i>
+    </div>
+    <div class="list">
+        <ul>
+            <!--<li class="bg-white">
+                <a href="javascript:;">
+                    <div class="pic">
+                        <img src="./img/photo@2x.png"/>
+                    </div>
+                    <div class="txt">
+                        <h5 class="ellips1">肯德基（西三旗桥东餐厅）德基（西三旗桥东餐厅）</h5>
+                        <img style="height: .4rem;"src="./img/bg-grade.png"/>
+                        <p class="m-top20">面包甜点<cite class="color-red kdl-right">5km</cite></p>
+                    </div>
+                </a>
+                <div class="victy">
+                    <button>近期活动</button>
+                    <ul>
+                        <li  class="ellips1">
+                            <a href="javascript:;">
+                                商家促销活动名称商家促销商家促家促家促
+                            </a>
+                        </li>
+                        <li  class="ellips1">
+                            <a href="javascript:;">
+                                商家促销活动名称商家促销商家促家促家促
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="bg-white">
+                <a href="javascript:;">
+                    <div class="pic">
+                        <img src="./img/photo@2x.png"/>
+                    </div>
+                    <div class="txt">
+                        <h5 class="ellips1">肯德基（西三旗桥东餐厅）德基（西三旗桥东餐厅）</h5>
+                        <img style="height: .4rem;"src="./img/bg-grade.png"/>
+                        <p class="m-top20">面包甜点<cite class="color-red kdl-right">5km</cite></p>
+                    </div>
+                </a>
+                <div class="victy">
+                    <button>近期活动</button>
+                    <ul>
+                        <li  class="ellips1">
+                            <a href="javascript:;">
+                                商家促销活动名称商家促销商家促家促家促
+                            </a>
+                        </li>
+                        <li  class="ellips1">
+                            <a href="javascript:;">
+                                商家促销活动名称商家促销商家促家促家促
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>-->
+        </ul>
+    </div>
+    <div class="warn"></div>
+    <center class="load_more" style="padding: .15rem 0;">正在加载</center>
+    <h6 id="warn" style="display:none"><span>亲，已经到底啦~~</span></h6>
+</div>

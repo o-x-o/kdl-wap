@@ -1,0 +1,90 @@
+<style type="text/css">
+    .navbar .nav-header{ color: #333;}
+    .content{ padding-bottom: .5rem;}
+    .content .card-info>ul>li{ background-color: #fff; border-bottom: 1px solid #e5e5e5;padding-left: .2rem; box-sizing: border-box;}
+    .content .card-info>ul>li>input{ border: 0; width: 100%; font-size: .26rem;display: block; height: .8rem; line-height: .8rem;}
+    .content .card-info>ul>li>textarea{border: 0; padding: .2rem 0; box-sizing: border-box; line-height: .4rem; width: 100%; font-size: .26rem;}
+    .content .card-info>ul>li div{width:30%; float:left;    display: inline-block;}
+    .content .card-info>ul>li select{ height: .7rem;line-height: .6rem; border: 0; width: 100%; font-size: .24rem;background-color: transparent;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1">编辑收货地址</span>
+</header>
+<div class=" content">
+	<form action="<%=Config.basePath%>/ucenter/editAddress.shtml" call="this.ctrl.submitCall;">
+	    <input type="hidden" id="areaId" name="areaId" value="" />
+	    <input type="hidden" name="id" value="<%=_datas.data.shippingAddress.id%>" />
+	    <div class="card-info">
+	        <ul>
+	            <li>
+	                <input type="text" placeholder="收货人姓名" id="receiver" name="receiver" value="<%=_datas.data.shippingAddress.receiver%>"/>
+	            </li>
+	            <li>
+	                <input type="tel" placeholder="手机号码"  onkeyup="inputValidate.onlyInteger(this)"  onblur="inputValidate.onlyInteger(this)"  id="phone" name="phone" value="<%=_datas.data.shippingAddress.phone%>"   maxLength="11"/>
+	            </li>
+	            <li>
+	                <span class="clearfix" >
+	                    <div style="display: block;padding: 0;" >
+							<select id="selprovince" style="margin-right: 4px;" onchange="loadArea.getCity();"  >
+								<option value="0">请选择省...</option>
+							</select>
+						</div>
+						<div id="citydiv" style="display:none; padding: 0;" >
+							<select id="selcity" style="margin-right: 4px;" onchange="loadArea.getArea();" >
+								<option value="0">请选择市...</option>
+							</select>
+						</div>
+						<div id="areadiv" style="display:none; padding: 0;">
+							<select id="selarea"  style="margin-right: 4px;"onchange="loadArea.selectArea();" >
+								<option value="0">请选择区...</option>
+							</select>
+						</div>
+	                </span>
+	            </li>
+	            <li>
+	                <input type="tel" placeholder="邮政编码"  id="zipCode" name="zipCode"  maxlength="6"  onkeyup="inputValidate.onlyInteger(this)"  onblur="inputValidate.onlyInteger(this)"  value="<%=_datas.data.shippingAddress.zipCode%>"/>
+	            </li>
+	            <li>
+	                <textarea placeholder="详细地址" id="address" name="address" value="<%=_datas.data.shippingAddress.address%>"><%=_datas.data.shippingAddress.address%></textarea>
+	            </li>
+	        </ul>
+	    </div>
+	</form>
+    <div class="padding20 boxsizing">
+        <button class="btn-block m-top20" type="button" onclick="this.ctrl.saveBtn();">保存</button>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

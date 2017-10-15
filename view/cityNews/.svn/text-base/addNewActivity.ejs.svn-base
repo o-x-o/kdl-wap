@@ -1,0 +1,146 @@
+<style type="text/css">
+    .navbar .nav-header{ color: #333;}
+    .content{ padding-bottom: 2rem;}
+	.content .wrap{background:#fff;border-bottom:1px solid #ccc;padding:.1rem 0;margin-bottom:.1rem;}
+	.content .wrap p{
+		padding:.2rem;
+		padding-right:0;
+	}
+	.content .wrap p:after{
+		content:'';
+	    visibility:hidden;
+	    height:0;
+	    display:block;
+	    clear:both;
+    }
+	.content .wrap p .top{vertical-align: .8rem;}
+	.content .wrap p.discribe .top{vertical-align: 1.4rem;}
+	.content .wrap p.discribe textarea{height:1.8rem;}
+	.content .wrap input,textarea{border:1px solid #aaa;line-height:.58rem;padding:0 .15rem;width:4.2rem;margin-left:.2rem;border-radius:0;}
+	.content .wrap input{height:.58rem;}
+	.content .wrap p.date{padding:0 .2rem;}
+	.content .wrap p.date>.line{border-bottom:1px solid #ccc;display:block; padding: .05rem 0;	}
+	.content .wrap p.date input{border:0;width: 3.35rem;color: #666;height:.4rem;}
+	.content .pic {position:relative;float:left;margin: 0 .25rem .25rem .05rem;width: 1.25rem;
+	    height: 1.25rem;
+	    border-radius: .04rem;
+	    background-size: cover;
+	    background-position: center center;}
+	.content .pic .close{
+		position: absolute;
+		right: -.18rem;
+		top: -.18rem;
+	    cursor: pointer;
+	    font-size: .35rem;
+	    line-height: .35rem;
+	    width: .36rem;
+	    height: .36rem;
+	    border: 1px solid #df494a;color: #df494a;border-radius:50%;display: block;text-align: center;
+	}
+	.content .addPicture{
+		background-color:#ccc;
+		color:#fff;
+		font-size:.7rem;
+		width:1rem;
+		height:1rem;
+		line-height: <%=$.isIOS()?".94":".92"%>rem;
+		margin: .125rem .375rem .375rem .175rem;
+		border-radius:50%;
+		float: left;
+		cursor:pointer;
+		text-align: center;
+	}
+	button.footer {
+	    border: 0;
+	    width: 100%;
+	    min-width: 320px;
+	    max-width: 640px;
+	    position: fixed;
+	    bottom: 0;
+	    height: .9rem;
+	    line-height: .9rem;
+	    font-size: .32rem;
+	    color: #fff;
+	    background-color: #f62b2d;
+	}
+	
+	.content .wrap p.date input{border:0;width: 2.3rem;color: #666;height:.4rem;padding:0;}
+	.content .wrap p.date select{border:0;width: 1.25rem;color: #666;height:.4rem;font-size: .24rem;background: transparent;vertical-align: bottom;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1">添加新活动</span>
+</header>
+<div class=" content">
+	<form id="form" action="<%=Config.basePath%>/cityNews/addShopActivity.shtml" call="this.ctrl.submitCall">
+		<input type ="hidden" id="minBeginDate" name="minBeginDate" value="<%=_datas.minBeginDate %>" />
+		<div class="wrap">
+			<p>
+				<span>商讯标题：</span>
+				<input name='title' id="title" maxlength=30 placeholder="此处最多30字"/>
+			</p>
+			<p>
+				<span class="top">商讯地址：</span>
+				<textarea id='address' name="address"></textarea>
+			</p>
+			<% var begin=$.Date(_datas.beginDate),end=$.Date(_datas.endDate); %>
+			<p class="date">
+				<span class="line">
+					<span>活动开始时间：</span>
+					<input id="beginDate" name="beginDate" type="hidden" value="" />
+					<!--<input type="datetime-local" id="beginDateInput" value="<%=begin.format('yyyy-MM-ddTHH:mm')%>"/>-->
+					<input type="date" id="beginDateInput" value=""/>
+					<select id="beginTime">
+						<% for(var i=9;i<23;i++){ %>
+							<option><%=i<10?"0"+i:i%>:00</option>
+							<% if(i < 22){%>
+								<option><%=i<10?"0"+i:i%>:30</option>
+							<%}%>
+						<% } %>
+					</select>
+				</span>
+			</p>
+			<p class="date">
+				<span class="line">
+					<span>活动结束时间：</span>
+					<input id="endDate" name="endDate" type="hidden" value="" />
+					<!--<input type="datetime-local" id="endDateInput" value="<%=end.format('yyyy-MM-ddTHH:mm')%>"/>-->
+					<input type="date" id="endDateInput" value=""/>
+					<select id="endTime">
+						<% for(var i=9;i<23;i++){ %>
+							<option><%=i<10?"0"+i:i%>:00</option>
+							<% if(i < 22){%>
+								<option><%=i<10?"0"+i:i%>:30</option>
+							<%}%>
+						<% } %>
+					</select>
+				</span>
+			</p>
+			<p class="discribe">
+				<span class="top">商讯描述：</span>
+				<textarea name="description" id="description" maxlength=500 placeholder="字数限制500字" style="height:1.8rem;"></textarea>
+			</p>
+		</div>
+		
+		<div class="wrap">
+			<input type="hidden" id="images" name="images" value="" />
+			<p>
+				<span>添加商讯图片(<font class="picCount color-red">0</font>/4)</span>
+			</p>
+			<p>
+				<span class="addPicture iconfont">&#xe618;</span>
+			</p>
+		</div>
+		<button class="footer" type="button" onclick="this.ctrl.submitForm()">保存</button>
+	</form>
+
+</div>
+
+
+
+

@@ -1,0 +1,65 @@
+<style type="text/css">
+    .content{ padding-top: 0!important;}
+    .navbar{background: #df494a; border-bottom: 0; position: relative;}
+    .navbar a{ color: #fff;}
+    .nav-wrap-right a i{ font-size: .42rem;}
+    .balance{ padding:.3rem  .2rem .1rem; box-sizing: border-box; background:#df494a;}
+    .balance>span{text-align: left; color: #FFf; font-size: .28rem; line-height: .6rem;}
+    .balance>a{ color: #fff;text-align: right;float: right; font-size: .26rem; line-height: .6rem; margin-top:.65rem;}
+    .balance>p{ color: #fff;text-align: center; font-size: .36rem!important; padding:.2rem 0; position: relative;}
+    .balance  .more:after{ border-left: .04rem solid #fff; border-bottom: .04rem solid #fff;}
+    /*列表*/
+    .purseList>ul>li{ height: .8rem; line-height: .8rem; border-bottom:1px solid #e5e5e5;}
+    .purseList>ul>li>a{display: block;position: relative; padding-left: .7rem; box-sizing: border-box; color: #666;}
+    .purseList>ul>li>a>i{ position: absolute; left: .2rem; top: 0; color: #666; font-size: .36rem;}
+    .purseList>ul>li>a>span{position: absolute; right: .5rem; top: -.02rem; color: #999;}
+    .purseList  .more:after{  right: .2rem; border-left: .04rem solid #999; border-bottom: .04rem solid #999;}
+</style>
+<header class="navbar">
+    <div class="nav-wrap-left">
+        <a href="#ucenter/mine">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1">我的钱包</span>
+</header>
+<div class="content">
+    <!--财富-->
+    <div class="balance">
+        <span>总资产（元）</span>
+        <p class="more" onclick="GO('ucenter/bakMoneyLog?toReturn=purse')"><%=_datas.purse.toFixed(2)%></p>
+        <%if(_datas.purse <= 0){%>
+        	<span style="font-size:.24rem;">您还没有收入可提现，加油哦~</span>
+        <%}%>
+    </div>
+    <!--列表-->
+    <div class="purseList bg-white">
+        <ul>
+            <li>
+                <a href="#ucenter/bankCards" class="more">
+                    <i class="iconfont">&#xe620;</i>
+                    银行卡
+                    <span><%=_datas.bankCardQuantity%>张</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" class="more">
+                    <i class="iconfont">&#xe627;</i>
+                    积分
+                    <span>0分</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" class="more">
+                    <i class="iconfont">&#xe621;</i>
+                    联盟卡
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+
+

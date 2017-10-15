@@ -1,0 +1,297 @@
+<div class="theme-popover-mask" style="z-index: 99; display: none;"></div>
+<div  class="index-mask" style="display:none">
+	<img src="./img/discover.png" style="width:100%;"/>
+	<span class="index-cose"></span>
+	<cite></cite>
+</div>
+
+<div class="RegisterNow">
+    <i class="iconfont">&#xe652;</i>
+    <span><img src="./img/promotion_money_logo@2x.png"/></span>
+    开店啦，服务你身边
+    <a class="kdl-right" href="#ucenter/guidanceDownload">立即下载</a>
+</div>
+<header class="navbar" style="background: transparent;text-shadow: 0px 0px 2px #999 ; position:absolute;">
+    <div class="nav-wrap-left">
+        <a href="javascript:;" class="color-white">
+            <span class="nav-city">
+                <span id="cityName"><%=Config.area.name && Config.area.name.replace(/市$/,"")%></span>
+                <cite>∨</cite>
+            </span>
+        </a>
+    </div>
+    <div class="box-search" style="text-shadow: 0px 0px 0px #000000;">
+        <a href="#search/search" class="color-white">
+            <i class="iconfont icon-search">&#xe603;</i>
+            <span class="single-line">输入店铺/商品/服务</span>
+        </a>
+    </div>
+    <div class="nav-wrap-right">
+        <a href="#message/messageLists?userType=member" class="color-white">
+            <span class="nav-btn">
+                <i class="iconfont icon-info">&#xe601; </i>
+            </span>
+        </a>
+    </div>
+</header>
+<div class="content cur" style="padding-top: 0;">
+    <!--banner-->
+    <section class="banner clearfix">
+        <div id="slider" class="clearfix" >
+            <div class="swipe-wrap" >
+            <%if(_datas.promotion1==null||_datas.promotion1.length<1) {%>
+            	<div class="wrap" style="background-color:#df494a;">
+                    <a href="javascript:;">
+                        <img class="back-logo-color" src="img/tans5x3.gif" title="暂无" alt="暂无"/>
+                    </a>
+                </div>
+            <%}%>
+            <% $.each(_datas.promotion1||[],function(i,o){ %>
+                <div class="wrap" >
+                    <a href="<%=o.url||"javascript:;"%>">
+                        <img src="<%=Config.imgPre + o.image%>" title="<%=o.title%>" alt="<%=o.title%>"/>
+                    </a>
+                </div>
+            <% }); %>
+            </div>
+            <ul id="circle" <%=(_datas.promotion1==null||_datas.promotion1.length<=1)?'class="hide"':''%>>
+            <% $.each(_datas.promotion1||[],function(i,o){ %>
+                <li <%if(i==0){%>class="current"<%}%>></li>
+            <% }); %>
+            </ul>
+        </div>
+    </section>
+    <!--功能模块-->
+    <div class="in-nav clearfix m-bottom">
+        <ul class="clearfix">
+            <li>
+               <a href="#shop/nearbyStore">
+                   <span>
+                       <img src="./img/icon_physical_store.png"/>
+                   </span>
+                   <p>附近实体店</p>
+               </a>
+            </li>
+            <li>
+                <a href="#ucenter/generalizeMoney">
+                    <span>
+                        <img src="./img/icon_make-money.png"/>
+                    </span>
+                    <p>推广赚钱</p>
+                </a>
+            </li>
+            <li>
+                <a href="#shopKeeper/cashBack">
+                    <span>
+                        <img src="./img/icon_back_now.png"/>
+                    </span>
+                    <p>返现专区</p>
+                </a>
+            </li>
+            <li>
+                <a href="#shopKeeper/shopkeeperShop">
+                    <span>
+                        <img src="./img/icon_chop.png"/>
+                    </span>
+                    <p>店主小铺</p>
+                </a>
+            </li>
+            <li>
+                <a href="#forwardingGifts/receivingGifts">
+                    <span>
+                        <img src="./img/icon_forward_gift.png"/>
+                    </span>
+                    <p>转发有礼</p>
+                </a>
+            </li>
+            <li>
+                <a href="#goods/goodsCategory?goodsCategoryId=1467">
+                    <span>
+                        <img src="./img/icon_food_beverage.png"/>
+                    </span>
+                    <p>餐饮美食</p>
+                </a>
+            </li>
+            <li>
+                <a href="#goods/goodsCategory?goodsCategoryId=2066">
+                    <span>
+                        <img src="./img/icon_beauty_salon.png"/>
+                    </span>
+                    <p>美容美发</p>
+                </a>
+            </li>
+            <li>
+                <a href="#goods/goodsCategory?goodsCategoryId=1945">
+                    <span>
+                        <img src="./img/icon_car_service.png"/>
+                    </span>
+                    <p>汽车服务</p>
+                </a>
+            </li>
+            <li>
+                <a href="#goods/goodsCategory?goodsCategoryId=1739">
+                    <span>
+                        <img src="./img/icon_life_service.png"/>
+                    </span>
+                    <p>生活服务</p>
+                </a>
+            </li>
+            <li>
+                <a href="#goods/allClassify">
+                    <span>
+                        <img src="./img/icon_classification.png"/>
+                    </span>
+                    <p>全部分类</p>
+                </a>
+            </li>
+           <% $.each(_datas.promotion6||[],function(i,o){ %>
+            <li>
+           		<a href="<%=o.url%>?specialtyDisplayId=<%=o.id%>">
+	            	<span>
+	            		<img src="<%=Config.imgPre + o.image%>"/>
+	            	</span>
+                    <p><%=o.title%></p>
+	            </a>
+	        </li>
+           <% }); %>
+        </ul>
+    </div>
+    <!--同城商讯-->
+    <div id="activityTitle" class="headline clearfix bg-white">
+        <div class="pic">
+            <img src="./img/headline.png"/>
+        </div>
+        <div class="txt">
+            <ol id="headLine">
+            	<!--
+                <li>
+                    <i></i>
+                    <a href="javascript:;">&nbsp;&nbsp;胖妹子的早春心机搭配</a>
+                </li>
+               -->
+            </ol>
+        </div>
+        <a class="more" href="javascript:;" onclick="window.location.href='#cityNews/cityInfo'">更多</a>
+    </div>
+    <!--超值购-->
+    <% if(_datas.promotion4 && _datas.promotion4.length>0){ %>
+    <div class="m-top20">
+        <a href="<%=_datas.promotion4[0].url%>?specialtyDisplayId=<%=_datas.promotion4[0].id%>" style="display: block;">
+        	<img style="width: 100%;" class="lazy" src="<%=Config.imgPre + _datas.promotion4[0].image%>"/>
+            <!--<img style="width: 100%;"class="lazy" src="./img/home_new_users_enjoy@2x.png"/>-->
+        </a>
+    </div>
+    <% }else{ %>
+    <div class="m-top20">
+        <a href="javascript:;" style="display: block;">
+            <img style="width: 100%;" src="./img/home_new_users_enjoy@2x_null.jpg"/>
+        </a>
+    </div>
+    <% } %>
+    <!--推荐模块-->
+    <div class="recommend bg-white m-top">
+        <div class="re-l">
+        	<% if(_datas.promotion2&&_datas.promotion2[0]){ %>
+            <a href="<%=_datas.promotion2[0].url%>?specialtyDisplayId=<%=_datas.promotion2[0].id%>">
+                <img src="<%=Config.imgPre + _datas.promotion2[0].image%>"/>
+                <!--<div class="txt">
+                    <span><%=_datas.promotion2[0].title%></span>
+                </div>-->
+            </a>
+            <% }else{ %>
+            <a href="javascript:;">
+                <img src="img/home-adver-recommend1.png"/>
+            </a>
+            <% } %>
+        </div>
+        <div class="re-r">
+        	<% if(_datas.promotion2&&_datas.promotion2[1]){ %>
+            <a href="<%=_datas.promotion2[1].url%>?specialtyDisplayId=<%=_datas.promotion2[1].id%>">
+                <img src="<%=Config.imgPre + _datas.promotion2[1].image%>"/>
+                <!--<div class="txt">
+                    <span><%=_datas.promotion2[1].title%></span>
+                    <p><%=_datas.promotion2[1].subtitle%></p>
+                </div>-->
+            </a>
+            <% }else{ %>
+            <a href="javascript:;">
+                <img src="img/home-adver-recommend2.png"/>
+            </a>
+            <% } %>
+        	<% if(_datas.promotion2&&_datas.promotion2[2]){ %>
+            <a href="<%=_datas.promotion2[2].url%>?specialtyDisplayId=<%=_datas.promotion2[2].id%>">
+                <img src="<%=Config.imgPre + _datas.promotion2[2].image%>"/>
+                <!--<div class="txt">
+                    <span><%=_datas.promotion2[2].title%></span>
+                    <p><%=_datas.promotion2[2].subtitle%></p>
+                </div>-->
+            </a>
+            <% }else{ %>
+            <a href="javascript:;">
+                <img src="img/home-adver-recommend3.png"/>
+            </a>
+            <% } %>
+        </div>
+    </div>
+    <!--超级返现-->
+    <% if(_datas.promotion5&&_datas.promotion5[0]){ %>
+    <div class="fanxian m-top bg-white">
+    	<input type="hidden" id="superReturn" value="<%=_datas.promotion5[0].id%>">
+        <div class="hd">
+            <h3><%=_datas.promotion5[0].title%></h3>
+            <a href="#goods/superReturn?specialtyDisplayId=<%=_datas.promotion5[0].id%>">更多<i class="iconfont">&#xe608;</i></a>
+        </div>
+        <ul class="bd clearfix">
+            <!--<li>
+                <a href="javascript:;">
+                    <div class="pic">
+                        <img src="http://img.kaidianlaa.com/upload/image/common/home_back1.png"/>
+                    </div>
+                    <div class="txt">
+                        <p><span class="color-red h5">￥88.00</span></p>
+                        <span class="color-orange">返现￥10.84</span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <div class="pic">
+                        <img src="http://img.kaidianlaa.com/upload/image/common/home_back2.png"/>
+                    </div>
+                    <div class="txt">
+                        <p><span class="color-red h5">￥23.50</span></p>
+                        <span class="color-orange">返现￥10.84</span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <div class="pic">
+                        <img src="http://img.kaidianlaa.com/upload/image/common/home_back3.png"/>
+                    </div>
+                    <div class="txt">
+                        <p><span class="color-red h5">￥98.50</span></p>
+                        <span class="color-orange">返现￥10.84</span>
+                    </div>
+                </a>
+            </li>-->
+        </ul>
+    </div>
+    <% } %>
+    <!--广告-->
+    <div class="advertising">
+     <% $.each(_datas.promotion3||[],function(i,o){ %>
+       <div>
+           <h1><span class="color-orange"><%=o.title%></span><%=o.subtitle%></h1>
+           <% if(o.url){ %>
+           		<a href="<%=o.url%>?specialtyDisplayId=<%=o.id%>">
+           <%}else{%>
+           		<a href="javascript:;">
+           <% } %>
+               <img url="<%=Config.imgPre + o.image%>"/>
+           </a>
+       </div>
+     <% }); %>
+    </div>
+
+</div>

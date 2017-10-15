@@ -1,0 +1,63 @@
+<style type="text/css">
+    .navbar .nav-header{ color: #333;}
+    .content .hd .pic{text-align: center; width: 1.2rem; margin: .6rem auto; }
+    .content .hd .pic>img{width: 100%;}
+    .content .hd>ul>li{ padding: .2rem; box-sizing: border-box;height: .8rem; line-height: .8rem; border-bottom: 1px solid #e5e5e5;}
+    .content .hd>ul>li>a{ display: block; line-height: .4rem; position: relative;}
+    .content .copy{ position: absolute; bottom: .5rem;    width: 100%; min-width: 320px; max-width: 640px; margin-top: .5rem;}
+    .content .copy p{margin:.1rem;}
+    .content .copy center{margin-bottom:.4rem;}
+    @media all and (orientation : landscape) {
+    	.content .copy{ position: static;}
+    }
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1">关于我们</span>
+</header>
+<div class=" content">
+    <div class="hd">
+        <div class="pic">
+            <img src="./img/apple-touch-icon-196x196-precomposed.png"/>
+            <h4 class="m-top20">开店啦</h4>
+            <h5 class="color-gray9"><%=_Version%>版</h5>
+        </div>
+        <ul class="bg-white">
+            <li>
+                <a href="#aboutUs/agreement" class="more">
+                    软件使用许可协议
+                </a>
+            </li>
+            <li>
+                <a href="#aboutUs/introduction" class="more">
+                    公司简介
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="copy">
+    	<center>客服电话：<a href="tel:4009960024" class="color-blue">4009960024</a></center>
+    	<p class="color-gray9 text-center">辽B2-20150140</p>
+        <p class="color-gray9 text-center">开店啦（沈阳）电子商务有限公司 版权所有</p>
+        <p class="color-gray9 text-center">Copyright @ 2016 All Rights Reserved</p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

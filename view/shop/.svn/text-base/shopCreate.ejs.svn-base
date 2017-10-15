@@ -1,0 +1,124 @@
+	<style type="text/css">
+	    .navbar .nav-header{ color: #333;}
+	    .content{ padding-bottom: 1rem;}
+	    .content>ul{margin-top:.2rem;}
+	    .content>ul>li{overflow: hidden;padding:0 .2rem; padding-left: 1.4rem; margin-left:.2rem; box-sizing: border-box; height: .8rem; line-height: .8rem; border-bottom: 1px solid #e5e5e5; position: relative; }
+	    .content>ul>li>span{ width: 1.4rem; height: .8rem; display: inline-block; position: absolute; top: 0;left:0;}
+	    .content>ul>li>input, .content>ul>li>textarea{ width: 100%; border: 0; text-align: right; color: #666; font-size: .26rem;}
+	    .content>ul>li>.h6>input{border: 0; text-align: right;color: #666; font-size: .26rem;height: .6rem;width:3rem;}
+	    .content>ul>li>textarea{ height: 1.2rem; line-height: .4rem; padding: .2rem 0; box-sizing: border-box;}
+	    .content>ul>li.high{height: 1.22rem;}
+	    .content>ul>li div{width:33.33%; float:left;display: inline-block; padding:0 .1rem; box-sizing: border-box;  border-right: 1px solid #e5e5e5;}
+	    .content>ul>li.city{ padding-left: .2rem;}
+	    .content>ul>li .right{float:right;margin-right:.1rem;}
+	    .content>ul>li #industryCategoryName{width:auto;line-height:.78rem;}
+	    .content>ul>li select{ height: .77rem;line-height: .78rem; border: 0; width: 100%; font-size: .26rem;}
+	    .content>ul>li>.h6{line-height:.6rem;margin-left: -1.4rem;display: block;}
+	    .iconUpload{width:1.3rem;height:1.3rem;line-height: 1.2rem;
+		    font-size: 1rem;
+		    color: #eee;
+		    margin: .2rem;
+		    border-radius: 3px;
+		    background-size: cover;
+		    background-position: center center;
+		}
+		.btn{padding:0;}
+		.content>ul>li .hidden{opacity:0;width:auto;position:absolute;height: .78rem;}
+	</style>
+	<header class="navbar navbar2">
+	    <div class="nav-wrap-left">
+	        <a href="javascript:history.go(-1);" class="color-gray3">
+	            <i class="iconfont">&#xe60b;</i>
+	            <s></s>
+	        </a>
+	    </div>
+	    <span class="nav-header h1">店铺信息</span>
+	</header>
+	<form action="<%=Config.basePath%>business/createBusAndShop.shtml" method="post" call="this.ctrl.submitCall">
+		<input type="hidden" name="licenseImageUrl" id="licenseImageUrl"/>
+		<input type="hidden" name="updateImgSign" id="updateImgSign" value="false"/>
+		<div class="content">
+			<center>
+				<div class="bg-white iconfont iconUpload">&#xe612;</div>
+				<input type="hidden" name="avatar"/> <!-- 店铺标志 -->
+				<span>选择店铺标志</span>
+			</center>
+		    <ul class="bg-white">
+		        <li>
+		            <span>店铺名称</span>
+		            <input type="text" name="shopName" placeholder="例：兰州拉面" required="true" prompt="请填写店铺名称" maxlength="15"/>
+		        </li>
+		        <li>
+		            <span>店铺副标题</span>
+		            <input type="text" name="shopSubtitle" placeholder="例：可到店扫码支付，服务到位" required="true" prompt="请填写店铺副标题" maxlength="15"/>
+		        </li>
+		    </ul>
+		    <ul class="bg-white">
+		        <li onclick="this.ctrl.shopImgCreate();">
+		            <span>店铺实拍</span>
+		            <input class="photoFace hidden" name="shopImage" readonly="readonly" required="true" prompt="请填写店铺门面照"/> <!-- 门脸照 -->
+		            <input class="photoInner hidden" name="photoInner[0]" readonly="readonly"/> <!-- 店内照 -->
+		            <input class="photoInner hidden" name="photoInner[1]" readonly="readonly"/>
+		            <input class="photoInner hidden" name="photoInner[2]" readonly="readonly"/>
+		            <input class="photoInner hidden" name="photoInner[3]" readonly="readonly"/>
+		            <font class="iconfont kdl-right">&#xe608;</font>
+		        </li>
+		    </ul>
+		    <ul class="bg-white">
+		        <li>
+		            <span>联系人称谓</span>
+		            <input type="text" name="shopContacts" placeholder="例：王女士" value="<%=_datas.shopContacts%>" required="true" prompt="请填写联系人" maxlength="10"/>
+		        </li>
+		        <li>
+		            <span>联系电话</span>
+		            <input type="text" name="shopPhone" placeholder="方便联系门店联系人" value="<%=_datas.shopPhone%>" required="true" maxlength="11" prompt="请填写店铺联系电话"/>
+		        </li>
+		    </ul>
+		    <ul class="bg-white">
+		        <li onclick="GO('business/industrySelection',{}, '.sub_container')">
+		            <span>所属行业</span>
+		            <font class="iconfont kdl-right">&#xe608;</font>
+		            <input id="industryCategoryName" name="industryCategoryName" readonly="readonly" class="color-gray6 right" type="text"/>
+		            <input id="industryCategoryId" name="industryCategoryId" readonly="readonly" required="true" class="hidden" prompt="请填写所属行业"/>
+		        </li>
+		        <li class="high">
+		            <label class="h6 clearfix">
+		            	<span>开始营业时间：</span>
+		            	<font class="iconfont kdl-right">&#xe608;</font>
+		            	<input class="right" type="time" name="startTime" required="true" prompt="请填写开始营业时间"/>
+		            </label>
+		            <label class="h6 clearfix">
+		            	<span>结束营业时间：</span>
+		            	<font class="iconfont kdl-right">&#xe608;</font>
+		            	<input class="right" type="time" name="endTime" required="true" prompt="请填写结束营业时间"/>
+		            </label>
+		        </li>
+		        <li class="city">
+		            <div>
+						<select id="selprovince" onchange="loadArea.getCity();"  >
+							<option value="">请选择省...</option>
+						</select>
+					</div>
+					<div id="citydiv">
+						<select id="selcity" onchange="loadArea.getArea();" >
+							<option value="">请选择市...</option>
+						</select>
+					</div>
+					<div id="areadiv" style="border: 0;">
+						<select id="selarea" name="areaId" onchange="loadArea.selectArea();" required="true" prompt="请选择店铺地区">
+							<option value="">请选择区...</option>
+						</select>
+					</div>
+		        </li>
+		        <li class="high">
+		            <span>详细地址</span>
+		            <textarea id="shopAddress" placeholder="例：河东市场里" name="shopAddress" required="true" prompt="请填写店铺地址" maxlength="50"><%=_datas.shopAddress%></textarea>
+		        </li>
+		    </ul>
+		    <div class="padding20">
+		        <div class="btn btn-block m-top20" onclick="this.ctrl.submit();">提交</div>
+		    </div>
+		</div>
+	</form>
+	
+	

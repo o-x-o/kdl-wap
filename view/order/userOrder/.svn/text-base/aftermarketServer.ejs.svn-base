@@ -1,0 +1,88 @@
+<style type="text/css">
+   .content{padding-bottom:.9rem;}
+   .middle-hd{ padding:.1rem .2rem; box-sizing:border-box; line-height:.4rem;}
+   .middle-bd>ul>li{padding:.15rem .5rem .15rem 2.8rem; box-sizing:border-box; position:relative; height:2.2rem; border-bottom:1px solid #ddd;}
+   .middle-bd>ul>li>div.pic{border-radius:3px; overflow:hidden; width:2rem; height:1.9rem; position:absolute; left:.7rem; top:.15rem;}
+   .middle-bd>ul>li>div.pic>img{width:100%; height:100%;}
+   .middle-bd .txt>span{display: block; height: .5rem; line-height: .5rem;}
+   .middle-bd .txt>span>input{ box-sizing: border-box; width: .8rem!Important; font-size: .26rem; color: #666;}
+   .middle-bd .txt>span>input,.middle-bd .txt>span>button{margin:0 .05rem; font-size: .24rem; color: #666; background-color:transparent; float: left; width: .5rem; height: .5rem; line-height: .5rem; text-align: center;border-radius: 3px; border: 1px solid #ddd;}
+   .middle-bd .txt>span>button>i{font-size:.24rem;}
+   .middle-bd>ul>li>i{position:absolute; top:.8rem; left:.15rem; color:#ddd; font-size:.38rem;}
+   .footer{position:fixed; width:100%;min-width:320px;max-width:640px;bottom:0;}
+   .footer>ul{ height:.9rem; line-height:.9rem;}
+   .footer>ul>li{width:50%;float:left;text-align:center;}
+   .footer>ul>li>a{display:block; color:#fff; font-size:.32rem;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">售后服务</span>
+</header>
+<div class="middle content">
+	<div class="bg-white color-gray6 middle-hd">
+		<div>订单编号：1905156456123</div>
+		<div>下单时间：2016-05-17 10:54:22</div>
+	</div>
+	<div class="bg-silver middle-bd">
+		<ul>
+			<li>
+				<i class="iconfont">&#xe64f;</i>
+				<div class="pic">
+					<img src="./img/product-collection_img1@2x.png"/>
+				</div>
+				<div class="txt">
+					<h5 class="ellips">2016春秋季韩版棒球服印花夹克棒球衫</h5>
+					<span class="m-top30">
+		                <button><i class="iconfont"></i></button>
+		                <input type="tel"/>
+		                <button><i class="iconfont"></i></button>
+		            </span>
+				</div>
+			</li>
+			<li>
+				<i class="iconfont">&#xe64f;</i>
+				<div class="pic">
+					<img src="./img/product-collection_img1@2x.png"/>
+				</div>
+				<div class="txt">
+					<h5 class="ellips">2016春秋季韩版棒球服印花夹克棒球衫</h5>
+					<span class="m-top30">
+		                <button><i class="iconfont"></i></button>
+		                <input type="tel"/>
+		                <button><i class="iconfont"></i></button>
+		            </span>
+				</div>
+			</li>
+			<li>
+				<i class="iconfont">&#xe64f;</i>
+				<div class="pic">
+					<img src="./img/product-collection_img1@2x.png"/>
+				</div>
+				<div class="txt">
+					<h5 class="ellips">2016春秋季韩版棒球服印花夹克棒球衫</h5>
+					<span class="m-top30">
+		                <button><i class="iconfont"></i></button>
+		                <input type="tel"/>
+		                <button><i class="iconfont"></i></button>
+		            </span>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div> 
+<div class="footer">
+	<ul class="clearfix;">
+		<li>
+			<a class="bg-red" href="javascript:;">申请售后</a>
+		</li>
+		<li>
+			<a class="bg-orange" href="javascript:;">售后帮助</a>
+		</li>
+	</ul>
+</div>
+

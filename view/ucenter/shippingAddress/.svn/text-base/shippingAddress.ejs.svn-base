@@ -1,0 +1,65 @@
+<style type="text/css">
+    .navbar .nav-header{ color: #333;}
+    .content{ padding-bottom: 1rem;}
+    .content>ul>li{margin-bottom: .1rem; background-color: #fff;}
+    .content>ul>li .txt{ padding: .2rem; box-sizing: border-box; border-bottom: 1px solid #e5e5e5;}
+    .content>ul>li .bd{padding: .2rem; box-sizing: border-box;}
+    .content>ul>li .bd i{ vertical-align: middle;}
+    .content>ul>li .bd>div>a{width:1.2rem; height:.5rem; line-height:.5rem; text-align:center; display:inline-block; border: 1px solid #e5e5e5; border-radius: 3px; margin-left: .1rem;}
+    .content>ul>li .bd>div>a.bg-red{ border-radius: 3px; border:0;}
+    button.footer{border: 0; width: 100%; min-width: 320px; max-width: 640px; position: fixed; bottom: 0; height: 1rem; line-height: 1rem; font-size: .36rem; color: #fff; background-color: #df494b; bord}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1">收货地址</span>
+</header>
+<div class="content ">
+    <ul id="addressList">
+	 	<%$.each(_datas.data.addressList,function(i,o){ %>
+	        <li id="address_<%=o.id%>">
+	        	<input type="hidden" value="<%=i%>"/>
+	            <div class="txt">
+	                <h5><%=o.receiver%><span class="kdl-right"><%=o.phone%></span></h5>
+	                <p class="m-top5 ellips1"><%=o.address%></p>
+	            </div>
+	            <div class="bd clearfix">
+	                <div class="kdl-left color-gray6">
+	                    <i onclick="this.ctrl.setDefault(this,'<%=o.id%>');" style="cursor:default;" class="iconfont <%if(o.isDefault==true){%> color-red <%}%>"><%if(o.isDefault==true){%>&#xe63d;<%}else{%>&#xe64f;<%}%></i><!--正常是这个  去掉color-red类-->
+	                    设为默认地址
+	                </div>
+	                <div class="kdl-right">
+	                    <a href="javascript:void(0);" onclick="this.ctrl.editBtn(<%=o.id%>)">编辑</a>
+	                    <%if(_param.addressId==o.id){%>
+		                    <a href="javascript:void(0);" onclick="this.ctrl.deleteBtn(0,this)" class="color-white bg-red">使用中</a>
+	                    <%}else{%>
+		                    <a href="javascript:void(0);" onclick="this.ctrl.deleteBtn(<%=o.id%>,this)">删除</a>
+	                    <%}%>
+	                </div>
+	            </div>
+	        </li>
+     	<%});%>
+    </ul>
+</div>
+<%if(_datas.data.isAdd==true){%>
+	<button class="footer" type="button" onclick="this.ctrl.addBtn();">
+	    新增收货地址
+	</button>
+<%}%>
+
+
+
+
+
+
+
+
+
+
+
+
+

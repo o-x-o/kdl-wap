@@ -1,0 +1,47 @@
+<style type="text/css">
+	body{padding-bottom:1rem!important;}
+    .shopCon{ padding: .2rem 0;}
+    .shopCon>p{text-align: center; margin-bottom: .1rem; color: #666;}
+    .shopCon>div.hd{ padding: 0 .8rem; box-sizing: border-box; position: relative; margin-bottom: .2rem;}
+    .shopCon>div.hd .l{left: .05rem;}
+    .shopCon>div.hd .r{right: .05rem;}
+    .shopCon>div.hd .pic{ width: .6rem; height: .6rem; position: absolute; top: 0;}
+    .shopCon>div.hd .pic img{ width: 100%; height: 100%; border-radius: 50%;}
+    .shopCon>div.hd .txt{ border-radius: 5px;background-color: #fff; padding: .2rem; min-height:.6rem; box-sizing: border-box; position: relative;}
+    .yous .txt{background-color: #EEFCFF!important;}
+    .arrow-left { width:0;height:0;border-top:.15rem solid transparent;border-bottom:.15rem solid transparent;border-right:.15rem solid #fff; position: absolute; left: -.1rem; top:.2rem; }
+    .arrow-right { width:0; height:0; border-top:.15rem  solid transparent;border-bottom: .15rem  solid transparent; border-left: .15rem  solid #EEFCFF;position: absolute; right: -.1rem; top: .2rem; }
+    .footers{padding-left: .8rem; background-color: #ccc; position: fixed; bottom:0; width: 100%; min-width: 320px;max-width: 640px; height: 1rem; line-height:.6rem; padding: .2rem; box-sizing: border-box;}
+    .footers>span{ float:left; color: #333; font-size: .24rem; width: .8rem; text-align: center; display:inline-block; height: .6rem;}
+    .footers>input{ width:4.3rem;  height:.6rem; float:left;  line-height:.6rem; text-indent: .1rem; border: 0; background-color: #fff; border-radius: 5px; font-size: .24rem;}
+    .botton{ background:none; border:none;}
+    .footers>span.iconfont{ font-size: .5rem;}
+    
+
+    .commodity{border-radius: .08rem; position: relative;height:1rem;background-color: #fff; width:6rem; z-index:3;margin-left:.2rem; padding:.1rem 1.1rem .1rem .9rem; box-sizing:border-box;margin-top: 20px;margin-bottom: 20px;border: 1px solid #f60;}
+    .commodity>div.pic{width:.6rem; height:.56rem; position:absolute; left:.15rem; top:.1rem;}
+    .commodity>div.pic>img{width:100%; }
+    .commodity>span{ position: absolute;right: .15rem; display: inline-block;padding: .05rem .15rem;border-radius: .08rem;border: 1px solid #f60;background-color: #f60; color: #fff;top: .2rem;}
+    #chatContent .hd .txt p{word-break: break-all;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:;" onclick="this.ctrl.backHistory()" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3"><%=_datas.data.targetNickName%></span>
+</header>
+<div class="content">
+	<center id="hasMore" hasMore="1" onclick="this.ctrl.loadMore()">-- 加载更多 --</center>
+    <div id="chatContent" class="shopCon">
+    </div>
+    <div class="footers">
+    	<span class="iconfont" onclick="this.ctrl.sendPicture()">&#xe612;</span>
+        <input id="messageContent" type="text" placeholder=""/>
+        <span>
+        	<button id="btn-send" class="botton" onclick="this.ctrl.sendText()">发送</button>
+        </span>
+    </div>
+</div>

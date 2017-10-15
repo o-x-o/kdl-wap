@@ -1,0 +1,78 @@
+<style type="text/css">
+    body,html{background-color: #fff;}
+    .navbar .nav-header{ color: #333;}
+    .content>ul>li{padding: .2rem; box-sizing: border-box; border-bottom: 1px solid #e5e5e5;}
+    .content>ul>li>a{display: block;}
+    .content>ul>li>a>h5{ color: #333;}
+    .content>ul>li>a>p{ font-size: .26rem;}
+    .content>center{ margin-top: .2rem;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);">
+            <i class="iconfont color-gray3">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1">小铺头条</span>
+</header>
+<div class="content">
+    <ul class="bg-white" id="shopTopsContent">
+	    <%var shopTopList = _datas.shopTopList%>
+	    <%if(shopTopList != null && shopTopList.length > 0){%>
+			<%for(var i = 0;i<shopTopList.length;i++){%>
+		        <li onclick="GO('shopKeeper/shopTopInfo',{id:<%=shopTopList[i].id%>})">
+		            <a href="javascript:;">
+		                <h5><%=shopTopList[i].title%></h5>
+		                <p><%=shopTopList[i].createDate%></p>
+		            </a>
+		        </li>
+		    <%}%>
+		<%}%>
+    	<!--
+        <li>
+            <a href="javascript:;">
+                <h5>买家进店后，快速下单！</h5>
+                <p>2015-11-26 00:00</p>
+            </a>
+        </li>
+        -->
+    </ul>
+    <center onclick="this.ctrl.loadMore()">
+    	<span id="loadMore" hasMore=<%=shopTopList.length<6?false:true%>>
+    		<%if(shopTopList.length < 6){%>
+    			没有更多
+    		<%} else{%>
+    			加载更多
+    		<%}%>
+		</span>
+    </center>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

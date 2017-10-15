@@ -1,0 +1,96 @@
+<style type="text/css">
+    .reals{padding-top: .9rem!important; padding-bottom:1rem;}
+    /*实拍店铺开始*/
+    /*实拍店铺的示例展示区域*/
+	.ptosExample{ padding:.15rem .075rem; box-sizing:border-box;}
+	.ptosExample>div>div{width:50%; float:left; padding:0 .075rem; box-sizing:border-box;}
+	.ptosExample>div>div>img{ width:100%;}
+	.ptosExample>div>div>h5{text-align:center;}
+	.ptosExample>p{padding:0 .075rem; box-sizing:border-box; line-height:.35rem;}
+	/*门脸照上传*/
+	.frontispiece{padding-left:.15rem; box-sizing:border-box;}
+	.frontispiece>h5{ line-height:.7rem; border-bottom:1px solid #e5e5e5;}
+	.frontispiece ul>li{width:1.2rem;float:left;padding:.15rem 0; position:relative;}
+	.frontispiece.photoInner ul>li{display:none;}
+	.frontispiece ul>li>i{position:absolute; top:-.1rem; right:-.02rem; font-size:.42rem; cursor:pointer; z-index:2; display:none;}
+	.frontispiece .upload{width:1rem; height:1rem;border-radius:.1rem; cursor:pointer; border:2px solid #e5e5e5; overflow:hidden;}
+	.frontispiece .upload>i{line-height:.9rem; text-align:center; font-size:.8rem; display:block;width: 1rem;height: 1rem;background-size: contain; background-size: cover;background-position: center center;}
+	.disabled{background-color:#ccc;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:void(0);" onclick="DO('shop/shopCreate');">
+            <i class="iconfont color-gray3">&#xe60b;</i>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">店铺实拍</span>
+</header>
+<form>
+<div class="reals">
+    <div class="ptosExample bg-white">
+    	<div class="clearfix">
+    		<div class="example1">
+	    		<img src="http://img.kaidianlaa.com//upload/image/201701/04/example1.png"/>
+	    		<h5 class="m-top10">门脸照示例</h5>
+	    	</div>
+	    	<div class="example1">
+	    		<img src="http://img.kaidianlaa.com//upload/image/201701/04/example2.png"/>
+	    		<h5 class="m-top10">店内照示例</h5>
+	    	</div>
+    	</div>
+    	<p class="m-top20 color-gray6"> ● 门脸照需显示出店铺名称，必须上传实景图片,图片越清晰可识别，越容易通过审核</p>
+    	<p class="color-gray6"> ● 门脸照、店内照为必填项，店内照至少添加一张</p>
+    </div>
+    <div class="m-top20 bg-white frontispiece photoFace">
+    	<h5>1、门脸照（<em>0</em>/1）</h5>
+    	<ul class="clearfix">
+    		<li>
+    			<input class="uploadImgUrl hide"/>
+    			<div class="upload">
+		    		<i class="iconfont color-grey photo-area">&#xe612;</i>
+		    	</div>
+		    	<i class="iconfont color-red kdl_cose">&#xe64d;</i>
+    		</li>
+    	</ul>
+    	
+    	
+    </div>
+    <div class="m-top20 bg-white frontispiece photoInner">
+    	<h5>2、店内照（<em>0</em>/4）</h5>
+    	<ul class="clearfix">
+    		<li>
+    			<input class="uploadImgUrl hide"/>
+    			<div class="upload">
+		    		<i class="iconfont color-grey photo-area">&#xe612;</i>
+		    	</div>
+		    	<i class="iconfont color-red kdl_cose">&#xe64d;</i>
+    		</li>
+    		<li>
+    			<input class="uploadImgUrl hide"/>
+    			<div class="upload">
+		    		<i class="iconfont color-grey photo-area">&#xe612;</i>
+		    	</div>
+		    	<i class="iconfont color-red kdl_cose">&#xe64d;</i>
+    		</li>
+    		<li>
+    			<input class="uploadImgUrl hide"/>
+    			<div class="upload">
+		    		<i class="iconfont color-grey photo-area">&#xe612;</i>
+		    	</div>
+		    	<i class="iconfont color-red kdl_cose">&#xe64d;</i>
+    		</li>
+    		<li>
+    			<input class="uploadImgUrl hide"/>
+    			<div class="upload">
+		    		<i class="iconfont color-grey photo-area">&#xe612;</i>
+		    	</div>
+		    	<i class="iconfont color-red kdl_cose">&#xe64d;</i>
+    		</li>
+    	</ul>
+    </div>
+    <div class="padding02">
+    	<button class="btn-block m-top50 disabled" type="button">确认上传</button>
+    </div>
+    
+</div>
+</form>

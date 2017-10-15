@@ -1,0 +1,198 @@
+<style>
+	.content{padding-top:1.7rem;}
+    body{ padding-bottom: 0;}
+    .navbar2 .box-search input{ font-size: .24rem; text-indent: .2rem; width: 100%; height: .5rem; line-height: .5rem; border: 0; border-radius: 5px; background-color: #f0f0f0;}
+    .navbar2 .nav-wrap-right>a>span{ color: #999; width: .7rem;top: 0; background-color: #f0f0f0; height: .5rem; line-height: .5rem;border-radius: 3px;}
+    .sifting,.Sort,.city{position:relative; z-index:2;}
+    .sifting{ border-top: 1px solid #e5e5e5; box-sizing: border-box; width: 100%; min-width: 320px; max-width: 640px; z-index: 5; top: .9rem; position:fixed; border-bottom: 1px solid #e5e5e5;}
+    .sifting>ul>li{float:left; width:25%; padding: .2rem 0; height:.4rem; line-height:.4rem; margin-left: -1px;}
+    .sifting>ul>li>a{position:relative;display:block; text-align:center; overflow:hidden; border-left: 1px solid #e5e5e5; box-sizing: border-box;}
+    .sifting>ul>li.cur>a{ color:#df494a;}
+    .sifting>ul>li.cur>a>i{    border-top-color: #DF494A;}
+    .sifting>ul>li>a>i{ transform: rotate(180deg); position:relative; border-width: 5px;right: initial; margin-left:.1rem; top: 0.2rem; border-bottom-color: transparent;   border-top-color: #3d3d3d;}
+    .siftingbox{position: fixed;background-color: #fff;z-index: 3; width: 100%; min-width: 320px; max-width: 640px;}
+    .siftingbox ul>li{ height:.8rem; line-height:.8rem; border-top:1px solid #e5e5e5; padding:0 .2rem; box-sizing:border-box;}
+    .siftingbox ul>li>a>i{ color:#fff;}
+    .siftingbox ul>li.cur a{ color:#df494a;}
+    .siftingbox ul>li.cur a>i{ color:#df494a;}
+    .siftingbox ul>li>a{display:block;}
+    .siftingbox ul>li>a cite{ display:none;}
+    .con-list{background-color: #fff; padding-top: .1rem;}
+    .con-list>ul>li>a{display:block; position: relative; padding:0 0 .1rem 2.5rem;  box-sizing: border-box;}
+    .con-list>ul>li>a .pic{width:2.3rem; position: absolute; left: .1rem; top: .05rem;height:2.2rem; background:url("./img/list-ptobg.jpg") no-repeat; background-size:contain;}
+    .con-list>ul>li>a>div.pic>img{width:100%;height:100%;}
+    .con-list>ul>li>a .txt{ padding:0 .15rem; min-height:2.3rem; box-sizing:border-box; border-bottom: 1px solid #e5e5e5;}
+    .con-list>ul>li>a .txt>h6{ line-height: .4rem;height: .8rem;}
+    .con-list>ul>li>a .pic .bt{ position: absolute; bottom: 0; width: 100%; height: .6rem; line-height: .6rem;}
+    .con-list>ul>li>a .pic .bt>div{ width: 100%; display: block; background-color: #000; opacity: 0.5; height: .6rem;}
+    .con-list>ul>li>a .pic .bt>p{color: #fff;height: .6rem;overflow:hidden; text-align: center; position: absolute;top: 0;z-index: 2; width: 100%;}
+    .con-list>ul>li>a .pic .bt>p.ellips1{ line-height: .6rem;}
+    .con-list>ul>li>a .txt>h5>button{ border: 1px solid #cc3333; color: #cc3333; font-size: .24rem; border-radius: 3px; margin-left: .2rem; background: transparent; padding: 0 2px;}
+    .con-list>ul>div.pic>img{ width: 100%;}
+    #classify{ position: relative; background-color: #fff;}
+    #classify>ul:first-child{ width: 30%; float: left;height: 100%;overflow-y: scroll;}
+    #classify>ul:first-child>li>a{text-align: center; display: block;}
+    #classify>ul>li.cur{ background-color: #f0f0f0;}
+    #classify>ul>li.cur>a{ color: #df494b;}
+    #classify>ul:last-child{ background-color: #f0f0f0; float: left; width: 70%; height: 100%; overflow-y: scroll;}
+    #classify>ul:last-child>li{ border-left: 1px solid #e5e5e5; box-sizing: border-box;}
+    #classify>ul>li:last-child{ border-bottom: 1px solid #e5e5e5;}
+    /*筛选*/
+    .screening{ width: 100%; background: #fff; text-indent: .2rem; padding:.15rem 0; min-width: 320px; max-width: 640px;}
+    .screening input{box-sizing: border-box; width:1rem; height:.6rem; line-height:.6rem; border:1px solid #e5e5e5; color: #666; border-radius:3px; background-color:transparent; text-align:center;}
+    .screening ul li{float:left; height: .6rem; line-height: .6rem; margin-left:.2rem; background-color: #e5e5e5; cursor:pointer; text-indent: 0;  border-radius:3px; color:#666; font-size:.24rem;}
+    .screening ul li.cur{border:1px solid #cc3333; color:#cc3333; background-color: transparent;}
+    .screening .btns{ text-align: center; margin-top: .3rem;}
+    .screening .btns button{ padding: .1rem .3rem;border: 0; border-radius: 3px; color: #fff; font-size: .26rem;}
+    .city>ul{height: 100%;overflow-y: scroll;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+        </a>
+    </div>
+    <div class="box-search" style="margin-left: 1rem;">
+	    <a href="javascript:;" class=" color-gray3">
+	        <input id="searchValue" onkeydown="this.ctrl.enterKey();" class="single-line" type="text" placeholder="请输入商品名称" value="<%=_param.keyword%>"/>
+	    </a>
+	</div>
+    <div id="searchBtn" class="nav-wrap-right" onclick="this.ctrl.toSearch()">
+        <a href="javascript:;">
+            <span class="nav-btn iconfont">
+                &#xe603;
+            </span>
+        </a>
+    </div>
+</header>
+<div class="theme-popover-mask"></div>
+<div class=" content">
+    <!--筛选菜单-->
+    <div class="sifting bg-white clearfix">
+        <ul class="clearfix" id="screen">
+            <li class="cur">
+            	<a href="javascript:;" id="ordersName">综合排序▾</a>
+            </li>
+            <li>
+                <a href="javascript:;" id="priceName" onclick="this.ctrl.toSearchByOrder(this,'priceAsc')">价格▾</a>
+            </li>
+            <li class="ellips1">
+                <a href="javascript:;" id="cityName">全城▾</a>
+            </li>
+            <li>
+                <a href="javascript:;">筛选▾</a>
+            </li>
+        </ul>
+    </div>
+    <div class="siftingbox">
+        <div class="Sort bg-white" style="display: none;">
+            <ul>
+	            <li class="cur">
+	            	<a href="javascript:;" onclick="this.ctrl.toSearchByOrder(this,'')"><span>综合排序<cite>▾</cite></span> <i class="kdl-right iconfont">&#xe653;</i></a>
+	            </li>
+                <li>
+                    <a href="javascript:;" onclick="this.ctrl.toSearchByOrder(this,'sales')"><span>销量最高<cite>▾</cite></span> <i class="kdl-right iconfont">&#xe653;</i></a>
+                </li>
+                <li>
+                    <a href="javascript:;" onclick="this.ctrl.toSearchByOrder(this,'distance')"><span>距离最近<cite>▴</cite></span> <i class="kdl-right iconfont">&#xe653;</i></a>
+                </li>
+                <li>
+                    <a href="javascript:;" onclick="this.ctrl.toSearchByOrder(this,'score')"><span>好评最高<cite>▾</cite></span> <i class="kdl-right iconfont">&#xe653;</i></a>
+                </li>
+            </ul>
+        </div>
+        <div class="city bg-white" style="display: none;">
+            <ul id="areaUl">
+                <li class="cur">
+                    <a href="javascript:;" onclick="this.ctrl.toSearchByCity(this,'')"><span>全城</span> <i class="kdl-right iconfont">&#xe653;</i></a>
+                </li>
+            </ul>
+        </div>
+        <div class="screening openstatus" style="display: none;">
+            <div class="m-top20">
+                <span style="font-size:.26rem;">价格区间(元)</span>
+                <input type="text" id="pagePriceMin" value=""/>
+                <span>-</span>
+                <input type="text" id="pagePriceMax" value=""/>
+
+            </div>
+            <div class="char">
+                <h5 class="m-top20">类型</h5>
+                <ul class="clearfix m-top20" cowGoods>
+                    <li class="cur" pageCowrieStatus="" onclick="this.ctrl.chooseCow(this)">全部</li>
+                    <li pageCowrieStatus="pass" onclick="this.ctrl.chooseCow(this)">返现商品</li>
+                    <li pageCowrieStatus="unSubmit" onclick="this.ctrl.chooseCow(this)">非返现商品</li>
+                </ul>
+            </div>
+            <div class="btns">
+                <button class="bg-red" onclick="this.ctrl.toSearchByOther()">确定</button>
+            </div>
+        </div>
+    </div>
+    <!--商品列表-->
+    <div class="con-list">
+	    <ul id="goodsListUl" class="clearfix">
+		    <%var goodsList = _datas.data.goodsList%>
+		    <%if(goodsList != null && goodsList.length > 0){%>
+        		<%for(var i = 0;i < goodsList.length;i++){%>
+		            <li>
+		            	<%if(goodsList[i].cowrieStatus =="pass"){%>
+                    		<a href="#goods/details?goodsId=<%=goodsList[i].goodsId %>&shopId=1">
+                    	<%}else{%>
+			                <a href="#goods/details?goodsId=<%=goodsList[i].goodsId %>">
+                    	<%}%>
+		                    <div class="pic">
+		                        <img src="<%=Config.imgPre+goodsList[i].image%>"/>
+		                        <div class="bt">
+		                            <div></div>
+		                            <p class="ellips1"><%=goodsList[i].shopName%></p>
+		                        </div>
+		                    </div>
+		                    <div class="txt">
+		                        <h6 class="color-gray6 ellips"><%=goodsList[i]._name%></h6>
+		                        <h5 class="color-red h3 m-top10">
+		                        	￥<%=goodsList[i].price.toFixed(2)%>
+		                        	<%if(goodsList[i].cowrieStatus =="pass" && goodsList[i].consumeTips != null && goodsList[i].consumeTips != ""){%>
+		                        		<button>返￥<%=goodsList[i].consumeTips%></button>
+		                        	<%}%>
+		                        </h5>
+		                        <div class="color-gray9 p m-top10">
+		                        	好评率:<%=goodsList[i].score%>%
+		                        </div>
+		                        <p class="color-gray9 clearfix m-top10">
+		                        	<span class="kdl-left">
+		                        		销量：<%=goodsList[i].sales%>
+		                        	</span>
+		                        	<%if(_datas.data.local){%>
+		                        		<span class="kdl-right color-red h5">
+			                        		<%=goodsList[i]._district%>
+			                        	</span>
+		                        	<%}else{%>
+		                        		<span class="kdl-right color-red h5">
+			                        		<%=goodsList[i]._distance%> m
+			                        	</span>
+		                        	<%}%>
+		                        	
+		                        </p>
+		                    </div>
+		                </a>
+		            </li>
+	            <%}%>
+            <%}%>
+        </ul>
+    </div>
+	<%=REND("include/empty",{icon:"&#xe660;",tip:"sorry,没有搜到您要找的商品哦~",price:"2",display: ((goodsList == null || goodsList.length < 1)?"block":"none")})%>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,36 @@
+<script>
+ $(".shopContent>li>i").click(function(){
+    var shopId = $(this).attr("index");
+    Choose("是否取消收藏?",function(){
+        $.delete("ucenter/shopCollection.shtml",{shopId:shopId},function(data){
+             if(data.status == "1"){
+            	GO("ucenter/shopCollection");
+            	alert("取消成功");
+             }else{
+            	alert(data.content);
+             }
+        });
+     });
+  });	
+</script>
+<% for(var i=list.length-1;i>=0;i--){ %>
+<% var o = list[i]; %>
+	<li>
+         	<%if(o.shopType == "sKeeper"){%>
+		     <a href="#shopKeeper/shopKeeperShops?shopId=<%=o.shopId%>">
+		     <div class="pic">
+			<%}else{%>
+			<a href="#shop/shops?shopId=<%=o.shopId%>">
+             <div class="pic diamonds">
+			<%}%>
+             	<%if(o.shopType=="business"){%>
+                  <img src="<%=Config.imgPre+o.shopImage%>"/>
+                <%}else{%>
+                  <img src="<%=Config.imgPre+o.avatar%>"/>
+             	<%}%>
+             </div>
+             <div class="txt"><%=o.shopName%></div>
+          </a>
+          <i class="iconfont" index="<%=o.shopId%>"></i>
+    </li>
+<%}%>		

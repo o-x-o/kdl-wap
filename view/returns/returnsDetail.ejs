@@ -1,0 +1,198 @@
+<style type="text/css">
+    body{ padding-bottom: 0!important;}
+    .con-hd{position:relative; padding:.25rem 0; padding-right:.15rem; padding-left:.7rem; box-sizing:border-box; border-bottom:1px solid #e5e5e5;}
+    .con-hd>i{ position:absolute; left:.2rem; top:.25rem;}
+    .sider .hd{ height: .8rem; line-height: .4rem; padding: .2rem; box-sizing: border-box;}
+    .sider .hd>a{ font-size: .26rem; color:#333;}
+    .sider .hd>a>span{ width: .4rem; height: .4rem; display: inline-block;}
+    .sider .hd>a>span>img{ width: 100%;}
+    .siderList>ul>li{ padding:0 .2rem;position:relative; box-sizing:border-box; height:.7rem; line-height:.7rem; border-bottom:1px solid #e5e5e5; font-size:.24rem; color:#666;}
+    .siderList>ul>li>span{width:1.3rem; display: inline-block;}
+    .aside>h5{ height:.7rem; line-height:.7rem; border-bottom:1px solid #e5e5e5; text-indent:.15rem;}
+    .schedule{padding-left:.5rem; padding-top:.3rem;}
+    .scheduleList{border-left:2px solid #ddd; position:relative; padding-left:.6rem;}
+    .scheduleList>span{position:absolute; left:-.16rem; top:-.02rem; width:.28rem; height:.28rem; border-radius:50%; background:#ddd; display:inline-block;}
+	.scheduleList>div{ border-bottom:1px solid #e5e5e5;padding-bottom:.15rem; padding-top:.05rem;}
+	.scheduleList>div>p{color:#999;}
+	.scheduleList:first-child>div>p{color:#333;}
+	.scheduleList:first-child>div>p:last-child{color:#999;}
+	.scheduleList:first-child>span{background:#36B822;box-shadow: 0px 0px 0 1px #36B822;border: 2px solid #F0F0F0;left: -.19rem;}
+	.colorGreen{color:#09B40D;}
+	.colorBlue{color:#17C6DF;}
+	.colorRed{color:#DE494A;}
+	.con-hd>button{margin-left:-.3rem; border:0; width:100%; height:.6rem; line-height:.6rem; text-align:center;}
+	.more:after{right:.2rem;}
+	.box-btns>button{width: 30%;float: left; border: 0;margin: 0 5%;height: .5rem;line-height: .5rem;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1)" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">退货详情</span>
+    <div class="nav-wrap-right">
+        <a href="#message/messageLists?userType=member" class=" color-gray3">
+            <span class="nav-btn">
+                <i class="iconfont icon-info">&#xe601;</i>
+            </span>
+            <s></s>
+        </a>
+    </div>
+</header>
+<input type="hidden" id="returnsId" value="<%=_datas.returns.id%>" />
+<div class="content">
+	<!--退货状态-->
+	<%if(_datas.returns.status == "buyShip"){%>
+		<div class="con-hd bg-white">
+			<i class="iconfont colorBlue">&#xe68e;</i>
+			<h5>等待商家收货</h5>
+			<button class="m-top50 color-white bg-red" onclick="GO('returns/shippingDetails?returnsId=<%=_datas.returns.id%>')">发货详情</button>
+		</div>
+	<%}else if(_datas.returns.status == "buyCan"){%>
+		<div class="con-hd bg-white">
+			<i class="iconfont colorRed">&#xe64d;</i>
+			<h5>买家取消退货，服务关闭。</h5>
+			<button class="m-top50 color-white bg-red" onclick="GO('returns/selectReturns?orderId=<%=_datas.returns.orderId%>')">重新申请</button>
+		</div>
+	<%}else if(_datas.returns.status == "audPass"){%>
+		<div class="con-hd bg-white">
+			<i class="iconfont colorGreen">&#xe63d;</i>
+			<h5>商家已同意您申请，请于<%=_datas.endTime%>内尽快退货。</h5>
+			<h6 class="m-top20">商家留言：<span class="color-gray6"><%=_datas.returns.busMemo%></span></h6>
+			<h6 class="m-top10">收货人：<span class="color-gray6"><%=_datas.returns.receiveMan%></span></h6>
+			<h6 class="m-top10">手机号码：<span class="color-gray6"><%=_datas.returns.receivePhone%></span></h6>
+			<h6 class="m-top10">收货地址：<span class="color-gray6"><%=_datas.returns.receiveAddress%></span></h6>
+			<%if(_datas.returns.shippingMethod.method == "general"){%>
+				<div class="box-btns clearfix m-top30">
+				<button class="color-white bg-red" onclick="GO('returns/returnsShipping?returnsId=<%=_datas.returns.id%>')">发起退货</button>
+				<button class="color-white bg-blue" type="button" id="cancelBtn">取消申请</button></div>
+			<%}else{%>
+				<button class="m-top50 color-white bg-blue" type="button" id="cancelBtn">取消申请</button>
+			<%}%>
+		</div>
+	<%}else if(_datas.returns.status == "audFail"){%>
+		<div class="con-hd bg-white">
+			<i class="iconfont colorRed">&#xe64d;</i>
+			<h5>服务关闭，商家未同意您的申请，您可以重新申请或联系开店啦客服：<a class="color-red" href="tel:4009960024">4009960024</a></h6>
+			<h6 class="m-top20">商家留言：<span class="color-gray6"><%=_datas.returns.busMemo%></span></h6>
+			<button class="m-top50 color-white bg-red" onclick="GO('returns/selectReturns?orderId=<%=_datas.returns.orderId%>')">重新申请</button>
+		</div>
+	<%}else if(_datas.returns.status == "busRece"){%>
+		<div class="con-hd bg-white">
+			<i class="iconfont colorGreen">&#xe63d;</i>
+			<h5>退货成功</h5>
+		</div>
+	<%}else if(_datas.returns.status == "peAudi"){%>
+		<div class="con-hd bg-white">
+			<i class="iconfont colorGreen">&#xe679;</i>
+			<h5>等待商家处理</h5>
+			<h5 class="m-top20">如果商家同意：<span class="color-gray6">申请达成，商家回收货物后，系统将自动为您退款;</span></h5>
+			<h5 class="m-top20">如果商家拒绝：<span class="color-gray6">申请将关闭，您可以再次申请或者联系开店啦客服介入处理;</span></h5>
+			<h5 class="m-top20">如果商家未处理：<span class="color-gray6">超过<cite class="color-red">3</cite>天则默认商家通过申请;</span></h5>
+			<button class="m-top50 color-white bg-blue" type="button" id="cancelBtn">取消申请</button>
+			</div>
+	<%}else if(_datas.returns.status == "shiTiout"){%>
+		<div class="con-hd bg-white">
+			<i class="iconfont colorRed">&#xe64d;</i>
+			<h5>买家未及时发货，服务关闭。</h5>
+			<button class="m-top50 color-white bg-red" onclick="GO('returns/selectReturns?orderId=<%=_datas.returns.orderId%>')">重新申请</button>
+		</div>
+	<%}else if(_datas.returns.status == "noRece" || _datas.returns.status == "shiTiout"){%>
+		<div class="con-hd bg-white">
+	    	<i class="iconfont colorRed">&#xe64d;</i>
+	    	<h5>商家10日内未收到货，服务关闭，如有疑问，您可以联系开店啦客服：<a class="color-red" href="tel:4009960024">4009960024</a></h5>
+	    	<h5 class="m-top20">商家留言：<span class="color-gray6"><%=_datas.returns.busMemo%></span></h5>
+	    	<%if(_datas.returns.shippingMethod.method == "general"){%>
+	    		<button class="m-top50 color-white bg-red" onclick="GO('returns/shippingDetails?returnsId=<%=_datas.returns.id%>')">发货详情</button>
+	    	<%}%>
+	    </div>
+	<%}else if(_datas.returns.status == "reFail"){%>
+		<div class="con-hd bg-white">
+			<i class="iconfont colorRed">&#xe64d;</i>
+			<h5>退货失败</h5>
+		</div>
+	<%}%>
+    <!--退款用户名-->
+    <div class="sider">
+    	<div class="hd bg-white m-top20">
+            <a href="#shop/shops?shopId=<%=_datas.returns.shopId%>">
+                <span>
+                    <img src="<%=Config.imgPre+_datas.returns.shop.avatar%>"/>
+                </span>
+                    <%=_datas.returns.shop.shopName%> >
+            </a>
+            <i class="kdl-right color-gray3 iconfont">&#xe601;</i>
+        </div>
+    </div>
+    <!--退款详情列表-->
+    <div class="siderList m-top10 bg-white">
+    	<ul>
+    		<li>
+    			<span>退款总额</span>
+    			￥<%=_datas.returns.returnAmount.toFixed(2)%>
+    		</li>
+    		<%if(_datas.returns.returnPurse != 0){%>
+	    		<li>
+	    			<span>退至余额</span>
+	    			￥<%=_datas.returns.returnPurse.toFixed(2)%>
+	    		</li>
+    		<%}%>
+    		<%if(_datas.returns.discountDeduct != 0){%>
+	    		<li>
+	    			<span>优惠折扣</span>
+	    			￥<%=_datas.returns.discountDeduct.toFixed(2)%>
+	    		</li>
+    		<%}%>
+    		<li>
+    			<span>服务类型</span>
+    			退货退款
+    		</li>
+    		<li>
+    			<span>退款方式</span>
+    			<%=_datas.returns.returnsMethod.name%>
+    		</li>
+    		<li>
+	    		<span>退货原因</span>
+	    		<%=_datas.returns.returnReason%>
+    		</li>
+    		<li>
+    			<span>退货方式</span>
+    			<%=Config.message.shippingMethod.method[_datas.returns.shippingMethod.method]%>
+    		</li>
+    		<%if(_datas.returns.deliveryCorp && _datas.returns.deliveryCorp.code && _datas.returns.trackingNo){%>
+	    		<%if(_datas.returns.shippingMethod.method == "general"){%>
+		    		<li class="more" onclick="window.open('http://www.kuaidi100.com/chaxun?com=<%=_datas.returns.deliveryCorp.code%>&nu=<%=_datas.returns.trackingNo%>')">
+			    		<span>查看物流</span>
+					</li>
+				<%}%>
+    		<%}%>
+    		<li>
+    			<span>退款编号</span>
+    			<%=_datas.returns.sn%>
+    		</li>
+    		<li>
+    			<span>申请时间</span>
+    			<%=_datas.returns.createDate%>
+    		</li>
+    		
+    	</ul>
+    </div>
+    <!--退款进度-->
+    <div class="aside m-top20 bg-white">
+    	<h5 class="color-gray3">退货进度</h5>
+    	<div class="schedule">
+			<%for(var i=0;i<_datas.returnsLogList.length;i++){%>
+				<div class="scheduleList">
+				 	<span></span>
+				 	<div>
+				 		<p><%=_datas.returnsLogList[i].content%></p>
+					 	<p>经办人：<%=_datas.returnsLogList[i].operator.username%></p>
+					 	<p <%if(i==0){%>class="color-gray9"<%}%>><%=_datas.returnsLogList[i].createDate%></p>
+				 	</div>
+				 </div>
+			<%}%> 
+    	</div>
+    </div>
+</div>

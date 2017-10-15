@@ -1,0 +1,179 @@
+<style type="text/css">
+	.content{padding-top:1.7rem;}
+	.nav-wrap-right button{ width:1rem; text-align:center; padding:.05rem 0; border:1px solid #cc3333;margin-top: .17rem; color:#cc3333; background:#fff; border-radius:3px; }
+	.sifting{z-index:99; max-width:640px;  position: fixed;background-color: #fff;    top: .9rem;width: 100%;}
+	.sifting>ul{width:100%;border-bottom:1px solid #e5e5e5;}         
+	.sifting>ul>li{float:left; width:33.33%; height:.5rem; line-height:.5rem; padding:.15rem 0;}            
+	.sifting>a{float:left; box-sizing:border-box; border-left:1px solid #e5e5e5;margin-top: .2rem;text-align: center;}         
+	.sifting>ul>li>a{position:relative;display:block; text-align:center;border-left:1px solid #e5e5e5;}         
+	.sifting>ul>li.cur>a{ color:#df494a;}         
+	.sifting>ul>li>a>i{ vertical-align: middle;}   
+	.siftingbox{position: fixed;background-color: #fff;z-index: 3; width: 100%; min-width: 320px; max-width: 640px;}
+    .siftingbox ul>li{ height:.8rem; line-height:.8rem; border-bottom:1px solid #e5e5e5; padding:0 .2rem; box-sizing:border-box;}
+    .siftingbox ul>li>a>i{ color:#fff;}
+    .siftingbox ul>li.cur a{ color:#df494a;}
+    .siftingbox ul>li.cur a>i{ color:#df494a;}
+    .siftingbox ul>li>a{display:block;}
+    .siftingbox ul>li>a cite{ display:none;}     
+	/*筛选*/
+    .screening{ width: 100%; background: #fff; border-bottom:1px solid #e5e5e5; text-indent: .2rem; padding:.15rem 0; min-width: 320px; max-width: 640px;}
+    .screening input{box-sizing: border-box; width:1rem; height:.6rem; line-height:.6rem; border:1px solid #e5e5e5; color: #666; border-radius:3px; background-color:transparent; text-align:center;}
+    .screening ul li{float:left; height: .6rem; line-height: .6rem; margin-left:.2rem; background-color: #e5e5e5; cursor:pointer; text-indent: 0;  border-radius:3px; color:#666; font-size:.24rem;}
+    .screening ul li.cur{border:1px solid #cc3333; color:#cc3333; background-color: transparent;}
+    .screening .btns{ text-align: center; margin-top: .3rem;}
+    .screening .btns button{ padding: .1rem .3rem;border: 0; border-radius: 3px; color: #fff; font-size: .26rem;}
+    .city>ul{height: 100%;overflow-y: scroll;}
+	  
+	.con-list{background-color: #fff; padding-top: .1rem;}
+    .con-list>ul>li{position:relative;}
+    .con-list>ul>li>a{display:block; position: relative; padding:0 0 0 2.5rem;  box-sizing: border-box;}
+    .con-list>ul>li>a .pic{width:2.3rem; height:2.2rem; border-radius:5px; overflow:hidden; position: absolute; left: .1rem; top: .1rem;}
+    .con-list>ul>li>a>div.pic>img{width:100%;}
+    .con-list>ul>li>i{font-size:.42rem; border-radius:50%; overflow:hidden; position:absolute; left:.1rem; top:.1rem;z-index: 2;color: #999;}
+    .con-list>ul>li i.cur{color:#cc3333;}
+    .con-list>ul>li>a .txt{ padding:0 .15rem; min-height:2.4rem; box-sizing:border-box; border-bottom: 1px solid #e5e5e5;}
+    .con-list>ul>li>a .txt>h6{ line-height: .4rem; min-height: .8rem;padding-top: .1rem;}
+	.con-list>ul>li>a .txt>h5>button{ border: 1px solid #cc3333; color: #cc3333; font-size: .24rem; border-radius: 3px; margin-left: .2rem; background: transparent; padding: 0 2px;}
+    .con-list>ul>div.pic>img{ width: 100%;}     
+	.popul{ background:#000;opacity: 0.7; z-index:5; display:none;}
+	.popup{ z-index:100; color:#fff; padding:.1rem .15rem; box-sizing:border-box; display:none;}
+	.popup ul li{position:relative; padding:.05rem 1.2rem .05rem 1.2rem;margin: .1rem 0; min-height:.9rem;}
+	.popup ul li .pic{position:absolute; width:1rem; left:0rem; top:0; height:.98rem;}
+	.popup ul li .pic>img{width:100%; height:100%;}
+	.popup ul li>i{position:absolute; width:.4rem; right:.6rem; top:0; font-size:.46rem;}
+	.popup ul li>i.color-red{ color:#fe7c7d!important; }
+	.btns-radius{ width:1.1rem;height:1.1rem;  display:inline-block;  border-radius:50%; z-index:999; position:fixed;  left:50%; margin-left:2.4rem; bottom:.15rem; border:1px dashed #02bbad;}
+	.btns-radius>div{width:1rem;height:1rem; line-height:1rem;  text-align:center;color:#fff;border-radius:50%;    font-size: .38rem;  background-color:#02BBAD; position:absolute; left:.05rem; top:.05rem;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">选择商品(<cite name="selectGoodsCount" class="color-red">0</cite>/6)</span>
+    <div class="nav-wrap-right">
+        <button id="sureSelectGoods" onclick="window.location.href='#activity/addSaleActivity'">确定</button>
+    </div>
+</header>
+<div class="theme-popover-mask" ></div>
+<!--浮动按钮-->
+<div class="btns-radius">
+	<div name="selectGoodsCount" id="selectGoodsCount">0</div>
+</div>
+<!--弹出-->
+<div class="popul coversbottom"></div>
+<div class="popup coversbottom">
+	<input type="hidden" id="activityId" name="activityId" values="" />
+	<input type="hidden" id="dataIds" name="dataIds" value="" />
+	<input type="hidden" id="order" name="order" value="" />
+	<input type="hidden" id="isCowrie" name="isCowrie" value="" />
+	<ul id="selectGoods">
+		
+	</ul>
+</div>
+<!--内容-->
+<div class="content">
+	<div class="sifting bg-white clearfix">
+        <ul class="clearfix">
+            <li class="cur">
+                <a href="javascript:;">
+                	<span id="orderTxt">综合排序</span>
+                	<i class="iconfont">
+                		&#xe633;
+                	</i>
+                </a>
+            </li>
+            <li class="">
+                <a href="javascript:;" priceFlag="desc" onclick="this.ctrl.loadGoodsOrderPrice(this)">
+                	价格
+                	<i class="iconfont" >
+                		&#xe635;
+                	</i>
+                </a>
+            </li>
+            <li class="">
+                <a href="javascript:;">筛选<i class="iconfont">&#xe633;</i></a>
+            </li>
+        </ul>
+    </div>
+	<div class="siftingbox">
+        <div class="Sort bg-white" style="display: none;">
+            <ul>
+	            <li class="cur">
+	            	<a href="javascript:;" id="zonghe" onclick="this.ctrl.loadGoodsOrder(this,'')">
+	            		<span>
+	            			<span>综合排序</span>
+	            			<cite>▾</cite>
+	            		</span> 
+	            		<i class="kdl-right iconfont">
+	            			&#xe653;
+	            		</i>
+	            	</a>
+	            </li>
+                <li>
+                    <a href="javascript:;" onclick="this.ctrl.loadGoodsOrder(this,'sales')">
+                    	<span>
+                    		<span>销量最高</span>
+                    		<cite>▾</cite>
+                    	</span> 
+                    	<i class="kdl-right iconfont">
+                    		&#xe653;
+                    	</i>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;" onclick="this.ctrl.loadGoodsOrder(this,'score')">
+                    	<span>
+                    		<span>好评最高</span>
+                    		<cite>▾</cite>
+                    	</span> 
+                    	<i class="kdl-right iconfont">
+                    		&#xe653;
+                    	</i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="screening openstatus" style="display: none;">
+            <div class="m-top20">
+                <span style="font-size:.26rem;">价格区间(元)</span>
+                <input type="text" id="minPrice" onkeyup="inputValidate.onlyFloat(this,0.01)" value=""/>
+                <span>-</span>
+                <input type="text" id="maxPrice" onkeyup="inputValidate.onlyFloat(this,0.02)" value=""/>
+
+            </div>
+            <div class="char">
+                <h5 class="m-top20">类型</h5>
+                <ul class="clearfix m-top20" cowGoods>
+                    <li class="cur" pageCowrieStatus="" onclick="this.ctrl.chooseCow(this)">全部</li>
+                    <li pageCowrieStatus="pass" onclick="this.ctrl.chooseCow(this)">返现商品</li>
+                    <li pageCowrieStatus="unSubmit" onclick="this.ctrl.chooseCow(this)">非返现商品</li>
+                </ul>
+            </div>
+            <div class="btns">
+                <button class="bg-red" onclick="this.ctrl.toSearchByOther()">确定</button>
+            </div>
+        </div>
+    </div>
+	<div class="con-list">
+	    <ul id="goodsList" class="clearfix">
+            
+         </ul>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

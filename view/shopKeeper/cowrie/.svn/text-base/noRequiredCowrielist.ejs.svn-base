@@ -1,0 +1,183 @@
+<style type="text/css">
+    body{height: 100%;    overflow-x: initial;}
+    .nav-wrap-right a{ width: .8rem;}
+    .navbar .box-search{ margin-right: 1.3rem;}
+    .content{position: relative; padding-bottom: 1rem; padding-top: 1.7rem;}
+    .hd{height:.8rem;    z-index: 10; line-height:.5rem; padding:.15rem 0; box-sizing: border-box; top: .9rem; border-bottom: 1px solid #e5e5e5;}
+    .hd>ul{width:85%; float:left;}
+    .hd>ul>li{width:33.33%;float:left;border-right:1px solid #e5e5e5; box-sizing: border-box;}
+    .hd>ul>li.cur>a{ color:#d1322f;}
+    .hd>ul>li>a{display:block; text-align:center;}
+    .hd>ul>li>a>em{ font-size: .15rem;vertical-align: middle; margin-left: 3px;}
+    .hd>i{width:15%; float:left; text-align:center; color: #666;}
+    .content>ul{background-color: #fff;}
+    .content>ul>li{ border-bottom: 1px solid #e5e5e5;}
+    .content>ul>li>a{ display: block; position: relative; padding: .1rem; padding-left: 2.3rem; box-sizing: border-box;}
+    .content>ul>li>a>div.pic{ position: absolute; left: .1rem; top: .1rem; width: 2.1rem; border-radius: 5px; overflow: hidden;height: 2rem; background: url("./img/list-ptobg.jpg") no-repeat; background-size: contain;}
+    .content>ul>li>a>div.pic>img{ width: 100%;height:100%;}
+    .content>ul>li>a>div.pic>div.bt{ position: absolute; bottom: 0; width: 100%; height: .6rem; line-height: .6rem;}
+    .content>ul>li>a>div.pic>div.bt>div{ width: 100%; display: block; background-color: #000; opacity: 0.5; height: .6rem;}
+    .content>ul>li>a>div.pic>div.bt>p{ display: block; color: #fff;height: .6rem; text-align: center; position: absolute;top: 0;z-index: 2; width: 100%;}
+    .content>ul>li>a>div.txt{ height: 2.1rem; border-bottom: 1px solid #e5e5e5;}
+    .content>ul>li>a>div.txt>h6{height: .7rem; line-height:.35rem;}
+    .content>ul>li>div.box{padding: .1rem .5rem; box-sizing: border-box;}
+    .content>ul>li>div.box>div>a{  width: 1.5rem; background-color: #aaa;}
+    /*双列*/
+    .content>ul.biserial{ padding-left: .1rem; box-sizing: border-box; background-color: transparent;}
+    .content>ul.biserial>li{ float: left; width: 50%; }
+    .content>ul.biserial>li>a{ padding-left: 0; padding-bottom: 0;}
+    .content>ul.biserial>li>a>div.pic{ width: 100%; position: relative; left: 0; top: 0; background: url("./img/list-ptosbg.jpg") no-repeat; background-size: contain; height: 2.9rem;}
+    .content>ul.biserial>li>a>div.txt{ height:auto; border-bottom: 0; background-color: #fff; padding: 0 .05rem; box-sizing: border-box; padding-bottom: .1rem;}
+    .content>ul.biserial>li>a>div.txt>h6{ padding-top: .1rem;height:.7rem;}
+    .content>ul.biserial>li>div.box{ padding:0 .1rem; box-sizing: border-box; padding-left: 0;}
+    .content>ul.biserial>li>div.box>div{ background-color: #fff; padding: .1rem; box-sizing: border-box;}
+    .content>ul.biserial>li>div.box>div>a{ width: 1.1rem;}
+
+    /*筛选条件*/     
+    .screen-box{position: absolute;top: 1.68rem; width: 100%; min-width: 320px; max-width: 640px; z-index: 8;}
+    .screen-box ul>li{ line-height: .8rem; padding: 0 .1rem; border-top: 1px solid #e5e5e5;}
+    .screen-box ul>li.cur a{ color: #df494b;}
+    .screen-box ul>li.cur a>i{ display: block;}
+    .screen-box ul>li>a{ display: block;}
+    .screen-box ul>li>a>i{ display: none;}
+    .screen-box>div{ position: relative; box-sizing: border-box; background-color: #fff; height: 100%;}
+    .screen-box>div>ul{ height: 100%;}
+    .screen-box>div>ul:first-child{width: 30%; float: left;  height: 100%; overflow-y: scroll;}
+    .screen-box>div>ul:first-child>li>a{text-align: center; display: block;}
+    .screen-box>div>ul>li.cur{ background-color: #f0f0f0;}
+    .screen-box>div>ul>li.cur>a{ color: #df494b;}
+    .screen-box>div>ul:last-child{ background-color: #f0f0f0; float: left; width: 70%;    height: 100%; overflow-y: scroll;}
+    .screen-box>div>ul:last-child>li{ border-left: 1px solid #e5e5e5; box-sizing: border-box;}
+    .screen-box>div>ul>li:last-child{ border-bottom: 1px solid #e5e5e5;}
+    .load_more{text-align:center;margin: .2rem 0;cursor:pointer;}
+    .load_more i{margin:.1rem;color: #aaa;}
+    .load_more span{margin:.2rem;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+        </a>
+    </div>
+    <div class="box-search" style="margin-left: 1rem;">
+        <a href="javascrip:;" onclick="this.ctrl.toSearch(this)" class=" color-gray3">
+            <i class="iconfont icon-search">&#xe603;</i>
+            <span class="single-line" id="keyword">搜索店内商品/服务</span>
+        </a>
+    </div>
+    <div class="nav-wrap-right">
+        <a href="#shopKeeper/positioning?flag=2&categoryId=<%=_datas.data.category.id%>" class=" color-gray3">
+            <span class="nav-btn">
+                <%=_datas.data.area.name %> ∨
+            </span>
+        </a>
+    </div>
+</header>
+<div class="content">
+    <div class="hd bg-white coverstop">
+        <ul class="clearfix" id="screen">
+            <li class="cur">
+                <a href="javascript:;"><span id="hasSelCategory"><%if(!_datas.data.category.id){%>全部<%}else{%><%=_datas.data.category.name%><%}%></span><em>▼</em></a>
+            </li>
+            <li class="">
+                <a href="javascript:;"><span id="hasSelOrders">默认排序</span><em>▼</em></a>
+            </li>
+            <li class="">
+                <a href="javascript:;"><span id="hasSelArea">全城</span><em>▼</em></a>
+            </li>
+        </ul>
+        <i class="iconfont" id="conList">&#xe68b;</i>
+    </div>
+    <div class="theme-popover-mask" style="display: none; top: 1rem;"></div>
+    <div class="screen-box">
+        <div id="classify"style="display: none; z-index: 9;" class="clearfix">
+            <ul id="categoryList">
+	            <li <%if(!_datas.data.category.id){%>class="cur"<%}%> onclick="this.ctrl.selGoodsCategory(this,'');">
+		        	<input type="hidden" value=""/>
+		            <a href="javascript:void(0);">
+		            	全部
+		            </a>
+		        </li>
+               <%$.each(_datas.data.cateGorys,function(i,o){%>
+			        <li <%if(o.id==_datas.data.category.id){%>class="cur"<%}%> onclick="this.ctrl.selCategory(this,'<%=o.id%>');">
+			        	<input type="hidden" value="<%=o.id%>"/>
+			            <a href="javascript:void(0);">
+			            	<%=o.name%>
+			            </a>
+			        </li>
+			    <%});%>
+            </ul>
+            <ul>
+	            <li  class="cur" id="addGoodsCate" onclick="this.ctrl.selGoodsCategory(this,null);" <%if(!_datas.data.category.id){%>style="display:none"<%}%>>
+		            <a href="javascript:;">
+		            全部
+		            </a>
+	            </li>
+            	<%if(_datas.data.category.id){%>
+	            	<%$.each(_datas.data.goodsCategories,function(i,o){%>
+		            	<li onclick="this.ctrl.selGoodsCategory(this,<%=o.id%>);">
+			            	<a href="javascript:;">
+			            	<%=o.name%>
+			            	</a>
+		            	</li>
+	            	<%});%>
+            	<%}%>
+            </ul>
+        </div>
+        <ul class="bg-white" style="display: none;" id="Sort">
+            <li class="cur">
+            	<input type="hidden" value=""/>
+                <a href="javascript:;">
+                	<font>默认排序</font><i class="iconfont kdl-right color-red">&#xe653;</i>
+                </a>
+            </li>
+            <li>
+            	<input type="hidden" value="consumeTips"/>
+                <a href="javascript:;">
+                	<font>消费返现</font><i class="iconfont kdl-right color-red">&#xe653;</i>
+                </a>
+            </li>
+            <li>
+            	<input type="hidden" value="sales"/>
+                <a href="javascript:;">
+                   	<font>代销排行</font><i class="iconfont kdl-right color-red">&#xe653;</i>
+                </a>
+            </li>
+            <li>
+            	<input type="hidden" value="passTime"/>
+                <a href="javascript:;">
+                   	 <font>最新上架</font><i class="iconfont kdl-right color-red">&#xe653;</i>
+                </a>
+            </li>
+            <li>
+            	<input type="hidden" value="priceAsc"/>
+                <a href="javascript:;">
+                    	<font>价格最低</font><i class="iconfont kdl-right color-red">&#xe653;</i>
+                </a>
+            </li>
+            <li>
+            	<input type="hidden" value="priceDesc"/>
+                <a href="javascript:;">
+                    	<font>价格最高</font><i class="iconfont kdl-right color-red">&#xe653;</i>
+                </a>
+            </li>
+        </ul>
+        <ul class="bg-white" style="display: none;" id="city">
+            <li class="cur"  onclick="this.ctrl.selArea(this,null);">
+                <a href="javascript:;">
+                	<font>全城</font><i class="iconfont kdl-right color-red">&#xe653;</i>
+                </a>
+            </li>
+            <%$.each(_datas.data.areas,function(i,o){%>
+	       		<li onclick="this.ctrl.selArea(this,'<%=o.id%>');">
+	                <a href="javascript:;">
+	                   	 <font><%=o.name%></font><i class="iconfont kdl-right color-red">&#xe653;</i>
+	                </a>
+            	</li>
+		    <%});%>
+        </ul>
+    </div>
+    <ul class="clearfix listid" id="addList">
+    </ul>
+    <div class="load_more"><i>————————</i><span>加载更多</span><i>————————</i></div>
+</div>

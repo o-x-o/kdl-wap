@@ -1,0 +1,41 @@
+<style type="text/css">
+    .navbar .nav-header{ color: #333;}
+    .nav-wrap-right a{width:1rem;}
+    .content{ padding-bottom: .5rem; padding-top:.9rem;}
+	.staffCon{ padding:.2rem;box-sizing:border-box;}
+	.staffCon>div{ padding:.4rem 0; text-align:center;}
+	.staffCon>div>i{font-size:1.5rem;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="#ucenter/mine" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1">员工平台</span>
+   <div class="nav-wrap-right">
+        <a href="#shopPersonnel/orderRecord" class=" color-gray3">
+        	<span class="nav-btn">兑单记录</span>
+        </a>
+    </div>
+</header>
+
+<div class="content">
+	<div class="staffCon">
+		<div onclick="javascript:alert('请到开店啦app进行扫码交易！');return false;">
+			<i class="iconfont color-gray9">&#xe6a6;</i>
+			<h6 class="m-top10">点击扫码</h6>
+		</div>
+		<div class="btnBox">
+			<button class="bg-red color-white btn-block" onclick="javascript:window.location.href='#shopPersonnel/orderSearch'">查看订单交易</button>
+    		<button class="m-top20 color-gray3 btn-block btn-border-gray bg-white" onclick="javascript:window.location.href='#shopPersonnel/offlinePay'">查看线下支付</button>
+		</div>
+		<div class="staff-text m-top50 text-left color-gray6">
+			<p>1、订单交易均为用户在网上购买商品所形成的交易。</p>
+			<p class="m-top10">2、线下支付均为用户到门店扫码支付所产生的交易记录，此处只展示近两天的线下支付记录。</p>
+		</div>
+	</div>
+	<!--<%=REND("include/empty",{icon:"&#xe6a4;",tip:"抱歉，本次扫码无效",price:"2.5",display:"block",paddingbottom:"0.5"})%>
+    <h4 class="text-center color-gray cause">原因：消费码已过期</h4>-->
+</div>

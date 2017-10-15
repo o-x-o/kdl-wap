@@ -1,0 +1,88 @@
+ <style type="text/css">
+  /*购物车列表*/
+    .cart-con .cart-con-h>div.hd{ background-color: #fff; color: #666; height: .8rem; line-height: .8rem; padding: 0 .2rem; box-sizing: border-box;}
+    .cart-con .cart-con-h>div.hd>i{ color: #999; margin-right: .1rem;}
+    .cart-con .cart-con-h>div.hd i{ margin-right: .05rem;}
+    .cart-con .cart-con-h>div.bd{ margin-bottom: 3px; background-color: #f0f0f0; padding: .2rem 0; position: relative; padding-left: .6rem; min-height: .9rem;}
+    .cart-con .cart-con-h>div.bd>i{ position: absolute; left: .2rem; top:.6rem; color: #999;}
+    .cart-con .cart-con-h>div.bd .bd-l{ position: relative; padding-left: 1.5rem; box-sizing: border-box; padding-right: 1.2rem;}
+    .cart-con .cart-con-h>div.bd .bd-l .pic{ position: absolute; left: 0; top: 0; width: 1.3rem; border-radius: 3px; overflow:hidden; }
+    .cart-con .cart-con-h>div.bd .bd-l .pic>img{ width: 100%; border-radius: 5px;}
+    .cart-con .cart-con-h>div.bd .bd-l .jiage{ position: absolute; right: .2rem; top: 0; line-height: .4rem;}
+    .cart-con .cart-con-h>div.bd .bd-l .txt .ellips{ line-height: .35rem;}
+    .cart-con .cart-con-h>div.bd .bd-l .del{ display: none; text-align: center; position: absolute; right: 0; top: -.2rem; height: 1.66rem; width: .8rem; color: #fff; line-height: 1.66rem;}
+    .numadd{display: none;}
+    .numadd .numbox{ position: relative; margin-bottom: .2rem;}
+    .numadd .numbox input{font-size: .26rem; border: 1px solid #e5e5e5;text-align: center; width: 100%; height: .5rem; line-height: .5rem; }
+    .numadd .numbox>i{ color: #999; position: absolute; width: .5rem; text-align: center; line-height: .5rem; height: .5rem; left: 0; top: 0; display: inline-block; border-right: 1px solid #e5e5e5;}
+    .numadd .numbox>span{ color: #999; position: absolute; width: .5rem; text-align: center; line-height: .5rem; height: .5rem; right: 0; top: 0; display: inline-block; border-left: 1px solid #e5e5e5;}
+	.cart-con .cart-con-h>div.bd .bd-l .pic>span{ position: absolute; left: .25rem; top: .1rem; color: #fff; height: .8rem; width: .8rem; text-align: center; line-height: .8rem;font-size: .24rem;}
+    .cart-con .cart-con-h>div.bd .bd-l .pic .failure{ width: .8rem; height: .8rem;display: inline-block; background-color: #000; opacity: 0.3; position: absolute; top:.1rem; left: .25rem; border-radius: 50%;}
+	.cart-con .cart-con-h .bd .bd-l .txt{ min-height:1.2rem;}
+</style>
+<% $.each(list,function(i,o){ %>
+ <div class="cart-con-h">
+            <div class="hd" shopId="<%=o.shopId%>">
+                <i class="iconfont">&#xe64f;</i>
+                <i class="iconfont" style="display:none">&#xe64f;</i>
+                <%if(o.shopType=="business"){%>
+                	<a href="#shop/shops?shopId=<%=o.shopId%>">
+                <%}else{%>
+                	<a href="#shopKeeper/shopKeeperShops?shopId=<%=o.shopId%>">
+                <%}%>
+                	<i class="iconfont">&#xe61c;</i><%=o.shopName%>
+                </a>
+                <span class="kdl-right">编辑</span>
+            </div>
+            <%var param="";%>
+            <%if(o.shopType!="business"){%>
+                <%param="&shopId="+o.shopId;%>
+            <%}%>
+            <% $.each(o.cartItems,function(j,cartItem){ %>
+            <div class="bd" id="<%=cartItem.skuId%>_<%=cartItem.shopId%>" >
+            	<%if(cartItem.buy){%>
+            		<i class="iconfont color-red isBuy"></i>
+            	<%}else{%>
+                	<i class="iconfont">&#xe64f;</i>
+            	<%}%>
+            	<i class="iconfont" style="display:none">&#xe64f;</i>
+                <div class="bd-l">
+                    <div class="pic" onclick="GO('goods/details?goodsId=<%=cartItem.sku.goodsId%><%=param%>')">
+                        <img src="<%=Config.imgPre+cartItem.sku.image%>"/>
+                        <%if(!cartItem.valid){%>
+	                        <div class="failure"></div>
+	                        <span>已失效</span>
+                    	<%}%>
+                    </div>
+                    <div class="txt" onclick="GO('goods/details?goodsId=<%=cartItem.sku.goodsId%><%=param%>')">
+                        <h6 class="ellips color-gray6"><%=cartItem.sku.goods.name%></h6>
+                        <p class="color-gray9 m-top5">
+                        <% $.each(cartItem.skuGroupValues,function(m,skuGroupValue){%>
+                        	<%=skuGroupValue.name%>:<%=skuGroupValue.skuItemValues[0].value%>
+                        <%})%>
+                        </p>
+                    </div>
+                    <div class="jiage">
+                        <h6 class="color-red">￥<span id="sku_price_<%=cartItem.skuId%>_<%=cartItem.shopId%>" class="shp-cart-item-price"><%=cartItem.price%></span></h6>
+                        <p class="kdl-right">x<%=cartItem.quantity%></p>
+                    </div>
+                    <div class="numadd" >
+                        <div class="numbox">
+                            <i class="iconfont" onclick="this.ctrl.addCart('<%=cartItem.skuId%>','<%=cartItem.shopId%>','reduce')">&#xe64e;</i>
+                            <input id="text_box_<%=cartItem.skuId%>_<%=cartItem.shopId%>" class="mt number priceInput" skuId="<%=cartItem.skuId%>" shopId="<%=cartItem.shopId%>"  type="tel" name="quantity" min="1" value="<%=cartItem.quantity%>" readonly />
+                            <span class="iconfont" onclick="this.ctrl.addCart('<%=cartItem.skuId%>','<%=cartItem.shopId%>','add')">&#xe63e;</span>
+                        </div>
+                        <a href="javascript:;" goodsId="<%=cartItem.sku.goodsId%>" skuId="<%=cartItem.skuId%>">
+                        <% $.each(cartItem.skuGroupValues,function(n,skuGroupValue){%>
+                        	<%=skuGroupValue.name%>:<%=skuGroupValue.skuItemValues[0].value%>
+                        <%})%>
+                        <em class="kdl-right iconfont">&#xe609;</em></a>
+                    </div>
+                    <div class="del bg-red" onclick="this.ctrl.deleteSku(this,'<%=cartItem.skuId%>','<%=cartItem.shopId%>')">
+                        删除
+                    </div>
+                </div>
+            </div>
+            <%});%>
+        </div>
+<%});%>

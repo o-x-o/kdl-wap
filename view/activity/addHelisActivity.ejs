@@ -1,0 +1,46 @@
+<style type="text/css">
+	.content{padding-bottom:.9rem;}
+	 /*商品列表*/
+	.content .con-list>ul>li{position:relative;}
+    .content .con-list>ul>li>a>img{ width: 100%; height: 4.6rem;  background: url("./img/list-ptobg.jpg") no-repeat;background-size: contain;}
+    .content .con-list>ul>li>a{ display: block;}
+    .content .con-list>ul>li>a .txt{ padding: .15rem; box-sizing: border-box; background-color: #fff;}
+    .content .con-list>ul>li>i{font-size:.42rem;background-color:#fff; border-radius:50%; overflow:hidden; position:absolute; right:.2rem; top:.2rem; color:#999;}
+    .content .con-list>ul>li>i.cur{color:#cc3333;}
+	.footers{height:.9rem; line-height:.9rem; font-size:.32rem; text-align:center;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:void(0);" onclick="this.ctrl.back();" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">添加已有活动</span>
+</header>
+
+<!--内容-->
+<div class="content">
+	<input type="hidden" id="forwardingGiftsId" name="forwardingGiftsId" value="" />
+	<div class="con-list bg-white">
+		<ul id="dataList">
+			
+		</ul>
+	</div>
+</div>
+
+<div class="coversbottom bg-red color-white footers" onclick="this.ctrl.saveForwardingGifts();">
+	保存(<span id="count">0</span>/1)
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

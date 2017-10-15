@@ -1,0 +1,68 @@
+<style type="text/css">
+	body,html{background:#fff;}
+	.bindingCon{ padding:.15rem .2rem; box-sizing:border-box;}
+	.bindingCon>div{float:left; width:37%;    text-align: center;}
+	.bindingCon>div .pic{ border-radius:50%; margin:.5rem auto .2rem; overflow:hidden; width:1.6rem;height:1.6rem;}
+	.bindingCon>div:nth-child(2){width:26%; }
+	.bindingCon>div:nth-child(2)>i{line-height:2.5rem;font-size: 1rem;font-weight: 600; color: #999;}
+	.bindingCon>div h5{text-align:left;}
+	.bindingCon>div .pic>img{width:100%;}
+	.btnBox{ padding:.2rem; box-sizing:border-box;}
+	.cause{padding-bottom:1rem;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">绑定商家</span>
+</header>
+<!--内容-->
+<div class="content">
+	<div class="bindingCon clearfix dataContent">
+    	<div class="info">
+    		<div class="pic">
+    			<img id="userIcon" src=""/>
+    		</div>
+    		<h5 id="userNickName"></h5>
+    	</div>
+    	<div>
+    		<i class="iconfont">&#xe6ca;</i>
+    	</div>
+    	<div class="info">
+    		<div class="pic">
+    			<img id="shopIcon" src=""/>
+    		</div>
+    		<h5 id="shopShopName"></h5>
+    	</div>
+    </div>
+    
+    <div class="m-top50 btnBox dataContent">
+    	<h6 class="color-gray9">若要成为该商家店铺的店员，请再次确认相关信息</h6>
+    	<div class="btns m-top40">
+    		<button onclick="this.ctrl.addShopPersonnel();" class="bg-red color-white btn-block">确认绑定</button>
+    		<!--<button onclick="javascript:history.go(-1);" class="m-top20 color-gray3 btn-block btn-border-red">取消</button>-->
+    	</div>
+    </div>
+    <div id="errorDiv" style="display:none;">
+	    <%=REND("include/empty",{icon:"&#xe6a4;",tip:"抱歉本次扫码无效",price:"2.5",display:"block",paddingbottom:"0.5"})%>
+	    <h4 id="errorMsg" class="text-center color-gray cause">
+	    	
+	    </h4>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,291 @@
+<style type="text/css">
+	.pic>img{width:100%;}
+    .navbar .nav-header{ color: #333;}
+    .content{position: relative; padding-bottom: 1rem;}
+    .content .hd-tit{background-color: #fff; padding: .3rem; box-sizing: border-box;}
+    .content .hd-tit>ul>li{ float: left; width: 50%;}
+    .content .hd-tit>ul>li>a{ display: block; color: #666; text-align: center;}
+    .content .hd-tit>ul>li>a>i{ width: 1rem; height: 1rem; line-height: 1rem; display: block; border-radius: 50%; color: #fff; text-align: center; font-size: .5rem;margin: 0 auto;}
+    .content .hd-tit>ul>li>a>p{ font-size: .26rem; margin-top: .1rem; text-align: center;}
+    /*筛选*/
+    .content .hd{height:.8rem; line-height:.5rem; padding:.15rem 0; box-sizing: border-box;z-index: 2;position: relative; border-bottom: 1px solid #e5e5e5;}
+    .content .hd>ul{width:100%; float:left;}
+    .content .hd>ul>li{width:33.33%;float:left;border-right:1px solid #e5e5e5; box-sizing: border-box;}
+    .content .hd>ul>li:last-child{border-right:0px;}
+    .content .hd>ul>li.cur>a{ color:#d1322f;}
+    .content .hd>ul>li.cur>a>i{ display: block;}
+    .content .hd>ul>li>a{display:block; text-align:center;}
+    .content .hd>ul>li>a>i{ display: none;}
+    .content .hd>ul>li>a>em{ font-size: .15rem;vertical-align: middle; margin-left: 3px;}
+    /*宝贝*/
+    .content>ul{min-height: 5rem;}
+    .content>ul>li{ border-bottom: 1px solid #e5e5e5;background-color: #fff;}
+    .content>ul>li>a{ display: block; position: relative; padding: .1rem; padding-left: 2.5rem; box-sizing: border-box;}
+    .content>ul>li>a>div.pic{ position: absolute; left: .1rem; top: .1rem; width: 2.3rem; border-radius: 5px; overflow: hidden; height: 2.2rem;}
+    .content>ul>li>a>div.pic>img{ width: 100%; height:100%;}
+    .content>ul>li>a>div.pic>i{ position: absolute; left: .1rem; top: .1rem; color: #999; font-size: .42rem; display: none;}
+    .content>ul.batch>li>a>div.pic>i{display: block;}
+    .content>ul>li>a>div.pic>div.bt{ position: absolute; bottom: 0; width: 100%; height: .6rem; line-height: .6rem;}
+    .content>ul>li>a>div.pic>div.bt>div{ width: 100%; display: block; background-color: #000; opacity: 0.5; height: .6rem;}
+    .content>ul>li>a>div.pic>div.bt>p{ display: block; color: #fff;height: .6rem; text-align: center; position: absolute;top: 0;z-index: 2; width: 100%;}
+    .content>ul>li>a .txt{ padding-bottom: .2rem; border-bottom: 1px solid #e5e5e5;}
+    .content>ul>li>a .txt>h6{height:.8rem;}
+    .content>ul>li>a .txt>div{ padding-top: .1rem; position: relative;}
+    .content>ul>li>a .txt>div>button{ border: 1px solid #e5e5e5; font-size: .24rem; color: #999; border-radius: 3px; background-color: transparent; padding:.06rem .2rem; }
+    .content>ul>li>a .txt>div>i{ position: absolute; top: .1rem; right: 0; z-index: 2; font-size:.43rem;}
+    .content>ul>li .box>ul{ padding: 0 .1rem;}
+    .content>ul>li .box>ul>li{ float: left; width: 33.33%; height: auto; line-height: .5rem; font-size: .24rem; color: #666;}
+    .theme-popover-mask{top: 4.5rem;}
+    /*筛选条件*/
+    .screenbox{position: absolute;z-index: 3; width: 100%; min-width: 320px;max-width: 640px; top: 3.84rem;}
+    .screenbox ul>li{ line-height: .8rem; padding: 0 .1rem; border-bottom: 1px solid #e5e5e5;}
+    .screenbox ul>li.cur a{ color: #df494b;}
+    .screenbox ul>li.cur a>i{ display: block;}
+    .screenbox ul>li>a{ display: block;}
+    .screenbox ul>li>a>i{ display: none;}
+    .content .box3{ padding: .2rem; background-color: #fff;}
+    .content .box3>ul>li{ float: left; border-bottom: 0;}
+    .content .box3>ul>li>a{ display: inline-block; height: .5rem; line-height: .5rem; width: 1.3rem; text-align: center; border: 1px solid #f0f0f0; border-radius: 3px; background-color: #f0f0f0; margin-right: .2rem;}
+    .content .box3>ul>li.cur>a{ border: 1px solid #cc3333; color: #cc3333; background-color: #fff;}
+    /*提示*/
+    .reminderDiv{ padding: .1rem .2rem; box-sizing: border-box; position: relative; height: 1rem;}
+    .reminderDiv>hr{ margin-top: .4rem;}
+    .reminderDiv>span{ position: absolute; left: 50%; top:.3rem; width: 2.5rem; margin-left: -1.25rem; text-align: center; height: .4rem; line-height: .4rem; background-color: #f0f0f0;}
+    /*footer*/
+    .footer{display: none;  z-index: 9; padding-left: 1.5rem; box-sizing: border-box; position: fixed; bottom: 0; width: 100%; min-width: 320px;max-width: 640px;   height:.98rem; line-height: .98rem; background-color: #fff;}
+    .footer>span{ position: absolute; left: .2rem;  top:0;}
+    .footer>span>i{ font-size: .42rem;margin-right: 3px;vertical-align: middle;}
+    .footer>ul>li{ float: left; width: 33.33%; padding: .2rem .1rem; box-sizing: border-box;}
+    .footer>ul>li>a{ display: block;  height: .6rem; line-height: .6rem;  color: #fff; background-color: #999; text-align: center; border-radius: 5px;}
+    /*添加宝贝*/
+    .opo{ display: none; box-sizing: border-box; padding:.4rem .2rem; position:fixed; text-align:center; z-index:12; width:5rem; height:4.2rem; background:#fff; border-radius:.1rem;left:50%; margin-left:-2.5rem; top:50%; margin-top:-2.1rem;}
+    .opo .hd{text-align: left; position:relative; padding-left:1.2rem; margin-bottom:.5rem;}
+    .opo .hd p{ color: #999;}
+    .opo .hd .pic{ position:absolute; left:0; top:0; width:1rem; height:1rem; border-radius:50%;}
+    .opo .hd .pic img{width:100%; height:100%;}
+    .opo .btn{text-align:center; font-size: .28rem;}
+    .opo>span{position: absolute;display: inline-block;top: .15rem;right: .15rem;font-size: .42rem; color: #333;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1">宝贝管理</span>
+</header>
+<div class="content">
+    <div class="hd-tit">
+        <ul class="clearfix">
+            <li>
+                <a href="javascript:;" id="addMerchandise">
+                    <i class="iconfont bg-red">&#xe63e;</i>
+                    <p>添加宝贝</p>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" id="BulkManage">
+                    <i class="iconfont bg-orange">&#xe658;</i>
+                    <p>批量管理</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!--筛选-->
+    <div class="hd bg-white m-top10">
+        <ul class="clearfix" id="screen">
+            <li class="cur">
+                <a href="javascript:;"><span id="putawaySpan">全部</span><em>▼</em></a>
+            </li>
+            <li class="">
+                <a href="javascript:;"><span id="sortSpan">最新排序</span><em>▼</em></a>
+            </li>
+            <li class="">
+                <a href="javascript:;"><span>筛选</span><em>▼</em></a>
+            </li>
+        </ul>
+    </div>
+    <div class="theme-popover-mask"></div>
+    <div class="screenbox">
+        <ul class="bg-white" style="display: none;" id="putaway">
+            <li class="cur">
+                <a href="javascript:;" onclick="this.ctrl.choosePageIsMarketer(null,'全部')">
+                    全部 <i class="iconfont kdl-right color-red">&#xe653;</i>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" onclick="this.ctrl.choosePageIsMarketer(true,'已上架')">
+                    已上架<i class="iconfont kdl-right color-red">&#xe653;</i>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" onclick="this.ctrl.choosePageIsMarketer(false,'未上架')">
+                    未上架<i class="iconfont kdl-right color-red">&#xe653;</i>
+                </a>
+            </li>
+        </ul>
+        <ul class="bg-white" style="display: none;" id="Sort">
+            <li class="cur">
+                <a href="javascript:;" onclick="this.ctrl.choosePageOrder('marketerDate','最新排序')">
+                    最新排序<i class="iconfont kdl-right color-red">&#xe653;</i>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" onclick="this.ctrl.choosePageOrder('consumeTips','消费返现')">
+                    消费返现<i class="iconfont kdl-right color-red">&#xe653;</i>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" onclick="this.ctrl.choosePageOrder('sales','代销排行')">
+                    代销排行<i class="iconfont kdl-right color-red">&#xe653;</i>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" onclick="this.ctrl.choosePageOrder('priceAsc','售价排序')"> 
+                    售价排序<i class="iconfont kdl-right color-red">&#xe653;</i>
+                </a>
+            </li>
+        </ul>
+        <div class="box3" style="display: none;">
+            <h5>类型</h5>
+            <ul class="clearfix m-top20">
+                <li class="cur">
+                    <a href="javascript:;" onclick="this.ctrl.choosePageGoodsTypeId(null)">全部</a>
+                </li>
+                <li>
+                    <a href="javascript:;" onclick="this.ctrl.choosePageGoodsTypeId('1')">零售商品</a>
+                </li>
+                <li>
+                    <a href="javascript:;" onclick="this.ctrl.choosePageGoodsTypeId('4')">服务商品</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <ul class="clearfix contentLi">
+    	<%if(_datas.ownGoods.list != null && _datas.ownGoods.list.length > 0){%>
+    		<%var ownGoodsList = _datas.ownGoods.list%>
+    		<%var ownGoodsLength = ownGoodsList.length%>
+    		<%for(var i = 0;i<ownGoodsLength;i++){%>
+		        <li class="clearfix" >
+		            <a href="javascript:;" onclick="GO('goods/details',{isExist:true,goodsId:<%=ownGoodsList[i].goodsId%>,isMarketer:<%=ownGoodsList[i].isMarketer%>,sellCount:<%=ownGoodsList[i].goods.sales%>,shopId:1})" class="clearfix">
+		                <div class="pic">
+		                	<!--选中时给i加上类color-red-->
+		                    <i class="iconfont goodsItem" itemId="<%=ownGoodsList[i].goodsId%>" onclick="this.ctrl.chooseItem(this)">
+		                    	&#xe63d;
+		                    </i>
+		                    <img src="<%=Config.imgPre + ownGoodsList[i].goods.image%>" />
+		                    <div class="bt">
+		                        <div></div>
+		                        <p><%=ownGoodsList[i].shop.shopName%></p>
+		                    </div>
+		                </div>
+		                <div class="txt">
+		                    <h6 class="ellips"><%=ownGoodsList[i].goods.name%></h6>
+		                    <h5 class="color-red">¥<%=ownGoodsList[i].goods.price.toFixed(2)%></h5>
+		                    <p class="color-gray6"><%=ownGoodsList[i].goods.sales%>人在卖</p>
+		                    <div>
+		                        <button disabled="disabled">
+		                        	<%var marketerInfo = ownGoodsList[i].isMarketer?"已上架":"未上架"%>
+		                        	<%=marketerInfo%>
+		                        </button>
+		                        <i class="iconfont" onclick="$.stopPropagation();GO('shopKeeper/Management',{goodsId:<%=ownGoodsList[i].goodsId%>,isMarketer:<%=ownGoodsList[i].isMarketer%>,isRecommend:<%=ownGoodsList[i].isRecommend%>,sellCount:<%=ownGoodsList[i].goods.sales%>})">&#xe643;</i>
+		                    </div>
+		                </div>
+		            </a>
+		            <div class="box clearfix">
+		                <ul class="clearfix">
+		                    <li>消费返现:<em class="color-red">¥<%=ownGoodsList[i].goods.consumeTips.toFixed(2)%></em></li>
+		                    <li>销售提成:<em class="color-red">¥<%=ownGoodsList[i].goods.sellTips.toFixed(2)%></em></li>
+		                    <li>推广佣金:<em class="color-red">¥<%=ownGoodsList[i].goods.expandTips.toFixed(2)%></em></li>
+		                </ul>
+		            </div>
+		        </li>
+	        <%}%>
+	    <%} else{%>
+		    <div class="pic">
+		        <img src="./img/shopkeeperGoods_none.jpg"/>
+		    </div>
+        <%}%>
+	    <!--
+        <li class="clearfix ">
+            <a href="javascript:;" class="clearfix">
+                <div class="pic">
+                    <i class="iconfont">&#xe63d;</i>
+                    <img src="img/product-collection_img1@2x.png"/>
+                    <div class="bt">
+                        <div></div>
+                        <p>云裳饰衣</p>
+                    </div>
+                </div>
+                <div class="txt">
+                    <h6 class="ellips">2016年新款年新款雪纺衫夏季焊抢购</h6>
+                    <h5 class="color-red">￥268.00</h5>
+                    <p class="color-gray6">888人在卖</p>
+                    <div>
+                        <button>未上架</button>
+                        <i class="iconfont">&#xe62e;</i>
+                    </div>
+                </div>
+            </a>
+            <div class="box clearfix">
+                <ul class="clearfix">
+                    <li>消费返现<em class="color-red">￥22.50</em></li>
+                    <li>销售提成<em class="color-red">￥22.50</em></li>
+                    <li>推广佣金<em class="color-red">￥22.50</em></li>
+                </ul>
+            </div>
+        </li>
+        -->
+    </ul>
+    <%=REND("include/empty",{icon:"&#xe678;",tip:"sorry，没有可以编辑的宝贝哦~",price:"1",display:"none",emptyId:"noDataDiv",paddingbottom:"1"})%>
+    <div class="reminderDiv">
+        <hr/>
+        <%if(_datas.ownGoods.list != null && _datas.ownGoods.list.length > 0){%>
+	        <span id="loadMore" class="p" onclick="this.ctrl.toLoadMore()">加载更多</span>
+        <%} else{%>
+        	<span id="loadMore" class="p">没有更多</span>
+        <%}%>
+    </div>
+</div>
+<div class="footer">
+    <!--全选的时候把color-gray6改成color-red-->
+    <span class="allItemBtn color-gray6" onclick="this.ctrl.chooseAllItem(this)"><i class="iconfont">&#xe63d;</i>全选</span>
+    <ul class="clearfix">
+        <li>
+            <a href="javascript:;" onclick="this.ctrl.deleteGoods()" style="background-color:#afcf00">取消代消</a>
+        </li>
+        <li>
+            <a href="javascript:;" onclick="this.ctrl.marketerGoods()" class="bg-red">上架</a>
+        </li>
+        <li>
+            <a href="javascript:;" onclick="this.ctrl.unMarketerGoods()" class="bg-orange">下架</a>
+        </li>
+    </ul>
+</div>
+<!--添加宝贝-->
+<div class="opo">
+    <div class="hd">
+        <div class="pic"><img src="./img/recommend@2x.png"></div>
+        <h5>你，值得拥有</h5>
+        <p class="m-top10">在这里，快速找到你想要的！</p>
+    </div>
+    <div class="hd">
+        <div class="pic"><img src="./img/consignment@2x.png"></div>
+        <h5>0成本做甩手掌柜</h5>
+        <p class="m-top10">无需进货发货，支持全渠道推广，行动起来吧！</p>
+    </div>
+    <button class="btn bg-red" onclick="GO('shopKeeper/cowrieCategory')">开始添加</button>
+    <span class="iconfont" onclick="this.ctrl.closeAddPanel()">&#xe652;</span>
+</div>
+
+
+
+
+
+
+
+
+
+
+

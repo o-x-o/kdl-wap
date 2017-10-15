@@ -1,0 +1,40 @@
+<style type="text/css">
+    .navbar2{ background-image: none;}
+    .content{ position:relative; }
+    .content>img{ width: 100%;position:relative; }
+    .content>a.btn{ 
+    position: absolute;
+    display: block;
+    width: 4rem;
+    height: .9rem;
+    left: 1.2rem;
+    bottom: 0.5rem;
+    padding: 0;
+    }
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">嗖一下</span>
+</header>
+<div class="content">
+    <img src="http://img.kaidianlaa.com//upload/image/common/souquan.jpg"/>
+    <a href="#etc/swish" class="btn"></a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,93 @@
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+        </a>
+    </div>
+    <div class="box-search" style="margin-left: 1rem;">
+        <a href="#shop/searchInShop?shopId=<%=_datas.data.shop.id%>" class=" color-gray3">
+            <i class="iconfont icon-search">&#xe603;</i>
+            <span class="single-line">搜索店内商品/服务</span>
+        </a>
+    </div>
+    <div class="nav-wrap-right">
+        <a href="javascript:;" class=" color-gray3">
+            <span class="nav-btn">
+                <i class="iconfont icon-info">&#xe636; </i>
+            </span>
+        </a>
+    </div>
+    <div class="nav-dropdown">
+        <span class="triangle-up"></span>
+        <ul>
+            <li>
+                <a class="react" href="/">
+                    <i class="iconfont">&#xe602;</i>
+                    <space></space>首页
+                </a>
+            </li>
+            <li>
+                <a class="react" href="javascript:;">
+                    <i class="iconfont">&#xe603;</i>
+                    <space></space>搜索
+                </a>
+            </li>
+            <li>
+                <a class="react" href="javascript:;">
+                    <i class="iconfont">&#xe601;</i>
+                    <space></space>消息
+                    <em class="information">8+<s class="triangle-up"></s></em>
+                </a>
+            </li>
+        </ul>
+    </div>
+</header>
+<input type="hidden" id="shopId" value="<%=_datas.data.shop.id%>" />
+<div class="content">
+    <section style="background-image:url('<%if(_datas.data.shop.background){%><%=Config.imgPre+ _datas.data.shop.background%><%}else{%>./img/shopkeeperShops-banner.jpg<%}%>')">
+        <div class="section-con">
+            <div class="pic kdl-left">
+                <img src="<%=Config.imgPre+_datas.data.shop.avatar%>"/>
+            </div>
+            <div class="txt kdl-left">
+                <h5 class="color-white share_title" title="<%=_datas.data.shop.shopName%>"><%=_datas.data.shop.shopName%></h5>
+                <img style="background-image:none;width:auto;" class="bg-grade" src="<%=Config.imgPre+_datas.data.shop.shopRank.icon%>"/>
+            </div>
+            <div class="population">
+                <p id="attentionPeoples"><%=_datas.data.attentionPeoples%></p>
+                <p>人在收藏</p>
+            </div>
+            <a href="javascript:;" <%if(!_datas.isFavorite){%>class="collect"<%}else{%>class="collect active" <%}%>>
+                <i class="iconfont" icon1="&#xe619;" icon2="&#xe642;"></i>
+                <p>收藏</p>
+            </a>
+            <!--<p><%=_datas.data.shop.shopSubtitle%></p>-->
+        </div>
+    </section>
+    <!--副导航-->
+    <div class="navigation bg-white">
+        <span></span>
+        <ul class="clearfix">
+            <li>
+                <a href="javascript:;">
+                    <i class="iconfont">&#xe61c;</i>
+                    <p>店铺首页</p>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="iconfont">&#xe631;</i>
+                    <p>店主推荐</p>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="iconfont">&#xe62d;</i>
+                    <p>新品上架</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="goodsContent">
+    </div>
+</div>

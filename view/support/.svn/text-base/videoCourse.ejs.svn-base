@@ -1,0 +1,53 @@
+<link href="../../css/base.css" rel="stylesheet"/>
+<style type="text/css">
+    .content .video{min-height: 2rem;}
+    .content .video>img{ width: 100%;}
+    .content>h4{line-height: .6rem; padding: 0 .2rem; box-sizing: border-box; background-color: #fff;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">视频教程</span>
+    <div class="nav-wrap-right">
+        <a href="javascript:;" class=" color-gray3">
+            <span class="nav-btn">
+                <i class="iconfont icon-info">&#xe636; </i>
+            </span>
+            <s></s>
+        </a>
+    </div>
+    <div class="nav-dropdown">
+        <span class="triangle-up"></span>
+        <ul>
+            <li>
+                <a class="react" href="/">
+                    <i class="iconfont">&#xe602;</i>
+                    <space></space>首页
+                </a>
+            </li>
+            <li>
+                <a class="react" href="javascript:;">
+                    <i class="iconfont">&#xe603;</i>
+                    <space></space>搜索
+                </a>
+            </li>
+            <li>
+                <a class="react" href="javascript:;">
+                    <i class="iconfont">&#xe601;</i>
+                    <space></space>消息
+                    <em class="information">8+<s class="triangle-up"></s></em>
+                </a>
+            </li>
+        </ul>
+    </div>
+</header>
+<div class="content">
+    <div class="video">
+        <img src="./img/woshishangjia_banner_04.jpg"/>
+    </div>
+    <h4>视频：开店啦店主注册流程</h4>
+</div>

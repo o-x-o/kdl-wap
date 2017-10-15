@@ -1,0 +1,82 @@
+<style type="text/css">
+    .navbar .nav-header{ color: #333;}
+    .content{ padding: .2rem; box-sizing: border-box; padding-bottom: .5rem; padding-top:.9rem;}
+    .content>ul{ background-color: #fff; border-radius: 5px; border: 1px solid #e5e5e5;}
+    .content>ul>li{border-bottom: 1px solid #e5e5e5; padding: 0 .15rem; box-sizing: border-box; height: .8rem; line-height: .8rem;}
+    .content>ul>li:last-child{ border-bottom: 0;}
+    .content>ul>li>span>em{ width: .5rem; height: .5rem; display: inline-block; margin-right: 5px;}
+    .content>ul>li>span>em>img{ width: 100%; height: 100%;}
+    button.btn-gr{ background-color: #ddd; color: #666;}
+    p{ line-height: .35rem; padding-right: .3rem; box-sizing: border-box;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1">更换银行卡</span>
+    <div class="nav-wrap-right">
+        <a href="javascript:;" class=" color-gray3">
+            <span class="nav-btn">
+                <i class="iconfont icon-info">&#xe636; </i>
+            </span>
+            <s></s>
+        </a>
+    </div>
+    <div class="nav-dropdown">
+        <span class="triangle-up"></span>
+        <ul>
+            <li>
+                <a class="react" href="/">
+                    <i class="iconfont">&#xe602;</i>
+                    <space></space>首页
+                </a>
+            </li>
+            <li>
+                <a class="react" href="javascript:;">
+                    <i class="iconfont">&#xe601;</i>
+                    <space></space>消息
+                    <em class="information">8+<s class="triangle-up"></s></em>
+                </a>
+            </li>
+        </ul>
+    </div>
+</header>
+<div class="content">
+    <h5 class="m-top10">第一步，账户资产提现至原银行卡</h5>
+    <p class="color-gray9 m-top10">为了确保您的资金安全，我们遵行银行卡同卡进出原则，账户资产高于100元需要将账户资产全部提现到您原银行卡后才可更换新卡，账户资产低于100元可直接更换新卡</p>
+    <ul class="clearfix m-top20">
+        <li>您还有以下资产在开店啦账户:</li>
+        <li>
+            <span class="color-gray6">资产</span>
+            <span class="color-red kdl-right" id="userPurse"><%=_datas.userPurse%></span>
+        </li>
+        <li>
+            <span class="color-gray6">提现到银行卡</span>
+            <span class="color-gray6 kdl-right"><em><img src="<%=Config.imgPre+_datas.bankCard.bank.bankIcon%>"/></em><%=_datas.bankCard.bank.bankName%>（<%=_datas.bankCard.code%>）</span>
+        </li>
+    </ul>
+    <button class="btn-block m-top40 btn-group btn-gr" id="cashBtn">
+        全部提现
+    </button>
+    <h5 class="m-top30">第二步，账户资产提现至原银行卡</h5>
+    <p class="color-gray9 m-top10">更换新卡前，请确保您的账户资产已全部提现到原银行卡</p>
+    <button class="btn-block m-top20 btn-group  btn-gr" id="changeBtn">
+        更换银行卡
+    </button>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

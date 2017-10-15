@@ -1,0 +1,86 @@
+<style type="text/css">
+	.content{    padding-top: 1.7rem;}
+    .content>ul{background-color: #fff;}
+    .content>ul>li{border-bottom: 1px solid #e5e5e5;}
+    .content>ul>li>a{display:block; position:relative; padding:.15rem 0; padding-left:2rem;}
+    .content>ul>li>a .first{position:absolute; left:.15rem; top:.15rem; width:.8rem; color:#999;}
+    .content>ul>li>a .pic{ position:absolute; left:1.1rem; top:.15rem; width:.7rem; border-radius:50%; overflow:hidden;}
+    .content>ul>li>a .pic>img{width:100%;}
+    .content>ul>li>a .last{position:absolute; right:.15rem; top:.3rem; width:.8rem;color:#999;}
+    .content>h6{height:.7rem; line-height:.7rem; padding:0 .15rem;}
+    .content .hd{height:.45rem;padding:.2rem 0;  top:.9rem; background-color:#f0f0f0; z-index:9;}
+    .content .hd>ul>li{float:left; width:33.33%; border-left:1px solid #e5e5e5; box-sizing:border-box;}
+    .content .hd>ul>li:first-child{border-left:0;}
+    .content .hd>ul>li>a{display:block; text-align:center;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">筛选</span>
+</header>
+<!--内容-->
+<div class="content">
+	<div class="hd coverstop">
+		<ul>
+			<li>
+				<a href="javascript:;">线下支付</a>
+			</li>
+			<li>
+				<a href="javascript:;">同城商讯</a>
+			</li>
+			<li>
+				<a href="javascript:;">广告推送</a>
+			</li>
+		</ul>
+	</div>
+    <ul>
+    	<li>
+    		<a href="javascript:;">
+    			<span class="first">
+    				<p>09-07</p>
+    				<p>10:00</p>
+    			</span>
+    			<div class="pic">
+    				<img src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=2366666076,1827938624&fm=58"/>
+    			</div>
+    			<div>
+    				<p class="color-gray3">-999.00</p>
+    				<p class="color-gray6">广告推送</p>
+    			</div>
+    			<span class="last">已完成</span>
+    		</a>
+    	</li>
+    	<li>
+    		<a href="javascript:;">
+    			<span class="first">
+    				<p>09-07</p>
+    				<p>10:00</p>
+    			</span>
+    			<div class="pic">
+    				<img src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=2366666076,1827938624&fm=58"/>
+    			</div>
+    			<div>
+    				<p class="color-gray3">-999.00</p>
+    				<p class="color-gray6">广告推送</p>
+    			</div>
+    			<span class="last">已完成</span>
+    		</a>
+    	</li>
+    </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

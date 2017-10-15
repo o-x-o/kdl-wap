@@ -1,0 +1,83 @@
+<style type="text/css">
+    body,html{ background-color: #f0efed;}
+    .content{padding-top: 0!important; background: #f0efed; padding-bottom:1rem;}
+    .navbar{background: #df494a; border-bottom: 0; position: relative;}
+    .navbar a{ color: #fff;}
+    .nav-wrap-right a i{ font-size: .42rem;}
+    .balance{ padding:.3rem  .2rem; box-sizing: border-box; height: 2.3rem; background:#df494a;}
+    .balance>div{width:50%; text-align:center;}
+    .balance span{text-align: left; color: #FFf; font-size: .28rem; line-height: .6rem;}
+ 
+ 	.conList>div>div{height:.8rem; line-height:.8rem; border-bottom:1px solid #e8e8e8; padding:0 .15rem; box-sizing: border-box; position:relative;}
+ 	.conList>div>ul{border-bottom:1px solid #ccc; display:none; padding:.05rem 0;}
+ 	.conList>div>ul>li{color:#666;padding:.05rem .15rem; box-sizing: border-box;}
+ 
+ 	.conList>div>div>i{transition: .5s;transform-origin: 6px 3px;    border-color: #999 transparent transparent transparent;position: absolute;height: 0;width: 0; border-width: 6px;border-style: solid;right: .15rem;top: .3rem;}
+	.conList>div>div>i.cur{-webkit-transform: rotate(-180deg);}
+	
+	
+	
+ 	.btn-wrapper{ box-sizing: border-box; padding:0 .2rem; margin-top:1rem!important;}
+    .txtsize{ font-size:.2rem; line-height:.35rem; color: #999; padding-left:.2rem; box-sizing: border-box; }
+    .btn-wrapper .btn{ box-sizing: border-box;}
+</style>
+<header class="navbar">
+    <div class="nav-wrap-left">
+        <a href="#business/merchant">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1">商家财富中心</span>
+</header>
+<div class="content">
+	<%var totalBalance = _datas.data.balance%>
+    <!--财富-->
+    <div class="balance clearfix">
+    	<div class="kdl-left color-white">
+    		<span>可提现金额（元）</span>
+    		<p class="h3"><%=_datas.data.businessPurse.toFixed(2)%></p>
+    	</div>
+        <div class="kdl-left color-white">
+    		<span>已提现金额（元）</span>
+    		<p class="h3"><%=_datas.data.withdrawAmount.toFixed(2)%></p>
+    	</div>
+    </div>
+    <!--销售金额-->
+    <div class="conList bg-white">
+    	<div class="conList1">
+    		<div class="color-gray3">本期销售金额：(<%=_datas.data.realtimeSum.toFixed(2)%>)<i></i></div>
+    		<ul>
+    			<li>账单金额：+<%=_datas.data.realtimeBill.toFixed(2)%></li>
+    			<li>订单金额：+<%=_datas.data.realtimeOrders.toFixed(2)%></li>
+    		</ul>
+    	</div>
+    	<div class="conList2">
+    		<div class="color-gray3">已结算：(<%=_datas.data.sumBalanced.toFixed(2)%>)<i></i></div>
+    		<ul>
+    			<li>账单金额：+<%=(totalBalance?totalBalance.billAmount.toFixed(2):"0.00")%></li>
+    			<li>订单金额：+<%=(totalBalance?totalBalance.orderAmount.toFixed(2):"0.00")%></li>
+    			<li>红包金额：+<%=_datas.data.redBag.toFixed(2)%></li>
+    			<li>平台补贴额：+<%=(totalBalance?totalBalance.subsidyamount.toFixed(2):"0.00")%></li>
+    			<li style="font-size: 0.1rem;">(平台补贴额已含在账单金额和订单金额中)</li>
+    			<li>交易手续费：-<%=(totalBalance?totalBalance.balanceFee.toFixed(2):"0.00")%></li>
+    			<li>消费佣金：-<%=(totalBalance?totalBalance.consumeTips.toFixed(2):"0.00")%></li>
+    			<li>销售佣金：-<%=(totalBalance?totalBalance.sellTips.toFixed(2):"0.00")%></li>
+    			<li>推广佣金：-<%=(totalBalance?totalBalance.expandTips.toFixed(2):"0.00")%></li>
+    		</ul>
+    	</div>
+    </div>
+    
+    
+    <center class="btn-wrapper">
+        <a href="javascript:void(0);" class="btn-block" id="toCashBtn">我要提现</a>
+        <a href="#business/withdrawHistory" class="btn bd-red h6 m-top">提现历史</a>
+    </center>
+    <p class="txtsize m-top30">每周一为商家结算日</p>
+    <p class="txtsize">可提现金额与已提现金额之和等于已结算金额</p>
+    <p class="txtsize">更多详细信息请登录商家管理后台</p>
+</div>
+
+
+
+

@@ -1,0 +1,155 @@
+<style>
+    body{ padding-bottom: 0;}
+    .content .hd{ background: #fff; padding-left: .2rem; box-sizing: border-box;}
+    .content .hd>a{ display: block; height: 1.2rem; position: relative; padding: .2rem; box-sizing: border-box; padding-left: 1.1rem; border-bottom: 1px solid #e5e5e5;}
+    .content .hd .pic{position: absolute; left: 0; top: .2rem; width: .9rem; height:.9rem; border-radius: 50%; overflow: hidden;}
+    .content .hd .pic>img{ width: 100%;}
+    .content .hd .txt>div{ height: .3rem; margin: .05rem 0;}
+    .content .hd .txt>div>img{ height: 100%;}
+    .content .hd>h5{ height: .8rem; line-height: .8rem;}
+    .content .info{ padding: .2rem; padding-right: .6rem; box-sizing: border-box; line-height: .4rem;    color: #333;}
+    .content>h5{ height: .8rem; line-height: .8rem; text-indent: .2rem;}
+    .content .tab{ padding: .2rem; box-sizing: border-box;}
+    .content .tab table{ width: 100%;}
+    .content .tab tr>th,.content .tab tr>td{ font-weight: 500; height: .6rem; text-align: left; line-height: .6rem; text-indent: .2rem; color: #666; border: 1px solid #e5e5e5;}
+    .content .tab tr>th:first-child{ width: 40%;}
+    .content .tab tr>th:last-child{ width: 60%;}
+    .content .tab tr>td>img{ height: .33rem;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">等级详情</span>
+</header>
+<div class="content">
+    <div class="hd">
+       <a href="javascript:;">
+           <div class="pic">
+               <img src="./img/promotion_money_user@2x.png"/>
+           </div>
+           <div class="txt">
+               <h5 class="m-top5"><%=_datas.shop.shopName%></h5>
+               <div>
+                   <img src="<%=Config.imgPre + _datas.shop.shopRank.icon %>"/>
+               </div>
+           </div>
+       </a>
+        <h5 class="bg-white">店铺分数计算方式</h5>
+    </div>
+    <div class="info bg-silver">
+        店铺分数由消费返现、销售佣金、推广拥金、订单量、访问量等数据综合计算得出。
+    </div>
+    <h5 class="bg-white">店铺等级标识</h5>
+    <div class="tab">
+        <table>
+            <thead>
+                <tr>
+                    <th>等级分数</th>
+                    <th>等级标识</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>0-140</td>
+                    <td><img src="./img/shopkeeper1.1@2x.png"/></td>
+                </tr>
+                <tr>
+                    <td>141-320</td>
+                    <td><img src="./img/shopkeeper1.2@2x.png"/></td>
+                </tr>
+                <tr>
+                    <td>321-540</td>
+                    <td><img src="./img/shopkeeper1.3@2x.png"/></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>541-1600</td>
+                    <td><img src="./img/shopkeeper2.1@2x.png"/></td>
+                </tr>
+                <tr>
+                    <td>1601-2200</td>
+                    <td><img src="./img/shopkeeper2.2@2x.png"/></td>
+                </tr>
+                <tr>
+                    <td>2201-3280</td>
+                    <td><img src="./img/shopkeeper2.3@2x.png"/></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>3281-7280</td>
+                    <td><img src="./img/shopkeeper3.1@2x.png"/></td>
+                </tr>
+                <tr>
+                    <td>7281-8960</td>
+                    <td><img src="./img/shopkeeper3.2@2x.png"/></td>
+                </tr>
+                <tr>
+                    <td>8961-10800</td>
+                    <td><img src="./img/shopkeeper3.3@2x.png"/></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>10801-25600</td>
+                    <td><img src="./img/shopkeeper4.1@2x.png"/></td>
+                </tr>
+                <tr>
+                    <td>25601-29920</td>
+                    <td><img src="./img/shopkeeper4.2@2x.png"/></td>
+                </tr>
+                <tr>
+                    <td>29921-34560</td>
+                    <td><img src="./img/shopkeeper4.3@2x.png"/></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>34561-79040</td>
+                    <td><img src="./img/shopkeeper5.1@2x.png"/></td>
+                </tr>
+                <tr>
+                    <td>79041-89600</td>
+                    <td><img src="./img/shopkeeper5.2@2x.png"/></td>
+                </tr>
+                <tr>
+                    <td>89601-100800</td>
+                    <td><img src="./img/shopkeeper5.3@2x.png"/></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>100801-225280</td>
+                    <td><img src="./img/shopkeeper6.1@2x.png"/></td>
+                </tr>
+                <tr>
+                    <td>225281-500480</td>
+                    <td><img src="./img/shopkeeper6.2@2x.png"/></td>
+                </tr>
+                <tr>
+                    <td>500481+</td>
+                    <td><img src="./img/shopkeeper6.3@2x.png"/></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>

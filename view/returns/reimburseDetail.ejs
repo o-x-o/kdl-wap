@@ -1,0 +1,128 @@
+<style type="text/css">
+    body{ padding-bottom: 0!important;}
+    .con-hd{position:relative; padding:.25rem 0; padding-left:.7rem; box-sizing:border-box; border-bottom:1px solid #e5e5e5;}
+    .con-hd>i{ position:absolute; left:.2rem; top:.25rem;}
+    .sider .hd{ height: .8rem; line-height: .4rem; padding: .2rem; box-sizing: border-box;}
+    .sider .hd>a{ font-size: .26rem; color:#333;}
+    .sider .hd>a>span{ width: .4rem; height: .4rem; display: inline-block;}
+    .sider .hd>a>span>img{ width: 100%;}
+    .siderList>ul>li{ padding:0 .2rem; box-sizing:border-box; height:.7rem; line-height:.7rem; border-bottom:1px solid #e5e5e5; font-size:.24rem; color:#666;}
+    .siderList>ul>li>span{width:1.3rem; display: inline-block;}
+    .aside>h5{ height:.7rem; line-height:.7rem; border-bottom:1px solid #e5e5e5; text-indent:.15rem;}
+    .schedule{padding-left:.5rem; padding-top:.3rem;}
+    .scheduleList{border-left:2px solid #ddd; position:relative; padding-left:.6rem;}
+    .scheduleList>span{position:absolute; left:-.16rem; top:-.02rem; width:.28rem; height:.28rem; border-radius:50%; background:#ddd; display:inline-block;}
+	.scheduleList>div{ border-bottom:1px solid #e5e5e5;padding-bottom:.15rem; padding-top:.05rem;}
+	.scheduleList>div>p{color:#999;}
+	.scheduleList:first-child>div>p{color:#333;}
+	.scheduleList:first-child>div>p:last-child{color:#999;}
+	.scheduleList:first-child>span{background:#36B822;box-shadow: 0px 0px 0 1px #36B822;border: 2px solid #F0F0F0;left: -.19rem;}
+	.colorGreen{color:#09B40D;}
+	.colorBlue{color:#17C6DF;}
+	.colorRed{color:#DE494A;}
+	.con-hd>button{margin-left:-.3rem; border:0; width:100%; height:.6rem; line-height:.6rem; text-align:center;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1)" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">退款详情</span>
+    <div class="nav-wrap-right">
+        <a href="#message/messageLists?userType=member" class=" color-gray3">
+            <span class="nav-btn">
+                <i class="iconfont icon-info">&#xe601;</i>
+            </span>
+            <s></s>
+        </a>
+    </div>
+</header>
+<div class="content">
+	<!--退款状态-->
+	<%if(_datas.refunds.status == "pehand" || _datas.refunds.status == "audiPass"){%>
+	    <div class="con-hd bg-white">
+	    	<i class="iconfont colorGreen">&#xe679;</i>
+	    	<h5>处理中...</h5>
+	    </div>
+	<%}else if(_datas.refunds.status == "success"){%>
+	    <div class="con-hd bg-white">
+	    	<i class="iconfont colorGreen">&#xe63d;</i>
+	    	<h5>退款成功，请注意查收</h5>
+	    </div>
+    <%}else if(_datas.refunds.status == "audiFail" || _datas.refunds.status == "failure"){%>
+	    <div class="con-hd bg-white">
+	    	<i class="iconfont colorRed">&#xe64d;</i>
+	    	<h5>退款失败，如有疑问，您可以联系开店啦客服：<span class="color-red">4009960024</span></h5>
+	    	<h5 class="m-top20">未通过原因：<span class="color-gray6"><%=_datas.refunds.failReason%></span></h5>
+	    </div>
+    <%}%>
+    <!--退款用户名-->
+    <div class="sider">
+    	<div class="hd bg-white m-top20">
+            <a href="#shop/shops?shopId=<%=_datas.refunds.shop.id%>">
+                <span>
+                    <img src="<%=Config.imgPre+_datas.refunds.shop.avatar%>"/>
+                </span>
+              	  <%=_datas.refunds.shop.shopName%> >
+            </a>
+            <a href="#message/chitchat?shopId=<%=_datas.refunds.shop.id%>">
+            	<i class="kdl-right color-gray3 iconfont">&#xe601;</i>
+            </a>
+        </div>
+    </div>
+    <!--退款详情列表-->
+    <div class="siderList m-top10 bg-white">
+    	<ul>
+    		<li>
+    			<span>退款总额</span>
+    			￥<%=_datas.refunds.refundsAmount.toFixed(2)%>
+    		</li>
+    		<%if(_datas.refunds.refundsPurse != 0){%>
+	    		<li>
+	    			<span>退至余额</span>
+	    			￥<%=_datas.refunds.refundsPurse.toFixed(2)%>
+	    		</li>
+    		<%}%>
+    		<%if(_datas.refunds.discountDeduct != 0){%>
+    		<li>
+    			<span>优惠折扣</span>
+    			￥<%=_datas.refunds.discountDeduct.toFixed(2)%>
+    		</li>
+    		<%}%>
+    		<li>
+    			<span>服务类型</span>
+    			退款
+    		</li>
+    		<li>
+    			<span>退款方式</span>
+    			原路返回
+    		</li>
+    		<li>
+    			<span>退款编号</span>
+    			<%=_datas.refunds.sn%>
+    		</li>
+    		<li>
+    			<span>申请时间</span>
+    			<%=_datas.refunds.createDate%>
+    		</li>
+    	</ul>
+    </div>
+    <!--退款进度-->
+    <div class="aside m-top20 bg-white">
+    	<h5 class="color-gray3">退款进度</h5>
+    	<div class="schedule">
+    		 <%for(var i=0;i<_datas.refundsLogList.length;i++){%>
+	    		 <div class="scheduleList">
+				 	<span></span>
+				 	<div>
+				 		<p><%=_datas.refundsLogList[i].content%></p>
+					 	<p>经办人：<%=_datas.refundsLogList[i].operator.username%></p>
+					 	<p <%if(i==0){%>class="color-gray9"<%}%>><%=_datas.refundsLogList[i].createDate%></p>
+				 	</div>
+				 </div>
+    		 <%}%> 
+    	</div>
+    </div>
+</div>

@@ -1,0 +1,224 @@
+<style type="text/css">
+    body{ padding-bottom: 0;}
+    .navbar .nav-header{ color: #333;}
+    .content .searchBox{border-bottom: 1px solid #e5e5e5; padding: .1rem .2rem; box-sizing: border-box; position: fixed; background-color: #fff; width: 100%; min-width: 320px;max-width: 640px; z-index: 9;}
+    .content .searchBox>input{ font-size: .26rem; box-sizing: border-box; color: #999; width: 100%; border:0; border-radius: 5px; height: .6rem; line-height: .6rem; background-color: #f0f0f0; text-indent: .6rem; padding-right: .3rem;}
+    .content .searchBox>i{ position: absolute; left: .3rem; top: .2rem; color: #999; font-size: .36rem;}
+    .content .searchBox>span{ position: absolute; right: .3rem; top:.15rem; color: #bebebe; font-size: .38rem;}
+    .content>ul{margin-top: .8rem;}
+    .content>ul>li{ height: .8rem; line-height: .8rem; border-bottom: 1px solid #e5e5e5; padding-left: .2rem; box-sizing: border-box;}
+    .content>ul>li>a{display: block; color: #999;}
+    .content>p{ line-height: .8rem;margin-top: .8rem; text-indent: .2rem; color: #666; font-size: .28rem; background-color: #fff;}
+    .selection{ overflow: hidden; margin-top: .8rem; position: relative; padding-left: 1.8rem; box-sizing: border-box;}
+    .selection>ul:first-child{height: 100%;overflow-y: scroll; position: absolute; left: 0 ; top: 0; width: 30%;}
+    .selection>ul:first-child>a{display: block; text-align: center;}
+    .selection>ul>li{ line-height: .8rem; height: .8rem; border-bottom: 1px solid #e5e5e5;}
+    .selection>ul:last-child{ background-color: #f0f0f0;}
+    .selection>ul>li{ text-indent: .3rem;}
+    .selection>ul>li>a{ color: #333;}
+    .selection>ul>li.cur a{ color: #cc3333;}
+    .selection>ul:first-child>li.cur{background-color: #f0f0f0!important;}
+    .selection>ul:last-child>li{border-left: 1px solid #e5e5e5;}
+    .selection>ul:last-child{ position: absolute; right: 0; width: 70%; top: 0; height: 100%; overflow-y: scroll;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+        </a>
+    </div>
+    <span class="nav-header h1">商家行业选择</span>
+</header>
+<div class=" content">
+    <div class="searchBox">
+        <input type="text" placeholder="搜索行业" name="content" />
+        <i class="iconfont">&#xe603;</i>
+        <span class="iconfont">&#xe64d;</span>
+    </div>
+    <div class="theme-popover-mask" style="top: 1.8rem;"></div>
+    <!--判断是否搜索到信息-->
+    <p id="warn" style="display: none; ">抱歉，未找到相关行业，可尝试修改后重试</p>
+    <ul class="bg-white" id="searchResult" style="display: none;">
+        <li>
+            <a href="javascript:;">
+                女装上衣
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;">
+                女装套装
+            </a>
+        </li>
+    </ul>
+    <div class="selection">
+    	
+    	<ul class="bg-white">
+    		<%for(var i=0;i<_datas.industryCategorys.length;i++){%>
+    			<li index="<%=_datas.industryCategorys[i].id%>">
+               	 	<a href="javascript:;">
+                		<%=_datas.industryCategorys[i].name%>
+                	</a>
+            	</li>
+    		<%}%>
+        </ul>
+         <ul class="secondCategory" id="secondCategory">
+         </ul>
+        <!--<ul class="bg-white">
+            <li>
+                <a href="javascript:;">
+                    食品酒水
+                </a>
+            </li>
+            <li class="cur">
+                <a href="javascript:;">
+                    服装鞋包
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    珠宝饰品
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    手机数码
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    母婴玩具
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    食品酒水
+                </a>
+            </li>
+            <li class="cur">
+                <a href="javascript:;">
+                    服装鞋包
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    珠宝饰品
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    手机数码
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    母婴玩具
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    食品酒水
+                </a>
+            </li>
+            <li class="cur">
+                <a href="javascript:;">
+                    服装鞋包
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    珠宝饰品
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    手机数码
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    母婴玩具
+                </a>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href="javascript:;">
+                    品牌男装
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    品牌女装
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    外贸类服装
+                </a>
+            </li>
+            <li class="cur">
+                <a href="javascript:;">
+                    内衣
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    品牌女装
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    外贸类服装
+                </a>
+            </li>
+            <li class="cur">
+                <a href="javascript:;">
+                    内衣
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    品牌女装
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    外贸类服装
+                </a>
+            </li>
+            <li class="cur">
+                <a href="javascript:;">
+                    内衣
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    综合服装城
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    服饰店
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    综合鞋城
+                </a>
+            </li>
+        </ul>-->
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

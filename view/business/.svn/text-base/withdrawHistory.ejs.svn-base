@@ -1,0 +1,35 @@
+<style type="text/css">
+    .navbar .nav-header{ color: #333;}
+    .content{ padding-bottom: 0;}
+    .content>ul>li{ padding: .15rem .2rem; box-sizing: border-box; border-bottom: 1px solid #e5e5e5;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1">提现历史</span>
+</header>
+<div class=" content">
+    <ul class="bg-white">
+        <!--<li>
+            <h5 class="color-gray6">提现<span class="kdl-right color-red">-80.00</span></h5>
+            <p class="m-top10 color-gray9">2016-05-28 12:52:22<span class="kdl-right color-gray6">审核中 ></span></p>
+        </li>
+        <li>
+            <h5 class="color-gray6">提现<span class="kdl-right color-red">-80.00</span></h5>
+            <p class="m-top10 color-gray9">2016-05-28 12:52:22<span class="kdl-right color-gray6">审核中 ></span></p>
+        </li>
+        <li>
+            <h5 class="color-gray6">提现<span class="kdl-right color-red">-80.00</span></h5>
+            <p class="m-top10 color-gray9">2016-05-28 12:52:22<span class="kdl-right color-gray6">审核中 ></span></p>
+        </li>-->
+    </ul>
+</div>
+<div class="warn"></div>
+
+
+
+

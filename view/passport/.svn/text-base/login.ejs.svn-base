@@ -1,0 +1,79 @@
+<style>
+.verifyCode.current{ color:#888 !important; border:1px solid #888 !important;}
+</style>
+<header class="navbar">
+    <div class="nav-wrap-left">
+        <a href="javascript:void(0);" onclick="this.ctrl.goBack()" class="color-white">
+        	<i class="iconfont">&#xe60b;</i>
+        </a>
+    </div>
+    <div class="nav-header h1 color-white">
+        <%=_title%>
+    </div>
+</header>
+<div class="content">
+    <div class="con-hd">
+        <ul class="clearfix">
+            <li class="cur">
+                <a href="javascript:;">
+					账号登录
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+					手机验证码登录
+                </a>
+            </li>
+        </ul>
+    </div>
+    <form id="login" action="passport/userLogin.shtml" call="this.ctrl.loginCall">
+        <div>
+            <i class="iconfont">&#xe60c;</i>
+            <input name="username" id="loginUsername" type="tel" maxlength="11"placeholder="请输入手机号" />
+            <p id="warn" class="color-red m-top"></p>
+        </div>
+        <div class="m-top">
+            <i class="iconfont">&#xe60d;</i>
+            <input name="password" id="loginPassword" type="password" placeholder="请输入密码" val="$.md5(this.value)"/>
+            <span class="iconfont password">&#xe60e;</span>
+        </div>
+        <div class="txt color-gray9 m-top">
+            <label style="text-align:left;display:none;" id="bindingWX1">
+            	<input type="checkbox" name="bindWX" value="true" class="transparent agreement" id="logBindWeiXin1"/>
+            	<i style="color:#666;" class="iconfont">&#xe632;</i>
+            	绑定当前微信，下次无需再登录
+            </label>
+	        <a href="#passport/passwordFind" style="margin-top: 0.05rem;" class="color-red kdl-right">忘记密码？</a>
+        </div>
+        <button class="btn-block m-top50" type="button" onclick="this.ctrl.toLogin('password');">登录</button>
+        <button type="button" class="btn-border" onclick="GO('passport/register')">注册</button>
+    </form>
+    <form id="phoneLogin" style="display:none;" action="passport/telephoneLogin.shtml" call="this.ctrl.phoneLoginCall">
+        <div>
+            <i class="iconfont">&#xe60c;</i>
+            <input name="username" id="loginUsername1" type="tel"  maxlength="11" placeholder="请输入手机号"/>
+            <p id="warn" class="color-red m-top"></p>
+        </div>
+        <div class="m-top verify captcha clearfix" style="padding-right: 2rem;">
+	        <i class="iconfont">&#xe691;</i>
+	        <input class="kdl-left" id="captcha" maxlength="6" placeholder="请输入验证码"/>
+	        <span class="kdl-right yanzi">
+	        	<img id="captchaImage" class="captchaImage" src="./passport/captcha.shtml"/>
+	        </span>
+	    </div>
+        <div class="m-top verify clearfix">
+            <i class="iconfont" style="font-size:.38rem; left:.15rem;top: .24rem;">&#xe692;</i>
+            <input class="kdl-left" type="tel" maxlength="6" name="verifyCode" placeholder="请输入短信码" id="verifyCode"  val="$.md5(this.value)"/>
+            <span class="kdl-right verifyCode">获取短信码</span>
+        </div>
+        <div class="txt color-gray9 m-top">
+            <label style="text-align:left;display:none;" id="bindingWX2">
+            	<input type="checkbox" name="bindWX" value="true" class="transparent agreement" id="logBindWeiXin2"/>
+            	<i style="color:#666;" class="iconfont">&#xe632;</i>
+            	绑定当前微信，下次无需再登录
+            </label>
+        </div>
+        <button class="btn-block m-top50" type="button" onclick="this.ctrl.toLogin('verifyCode');">登录</button>
+        <button type="button" class="btn-border" onclick="GO('passport/register')">注册</button>
+    </form>
+</div>

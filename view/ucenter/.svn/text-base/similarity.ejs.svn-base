@@ -1,0 +1,166 @@
+<link href="../../css/base.css" rel="stylesheet"/>
+<style type="text/css">
+    .navbar .nav-header{ color: #333;}
+    .content .list .hd>h5{ height: .66rem; line-height: .36rem; padding: .15rem; box-sizing: border-box; color: #666;}
+    .content .list .hd>i{ position: absolute; color: #999;    left: -5rem; top: .15rem;}
+    .content .list>ul>li>a{display: block; position: relative; padding-left: 2.3rem; box-sizing: border-box;}
+    .content .list>ul>li>a .pic{ position: absolute; width:2.1rem; left: .1rem; top: .1rem; border-radius: 5px; overflow: hidden;}
+    .content .list>ul>li>a .pic>span{ position: absolute; left: .6rem; top: .25rem; color: #fff; height: 1rem; width: 1rem; text-align: center; line-height: 1rem;font-size: .24rem;}
+    .content .list>ul>li>a .pic .failure{ width: 1rem; height: 1rem;display: inline-block; background-color: #000; opacity: 0.3; position: absolute; top:.25rem; left: .6rem; border-radius: 50%;}
+    .content .list>ul>li>a .pic>i{ position: absolute; left: .1rem; top: .1rem; color: #999;}
+    .content .list>ul>li>a .pic>img{ width: 100%; max-height:1.45rem;}
+    .content .list>ul>li>a .txt{ border-bottom: 1px solid #e5e5e5; padding-top: .1rem; min-height: 1.65rem; padding-right: .1rem; box-sizing: border-box;}
+    .content .list>ul>li>a .txt .ellips{ line-height: .35rem;}
+    .content .list>ul>li>a .txt>p>span.kdl-right{ border:0; color: #999; font-size: .22rem;  padding: 2px 5px; border-radius: 3px; cursor: pointer; z-index: 2; position: relative;}
+    .content .list>ul>li>a .pic>i{ display: none;}
+    .footer-print button{width: 2rem; float: right; color: #fff; background-color: #F72B2E; text-align: center; border: 0; height: 1rem; line-height: 1rem; font-size: .36rem;}
+    .footer-print>s{ text-decoration:none; margin: 0 .05rem;}
+    .content .list i.cur{ color: #df494b!important;}
+    .tit-hd{margin:.15rem 0;}
+    .tit-hd h5{ border-bottom: 1px solid #e5e5e5; position: relative; height: .3rem;}
+    .tit-hd h5>span{ width: 2.5rem; display: block; height: .4rem; background-color: #f0f0f0; position: absolute; top: .1rem;    text-align: center; left: 50%; margin-left: -1.25rem; font-size: .24rem;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1">相似宝贝</span>
+    <div class="nav-wrap-right">
+        <a href="javascript:;" class=" color-gray3">
+            <span class="nav-btn">
+                <i class="iconfont icon-info">&#xe636; </i>
+            </span>
+            <s></s>
+        </a>
+    </div>
+    <div class="nav-dropdown">
+        <span class="triangle-up"></span>
+        <ul>
+            <li>
+                <a class="react" href="/">
+                    <i class="iconfont">&#xe602;</i>
+                    <space></space>首页
+                </a>
+            </li>
+            <li>
+                <a class="react" href="javascript:;">
+                    <i class="iconfont">&#xe601;</i>
+                    <space></space>消息
+                    <em class="information">8+<s class="triangle-up"></s></em>
+                </a>
+            </li>
+        </ul>
+    </div>
+</header>
+<div class=" content">
+    <div class="list">
+        <ul class="bg-white">
+			<li>
+                <%if(_param.shopType=="sKeeper"){%>
+					<a href="#goods/details?goodsId=<%=_datas.sku.goodsId%>&shopId=<%=_param.shopId%>">
+				<%}else{%>
+                	<a href="#goods/details?goodsId=<%=_datas.sku.goodsId%>">
+				<%}%>
+                    <div class="pic">
+                        <!--<div class="failure"></div>-->
+                        <i class="iconfont">&#xe63d;</i>
+                        <img src="<%=Config.imgPre+_datas.sku.image%>"/>
+                    </div>
+                    <div class="txt">
+                        <h6 class="ellips color-gray6"><%=_datas.sku.name%></h6>
+                        <h5 class="m-top10 color-red">￥<%=_datas.sku.price%></h5>
+                        <!--遇到非返现把返现隐藏即可，做下判断-->
+                        <p class="m-top5 clearfix">
+                        <%if(_datas.sku.consumeTips){%>
+                        	返现<span class="color-gray3">￥<%=_datas.sku.consumeTips%></span>
+                        <%}%>
+                        <span class="kdl-right color-gray9">
+                        	<%if(_datas.sku.sales){%>
+                        		<%=_datas.sku.sales%>
+                        	<%}else{%>
+                        		0
+                        	<%}%>
+							人付款
+						</span></p>
+                    </div>
+                </a>
+			</li>
+        </ul>
+    </div>
+    <div class="tit-hd">
+        <h5><span class="color-gray9">为您找到以下相似商品</span></h5>
+    </div>
+    <div class="list m-top30">
+    	<%if(_datas.similarityGoods && _datas.similarityGoods.length>0){%>
+        <ul class="bg-white">
+        	<%for(var i=0;i<_datas.similarityGoods.length;i++){%>
+            	<li>
+                	 <%if(_datas.similarityGoods[i].cowrieStatus=="pass"){%>
+						<a href="#goods/details?goodsId=<%=_datas.similarityGoods[i].goodsId%>&shopId=1">
+					<%}else{%>
+                		<a href="#goods/details?goodsId=<%=_datas.similarityGoods[i].goodsId%>">
+					<%}%>
+                    	<div class="pic">
+                        	 <!--<div class="failure"></div>-->
+                        	<i class="iconfont">&#xe63d;</i>
+                        	<img src="<%=Config.imgPre+_datas.similarityGoods[i].image%>"/>
+                    	</div>
+                    	<div class="txt">
+                        	<h6 class="ellips color-gray6"><%=_datas.similarityGoods[i]._name%></h6>
+                        	<h5 class="m-top10 color-red">￥<%=_datas.similarityGoods[i].price%></h5>
+                        	<p class="m-top5 clearfix">
+                        	<%if(_datas.similarityGoods[i].consumeTips){%>
+                        		返现<span class="color-gray3">￥<%=_datas.similarityGoods[i].consumeTips%></span> 
+                        	<%}%>
+                        		<span class="kdl-right color-gray9">
+                        		<%if(_datas.similarityGoods[i].sales){%>
+                        			<%=_datas.similarityGoods[i].sales%>
+                        		<%}else{%>
+                        			0
+                        		<%}%>
+                        		人付款
+                        		</span>
+                        	</p>
+                    	</div>
+                	</a>
+            	</li>
+        	<%}%>
+            <!--<li>
+                <a href="javascript:;">
+                    <div class="pic">
+                        <div class="failure"></div>
+                        <i class="iconfont">&#xe63d;</i>
+                        <img src="http://img.kaidianlaa.com/upload/image/201507/8a6b0b25-a022-40b2-8c79-6060757fcc5c.jpg"/>
+                    </div>
+                    <div class="txt">
+                        <h6 class="ellips color-gray6">小米彩虹蛋糕小米彩虹蛋糕1234小米彩虹234蛋糕234小米彩234虹蛋糕小243米彩虹蛋糕</h6>
+                        <h5 class="m-top10 color-red">￥123</h5>
+                        <p class="m-top5 clearfix">返现<span class="color-gray3">￥123</span> <span class="kdl-right color-gray9">888人付款</span></p>
+                    </div>
+                </a>
+            </li>-->
+        </ul>
+        <%}else{%>
+        	<%=REND("include/empty",{icon:"&#xe678;",tip:"sorry，没有找到相似的宝贝哦~",price:"2",display:"block"})%>
+    	<%}%>
+    </div>
+    <!--<div class="tit-hd ">
+        <h5><span class="color-gray3">亲，已经到底啦~~</span></h5>
+    </div>-->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,85 @@
+<style type="text/css">
+	body{padding-bottom:1rem!important;}
+	.content>div.Info{ padding: .2rem; box-sizing: border-box; min-height:1rem; position: relative;}
+    .content>div.Info>i{ position: absolute; left: .2rem; top: .2rem; line-height: .6rem; font-size: .42rem; color: #999;}
+    .content>div.Info>p{ line-height: .3rem; box-sizing: border-box; font-size: .24rem; color: #666;}
+    .content>div.hd>div{width: 70%;  line-height: .5rem; position: relative;}
+	.Info>h6{margin:.1rem 0;}
+    .commodityList>ul>li{margin-bottom:.2rem;background-color: #fff;display: block; position: relative; padding:.2rem 1.2rem .2rem 1.5rem;box-sizing: border-box;}
+    .commodityList>ul>li>span{ position: absolute; width: 1rem;  display: block; top: .25rem; right: .2rem; text-align: right;}
+    .footers button{line-height: .68rem;height: .68rem;}
+    .commodityList>ul>li>div.pic{width:1.2rem;height:1.2rem; position:absolute; left:.15rem; top:.15rem;}
+    .commodityList>ul>li>div.pic>img{width:100%;height:100%;}
+    .btnBox{ padding:.2rem; box-sizing:border-box; display:none;}
+    .footersDiv{background-color:transparent !important;}
+    .footersDiv button{border-radius:0px;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">订单信息</span>
+</header>
+<!--内容-->
+<div class="content">
+   <div class="Info bg-white one2">
+        <p>订单编号：<%=_datas.data.orderSn %></p>
+        <h6 class="color-gray3">买家手机号：<%=_datas.data.username %></h6>
+        <%if(_datas.data.memo){%>
+	        <p>备注：<%=_datas.data.memo %></p>
+        <%}%>
+    </div>
+    <div class="commodityList m-top20">
+    	<%if(_datas.data.orderItemList){%>
+	    	<ul>
+	    		<%$.each(_datas.data.orderItemList,function(index,orderItem){%>
+	    			<li>
+	    				<div class="pic">
+		    				<img src="<%=Config.imgPre + orderItem.goodsImage %>"/>
+		    			</div>
+		    			<h5 class="color-gray3 ellips">
+		    				<%=orderItem.goodsName %>
+		    			</h5>
+		    			<p class="color-gray6 m-top10">
+		    				规格：<%=orderItem.skuValue %>
+		    			</p>
+		    			<span>
+		    				<p class="color-gray3 h5">￥<%=orderItem.goodsPrice %></p>
+		    				<p class="m-top5 color-gray6">x<%=orderItem.goodsQuantity%></p>
+		    			</span>
+		    		</li>
+	    		<%})%>
+	    	</ul>
+    	<%}%>
+    </div>
+    
+    <div class="btnBox">
+    	<%=REND("include/empty",{icon:"&#xe694;",tip:"交易成功",price:"1.2",display:"block",paddingbottom:"0.5"})%>
+    	<div class="btns">
+    		<button class="m-top20 color-gray3 btn-block btn-border-gray bg-white" url="" onclick="this.ctrl.toOrderDetail(this);" id="toOrderDetail">
+    			查看订单详情
+    		</button>
+		</div>  
+    </div>
+    
+    
+</div>
+<div class="footersDiv show bg-red page-fixed" style="display:none;">
+	<button class="btn-block" onclick="this.ctrl.exchangeOrder();">确认交易</button>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

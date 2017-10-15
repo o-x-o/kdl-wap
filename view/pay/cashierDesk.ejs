@@ -1,0 +1,43 @@
+<style type="text/css">
+    .content .hd{ height: .8rem; line-height: .8rem; padding: 0 .2rem; box-sizing: border-box; font-size: .28rem;}
+    .content ul>li{ height: 1.2rem; padding-left: 1.2rem; box-sizing: border-box; position: relative;}
+    .content ul>li>a{border-bottom: 1px solid #e5e5e5; display: block; padding: .2rem 0; box-sizing: border-box;height: 1.2rem;}
+    .content ul>li>a>span{ position: absolute; left: .2rem; top: .2rem; width:.8rem; height: .8rem; line-height: .8rem; text-align: center; color: #fff; border-radius: 50%;}
+    .more:after{ right: .2rem; border-left: .04rem solid #999; border-bottom: .04rem solid #999;}
+</style>
+<header class="navbar">
+    <div class="nav-wrap-left">
+        <a href="javascript:void(0);" class="color-white" onclick="this.ctrl.returnBtn();">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1">收银台</span>
+</header>
+<div class=" content">
+	<input type="hidden" id="sn" name="sn" value="" />
+	<input type="hidden" id="payAmount" name="payAmount" value="" />
+    <div class="hd m-top10 bg-white color-gray6">
+		实付金额
+        <span class="color-red kdl-right">
+        	<span id="payAmountTxt"></span>
+        	<cite class="color-gray9">元</cite>
+        </span>
+    </div>
+    <ul class="m-top10 bg-white" id="paymentPluginList">
+       
+    </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

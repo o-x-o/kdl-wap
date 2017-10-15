@@ -1,0 +1,96 @@
+	<style type="text/css">
+		.navbar .nav-header{ color: #333;}
+		.content{padding-bottom:.9rem; padding-top:1.7rem!important;}
+		.content .unit{background-color: #fff;padding:.2rem .2rem 0 .2rem; overflow:hidden;}
+		.content .unit .icon{width:1rem; color: #666;}
+		.content .unit .detail{width:4.7rem;padding-bottom:.2rem;border-bottom:1px solid #ccc; margin-left:.3rem;}
+		.content .unit:nth-last-of-type(1) .detail{border-bottom:0px;}
+		.content .unit .icon img{width:.8rem;height:.8rem;border-radius:50%;margin:.05rem .2rem .1rem 0;}
+		.content .unit h5 .title{margin:.05rem 0 .15rem; word-break: break-all;}
+		.content .unit .color-graya>.kdl-right{ margin-top: -.1rem;}
+		.content .unit .text{margin:.2rem 0 .1rem;line-height: .3rem;color: #666;}
+		.content .unit .banner img{margin-top:.2rem;width:100%;border-radius:5px;}
+		.content .unit .pic{width:1.5rem;height:1.5rem;float:left;margin:0 .05rem .05rem 0;border-radius:5px;background-position:center center;background-size: cover;}
+		.content .unit .pic:nth-of-type(3),
+		.content .unit .pic:nth-of-type(6),
+		.content .unit .pic:nth-of-type(9){margin-right:0;}
+		.navbar .h1.nav-header img{width:2rem;}
+		.con-hd{ height:.7rem; line-height:.7rem; z-index:99; position:fixed;max-width: 640px;min-width: 320px; width: 100%;top: .9rem;}
+		.con-hd>a{display:block; background:#fff;padding:0 .15rem; box-sizing:border-box; border-bottom: 1px solid #e5e5e5;}
+		.con-hd>ol{background-color:#fff; overflow:scroll; display:none; position:absolute; width:100%; left:0; top:.8rem; }
+		.con-hd>ol>li{height:.8rem; line-height:.8rem; width:100%; border-bottom:1px solid #e5e5e5;padding:0 .15rem; box-sizing:border-box;}
+		.con-hd>ol>li>a{display:block;}
+		.con-hd>ol>li>a>i{color:#fff;}
+		.con-hd>a>i{vertical-align: middle;}
+	</style>
+	<header class="navbar navbar2">
+	    <div class="nav-wrap-left">
+	        <a href="javascript:history.go(-1);" class="color-gray3">
+	            <i class="iconfont">&#xe60b;</i>
+	            <s></s>
+	        </a>
+	    </div>
+	    <span class="nav-header h1"><img src="img/cityInfo.jpg"/></span>
+	</header>
+	
+	<input type="hidden" id="areaId" name="areaId" value="-1" />
+	
+	<!--内容-->
+	<div class="theme-popover-mask"></div>
+	<div class="con-hd">
+			<a href="javascript:;" class="color-gray3 h6"><span>附近</span><i class="iconfont color-gray6">&#xe633;</i></a>
+			<ol id="areaLi">
+				<li>
+					<a href="javascript:;" onclick="this.ctrl.selectArea(this,false);" areaId="-1" class="color-red"><span>附近</span><i class="iconfont color-red kdl-right">&#xe653;</i></a>
+				</li>
+				<li>
+					<a href="javascript:;" id="searchArea" onclick="this.ctrl.selectArea(this,false);" areaId="0"><span>全城</span><i class="iconfont kdl-right">&#xe653;</i>  </a>
+				</li>
+			</ol>
+		</div>
+	<div class="content">
+		
+		<div id="contentDiv">
+			
+		</div>
+		<!--
+		<div class="unit clearfix">
+			<div class="icon kdl-left">
+				<img src="http://img.kaidianlaa.com//upload/image/201608/29/6d69a070-c763-4d11-bf19-d094315e43a7.png"/>
+				<p>kfc旗舰店分店</p>
+			</div>
+			<div class="detail kdl-left">
+				<h5 class="clearfix">
+					<div>
+						<div class="title">天苍苍野茫茫</div>
+						<p class="color-graya">08-30 17:30:22<span class="kdl-right"><i class="iconfont color-orange">&#xe616;</i>16km</span></p>
+					</div>
+				</h5>
+				<p class="text">评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论</p>
+				<div class="pic" style="background-image:url(http://img.kaidianlaa.com/upload/image/common/xiangganggangyi.jpg)"></div>
+				<div class="pic" style="background-image:url(http://img.kaidianlaa.com/upload/image/common/xiangganggangyi.jpg)"></div>
+				<div class="pic" style="background-image:url(http://img.kaidianlaa.com/upload/image/common/xiangganggangyi.jpg)"></div>
+				<div class="pic" style="background-image:url(http://img.kaidianlaa.com/upload/image/common/xiangganggangyi.jpg)"></div>
+			</div>
+		</div>
+		<div class="unit clearfix">
+			<div class="icon kdl-left">
+				<img src="http://img.kaidianlaa.com//upload/image/201608/29/6d69a070-c763-4d11-bf19-d094315e43a7.png"/>
+				<p>kfc旗舰店分店</p>
+			</div>
+			<div class="detail kdl-left">
+				<h5 class="clearfix">
+					<div>
+						<div class="title">天苍苍野茫茫</div>
+						<p class="color-graya">08-30 17:30:22<span class="kdl-right"><i class="iconfont color-orange">&#xe616;</i>16km</span></p>
+					</div>
+				</h5>
+				<div class="banner">
+					<img src="http://img.kaidianlaa.com/upload/image/common/xiangganggangyi.jpg"/>
+				</div>
+			</div>
+		</div>
+		-->
+	</div>
+	<%=REND("include/empty",{icon:"&#xe678;",tip:"sorry，暂无相关动态~",price:"1",display:"none",paddingbottom:"1"})%>
+

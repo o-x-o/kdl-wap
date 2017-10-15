@@ -1,0 +1,215 @@
+<style>
+.content{ padding-top:0!important; padding-bottom:.5rem;}
+.navbar3 .nav-wrap-right{ top:.2rem!important;}
+.arch{ padding:0 .6rem 0;box-sizing: border-box; background-color: transparent!important; display:none; margin-top:.2rem;}
+.arch>div{ position: relative;height: 1.1rem; background-repeat:no-repeat;background-size: contain; margin-top: .2rem;}
+.arch>div>span{ position: absolute; left: .7rem; top: .05rem; font-size: .5rem;}
+.arch>div>p{ position: absolute; left: .15rem; bottom: .15rem;}
+.arch>div.green{background-image: url("./img/20_coupon@2x.png");}
+.arch>div.golden{background-image: url("./img/coupon@2x.png");}
+.txt-center{position: absolute; right: 0; width: 3rem; top: .15rem; text-align: center;}
+.sou{position:relative; padding-bottom:.01rem;border-top: 1px solid #ddd;}
+#page-wrap { width: 5rem; margin:.2rem auto;}
+#well {
+	border-radius: .1rem;
+	background: #fff;
+	border: 1px solid #6fd49e;
+	overflow: hidden;
+	-webkit-user-select: none;
+}
+#well h2 {
+    background: -moz-linear-gradient(left, #999, 0.4, #999, 0.5, white, 0.6, #999, #999);
+    background: -webkit-gradient(linear,left top,right top,color-stop(0, #999),color-stop(0.4, #999),color-stop(0.5, white),color-stop(0.6, #999),color-stop(1, #999));
+    margin: 0;
+    -moz-background-clip: text;
+    -webkit-background-clip: text;
+    -moz-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: slidetounlock 5s infinite;
+    font-size: .3rem;
+    color: #999;
+    padding: 0;
+    -webkit-text-size-adjust: none;
+    height: .5rem;
+    text-align: center;
+    position:relative;
+}
+.sou #slider {
+	background: url("img/find_whoosh.png") no-repeat center center;
+	width: .8rem;
+	height: .5rem;
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 1;
+	background-size: contain;
+	position:absolute;
+	left:0;
+	background-color: #21b86c;
+	border-radius: 4px;
+}
+.sou #slider.share{
+	background-image:url('img/find_share.png');
+}
+.sou #slider+span{
+	line-height: .5rem;
+}
+@-webkit-keyframes slidetounlock {
+	0% {
+		background-position: -720px 0;
+	}
+	100%{
+		background-position: 720px 0;
+	}
+}
+.banner{position:relative;}
+.banner .infoTxt{ position:absolute; box-sizing:border-box; bottom:0;width:100%; padding:.15rem; color:#fff; height:1.1rem; background:rgba(0, 0, 0, 0.3)!important;filter:Alpha(opacity=30);}
+.banner .infoTxt a{ position:absolute; right: .15rem; bottom: .15rem;}
+.infoCon{padding:.15rem;box-sizing:border-box;}
+/*轮播*/
+.banner .carousel{ position: relative; height: 100%;}
+.banner #slider{width:100%;position: relative;}
+.banner #slider .swipe-wrap{position: relative; overflow: hidden; display:block; width:8000px; float:left;}
+.banner #slider .swipe-wrap .wrap{float: left; position: relative;}
+.banner #slider img{width: 100%; height: auto; min-width:320px;max-width:640px;}
+.banner #slider .swipe-wrap div{float:left;}
+.banner #slider .swipe-wrap div a{display:block;width:6.4rem;height:4.6rem;background-position:center center;background-size:cover;}
+.banner #slider .swipe-wrap div a img{display:none !important;}
+.banner #circle{position: absolute; height:.15rem; left:50%; z-index: 8; bottom:.25rem;margin-left:-.34rem; display:none;}
+.banner #circle li{ cursor: pointer; display:none; width:.18rem;height: .18rem; float:left; border-radius:50%; margin:0 8px; background-color:#fff; }
+.banner #circle li.current{background-color:#cc0000;}
+
+.infoText{margin-top:.2rem; padding:.15rem; box-sizing:border-box;}
+.infoText>p{line-height:.35rem; margin-top:.05rem; color:#999;}
+.numberBox{padding:.15rem; box-sizing:border-box; text-align:center;}
+.numberBox>input{width:60%; margin:0 auto; border:1px solid #e8e8e8; padding:.1rem .15rem; font-size:.24rem;text-align:center; }
+.numberBox>button{ width:90%; border-radius:3px; height:.7rem; line-height:.7rem; border:0; background-color:#21b76d;color:#fff;}
+/*下载App提示*/
+.RegisterNow{border-bottom: 1px solid #e5e5e5; position: fixed; width: 100%; min-width: 320px; max-width: 640px;top: 0; z-index: 20; height: .8rem; line-height: .8rem; background-color: #e7f4fd; color: #333; padding: 0 .2rem; box-sizing: border-box;}
+.RegisterNow>a{ border: 1px solid #e5e5e5; display: inline-block; background-color: transparent; border-radius: 3px; color: #cc3333;height:.5rem; line-height:.5rem; text-align:center; width:1.2rem; margin-top: .12rem; margin-right:.1rem;}
+.RegisterNow>a.red{width:.8rem;margin-right:.1rem;background-color:#df494a;color:#fff;border-radius: 4px;}
+.RegisterNow>span{ width: .5rem; height: .6rem; display: inline-block;}
+.RegisterNow>span>img{ width: 100%;}
+.RegisterNow>i{ font-size: .42rem;vertical-align: middle; color: #0884ff; display: inline-block;}
+</style>
+
+<!--下载App提示-->
+<div class="RegisterNow">
+    <i class="iconfont">&#xe652;</i>
+    <span><img src="./img/promotion_money_logo@2x.png"/></span>
+    开店啦，服务你身边
+    <a class="kdl-right" href="#ucenter/guidanceDownload">立即下载</a>
+</div>
+
+<header class="navbar  navbar3" >
+    <div class="nav-wrap-right">
+        <a href="javascript:;">
+            <span class="nav-btn">
+                <i class="iconfont icon-info">&#xe636; </i>
+            </span>
+            <s></s>
+        </a>
+    </div>
+    <div class="nav-dropdown">
+        <span class="triangle-up"></span>
+        <ul>
+            <li>
+                <a class="react" href="/">
+                    <i class="iconfont">&#xe602;</i>
+                    <space></space>首页
+                </a>
+            </li>
+        </ul>
+    </div>
+</header>
+<div class="content">
+	<section class="banner clearfix">
+        <div id="slider" class="clearfix" >
+            <div class="swipe-wrap" >
+            	<%if(_datas.shopImages != null && _datas.shopImages.length > 0){%>
+            		<%for(var i = 0;i < _datas.shopImages.length; i++){%>
+            			<div class="wrap" >
+		                    <a href="javascript:;" style="background-image:url('<%=Config.imgPre + _datas.shopImages[i].src%>');">
+		                    	<img src="<%=Config.imgPre + _datas.shopImages[i].src%>"/>
+		                    </a>
+		                </div>
+            		<%}%>
+            	<%}%>
+                <!--
+                <div class="wrap" >
+                    <a href="javascript:;">
+                        <img src="http://img.kaidianlaa.com//upload/image/201607/07/0fb5e639-a24e-4b9c-ad3f-e1f93fa2d912.jpg" width="100%"/>
+                    </a>
+                </div>
+                -->
+            </div>
+            <ul id="circle">
+                <li class="current"></li>
+	            <li class=""></li>
+            </ul>
+        </div>
+        <div class="infoTxt">
+	 			<h4 class="color-white ellips shareShopName"><%=_datas.shopName%></h4>
+	 			<h6 class="color-white ellips"><%=(_datas.cateName?_datas.cateName:"")%></h6>
+	 			<a class="color-white" href="#shop/shops?shopId=<%=_datas.shopId%>">进店逛逛></a>
+	 		</div>
+    </section>
+ 	
+    <div class="list">
+	    <ul>
+	    	<li shopId="<%=_datas.shopId%>">
+				<div class="infoCon bg-white">
+					<h6 class="color-gray6">咨询电话：<a href="tel:<%=_datas.shopPhone%>"><%=_datas.shopPhone%><i class="iconfont color-orange"></i></a></h6>
+					<h6 class="ellips2 color-gray6">店铺地址：<%=_datas.shopAddress%></h6>
+				</div>
+				<div class="numberBox" style="display:none">
+					<input type="tel" placeholder="请输入手机号" maxlength="11"/>
+					<button class="m-top20" type="button" onclick="this.ctrl.getCard(this)">输入手机号后领取嗖券</button>
+				</div>
+				
+				<div class="sou bg-white">
+					<div id="page-wrap">
+						<div id="well">
+							<h2><strong id="slider"></strong><span class="color-gray9">嗖出惊喜</span></h2>
+		    			</div>
+		    		</div>
+				</div>
+				<input type="hidden" name="secret" value="<%=_datas.secret%>" />
+				<input type="hidden" name="key" value="<%=_datas.key%>" />
+				<%var hasRandomCardList = _datas.randomCardList != null && _datas.randomCardList.length > 0%>
+			    <%if(hasRandomCardList){%>
+			    	<%for(var i = 0;i < _datas.randomCardList.length;i++){%>
+				    	<div class="arch" style="display: block;">
+							<div class="green m-top10">
+								<span class="color-white"><%=_datas.randomCardList[i].money%></span>
+								<p class="color-white" style="left: 0.42rem;">(仅本店使用)</p>
+								<div class="txt-center">
+									<h2 class="color-white">满<%=_datas.randomCardList[i].minPrice%>元可用</h2>
+									<h6 class="color-white p"><%=$.Date(_datas.randomCardList[i].expireTime).format('yyyy-MM-dd hh:mm')%>前有效</h6>
+								</div>
+							</div>
+						</div>
+			    	<%}%>
+			    <%}%>
+			</li> 
+	    </ul>
+    </div>
+    <!--
+    <div class="arch" style="display: block;">
+		<div class="green m-top10">
+			<span class="color-white">50</span>
+			<p class="color-white" style="left: 0.42rem;">(仅本店使用)</p>
+			<div class="txt-center">
+				<h2 class="color-white">满60元可用</h2>
+				<h6 class="color-white p">2016-09-09&nbsp;19:00前有效</h6>
+			</div>
+		</div>
+	</div>
+	-->
+	<div style="padding:.5rem 0; text-align:center; color:#999;<%=hasRandomCardList?'display:none':''%>" class="cardInfo">
+		滑动滑块抢嗖券 进店消费可抵现
+	</div>	
+	<div class="infoText" style="<%=hasRandomCardList?'':'display:none'%>">
+		<p>1、查看您所获得的嗖券，请到开店啦：我的→卡券包→嗖券</p>
+		<p>2、同一手机号在同一店铺最多可获取两张嗖券</p>
+	</div>
+</div>

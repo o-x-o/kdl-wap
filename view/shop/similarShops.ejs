@@ -1,0 +1,30 @@
+<% $.each(list,function(i,o){ %>
+	<%if(o.shopId == ownShopId){ %>
+		
+	<%}else{%>
+		<li>
+	        <a href="#shop/shops?shopId=<%=o.shopId%>(-!-)">
+	            <span>
+	                <img src="<%=Config.imgPre + o.shopImage%>"/>
+	            </span>
+	            <div class="txt">
+	                <h5><%=o._name%></h5>
+	                <div class="clearfix m-top5">
+	                    <div class="starbg kdl-left" style="width:1.1rem;">
+	                        <img src="<%=Config.imgPre + o.shopRankIcon%>" />
+	                    </div>
+	                </div>
+	                <div class="clearfix m-top10 color-gray9">
+	                    <span class="kdl-left"><%=o.industryName %></span>
+	                    <span class="kdl-right">
+	                    	<i class="iconfont color-orange">
+	                    		&#xe616;
+	                    	</i>
+	                    	<%=o._distance%>m
+	                    </span>
+	                </div>
+	            </div>
+	        </a>
+	    </li>
+	<%}%>
+<%});%>

@@ -1,0 +1,133 @@
+<style type="text/css">
+	.content{padding-bottom:.9rem; padding-top:1.85rem;}
+	.con-hd{padding:.15rem; box-sizing:border-box; padding-right:.8rem; border-box:box-sizing;
+		position: fixed;top: .9rem;z-index: 9; width: 100%; min-width:320px; max-width:640px; background-color: #f0f0f0;}
+	.con-list>ul>li{ border-bottom:1px solid #ddd; position:relative; padding:.15rem; padding-right:1.5rem; padding-left:1.85rem; box-sizing:border-box;}
+	.con-list>ul>li .pic{width:1.5rem; height:1.42rem; position:absolute;left:.15rem; top:.15rem;}
+	.con-list>ul>li>i{z-index:8;  position:absolute; left:.25rem; top:.25rem; display:inline-block;display:none; border-radius:50%; overflow:hidden; font-size:.42rem; z-index:8; cursor:pointer; color:#ddd;}
+	.con-list>ul>li .pic>img{width:100%; height:100%;}
+	.con-list>ul>li .txt{min-height:1.5rem;}
+	.con-list>ul>li>span{position:absolute; right:.15rem; top:.8rem; padding:.05rem .1rem; }
+	.con-list>ul>li>span.blue{color:#2BC6BA; border:1px solid #2BC6BA; border-radius:3px;}
+	.con-list>ul>li>span.gray{color:#999; border:1px solid #ddd; border-radius:3px;}
+	.footer{z-index:11; padding-left:.15rem; box-sizing:border-box; border-top:1px solid #ddd;height:.9rem; line-height:.9rem;}
+	.footer>span{width:2rem; text-align:center;display:inline-block; font-size:.32rem; position:absolute; right:0;}
+	.footers{z-index:11;height:.9rem; line-height:.9rem; font-size:.32rem; text-align:center;}
+	.popup{width:5rem; z-index:999; height:3.6rem; position:fixed; left:50%; margin-left:-2.5rem; top:50%; margin-top:-1.8rem; display:none; background:#fff; border-radius:5px; padding:.1rem; box-sizing:border-box;}
+	.popup ul li{border-bottom:1px solid #ddd; position:relative; padding:.2rem 0;}
+	.popup ul li a{ position:relative; display:block; padding-left:1rem;}
+	.popup ul li a>i{position:absolute; left:.2rem; top:.1rem; font-size:.5rem;}
+	.popup ul li:last-child{border-bottom:0;}
+	.con-hd p{text-align:right;}
+	.con-hd p cite{ width: .5rem; display: inline-block; text-align: center;}
+	.con-hd span{position:absolute; left:.15rem; top :.3rem;}
+	.theme-popover-mask{z-index:12;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="#business/merchant" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">同城商讯</span>
+    <div class="nav-wrap-right">
+        <a href="javascript:;" class=" color-gray3" id="editBtn">编辑</a>
+        <a href="#cityNews/explain" class=" color-gray3">
+            <span class="nav-btn">
+                <i class="iconfont icon-info">&#xe640;</i>
+            </span>
+        </a>
+    </div>
+</header>
+
+<div class="theme-popover-mask"></div>
+<div class="popup">
+	<ul>
+		<li>
+			<a href="javascript:void(0);" onclick="this.ctrl.addSaleActivity();">
+				<i class="iconfont" style="color:#01BAAC;">&#xe696;</i>
+				<h5>添加本店活动</h5>
+				<p class="color-gray6">商品促销，限时抢购，新品上市</p>
+			</a>
+		</li>
+		<li>
+			<a href="#cityNews/addNewActivity">
+				<i class="iconfont" style="color:#CD3636;">&#xe697;</i>
+				<h5>添加本店讯息</h5>
+				<p class="color-gray6">折扣信息，店内公告，开业信息</p>
+			</a>
+		</li>
+		<li>
+			<a href="#cityNews/addHelisActivity">
+				<i class="iconfont" style="color:#FF9934;">&#xe65c;</i>
+				<h5>添加已有活动</h5>
+				<p class="color-gray6">转发有礼</p>
+			</a>
+		</li>
+	</ul>
+</div>
+<input type="hidden" id="curMonthPushCount" value="<%=_datas.curMonthPushCount%>" />
+<input type="hidden" id="leftFreePushCount" value="<%=_datas.leftFreePushCount%>" />
+<input type="hidden" id="leftBuyPushCount" value="<%=_datas.leftBuyPushCount%>" />
+<input type="hidden" id="curDayPushCount" value="<%=_datas.curDayPushCount%>" />
+<input type="hidden" id="curMonPushMaxCount" value="<%=_datas.curMonPushMaxCount%>" />
+<input type="hidden" id="curDayPushMaxCount" value="<%=_datas.curDayPushMaxCount%>" />
+<input type="hidden" id="freeCount" value="<%=_datas.freeCount%>" />
+<!--内容-->
+<div class="content">
+	<div class="con-hd">
+		<span class="color-gray6">免费次数：<cite class="color-red" id="leftFreePushCountCite"><%=_datas.leftFreePushCount%></cite>次</span>
+		<p class="color-gray6">本月还可发布：<cite class="color-red" id="ablePushCountCite"><%=_datas.curMonPushMaxCount-_datas.curMonthPushCount%></cite>次</p>
+		<p class="color-gray6">购买次数剩余：<cite class="color-red" id="leftBuyPushCountCite"><%=_datas.leftBuyPushCount%></cite>次</p>
+	</div>
+	<div class="con-list bg-white">
+		<ul>
+			<!--<li>
+				<div class="pic">
+					<i class="iconfont">&#xe63d</i>
+					<img src="http://img.kaidianlaa.com//upload/image/201607/09/96662733-e5d0-4df6-ba83-3289d2860de9.jpg"/>
+				</div>
+				<div class="txt">ds
+					<h5 class="ellips">2016年春季春款最新款韩版夹右新衣服</h5>
+					<p class="ellips1 m-top05 color-gray6">热销爆款，时尚大气好看</p>
+					<p class="color-gray9">2016-08-29</p>
+				</div>
+				<span class="color-red">已推送</span>
+			</li>
+			<li>
+				<div class="pic">
+					<i class="iconfont">&#xe63d</i>
+					<img src="http://img.kaidianlaa.com//upload/image/201607/09/96662733-e5d0-4df6-ba83-3289d2860de9.jpg"/>
+				</div>
+				<div class="txt">
+					<h5 class="ellips">2016年春季春款最新款韩版夹右新衣服</h5>
+					<p class="ellips1 m-top05 color-gray6">热销爆款，时尚大气好看</p>
+					<p class="color-gray9">2016-08-29</p>
+				</div>
+				<span class="blue">开始推送</span>
+			</li>-->
+		</ul>
+	</div>
+</div>
+<div class="warn"></div>
+<div class="footer bg-white coversbottom">
+	已选中<cite class="color-red" id="choosedCount">0</cite>条
+	<span class="bg-red color-white" onclick="this.ctrl.deleteActivity()">删除</span> 
+</div>
+<div class="coversbottom bg-red color-white footers">
+	添加商讯
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

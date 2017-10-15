@@ -1,0 +1,60 @@
+<style type="text/css">
+    .navbar .nav-header{ color: #333;}
+    .content{position: relative; padding-bottom: 1rem;}
+    .content .con-hd{ padding: .3rem 0 .2rem; }
+    .content .con-hd>li{ float: left; width: 33%;}
+    .content .con-hd>li>a{ display: block; text-align: center;}
+    .content .con-hd>li>a>i{ width: .8rem; font-size: .42rem; height: .8rem; line-height: .8rem; display: inline-block; color: #fff; border-radius: 50%;}
+    .content .con-hd>li>a>p{ margin-top: .1rem;}
+    .choose{ height: .8rem; line-height: .8rem; padding: 0 .2rem; box-sizing: border-box; font-size: .28rem; color: #333; border-bottom: 1px solid #e5e5e5; border-top: 1px solid #e5e5e5;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1">商品管理</span>
+</header>
+<div class="content">
+    <ul class="con-hd bg-white clearfix">
+        <li>
+            <a href="javascript:;" onclick="GO('goods/details',{goodsId:<%=_param.goodsId%>,isExist:true,isMarketer:<%=_param.isMarketer%>,sellCount:<%=_param.sellCount%>})">
+                <i class="iconfont"style="background-color: #FF9934;">&#xe655;</i>
+                <p>预览</p>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;" id="goodsShelf">
+                <i class="iconfont" style="background-color: #F82D30;">&#xe656;</i>
+                <p><%=_param.isMarketer == "true"?"下架":"上架"%></p>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;" onclick="this.ctrl.deleteGoods()">
+                <i class="iconfont" style="background-color: #afcf00;">&#xe650;</i>
+                <p>取消代销</p>
+            </a>
+        </li>
+    </ul>
+    <div class="bg-white m-top10 choose">
+        <span>店长推荐</span>
+        <span class="kdl-right">
+			<label onselectstart="return false;"><input <%=(_param.isRecommend == "true"?"checked='checked'":"")%> type="checkbox" onclick="this.ctrl.switchRecommend(this)" class="ios-switch tinyswitch"/><span><span></span></span></label>
+		</span>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

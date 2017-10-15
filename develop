@@ -1,0 +1,133 @@
+ctrls自动检查
+
+只有DO方法调用或从不在pageContainer显示的ctrl 可以不用在ctrls配置 警告 但最好配置。
+避免ctrl名重复
+
+
+
+多container应该严格控制每个控制器只操作自己内部的元素，这样能保证一个隐藏的container不被破坏。
+但是目前不能保证，只能让sub_container瞬时使用，回去的时候就消失。
+即使这样，两个container同时存在的时候也是十分危险的。
+
+
+
+触底加载
+
+版本号控制
+
+应该用一个模拟刷新 让公共的DOM重新渲染 每次跳转重渲
+也能够在跳转的时候指定某些位置不刷新。
+
+搞一个rend方法 可渲染ejs可渲染Ctrl 与do不同的是：既无container也不append 返回渲染好的视图dom 可用于ejs包含 
+
+DO方法绑定请求接口比较需要，再刷新的时候不用指定请求地址，只改变请求参数，
+但DO方法指定父节点太挫了 需要一个灵活在页面位置的东西
+
+新的REND方法返回一个对象，这个对象可以获取参数重新渲染。
+<%var list=RENDER(ejs,request);%>
+<%=list.rend(params);%>
+不仅返回视图字符串，此对象作为一个DOM节点会被重复利用，即在js里可调用。
+list能拿到这段DOM
+list渲染生成的DOM会被记录在list里 list每次渲染会把在页面上存在的DOM覆盖并更换DOM记录。怎样查看DOM是否在页面上，查看":visible"。
+如果想要两段不同步的渲染。应该声明另一个变量，var list2=RENDER(ejs,request);
+或在Ctrl里配
+_render{
+	list:RENDER(ejs,request),
+}
+_template替代_render，_render为一个个可刷新RENDER。js里要做的就是list.rend(params);
+记得改zin.js里的_render _template
+其实没必要_render这个属性？_render是不是可以提供更简便的render声明方式。
+RENDER( {url:"include/shoplist.ejs"}, POST(url,param,callback) )
+其实可以让_render下面的render滞后渲染，减少性能浪费。
+普通的render在声明的时候会马上去请求一次模版。貌似没有必要。
+
+需要控制的是 一个render在瞬间触发相同的请求时，避免多次请求。
+
+RENDER
+
+不行啊 ejs始终是文本 不是DOM 不能直接记录啊
+
+
+自动化索引ctrls
+
+
+
+值与值的绑定 必是某的对象的属性与某个对象的属性。
+$.linkSet(dom1.value, dom2.innerHTML, post.param.id)嘻嘻
+
+Ctrl里的DATA请求的参数 应当拿出来。请求是一个对象，请求的参数是该请求的一个属性，可以与页面上的某些元素的值进行绑定 
+请求应该全拿出来
+（每一个请求可以是一个原型 请求触发时，产生示例）
+
+连续请求怎么做
+
+
+
+
+http://www.cnblogs.com/xcj26/p/5242758.html
+淘宝滑动验证码研究
+
+
+css文件的缓存，临时加载，撤销。
+js文件的缓存，不破坏window作用域，再执行。
+
+
+vars改成非全局变量，利用作用域， 只是渲染的页面 本Ctrl的js可以使用。
+***把vars写入作用域，不太可能很好地实现了，vars若是字符串，可以考虑，或者提供外部作用域的function, 比如preload ready， 
+不行！用eval给_load提供了作用域，只是暂时改变了方法的执行环境，但是这个方法还可能在其他地方被调用，那样就没有eval的执行环境了，这样会比较奇怪***
+
+
+
+
+不分项目的组件 共用化 js 共生
+
+
+
+
+自己写一个引用工具代替 LAB.js 吧 
+注意 
+	$("head")[0].innerHTML='<script src="xxxx"></script>'+$("head")[0].innerHTML;
+		无法加载js,但是head里已有的css会重新加载一遍。
+
+	$("head").html('<script src="xxxx"></script>'+$("head").html());
+		head里的js,css都会重新加载一遍，js也会重新执行一遍。新加的js和重新加载的js的dataType都是xhr，只有js的请求带jQuery的“_参数”。js被加载进内存里。
+
+	$("head").prepend('<script src="xxxx"></script>');
+		js被加载进内存里，dataType为xhr，带jQuery的“_参数”，会重复加载。
+		
+	$.getScript("xxxx");
+		js被加载进内存里，dataType为xhr，但请求的时候不会带jQuery的“_参数”，会重复加载。
+
+	var script=document.createElement("script");
+	script.src="ctrl/passport.js";
+	$("head").prepend(script);
+		dataType为xhr，带jQuery的“_参数”，会重复加载。js被加载进内存里。
+
+	var script=document.createElement("script");
+	$("head").prepend(script);
+	script.src="ctrl/passport.js";
+		dataType为script，会重复加载。
+
+	var script=document.createElement("script");
+	script.src="ctrl/passport.js";
+	$("head")[0].insertBefore(script, $("head").children()[0]);
+		dataType为script，会重复加载。
+所以
+	jQuery的prepend和html方法都会将其里面的内容检测一遍，不论是dom对象还是字符串文本，只要有路径的script都会用xhr来引用，并带_参数，防止cache。
+	但是最关键的，还要考虑哪个是异步，哪个可以是同步，on my dog。
+	在js里的真正的同步只有dataType为xhr的请求，这也就是jQuery的处理方式。
+	LAB.js有同步请求，并且dataType为script的方式吗？？？这是个解决不了的问题了？
+	如果这样最好的方式就是xhr，$("head").prepend('<script src="xxxx"></script>'); 还是同步。
+	
+	
+	
+	
+关联
+我  18:15:28
+关联写式
+我  18:15:40
+关联定义
+我  18:16:07
+他的值改变 对应的其他元素的变化
+我  18:16:45
+4-link

@@ -1,0 +1,267 @@
+<style type="text/css">
+    .starbg{ height: .5rem; line-height: .5rem; position: relative; width: 1.95rem; overflow: hidden;}
+    .starbg .bgone>i{ color: #999;}
+    .starbg .bgtwo{ position: absolute; left: 0; top: 0; width: 100%; display: block;}
+    .starbg .bgtwo>i{ color: #999;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+        </a>
+    </div>
+    <div class="box-search" style="margin-left: 1rem;">
+        <a href="#shop/searchInShop?shopId=<%=_datas.data.shop.id%>" class=" color-gray3">
+            <i class="iconfont icon-search">&#xe603;</i>
+            <span class="single-line">搜索店内商品/服务</span>
+        </a>
+    </div>
+    <div class="nav-wrap-right">
+        <a href="javascript:;" class=" color-gray3">
+            <span class="nav-btn">
+                <i class="iconfont icon-info">&#xe636; </i>
+            </span>
+        </a>
+    </div>
+    <div class="nav-dropdown">
+        <span class="triangle-up"></span>
+        <ul>
+            <li>
+                <a class="react" href="/">
+                    <i class="iconfont">&#xe602;</i>
+                    <space></space>首页
+                </a>
+            </li>
+            <li>
+                <a class="react" href="javascript:;">
+                    <i class="iconfont">&#xe601;</i>
+                    <space></space>消息
+                    <em class="information">8+<s class="triangle-up"></s></em>
+                </a>
+            </li>
+            <li>
+                <a class="react" href="javascript:;" shopId="<%=_datas.data.shop.id%>">
+                    <i class="iconfont">&#xe62f;</i>
+                    <space></space>客服
+                </a>
+            </li>
+        </ul>
+    </div>
+</header>
+<input type="hidden" id="shopId" value="<%=_datas.data.shop.id%>" />
+<input type="hidden" id="gaodeId" value="<%=_datas.data.shop.gaodeId%>" />
+<input type="hidden" id="industryCategoryId" value="<%=_datas.data.industryCategoryId%>" />
+<div class="content">
+    <div class="banner">
+    	<div class="pic">
+        	<img src="<%if(_datas.data.shop.background){%><%=Config.imgPre+ _datas.data.shop.background%><%}else{%>./img/shopkeeperShops-banner.jpg<%}%>"/>
+        </div>
+        <a href="javascript:;"  <%if(!_datas.isFavorite){%>class="collect"<%}else{%>class="collect active" <%}%>>
+            <i class="iconfont"></i>
+            <span>收藏</span>
+        </a>
+        <div class="ptos">
+            <img src="<%=Config.imgPre+_datas.data.shop.avatar%>"/>
+        </div>
+    </div>
+    <div class="hd">
+        <div class="clearfix">
+            <span class="kdl-left color-gray9" id="distance_<%=_datas.data.shop.id%>">距离0m</span>
+            <!--<span class="kdl-left color-gray9">距离25km</span>-->
+            <span class="kdl-right color-gray9">已有<span id="attentionPeoples"><%=_datas.data.attentionPeoples%></span>人收藏</span>
+        </div>
+        <div class="hd-tit m-top50">
+            <h3 class="color-gray6 share_title" title="<%=_datas.data.shop.shopName%>"><%=_datas.data.shop.shopName%></h3>
+            <div class="starbg" style="margin: 0 auto; width:1.1rem;">
+             <img src="<%=Config.imgPre + _datas.data.shop.shopRank.icon %>" />
+            </div>
+        </div>
+    </div>
+    <!--店铺特色-->
+    <%if(_datas.data.specialServers && _datas.data.specialServers.length > 0){%>
+	<div class="feature-list">
+	    <ul class="clearfix">
+		    <%for(var i=0;i<_datas.data.specialServers.length;i++){%>
+		    	<li><%=_datas.data.specialServers[i]%></li>
+		    <%}%>
+	    </ul>
+    </div>
+    <%}%>
+    <!--tab-->
+    <div class="navigation m-top10 bg-white">
+        <ul class="clearfix">
+            <li class="cur">
+                <a href="javascript:;">
+                    <span><%=_datas.data.allGoodsQuantity%></span>
+                    <p>全部商品</p>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <span><%=_datas.data.recommendGoodsQuantity%></span>
+                    <p>商家推荐</p>
+                </a>
+            </li>
+            <li> 
+                <a href="javascript:;">
+                    <span><%=_datas.data.countAboutShopActivity%></span>
+                    <p>店铺活动</p>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <span class="iconfont">&#xe610;</span>
+                    <p>商家介绍</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="list-box">
+        <div class="Merchandise-list m-top10 listid"><!--Merchandise-list    Merchandise-->
+            <div class="commodity-list bg-white m-top10 ">
+                <!--<a href="javascript:;" class="color-gray9"><i class="iconfont color-red">&#xe63c;</i>  点击获取优惠券</a>-->
+                <div class="hd">
+                    <ul class="clearfix" id="screen">
+                        <li class="cur">
+                            <a href="javascript:;">综合</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">销量</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">价格<cite>▾</cite></a>
+                        </li>
+                    </ul>
+                    <i class="iconfont" id="conList">&#xe68c;</i>
+                </div>
+            </div>
+            <ul class="list clearfix allGoodsUl">
+            </ul>
+             <%=REND("include/empty",{icon:"&#xe678;",tip:"sorry，该店铺还没有商品哦~",price:"1",display:"none",emptyId:"noAllGoods",paddingbottom:"1"})%>
+        </div>
+        <div class="Recommend m-top10">
+            <ul class="recommendGoodsUl">
+            </ul>
+            <%=REND("include/empty",{icon:"&#xe678;",tip:"sorry，该店铺暂无推荐的商品哦~",price:"1",display:"none",emptyId:"recommend",paddingbottom:"1"})%>
+        </div>
+        <div class="activity" style="padding:0;">
+            <ul>
+            </ul>
+            <%=REND("include/empty",{icon:"&#xe65c;",tip:"sorry,该店铺还没有活动哦~",price:"1",display:"none",emptyId:"",paddingbottom:"1"})%>
+        </div>
+        <div class="introduce clearfix">
+            <div class="hd m-top10">
+                <ul>
+                    <li class="ellips1">
+                    	<!--id="entryMap"-->
+                       <span>所在地</span><%=_datas.data.shop.shopAddress%><i id="entryMap" shopId="<%=_datas.data.shop.id%>" class="iconfont color-orange">&#xe616;</i>
+                    </li>
+                    <li>
+                        <span>营业时间</span><%if(_datas.data.shop.officeTime){%><%=_datas.data.shop.officeTime%><%}else{%>商家还没有设置营业时间<%}%>
+                    </li>
+                </ul>
+            </div>
+            <div class="bd m-top10 bg-white">
+                <div class="hd-tit">
+                    <span>电话</span><a href="tel:<%=_datas.data.shop.shopPhone%>"><%=_datas.data.shop.shopPhone%>  (<%=_datas.data.shop.shopContacts%>) <i class="iconfont color-orange">&#xe61b;</i></a>
+                </div>
+                <div class="pic m-top10">
+                    <section class="banner clearfix">
+                        <div id="slider" class="clearfix" >
+                            <div class="swipe-wrap" >
+                            	<%$.each(_datas.data.shop.imageSrcs,function(i,o){%>
+                                	<div class="wrap" >
+                                    	<a href="javascript:;">
+                                       	 <img src="<%=Config.imgPre+o.src%>"/>
+                                    	</a>
+                                	</div>
+                            	<%})%>
+                            </div>
+                            <ul id="circle">
+                                <%$.each(_datas.data.shop.imageSrcs,function(i,o){%>
+                                	<li <%if(i==0){%>class="current"<%}%>></li>
+                            	<%})%>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="evaluate bg-white m-top10">
+                <h4>商品评价（<%=_datas.data.evaluateQuantity%>）<!--<span class="kdl-right">好评率<em class="color-red">100%</em></span>--></h4>
+                <!--<div class="antistop bg-white">
+                    <ul class="clearfix">
+                        <li><span>服务态度好100</span></li>
+                        <li><span>上菜速度快100</span></li>
+                        <li><span>环境运行100</span></li>
+                        <li><span>服务态度好100</span></li>
+                        <li><span>上菜速度快100</span></li>
+                    </ul>
+                </div>-->
+                 <div class="evaluate-con">
+        	<%if(_datas.data.evaluateQuantity > 0){%>
+	            <div class="list">
+	                <h5>
+                	 	<em>
+		                   <img width="100%" style="height:100%;" src="
+		                    <%=Config.imgPre+_datas.data.evaluateIcon%> 
+		                    "/>
+            		   	</em>
+	                		<%=_datas.data.evaluateUsername%>
+	                    <div class="starbg kdl-right">
+	                        <span width=""></span>
+	                        <div class="bgone">
+	                            <i class="iconfont">&#xe642;</i>
+	                            <i class="iconfont">&#xe642;</i>
+	                            <i class="iconfont">&#xe642;</i>
+	                            <i class="iconfont">&#xe642;</i>
+	                            <i class="iconfont">&#xe642;</i>
+	                        </div>
+	                        <div class="bgtwo">
+	                        	<%if(_datas.data.evaluateScore==1){%>
+		                            <i class="iconfont color-orange">&#xe642;</i>
+	                        	<%}else if(_datas.data.evaluateScore==3){%>
+		                            <i class="iconfont color-orange">&#xe642;</i>
+		                            <i class="iconfont color-orange">&#xe642;</i>
+		                            <i class="iconfont color-orange">&#xe642;</i>
+	                        	<%}else if(_datas.data.evaluateScore==5){%>
+		                            <i class="iconfont color-orange">&#xe642;</i>
+		                            <i class="iconfont color-orange">&#xe642;</i>
+		                            <i class="iconfont color-orange">&#xe642;</i>
+		                            <i class="iconfont color-orange">&#xe642;</i>
+		                            <i class="iconfont color-orange">&#xe642;</i>
+	                        	<%}%>
+	                        </div>
+	                    </div>
+	                </h5>
+	                <p class="m-top20"><%=_datas.data.evaluateContent%></p>
+	                <div class="pic clearfix m-top20">
+		                <%if(_datas.data.evaluateImageSrcs!=null){%>
+		                	<%$.each(_datas.data.evaluateImageSrcs,function(index,image){%>
+			                    <span>
+			                    	<img src="<%=Config.imgPre+image%>"/>
+			                    </span>
+		                	<%})%>
+	                	<%}%>
+	                </div>
+	                <div class="list-info m-top30 color-gray9 clearfix">
+	                    <span class="kdl-left"><%=_datas.data.evaluateDate%></span>
+	                    <span class="kdl-right"><%=_datas.data.evaluateSkuValue%></span>
+	                </div>
+	            </div>
+	            <div style="text-align: center;">
+	                <button class="btn-border bgtransparent m-top30" type="button" id="allEvaluate" onclick="this.ctrl.toAllEvaluate('<%=_datas.data.shop.id%>');">查看全部评价</button>
+	            </div>
+	        <%}else{%>
+	        	目前商品还没有评价哦！
+	        <%}%>
+        </div>
+            </div>
+            <div class="Similar">
+                <h4>相似店铺</h4>
+                <ul>
+                </ul>
+                <%=REND("include/empty",{icon:"&#xe61c;",tip:"sorry,还没有相似店铺哦~",price:"1",emptyId:"Similar",display:"block"})%>
+        </div>
+    </div>
+</div>

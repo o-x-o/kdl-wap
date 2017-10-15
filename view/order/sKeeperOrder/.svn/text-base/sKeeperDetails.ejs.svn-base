@@ -1,0 +1,147 @@
+<link href="../../../css/base.css" rel="stylesheet"/>
+<style type="text/css">
+    body{ padding-bottom: 1rem!important;}
+    .more:after{ right: .2rem;}
+    /*交易状态*/
+    .content>div.hd{position: relative; background-color: #dd2726; font-size: .26rem; height: 1.8rem; line-height: 1.8rem; padding: 0 .5rem; box-sizing: border-box; color: #fff;}
+    .content>div.hd>i{ font-size: 1.5rem; float: right; color:#f0f0f0; opacity: 0.3;}
+    .content>div.Info{ padding: .2rem; box-sizing: border-box; min-height:1rem; position: relative;}
+    .content>div.Info>i{ position: absolute; left: .2rem; top: .2rem; line-height: .6rem; font-size: .42rem; color: #999;}
+    .content>div.Info>p{ line-height: .3rem; padding-left: .6rem; box-sizing: border-box; font-size: .24rem; color: #666;}
+    .content>div.hd>div{width: 70%;  line-height: .5rem; position: relative;}
+    .content>div.hd>div>h5{ color: #fff; padding-top: .4rem;}
+    .content>div.Logistics{ padding: .2rem; box-sizing: border-box; min-height:1rem; position: relative; border-bottom: 1px solid #e5e5e5;}
+    .content>div.Logistics>i{ position: absolute; left: .2rem; top: .2rem; line-height: .6rem; font-size: .42rem; color: #999;}
+    .content>div.Logistics>p{ line-height: .3rem; padding-left: .6rem; box-sizing: border-box; font-size: .24rem;}
+    /*商品*/
+    .con-list{ margin-bottom: .1rem; }
+    .con-list .hd{ height: .8rem; line-height: .4rem; padding: .2rem; box-sizing: border-box;}
+    .con-list .hd>a{ font-size: .26rem;}
+    .con-list .hd>a>span{ width: .4rem; height: .4rem; display: inline-block;}
+    .con-list .hd>a>span>img{ width: 100%;}
+    .con-list .bd>div{ padding: 0 .2rem; box-sizing: border-box; text-align: right; background-color: #fff; height: .8rem; line-height: .8rem;}
+    .con-list>ul>li{ padding: .2rem; min-height: 1.45rem; border-bottom: 1px solid #e5e5e5;}
+    .con-list>ul>li:last-child{ border-bottom: 0;}
+    .con-list>ul>li>a{ display: block; position: relative; padding:0 1.1rem 0 1.7rem; box-sizing: border-box; }
+    .con-list>ul>li>a>div.pic{ width: 1.5rem; border-radius: 3px; overflow: hidden; position: absolute;left: 0; top: 0;}
+    .con-list>ul>li>a>div.pic>img{width: 100%;}
+    .con-list>ul>li>a>div.jiage{ position: absolute; right: 0; top: 0; text-align: right;}
+    .con-list>ul>li>a>div.jiage>button{ margin-top: .05rem; padding:2px .3rem; border: 1px solid #e5e5e5; border-radius: 3px; color: #666;background-color: #fff;}
+   /*商品总价*/
+    .orderinfo{ position: relative;}
+    .orderinfo>div{ padding: .2rem; box-sizing: border-box;}
+    .orderinfo>div>p{ color: #666; line-height: .35rem;}
+    .orderinfo>div>h5{ margin-bottom: .1rem;}
+    .orderinfo>div>h5>i{ margin-right: .1rem;}
+    .orderinfo>button{position: absolute; right: .2rem; top: .2rem; border:1px solid #e5e5e5; border-radius: 3px; padding: 2px .3rem; color: #666; background-color: transparent;}
+    .content>div.Logistics{ padding: .2rem; box-sizing: border-box; min-height:1rem; position: relative; border-bottom: 1px solid #e5e5e5;}
+    .content>div.Logistics>i{ position: absolute; left: .2rem; top: .2rem; line-height: .6rem; font-size: .42rem; color: #999;}
+    .content>div.Logistics>p{ line-height: .3rem; padding-left: .6rem; box-sizing: border-box; font-size: .24rem;}
+    /*买家信息*/
+    .datils-info{ padding: .2rem; box-sizing: border-box; background-color: #fff; border-bottom: 1px solid #e5e5e5;}
+    .datils-info>p{ line-height: .4rem; font-size: .26rem; color: #666;}
+    .datils-info>div{ position: relative; padding-left: .8rem; box-sizing: border-box;}
+    .datils-info>div>span{ position: absolute; left:0rem; top: 0rem; width: .8rem; color: #666}
+    .datils-info>div>textarea{ border: 1px solid #e5e5e5; min-height: 1rem; border-radius: 3px; height: .6rem; padding: .1rem; line-height: .4rem; box-sizing: border-box; background-color: transparent; width: 100%;}
+    .footer{ text-align: center; height: .9rem; line-height: .9rem; font-size: .36rem; width: 100%; min-width: 320px; max-width: 640px; position: fixed; bottom: 0;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">订单详情</span>
+    <div class="nav-wrap-right">
+        <a href="javascript:;" class=" color-gray3">
+            <span class="nav-btn">
+                <i class="iconfont icon-info">&#xe601;</i>
+            </span>
+            <s></s>
+        </a>
+    </div>
+</header>
+<div class="content">
+    <div class="orderinfo bg-white">
+        <div>
+            <h5 class="color-gray6"><i class="iconfont color-gray9">&#xe674;</i><%=Config.message.orders.busStatus[_datas.data.status]%></h5>
+            <p>订单金额：<cite class="color-red h5">￥<%=_datas.data.goodsPrice.toFixed(2)%></cite></p>
+            <p>订单编号：<%=_datas.data.sn%></p>
+            <p>创建时间：<%=_datas.data.createDate%></p>
+        </div>
+    </div>
+    <div class="datils-info m-top10">
+        <p>买家昵称：<%=_datas.data.userNickName%></p>
+        <p>手机号：<%=_datas.data.mobilePhone%></p>
+       <div>
+           <span> 备注：</span>
+           <textarea style="font-size:.22rem;" placeholder="买家没有留言~" readonly="readonly"><%=_datas.data.memo%></textarea>
+       </div>
+    </div>
+    <div class="con-list">
+        <div class="hd bg-white" onclick="this.ctrl.toCallUser();">
+            <a href="javascript:;">
+                <span class="iconfont color-orange">
+                    &#xe601;
+                </span>
+                联系买家
+            </a>
+        </div>
+        <ul>
+	        <%if(_datas.data.type=="geOrd"){%>
+	        	<%$.each(_datas.data.orderItems,function(index,orderItem){%>
+		            <li onclick="this.ctrl.toProductDetails(<%=orderItem.goodsId%>,<%=orderItem.shopId%>,<%if(orderItem.specialtyContentId==null){%>null<%}else{%><%=orderItem.specialtyContentId%><%}%>)">
+		                <a href="javascript:void(0);">
+		                    <div class="pic">
+		                        <img src="<%=Config.imgPre+orderItem.thumbnail%>"/>
+		                    </div>
+		                    <div class="txt">
+		                        <h6 class="color-gray6 ellips1"><%=orderItem.name%></h6>
+		                         <p class="color-gray9"><%if(orderItem.skuValue==null){%><%}else{%><%=orderItem.skuValue%><%}%></p>
+		                    </div>
+		                    <div class="jiage">
+		                        <span class="color-gray3">￥<%=orderItem.price.toFixed(2)%></span>
+		                        <p class="color-gray6">x<%=orderItem.quantity%></p>
+		                    </div>
+		                </a>
+		            </li>
+	            <%})%>
+	         <%}else{%>
+	         	 <li onclick="this.ctrl.toProductDetails(<%=_datas.data.orderItems[0].goodsId%>,<%=_datas.data.orderItems[0].shopId%>,<%=_datas.data.orderItems[0].shopId%>,<%if(_datas.data.orderItems[0].specialtyContentId==null){%>null<%}else{%><%=_datas.data.orderItems[0].specialtyContentId%><%}%>)">
+	                <a href="javascript:void(0);">
+	                    <div class="pic">
+	                        <img src="<%=Config.imgPre+_datas.data.orderItems[0].thumbnail%>"/>
+	                    </div>
+	                    <div class="txt">
+	                        <h6 class="color-gray6 ellips1"><%=_datas.data.orderItems[0].name%></h6>
+	                        <p class="color-gray9"><%if(_datas.data.orderItems[0].skuValue==null){%><%}else{%><%=_datas.data.orderItems[0].skuValue%><%}%></p>
+	                    </div>
+	                    <div class="jiage">
+	                        <span class="color-gray3">￥<%=_datas.data.orderItems[0].price.toFixed(2)%></span>
+	                        <p class="color-gray6">x<%=_datas.data.quantity%></p>
+	                    </div>
+	                </a>
+	            </li>
+	         <%}%>
+        </ul>
+        <div class="bd">
+            <div>
+                共<%=_datas.data.quantity%>件商品 合计：<cite class="h5">￥<%=_datas.data.totalPrice.toFixed(2)%></cite><%if(_datas.data.type=="geOrd"){%>(运费:￥<%=_datas.data.freight.toFixed(2)%>)<%}%>
+            </div>
+        </div>
+    </div>
+ 	<%if(_datas.data.type=="geOrd"){%>
+ 		<%if(_datas.data.shippingMethod=="general" && (_datas.data.status=="hasShi" ||  _datas.data.status=="hasCom")){%>
+	    	<div class="Logistics more bg-white" onclick="this.ctrl.shipingInfoBtn('<%=_datas.data.trackingNo%>','<%=_datas.data.deliveryCorpCode%>');">
+	       		<i class="iconfont">&#xe661;</i>
+	        	<p>查看物流</p>
+	    	</div>
+	    <%}%>
+	    <div class="Info bg-white info2">
+	        <i class="iconfont">&#xe616;</i>
+	        <p><spana>收货人：<%=_datas.data.consignee%></spana><span class="kdl-right"><%=_datas.data.phone%></span></p>
+	        <p>收货地址：<%=_datas.data.address%></p>
+	    </div>
+	<%}%>
+</div>

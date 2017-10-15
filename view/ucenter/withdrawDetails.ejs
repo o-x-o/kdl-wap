@@ -1,0 +1,135 @@
+<style type="text/css">
+    .navbar .nav-header{ color: #333;}
+    .content .audit{ text-align: center; padding: .2rem 0;}
+    .content .audit i{ font-size: .36rem;}
+    .content .card-info>h6{ line-height: .66rem; padding: 0 .2rem; box-sizing: border-box;}
+    .content .card-info>ul>li{padding: 0 .2rem; box-sizing: border-box; height: .8rem; line-height: .8rem; padding-right: 0;}
+    .content .card-info>ul>li:last-child>a{border-bottom: 0;}
+    .content .card-info>ul>li>a{ display: block; border-bottom: 1px solid #e5e5e5; position: relative; padding-right: 4.5rem;}
+    .content .card-info>ul>li>a>span:last-child{ position: absolute;right: .2rem; top: 0;}
+    .content .card-info>ul>li>a>span:last-child{ color: #666;}
+    .content .card-info>ul>li>a>span{color: #333;}
+    .content .card-info>ul>li>a>span>em{ width: .4rem; width: .4rem;display: inline-block; margin-right: 5px;}
+    .content .card-info>ul>li>a>span>em>img{ width: 100%; height: 100%;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1">提现详情</span>
+    <div class="nav-wrap-right">
+        <a href="javascript:;" class=" color-gray3">
+            <span class="nav-btn">
+                <i class="iconfont icon-info">&#xe636; </i>
+            </span>
+            <s></s>
+        </a>
+    </div>
+    <div class="nav-dropdown">
+        <span class="triangle-up"></span>
+        <ul>
+            <li>
+                <a class="react" href="/">
+                    <i class="iconfont">&#xe602;</i>
+                    <space></space>首页
+                </a>
+            </li>
+            <li>
+                <a class="react" href="javascript:;">
+                    <i class="iconfont">&#xe601;</i>
+                    <space></space>消息
+                    <em class="information">8+<s class="triangle-up"></s></em>
+                </a>
+            </li>
+        </ul>
+    </div>
+</header>
+<div class=" content">
+    <div class="audit bg-white color-red">
+        <%if(_datas.cash.cashStatus=="pending"){%>
+	        <i class="iconfont" style="color:#09b40d;">&#xe679;</i>
+	        <span class="color-gray6 h5">您的申请已成功提交，正在审核中...</span>
+        <%}else if(_datas.cash.cashStatus=="pass"){%>
+	        <i class="iconfont" style="color:#09b40d;">&#xe68e;</i>
+	        <span class="color-gray6 h5">审核通过，银行处理中...</span>
+        <%}else if(_datas.cash.cashStatus=="noPass" || _datas.cash.cashStatus=="failure"){%>
+	        <i class="iconfont">&#xe64d;</i>
+	        <span class="color-gray6 h5">您的提现申请失败</span>
+	        <%if(_datas.cash.reason){%>
+	        	<p  class="color-red m-top10"><%=_datas.cash.reason%></p>
+	        <%}%>
+        <%}else if(_datas.cash.cashStatus=="complete"){%>
+	        <i class="iconfont" style="color:#09b40d;">&#xe63d;</i>
+	        <span class="color-gray6 h5">您已提现成功</span>
+        <%}%>
+    </div>
+    <div class="card-info m-top10">
+        <ul class="bg-white">
+            <li>
+                <a href="javascript:;">
+                    <span>交易类型</span>
+                    <span>提现</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <span>交易时间</span>
+                    <span><%=_datas.cash.createDate%></span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <span>提现金额</span>
+                    <span><%=_datas.cash.cashSums%>元</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <span>提现银行卡</span>
+                    <span class="color-gray6"><em><img src="<%=Config.imgPre+_datas.cash.bank.bankIcon%>"/></em><%=_datas.cash.bank.bankName%>（<%=_datas.cash.bankCard.code%>）</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <span>手续费</span>
+                    <span><%=_datas.cash.cashFee%></span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <span>交易状态</span>
+                    <span>
+                    <%if(_datas.cash.cashStatus=="pending"){%>
+                    待审核
+                    <%}else if(_datas.cash.cashStatus=="pass"){%>
+                    审核通过
+                    <%}else if(_datas.cash.cashStatus=="noPass"){%>
+                    审核未通过
+                    <%}else if(_datas.cash.cashStatus=="failure"){%>
+                    处理失败
+                    <%}else if(_datas.cash.cashStatus=="complete"){%>
+                    交易完成
+                    <%}%>
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

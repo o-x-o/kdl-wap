@@ -1,0 +1,62 @@
+<style type="text/css">
+    body{ padding-bottom: 0;}
+    .navbar2 .box-search input{ font-size: .24rem; text-indent: 1.1rem; width: 100%; height: .5rem; line-height: .5rem; border: 0; border-radius: 5px; background-color: #f0f0f0;}
+    .navbar2 .nav-wrap-right>a>span{ color: #999; width: .7rem;top: 0; background-color: #f0f0f0; height: .5rem; line-height: .5rem;border-radius: 3px;}
+    .navbar2 .box-search i{font-size: .26rem;}
+    .content>ul>li{ padding:0 .2rem; box-sizing: border-box;  float: left; margin-bottom: .2rem;}
+    .content>ul>li>a{display: block; border: 1px solid #999; border-radius: 5px; padding: .15rem .2rem; text-align: center; font-size: .26rem;}
+    .content>h5{ line-height: 1rem; padding-left: .2rem; box-sizing: border-box;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+        </a>
+    </div>
+    <div class="box-search" style="margin-left: 1rem;">
+        <a href="javascript:;" class=" color-gray3">
+            <i class="icon-search">商品 ▾</i>
+            <input class="single-line" type="text" placeholder="请输入商品名称"/>
+        </a>
+    </div>
+    <div class="nav-wrap-right">
+        <a href="javascript:;">
+            <span class="nav-btn iconfont">
+                &#xe603;
+            </span>
+        </a>
+    </div>
+</header>
+<div class=" content">
+    <h5>热门搜索</h5>
+    <ul>
+        <li>
+            <a href="javascript:;">洗车</a>
+        </li>
+        <li>
+            <a href="javascript:;">舞蹈培训</a>
+        </li>
+        <li>
+            <a href="javascript:;">武术培训</a>
+        </li>
+        <li>
+            <a href="javascript:;">英语培训</a>
+        </li>
+        <li>
+            <a href="javascript:;">79元洗车</a>
+        </li>
+    </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

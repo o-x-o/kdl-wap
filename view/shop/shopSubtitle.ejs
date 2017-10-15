@@ -1,0 +1,30 @@
+<style type="text/css">
+	.navbar .nav-header{ color: #333;}
+	.content{ padding-bottom: .5rem;}
+	.content .name{ position: relative;}
+	.content .name>input{    font-family: "微软雅黑"; color: #333;    font-size: .28rem; width: 100%; height:.8rem; line-height: .4rem; border: 0; padding: .2rem; box-sizing: border-box;background-color: #fff;}
+	.content .name>i{ position: absolute; right: .3rem; top: .15rem; font-size: .42rem;}
+	footer{display: none;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="#shop/shopSet?type=<%=_param.type%>" class="color-gray3">
+            取消
+        </a>
+    </div>
+    <span class="nav-header h1">副标题</span>
+    <div class="nav-wrap-right">
+        <a href="javascript:;" class=" color-red">
+            <span class="nav-btn" onclick="this.ctrl.updateSubtitle()">
+               保存
+            </span>
+            <s></s>
+        </a>
+    </div>
+</header>
+<div class="content">
+    <div class="name m-top10">
+	    <input id="pageShopSubtitle" type="text" value="<%=_param.shopSubtitle%>" maxlength="15" />
+	    <i class="iconfont color-gray9" onclick="this.ctrl.clearText()">&#xe64d;</i>
+    </div>
+</div>

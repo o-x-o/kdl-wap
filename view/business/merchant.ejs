@@ -1,0 +1,216 @@
+<style type="text/css">
+    .content {padding-top: 0; }
+    .navbar2{ background-image: none;}
+    .navbar .nav-wrap-right{ top: .2rem; right: .35rem;}
+    .banner>img{width: 100%; }
+    .nav-wrap-right>a>span.nav-btn>em { z-index: 5;  position: absolute;  right: -14px; top: 3px;font-size: .22rem; border-radius: .1rem; height: .23rem;display: block; line-height: .23rem; padding: 0 3px; }
+    .navbar3 .nav-wrap-left>a>s{ background-color: transparent;}
+    .content .con-hd{padding-top: .8rem; min-height: 2.8rem; padding-left: 1.8rem;  box-sizing: border-box; position: relative; background-image: url("img/woshishangjia_banner_01.jpg");background-repeat: no-repeat; background-size: cover;}
+    .content .con-hd>span{position: absolute; left: .2rem; bottom: .2rem; width: 1.2rem; height: 1.2rem; border-radius: 50%; display: inline-block;overflow: hidden; border: 3px solid #fff;}
+    .content .con-hd>span>img{ width: 100%; height: 100%;}
+    .content .con-hd .txt{ position: absolute; bottom: .5rem; color: #fff;text-shadow: #33332A 1px 1px 2px;}
+    .content .income .income-hd{ position: relative; display: block; padding:.1rem .2rem; box-sizing: border-box; border-bottom: 1px solid #e5e5e5;}
+    .content .income .income-hd>i{ position: absolute; right: .2rem; top: .4rem; display: block;}
+    .content .income>ul{ padding: .15rem 0; margin-left: -1px;}
+    .content .income>ul>li{ float: left; width: 33.33%; border-left: 1px solid #e5e5e5; box-sizing: border-box;}
+    .content .income>ul>li>a{ display: block; text-align: center;}
+    .content .income>ul>li>a>span{ color: #333;}
+    .action>ul{ margin-left: -3px;}
+    .action>ul>li{ float: left; width: 25%; padding-left: 3px;padding-top:3px; box-sizing: border-box;}
+    .action>ul>li>a{ display: block; text-align: center; padding: .2rem; box-sizing: border-box; background-color: #fff;}
+    .action>ul>li>a>i{ font-size: .42rem; color: #fff; width: .8rem; margin-bottom: .1rem; height: .8rem; display: inline-block; line-height: .8rem; text-align: center; border-radius: 50%; background-color: pink;}
+    .Certification{ margin-bottom: .13rem;}
+    .Certification>p{ height: .5rem; line-height: .5rem; background-color: #ff9933; padding-left: .2rem; box-sizing: border-box; color: #fff;}
+    .Certification>ul>li{ padding: .1rem .2rem; box-sizing: border-box; border-bottom: 1px solid #fff; background-color: #556284;}
+    .Certification>ul>li:last-child{ border-bottom: 0;}
+    .Certification>ul>li>a{display: block; position: relative; padding-right: 1rem; box-sizing: border-box; color: #fff;}
+    .Certification>ul>li>a>span{ position: absolute; right: 0; top: .2rem; display: inline-block; text-align: right;}
+</style>
+<header class="navbar navbar2 navbar3">
+    <div class="nav-wrap-left">
+        <a href="#ucenter/mine">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+</header>
+<div class="content">
+	<%var pageBusiness = _datas.business%>
+    <!--商家信息-->
+    <div class="con-hd">
+        <span>
+            <img src="<%=Config.imgPre + _datas.shopAvatar%>"/>
+        </span>
+        <div class="txt">
+            <h4 class="color-white"><%=_datas.shopName%></h4>
+            <h6 class="m-top10 color-white"><%=_datas.shopSubtitle%></h6>
+        </div>
+    </div>
+    <!--认证-->
+    <div class="Certification">
+    	<%if(_datas.businessStatus != "pass"){%>
+        	<p>完成营业执照和相关信息认证通过后，才能正式开张哦~</p>
+    	<%}%>	
+        <ul>
+	        <%if(_datas.businessStatus != "pass" || _datas.shopStatus != "pass"){%>
+		        <li>
+		            <a href="javascript:;">
+		                <h5 class="color-white">信息认证</h5>
+		                <p class="m-top5">让更多人看到你的店铺</p>
+		                <span class="color-red" onclick="GO('business/reviewProgress',{busStatus:'<%=_datas.businessStatus%>',busLicenseImg:'<%=_datas.busLicenseImg%>',busReason:'<%=_datas.busReason%>',shopStatus:'<%=_datas.shopStatus%>',shopReason:'<%=_datas.shopReason%>'})">查看进度<i class="iconfont color-white">&#xe608;</i></span>
+		            </a>
+		        </li>
+		    <%}%>
+        	<!--
+        	<%if(_datas.businessStatus != "pass"){%>
+	            <li>
+	                <a href="javascript:;">
+	                    <h5 class="color-white">营业执照认证</h5>
+	                    <p class="m-top5">让更多人看到你的店铺</p>
+	                    <%if(_datas.businessStatus == "pending"){%>
+	                    	<span class="color-red">认证中<i class="iconfont color-white">&#xe608;</i></span>
+                    	<%}else if(_datas.businessStatus == "nopass"){%>
+                    		<span class="color-red" onclick="GO('business/certificationDetails')">认证未通过<i class="iconfont color-white">&#xe608;</i></span>
+                    	<%}%>
+	                </a>
+	            </li>
+            <%}%>
+            <%if(_datas.shopStatus != "pass"){%>
+	            <li>
+		            <a href="#business/relevantInformation">
+		                <h5 class="color-white">店铺信息认证</h5>
+		                <p class="m-top5">完成相关信息认证才能发布商品</p>
+		                <span>立即认证<i class="iconfont color-white">&#xe608;</i></span>
+		            </a>
+		        </li>
+	        <%}%>
+	        -->
+        </ul>
+    </div>
+    <!--今日收入-->
+    <div class="income bg-white">
+        <a class="income-hd" href="#business/businessCashNew">
+            <p>可提现金额(元)</p>
+            <h1 class="m-top10 color-red"><%=_datas.businessPurse.toFixed(2)%></h1>
+            <i class="iconfont">&#xe608;</i>
+        </a>
+        <ul class="clearfix">
+            <li>
+                <a href="javascript:;">
+                    <span><%=_datas.todayAmount.toFixed(2)%></span>
+                    <p>今日成交额(元)</p>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <span><%=_datas.collectCount%></span>
+                    <p>店铺收藏量</p>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <span><%=_datas.browseCount%></span>
+                    <p>浏览量</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!--功能模块1-->
+    <div class="action m-top10">
+        <ul class="clearfix">
+           <li>
+               <a href="javascript:;">
+                   <!--<i class="iconfont" style="background-color: #d94f4f;">&#xe63e;</i>-->
+                   <i class="iconfont" style="background-color: #cccccc;">&#xe64b;</i>
+                   <p>官网中心</p>
+               </a>
+           </li>
+            <li>
+                <a href="<%=(_datas.shopStatus != 'pass'?'javascript:;':'#business/dataStatistics')%>">
+                    <!--<i class="iconfont" style="background-color: #3393d3;">&#xe649;</i>-->
+                    <i class="iconfont" style="background-color: #3393d3;">&#xe6a7;</i>
+                    <p>数据统计</p>
+                </a>
+            </li>
+            <li>
+                <a href="<%=(_datas.shopStatus != 'pass'?'javascript:;':'#order/busOrders')%>">
+                    <i class="iconfont" style="background-color: <%=(_datas.shopStatus != 'pass'?'#cccccc':'#f17c39')%>;">&#xe647;</i>
+                    <p>订单管理</p>
+                </a>
+            </li>
+            <li>
+                <a href="<%=(_datas.shopStatus != 'pass'?'javascript:;':'#business/offLineBill')%>">
+                	<!--<i class="iconfont" style="background-color: #e56969;">&#xe64b;</i>-->
+                	<!--<i class="iconfont" style="background-color: #cccccc;">&#xe64b;</i>-->
+                	<i class="iconfont" style="background-color: <%=(_datas.shopStatus != 'pass'?'#cccccc':'#e56969')%>;">&#xe66f;</i>
+                	<p>商家账单</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!--功能模块2-->
+    <div class="action m-top10">
+        <ul class="clearfix">
+            <li>
+               <a href="<%=(_datas.shopStatus != 'pass'?'javascript:;':'#shopPersonnel/personnelList')%>">
+                    <!--<i class="iconfont" style="background-color: #e95d68;">&#xe648;</i>-->
+                    <i class="iconfont" style="background-color: #e95d68;">&#xe6a8;</i>
+                    <p>员工管理</p>
+                </a>
+            </li>
+            <li>
+                <a href="<%=(_datas.shopStatus != 'pass'?'javascript:;':'#cityNews/cityNews')%>">
+                	<!--<i class="iconfont" style="background-color: #4bbcc2;">&#xe64a;</i>-->
+                	<i class="iconfont" style="background-color: <%=(_datas.shopStatus != 'pass'?'#cccccc':'#4bbcc2')%>;">&#xe69e;</i>
+                    <p>同城商讯</p>
+                </a>
+            </li>
+            <li>
+                <a href="<%=(_datas.shopStatus != 'pass'?'javascript:;':'#activity/pushAd')%>">
+                	<i class="iconfont" style="background-color: <%=(_datas.shopStatus != 'pass'?'#cccccc':'#f3b24c')%>;">&#xe69f;</i>
+                	<!--<i class="iconfont" style="background-color: #f3b24c;">&#xe644;</i>-->
+                    <p>广告推送</p>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <!--<i class="iconfont" style="background-color: #ad4ec9;">&#xe64c;</i>-->
+                    <i class="iconfont" style="background-color: #cccccc;">&#xe6a0</i>
+                    <p>联盟消费</p>
+                </a>
+            </li>
+            <li>
+                <a href="<%=(_datas.shopStatus != 'pass'?'javascript:;':'#business/materialLibrary')%>">
+                    <i class="iconfont" style="background-color: <%=(_datas.shopStatus != 'pass'?'#cccccc':'#de5d99')%>;">&#xe646;</i>
+                    <!--<i class="iconfont" style="background-color: #cccccc;">&#xe646;</i>-->
+                    <p>素材库</p>
+                </a>
+            </li>
+            <li>
+                <a href="<%=(_datas.shopStatus != 'pass'?'javascript:;':'#message/messageLists?userType=business')%>">
+                    <!-- <i class="iconfont" style="background-color: #f17c39;">&#xe601;</i> -->
+                    <i class="iconfont" style="background-color: <%=(_datas.shopStatus != 'pass'?'#cccccc':'#f17c39')%>;">&#xe601;</i>
+                    <p>我的消息</p>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <!--<i class="iconfont" style="background-color: #ee5858;">&#xe645;</i>-->
+                    <i class="iconfont" style="background-color: #cccccc;">&#xe645;</i>
+                    <p>视频中心</p>
+                </a>
+            </li>
+            <li>
+                <a href="#shop/shopSet?type=business">
+                    <i class="iconfont" style="background-color: #5fbecf;">&#xe643;</i>
+                    <p>设置</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!--商家轮播
+    <div class="banner m-top20">
+        <img src="http://img.kaidianlaa.com/upload/image/common/mine-shop2.jpg"/>
+    </div>
+    -->
+</div>

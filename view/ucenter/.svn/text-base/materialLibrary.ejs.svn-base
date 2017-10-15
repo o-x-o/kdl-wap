@@ -1,0 +1,94 @@
+
+<style type="text/css">
+    .navbar .nav-header{ color: #333;}
+    #edit{ font-size: .26rem; position: absolute;right: 1rem;top: .3rem;color: #666;}
+    .content .list>ul{ margin-left: -3px;}
+    .content .list>ul>li{ padding-left: 3px; box-sizing: border-box; padding-bottom: 3px; position: relative;}
+    .content .list>ul>li>img{ width: 100%;}
+    .content .list>ul{
+        -moz-column-count:2; /* Firefox */
+        -webkit-column-count:2; /* Safari and Chrome */
+        column-count:2;
+        -moz-column-gap:0px; /* Firefox */
+        -webkit-column-gap:0px; /* Safari 和 Chrome */
+        column-gap:0px;
+    }
+    .content .list>ul>li>i{ position: absolute; right: .1rem; bottom: .1rem; font-size: .42rem; color: #fff;}
+    div.footer{ position: fixed; bottom: 0; width: 100%; min-width: 320px;max-width: 640px; height: .8rem; line-height: .8rem; background-color: #fff;}
+    div.footer>ul>li:first-child{ width: 60%; float: left; padding-left: .2rem; box-sizing: border-box;}
+    div.footer>ul>li:last-child{ width: 40%; float: left; text-align: center;}
+    div.footer>ul>li>a{display: block; height: .8rem; line-height: .8rem;}
+    div.footer>ul>li>a>i{ vertical-align: middle; margin-right: 5px;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1">素材库</span>
+    <span id="edit" class="color-red">选择</span><!--选择和取消切换 ，并去掉class-->
+    <div class="nav-wrap-right">
+        <a href="javascript:;" class=" color-gray3">
+            <span class="nav-btn">
+                <i class="iconfont icon-info" style="font-size: .42rem; vertical-align: middle;">&#xe612;</i>
+            </span>
+            <s></s>
+        </a>
+    </div>
+</header>
+<div class=" content">
+    <div class="list">
+        <ul class="bg-white">
+			<li>
+                <img src="http://img.kaidianlaa.com/upload/image/201605/10/d2f46e92-6849-43de-82eb-758f7dd97b88.jpg"/>
+			</li>
+            <li>
+                <img src="https://gw.alicdn.com/i2/TB1mOyOMpXXXXbHaXXXXXXXXXXX_.jpg_320x320Q30s150.jpg"/>
+                <i class="iconfont color-red">&#xe63d;</i><!--点击图片，在li中添加i-->
+            </li>
+            <li>
+                <img src="https://gw.alicdn.com/i2/TB1mOyOMpXXXXbHaXXXXXXXXXXX_.jpg_320x320Q30s150.jpg"/>
+            </li>
+            <li>
+                <img src="https://gw.alicdn.com/i2/TB1mOyOMpXXXXbHaXXXXXXXXXXX_.jpg_320x320Q30s150.jpg"/>
+            </li>
+            <li>
+                <img src="http://img.kaidianlaa.com/upload/image/201605/10/d2f46e92-6849-43de-82eb-758f7dd97b88.jpg"/>
+            </li>
+            <li>
+                <img src="https://gw.alicdn.com/i2/TB1mOyOMpXXXXbHaXXXXXXXXXXX_.jpg_320x320Q30s150.jpg"/>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="footer">
+    <ul class="clearfix">
+        <li>
+            <a href="javascript:;" class="color-gray9">
+                <i class="iconfont">&#xe64f;</i>全部
+            </a>
+            <!--<a href="javascript:;" class="color-red">
+                <i class="iconfont">&#xe63d;</i>全部
+            </a>-->
+        </li>
+        <li>
+            <a href="javascript:;" class="bg-red color-white" >
+                删除
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

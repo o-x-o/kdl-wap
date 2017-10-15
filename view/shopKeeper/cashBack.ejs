@@ -1,0 +1,222 @@
+<style type="text/css">
+    body{height: 100%;    overflow-x: initial;}
+    .nav-wrap-right a{ width: .8rem;}
+    .navbar .box-search{ margin-right: 1.3rem;}
+    .content{position: relative; padding-bottom: 1rem; padding-top: 1.7rem;}
+    .hd{height:.8rem;    z-index: 10; line-height:.5rem; padding:.15rem 0; box-sizing: border-box; top: .9rem; border-bottom: 1px solid #e5e5e5;}
+    .hd>ul{width:100%; float:left;}
+    .hd>ul>li{width:33.33%;float:left;border-right:1px solid #e5e5e5; box-sizing: border-box;}
+    .hd>ul>li:last-child{border-right:0px;}
+    .hd>ul>li.cur>a{ color:#d1322f;}
+    .hd>ul>li>a{display:block; text-align:center;}
+    .hd>ul>li>a>em{ font-size: .15rem;vertical-align: middle; margin-left: 3px;}
+    .hd>i{width:15%; float:left; text-align:center; color: #666;}
+    .content>ul{background-color: #fff;}
+    .content>ul>li{ border-bottom: 1px solid #e5e5e5;}
+    .content>ul>li>a{ display: block; position: relative; padding: .1rem; padding-left: 2.3rem; box-sizing: border-box;}
+    .content>ul>li>a>div.pic{ position: absolute; left: .1rem; top: .1rem; width: 2.1rem; border-radius: 5px 5px 0 0; overflow: hidden;height: 2rem; background: url("./img/list-ptobg.jpg") no-repeat; background-size: contain;}
+    .content>ul>li>a>div.pic>img{ width: 100%;height:100%;}
+    .content>ul>li>a>div.pic>div.bt{ position: absolute; bottom: 0; width: 100%; height: .6rem; line-height: .6rem;}
+    .content>ul>li>a>div.pic>div.bt>div{ width: 100%; display: block; background-color: #000; opacity: 0.5; height: .6rem;}
+    .content>ul>li>a>div.pic>div.bt>p{ display: block; color: #fff;height: .6rem; text-align: center; position: absolute;top: .04rem;z-index: 2; width: 100%;}
+    .content>ul>li>a>div.txt{ height: 2.1rem; border-bottom: 1px solid #e5e5e5;}
+    .content>ul>li>a>div.txt h6{line-height: .35rem;color:#666 !important;font-weight: normal; height:.7rem;}
+    .content>ul>li>a>div.txt h5{margin-top: .1rem;}
+    .content>ul>li>a>div.txt h5 font{font-size: .34rem !important;}
+    .content>ul>li>a>div.txt .cashback{    
+    	border: 1px solid #cc3333;
+	    border-radius: 3px;
+	    font-size: .24rem;
+	    padding: .02rem .03rem;
+	    margin-left: .2rem;
+		top: -.05rem;
+    	position: relative;
+	}
+	.content>ul>li>a>div.txt>p{
+		margin-top: .07rem;
+	}
+    .content>ul>li>div.box{padding: .1rem .5rem; box-sizing: border-box;}
+    .content>ul>li>div.box>div>a{  width: 1.5rem; background-color: #aaa;}
+    /*双列*/
+    .content>ul.biserial{ padding-left: .1rem; box-sizing: border-box; background-color: transparent;}
+    .content>ul.biserial>li{ float: left; width: 50%; }
+    .content>ul.biserial>li>a{ padding-left: 0; padding-bottom: 0;}
+    .content>ul.biserial>li>a>div.pic{ width: 100%; position: relative; left: 0; top: 0; background: url("./img/list-ptosbg.jpg") no-repeat; background-size: contain; height: 2.9rem;}
+    .content>ul.biserial>li>a>div.txt{ height:auto; border-bottom: 0; background-color: #fff; padding: 0 .05rem; box-sizing: border-box; padding-bottom: .1rem;}
+    .content>ul.biserial>li>a>div.txt>h6{ padding-top: .1rem;}
+    .content>ul.biserial>li>div.box{ padding:0 .1rem; box-sizing: border-box; padding-left: 0;}
+    .content>ul.biserial>li>div.box>div{ background-color: #fff; padding: .1rem; box-sizing: border-box;}
+    .content>ul.biserial>li>div.box>div>a{ width: 1.1rem;}
+
+    /*筛选条件*/
+    .screen-box{position: absolute;top: 1.68rem; width: 100%; min-width: 320px; max-width: 640px; z-index: 8;}
+    .screen-box ul>li{ line-height: .8rem; padding: 0 .1rem; border-top: 1px solid #e5e5e5;}
+    .screen-box ul>li.cur a{ color: #df494b;}
+    .screen-box ul>li.cur a>i{ display: block;}
+    .screen-box ul>li>a{ display: block;}
+    .screen-box ul>li>a>i{ display: none;}
+    .screen-box>div{ position: relative; box-sizing: border-box; background-color: #fff; height: 100%;}
+    .screen-box>div>ul{ height: 100%;}
+    .screen-box>div>ul:first-child{width: 30%; float: left;  height: 100%; overflow-y: scroll;}
+    .screen-box>div>ul:first-child>li>a{text-align: center; display: block;}
+    .screen-box>div>ul>li.cur{ background-color: #f0f0f0;}
+    .screen-box>div>ul>li.cur>a{ color: #df494b;}
+    .screen-box>div>ul:last-child{ background-color: #f0f0f0; float: left; width: 70%;    height: 100%; overflow-y: scroll;}
+    .screen-box>div>ul:last-child>li{ border-left: 1px solid #e5e5e5; box-sizing: border-box;}
+    .screen-box>div>ul>li:last-child{ border-bottom: 1px solid #e5e5e5;}
+    .navbar .box-search input {
+	    font-size: .24rem;
+	    color: #999;
+	    padding-left: .6rem;
+	    box-sizing: border-box;
+	    width: 100%;
+	    display: block;
+	}
+    .nav-wrap-right a:last-child{
+		background-color: #f4f4f4;
+	    width: .8rem;
+	    height: .5rem;
+	    line-height: .5rem;
+	    margin-top: .2rem;
+	    color: #999 !important;
+    }
+    #hasMore{
+        text-align: center;
+	    display: block;
+	    line-height: .6rem;
+    }
+    .content>ul>li>a:last-child>div.txt{
+		border-bottom: 0px;
+    }
+</style>
+<header class="navbar navbar2" style="background-image: none;border-bottom:1px solid #ccc;">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+        </a>
+    </div>
+    <input class="single-line box-search" id="keyword" placeholder="请输入商品名称" style="margin-left: 1rem;border:0;text-indent:.2rem; font-size: .24rem;"/>
+    <div class="nav-wrap-right">
+    	<a href="javascript:;" onclick="this.ctrl.searchByKeyword()" class="color-gray3">
+            <i class="iconfont">&#xe603;</i>
+        </a>
+    </div>
+</header>
+<div class="content">
+    <div class="hd bg-white coverstop">
+        <ul class="clearfix" id="screen">
+            <li class="cur">
+                <a href="javascript:;"><span id="hasSelCategory">全部</span><em>▼</em></a>
+            </li>
+            <li class="">
+                <a href="javascript:;"><span id="hasSelOrders">距离最近</span><em>▼</em></a>
+            </li>
+            <li class="">
+                <a href="javascript:;"><span id="hasSelArea">全城</span><em>▼</em></a>
+            </li>
+        </ul>
+    </div>
+    <div class="theme-popover-mask" style="display: none; top: 1rem;"></div>
+    <div class="screen-box">
+        <div id="classify"style="display: none; z-index: 9;" class="clearfix">
+            <ul id="categoryList">
+	            <li onclick="this.ctrl.selGoodsCategory(this,'');">
+		        	<input type="hidden" value=""/>
+		            <a href="javascript:void(0);">
+		            	全部
+		            </a>
+		        </li>
+		        <%$.each(_datas.cateGorys,function(i,o){%>
+			        <li onclick="this.ctrl.selCategory(this,'<%=o.id%>','<%=o.name%>');">
+			        	<input type="hidden" value="<%=o.id%>"/>
+			            <a href="javascript:void(0);">
+			            	<%=o.name%>
+			            </a>
+			        </li>
+			    <%});%>
+            </ul>
+            <ul>
+	            <li  class="cur" id="addGoodsCate" onclick="this.ctrl.selGoodsCategory(this,null);">
+		            <a href="javascript:;">
+		            全部
+		            </a>
+	            </li>
+            </ul>
+        </div>
+        <ul class="bg-white" style="display: none;" id="Sort">
+            <li class="cur">
+            	<input type="hidden" value=""/>
+                <a href="javascript:;">
+                	<font>距离最近</font><i class="iconfont kdl-right color-red">&#xe653;</i>
+                </a>
+            </li>
+            <li>
+            	<input type="hidden" value="consumeTips"/>
+                <a href="javascript:;">
+                	<font>消费返现</font><i class="iconfont kdl-right color-red">&#xe653;</i>
+                </a>
+            </li>
+            <li>
+            	<input type="hidden" value="sales"/>
+                <a href="javascript:;">
+                   	<font>代销排行</font><i class="iconfont kdl-right color-red">&#xe653;</i>
+                </a>
+            </li>
+            <li>
+            	<input type="hidden" value="passTime"/>
+                <a href="javascript:;">
+                   	 <font>最新上架</font><i class="iconfont kdl-right color-red">&#xe653;</i>
+                </a>
+            </li>
+            <li>
+            	<input type="hidden" value="priceAsc"/>
+                <a href="javascript:;">
+                    	<font>价格最低</font><i class="iconfont kdl-right color-red">&#xe653;</i>
+                </a>
+            </li>
+            <li>
+            	<input type="hidden" value="priceDesc"/>
+                <a href="javascript:;">
+                    	<font>价格最高</font><i class="iconfont kdl-right color-red">&#xe653;</i>
+                </a>
+            </li>
+        </ul>
+        <ul class="bg-white" style="display: none;" id="city">
+            <li class="cur"  onclick="this.ctrl.selArea(this,null);">
+                <a href="javascript:;">
+                	<font>全城</font><i class="iconfont kdl-right color-red">&#xe653;</i>
+                </a>
+            </li>
+            <%$.each(_datas.areas,function(i,o){%>
+	       		<li onclick="this.ctrl.selArea(this,'<%=o.id%>');">
+	                <a href="javascript:;">
+	                   	 <font><%=o.name%></font><i class="iconfont kdl-right color-red">&#xe653;</i>
+	                </a>
+	        	</li>
+		    <%});%>
+        </ul>
+    </div>
+    <ul class="clearfix listid">
+		<li class='clearfix' id="goodsContents">
+			<!--
+			<a href='javascript:;'>
+				<div class='pic'>
+					<img src='http://img.kaidianlaa.com/upload/image/201507/da0352e8-3b97-4239-9d25-e9b4554ae0ce.jpg'/>
+					<div class='bt'>
+						<div></div>
+						<p>name</p>
+					</div>
+				</div>
+				<div class='txt'>
+					<h6 class='ellips'>针织毛衣针织毛衣针织毛衣针织毛衣针织毛衣针织毛衣针织毛衣针织毛衣针织毛衣</h6>
+					<h5 class='color-red'>￥<font>100</font><span class='cashback'>返￥1.00</span></h5>
+					<p class='color-gray9'>好评率100%</p>
+					<p class='color-gray9'>销量：1.2万<em class="kdl-right color-red">0.5km</em></p>
+				</div>
+			</a>
+			-->
+		</li>
+		<span id="hasMore" onclick="this.ctrl.loadCashBackGoods()">加载更多</span>
+    </ul>
+    <%=REND("include/empty",{icon:"&#xe678;",tip:"sorry，没有搜到相关的返现商品~",price:"1",display:"none",paddingbottom:"1"})%>
+</div>

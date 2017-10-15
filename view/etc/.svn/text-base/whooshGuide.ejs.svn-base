@@ -1,0 +1,41 @@
+<style type="text/css">
+    .navbar2{background-image: none; border-bottom: 1px solid #e5e5e5;}
+    body,html{background-color: #fff;}
+    .content{ padding-left: .2rem; padding-right: .2rem; box-sizing: border-box;}
+    .content .pto{ padding: .2rem; box-sizing: border-box;}
+    .content .pto>img{width: 100%;}
+    .content>div>p{ line-height: .45rem; font-size: .28rem;}
+    .content>div>h4{ padding: .1rem 0;}
+    .content>div>h4>i{ width: .6rem; height: .6rem; line-height: .6rem; display: inline-block; margin-right: .15rem; text-align: center; color:#1b92f2;  background:url("./img/form_07.png") no-repeat;background-size: contain;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <span class="nav-city">
+                <i class="iconfont">&#xe60b;</i>
+            </span>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">嗖券指南</span>
+</header>
+<div class="content">
+    <div class="pto">
+        <img src="./img/sjzn_img_03.png"/>
+    </div>
+    <div>
+        <h4><i>01</i>使用方法</h4>
+        <p>1、打开开店啦App ——发现——嗖一下。</p>
+        <p>2、系统根据地理位置列出你所在位置附近的所有参与嗖一下的实体店铺。</p>
+        <p>3、选择你想消费的商家，向右滑动该店铺的“嗖出惊喜”滑动条，将会获得随机（现金、礼品）券，我们称呼它为：嗖券（不一样的商家，不一样的惊喜！）最高优惠是免单哦！ </p>
+        <p>4、如果你正在使用开店啦，如果你正在餐厅吃饭，想要一个免单名额。那么就使用“嗖一下”“嗖出惊喜” 就有机会免单哦！</p>
+        <h4><i>02</i>使用规则</h4>
+        <p>1、一个商家每天可获得一次“嗖出惊喜”的机会。</p>
+        <p>2、若将店铺信息通过分享渠道分享，可获得第二次“嗖出惊喜”的机会。</p>
+        <h4><i>03</i>嗖券使用说明</h4>
+        <p>1、在店铺消费时，选择一张所属当前商家的“嗖券”直接进行消费即可。</p>
+        <p>2、嗖出的（现金、礼品）券请在有效期范围内使用，过期视为无效。</p>
+        <p>3、嗖券有效期为：自获得嗖券起24小时以内。“嗖出惊喜” 就有机会免单哦！</p>
+        <p>4、嗖一下所有优惠信息的解释权归开店啦所有。</p>
+    </div>
+
+</div>

@@ -1,0 +1,20 @@
+<% $.each(list,function(i,o){ %>
+ <li>
+    <a href="#goods/details?goodsId=<%=o.id%>">
+        <div class="pic">
+            <img src="<%=Config.imgPre+o.image%>"/>
+        </div>
+        <div class="txt">
+            <h6 class="ellips1"><%=o.name%></h6>
+            <p  class="color-gray9 m-top5"><%=o.caption%></p>
+            <div class="color-gray9 clearfix m-top10">
+                <div class="kdl-left">
+                    <span class="color-red">￥<%=o.price%></span>
+                    <del>￥<%=o.originalPrice%></del>
+                </div>
+                <span class="kdl-right">销量：<%=o.sales%></span>
+            </div>
+        </div>
+    </a>
+</li>
+<%});%>

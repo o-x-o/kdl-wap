@@ -1,0 +1,103 @@
+<style>
+    body{ padding-bottom: 0;}
+    .navbar2{background-image: none;}
+    .navbar2 .box-search input{ font-size: .24rem; text-indent: 1.1rem; width: 100%; height: .5rem; line-height: .5rem; border: 0; border-radius: 5px; background-color: #f0f0f0;}
+    .navbar2 .nav-wrap-right>a>span{ color: #999; width: .7rem;top: 0; background-color: #f0f0f0; height: .5rem; line-height: .5rem;border-radius: 3px;}
+    .navbar2 .box-search i{font-size: .26rem;}
+    .content{padding-top: .98rem;}
+    .content>div.hot>ul{ padding-left: .1rem; box-sizing: border-box;}
+    .content>div.hot>ul>li{ padding:0 .1rem; box-sizing: border-box;  float: left; margin-bottom: .2rem;}
+    .content>div.hot>ul>li>a{color: #333; display: block; border: 1px solid #999; border-radius: 5px; padding: .15rem .2rem; text-align: center; font-size: .26rem;}
+    .content>div.hot>h5{ line-height: 1rem; padding-left: .2rem; box-sizing: border-box;}
+    /*商品店铺搜索切换*/
+    .searchbox{ display: none; position:absolute; top:.5rem; left:-.2rem;z-index: 99; background-color:#3F3F3F; color:#fff; border-radius:3px; opacity: 0.9;}
+    .searchbox ul li{ height: .6rem;line-height: .6rem;width: 1.5rem;text-align:center; cursor: pointer;font-size: .28rem;}
+    .searchbox ul li>i{ margin-right: .1rem;font-size:.32rem!important;}
+    .searchbox ul li:first-child{ border-bottom: 1px solid #fff;}
+    .box-search .arrow{ width:0; height:0; border-width:.1rem; border-color: transparent transparent  #3F3F3F transparent ; border-style: dashed dashed solid dashed; position:absolute;top: -.17rem;left: .5rem;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+        </a>
+    </div>
+    <div class="box-search" style="margin-left: 1rem;">
+        <a href="javascript:;" class=" color-gray3">
+            <i class="icon-search" id="Handover"><em>商品</em> ▾</i>
+            <input class="single-line" onkeydown="this.ctrl.monitor();" id="searchValue" type="text" placeholder="请输入商品名称"/>
+            <div class="searchbox">
+                <i class="arrow"></i>
+                <ul style="padding:.1rem 0;">
+                    <li><i class="iconfont">&#xe660;</i><cite>商品</cite></li>
+                    <li><i class="iconfont">&#xe65f;</i><cite>店铺</cite></li>
+                </ul>
+            </div>
+        </a>
+    </div>
+    <div class="nav-wrap-right" id="searchBtn" onclick="this.ctrl.toSearch(this)">
+        <a id="searchUrl" href="javascript:;" searchUrl="search/goodsSearch">
+            <span class="nav-btn iconfont">
+                &#xe603;
+            </span>
+        </a>
+    </div>
+</header>
+<div class="theme-popover-mask"></div>
+<div class="content">
+    <div class="hot goodsHot">
+        <h5><i class="iconfont">&#xe65b;</i>热门搜索</h5>
+        <ul class="clearfix hotSearch">
+            <li>
+                <a href="javascript:;">美甲</a>
+            </li>
+            <li>
+                <a href="javascript:;">刮痧拔罐</a>
+            </li>
+            <li>
+                <a href="javascript:;">饮品 甜品</a>
+            </li>
+            <li>
+                <a href="javascript:;">洗车</a>
+            </li>
+            <li>
+                <a href="javascript:;">嫁接睫毛</a>
+            </li>
+            <li>
+            	<a href="javascript:;">美发</a>
+            </li>
+            <li>
+            	<a href="javascript:;">小吃 快餐</a>
+            </li>
+        </ul>
+    </div>
+    <div class="hot shopHot" style="display:none">
+	    <h5><i class="iconfont">&#xe65b;</i>热门搜索</h5>
+	    <ul class="clearfix hotSearch">
+	        <li>
+	            <a href="javascript:;">美容美发</a>
+	        </li>
+	        <li>
+	            <a href="javascript:;">花鸟鱼宠</a>
+	        </li>
+	        <li>
+	            <a href="javascript:;">餐饮美食</a>
+	        </li>
+	        <li>
+	            <a href="javascript:;">汽车服务</a>
+	        </li>
+	        <li>
+	            <a href="javascript:;">母婴用品</a>
+	        </li>
+	        <li>
+            	<a href="javascript:;">减肥瘦身</a>
+            </li>
+            <li>
+	            <a href="javascript:;">日用百货</a>
+	        </li>
+	        <li>
+	            <a href="javascript:;">便民服务</a>
+	        </li>
+	    </ul>
+	</div>
+</div>

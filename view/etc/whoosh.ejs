@@ -1,0 +1,144 @@
+<style>
+	.content{padding-top:2.58rem!important;}
+	.arch{ padding:0 .6rem 0;box-sizing: border-box; background-color: transparent!important; display:none;}
+	.arch>div{ position: relative;height: 1.1rem; background-repeat:no-repeat;background-size: contain; margin-top: .2rem;}
+	.arch>div>span{ position: absolute; left: .7rem; top: .05rem; font-size: .5rem;}
+	.arch>div>p{ position: absolute; left: .15rem; bottom: .15rem;}
+	.arch>div.green{background-image: url("./img/20_coupon@2x.png");}
+	.arch>div.golden{background-image: url("./img/coupon@2x.png");}
+	.txt-center{position: absolute; right: 0; width: 3rem; top: .15rem; text-align: center;}
+	.sou{position:relative;}
+	#page-wrap { width: 5.5rem; margin:.2rem auto;}
+	#well {
+		border-radius: .1rem;
+		background: #fff;
+		border: 1px solid #6fd49e;
+		overflow: hidden;
+		-webkit-user-select: none;
+	}
+	#well h2 {
+	    background: -moz-linear-gradient(left, #999, 0.4, #999, 0.5, white, 0.6, #999, #999);
+	    background: -webkit-gradient(linear,left top,right top,color-stop(0, #999),color-stop(0.4, #999),color-stop(0.5, white),color-stop(0.6, #999),color-stop(1, #999));
+	    margin: 0;
+	    -moz-background-clip: text;
+	    -webkit-background-clip: text;
+	    -moz-text-fill-color: transparent;
+	    -webkit-text-fill-color: transparent;
+	    -webkit-animation: slidetounlock 5s infinite;
+	    font-size: .3rem;
+	    color: #999;
+	    padding: 0;
+	    -webkit-text-size-adjust: none;
+	    height: .5rem;
+	    text-align: center;
+	    position:relative;
+	}
+	#slider {
+		background: url("img/find_whoosh.png") no-repeat;
+		width: .63rem;
+		height: .5rem;
+		display: inline-block;
+		vertical-align: middle;
+		line-height: 1;
+		background-size: 100%;
+		position:absolute;
+		left:0;
+	}
+	#slider.share{
+		background-image:url('img/find_share.png');
+	}
+	#slider+span{
+		line-height: .5rem;
+	}
+	@-webkit-keyframes slidetounlock {
+		0% {
+			background-position: -720px 0;
+		}
+		100%{
+			background-position: 720px 0;
+		}
+	}
+	.con-seach{padding: .15rem; border-bottom:1px solid #e8e8e8; box-sizing:border-box;position: fixed; top:.9rem;width: 100%;max-width: 640px;z-index: 99;}
+	.con-seach>input{ color:#666; width:5.2rem; border-radius:5px; background:#f0f0f0;border:0; padding:.15rem 0; font-size:.24rem; text-indent:.2rem;}
+	.con-seach>button{color:#666; width:.8rem;border-radius:5px; background:#f0f0f0;border:0; height:.6rem; position:absolute; right:.15rem;}
+	.hd{height:.8rem; position: fixed;  border-bottom:1px solid #e8e8e8;  z-index: 10; line-height:.5rem; padding:.15rem 0; box-sizing: border-box; top: 1.8rem; border-bottom: 1px solid #e5e5e5;}
+	.hd>ul{width:100%; float:left;}
+	.hd>ul>li{width:33.33%;float:left;border-right:1px solid #e5e5e5; box-sizing: border-box;}
+	.hd>ul>li:last-child{border-right:0px;}
+	.hd>ul>li.cur>a{ color:#d1322f;}
+	.hd>ul>li>a{display:block; text-align:center;}
+	.hd>ul>li>a>em{ font-size: .15rem;vertical-align: middle; margin-left: 3px;}
+	.hd>i{width:15%; float:left; text-align:center; color: #666;}
+	/*筛选条件*/
+	.screen-box{position: absolute;top: 2.58rem; width: 100%; min-width: 320px; max-width: 640px; z-index: 8;}
+	.screen-box ul>li{ line-height: .8rem; padding: 0 .1rem; border-top: 1px solid #e5e5e5;}
+	.screen-box ul>li.cur a{ color: #df494b;}
+	.screen-box ul>li.cur a>i{ display: block;}
+	.screen-box ul>li>a{ display: block;}
+	.screen-box ul>li>a>i{ display: none;}
+	.screen-box>div{ position: relative; box-sizing: border-box; background-color: #fff; height: 100%;}
+	.screen-box>div>ul{ height: 100%;}
+	.screen-box>div>ul:first-child{width: 30%; float: left;  height: 100%; overflow-y: scroll;}
+	.screen-box>div>ul:first-child>li>a{text-align: center; display: block;}
+	.screen-box>div>ul>li.cur{ background-color: #f0f0f0;}
+	.screen-box>div>ul>li.cur>a{ color: #df494b;}
+	.screen-box>div>ul:last-child{ background-color: #f0f0f0; float: left; width: 70%;    height: 100%; overflow-y: scroll;}
+	.screen-box>div>ul:last-child>li{ border-left: 1px solid #e5e5e5; box-sizing: border-box;}
+	.screen-box>div>ul>li:last-child{ border-bottom: 1px solid #e5e5e5;}
+</style>
+<header class="navbar">
+	<input type="hidden" id="categoryId" name="categoryId" value="" />
+	<input type="hidden" id="industryCategoryId" name="industryCategoryId" value="" />
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-white">
+            <span class="nav-city">
+                <i class="iconfont">&#xe60b;</i>
+            </span>
+        </a>
+    </div>
+    <span class="nav-header h1">嗖一下</span>
+    <div class="nav-wrap-right">
+        <a href="#etc/whooshGuide">
+            <span class="nav-btn">
+                <i class="iconfont icon-info color-white">&#xe617;</i>
+            </span>
+        </a>
+    </div>
+</header>
+<div class="content">
+	<div class="con-seach bg-white">
+		<input class="single-line" id="keyword" type="text" placeholder="请输入店铺名称"/>
+		<button class="iconfont" onclick="this.ctrl.keywordSearch();"></button>
+	</div>
+	<div class="hd bg-white coverstop">
+        <ul class="clearfix" id="screen">
+            <li >
+                <a href="javascript:;"><span id="showCategoryTxt">全部</span><em>▼</em></a>
+            </li>
+        </ul>
+    </div>
+    <div class="theme-popover-mask" style="display: none; top: 1rem;"></div>
+    <div class="screen-box">
+        <div id="classify" style="display: none; z-index: 9;" class="clearfix">
+            <ul id="categoryUl">
+	            <li class="cur" onclick="this.ctrl.selectCategory(this,'','全部')">
+		            <a href="javascript:void(0)">
+		            	全部
+		            </a>
+		        </li>
+		        
+            </ul>
+            <ul id="indutryCategory">
+            </ul>
+        </div>
+    </div>
+	
+	
+	
+
+    <div class="list">
+        <ul class="clearfix" id="shopList">
+        </ul>
+        <%=REND("include/empty",{icon:"&#xe605;",tip:"sorry,没有嗖到店铺~",price:"2",display:"none"})%>
+    </div>
+</div>

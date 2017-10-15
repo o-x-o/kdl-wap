@@ -1,0 +1,128 @@
+<style type="text/css">
+    .navbar .nav-header{ color: #333;}
+    .content{ padding-bottom: .5rem;}
+    .content .card-info>h6{ line-height: .66rem; padding: 0 .2rem; box-sizing: border-box;}
+    .content .card-info>ul>li{padding: 0 .2rem; box-sizing: border-box; height: .66rem; line-height: .66rem;}
+    .content .card-info>ul>li:last-child>a{border-bottom: 0;}
+    .content .card-info>ul>li>a{ display: block; border-bottom: 1px solid #e5e5e5; position: relative; padding-left: 1.2rem;}
+    .content .card-info>ul>li>a>span{ position: absolute; left: 0; top: 0;color: #333;}
+    .content .card-info>ul>li>a>input,.content .card-info>ul>li>a>select{ width: 100%; border: 0; font-size: .24rem; font-family: "微软雅黑";}
+    .submit{ padding: 0 .2rem; box-sizing: border-box;}
+    .tips{ padding: 0 .2rem; box-sizing: border-box;}
+    button:disabled{color: #FFF!important;background-color: #CCC;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1">添加银行卡</span>
+    <div class="nav-wrap-right">
+        <a href="javascript:;" class=" color-gray3">
+            <span class="nav-btn">
+                <i class="iconfont icon-info">&#xe636; </i>
+            </span>
+            <s></s>
+        </a>
+    </div>
+    <div class="nav-dropdown">
+        <span class="triangle-up"></span>
+        <ul>
+            <li>
+                <a class="react" href="/">
+                    <i class="iconfont">&#xe602;</i>
+                    <space></space>首页
+                </a>
+            </li>
+            <li>
+                <a class="react" href="javascript:;">
+                    <i class="iconfont">&#xe601;</i>
+                    <space></space>消息
+                    <em class="information">8+<s class="triangle-up"></s></em>
+                </a>
+            </li>
+        </ul>
+    </div>
+</header>
+<div class=" content">
+	<form id="form" action="<%=Config.basePath%>bankCard/save.shtml" call="this.ctrl.submitCall">
+	    <div class="card-info">
+	        <h6 class="color-gray9">银行卡信息</h6>
+	        <ul class="bg-white">
+	            <li>
+	                <a href="javascript:;">
+	                    <span>卡号</span>
+	                    <input type="tel"  id="code" name="code" placeholder="卡号"/>
+	                </a>
+	            </li>
+	            <li>
+	                <a href="javascript:;">
+	                    <span>银行卡</span>
+	                    <select id="selectBank" name="bankId">
+	                        <option>请选择银行</option>
+	                        <%for(var i=0;i<_datas.banks.length;i++){%>
+	                        	<option value="<%=_datas.banks[i].id%>"><%=_datas.banks[i].bankName%></option>
+	                        <%}%>
+	                    </select>
+	                </a>
+	            </li>
+	        </ul>
+	    </div>
+	    <div class="card-info">
+	        <h6 class="color-gray9">个人信息</h6>
+	        <ul class="bg-white">
+	            <li>
+	                <a href="javascript:;">
+	                    <span>持卡人</span>
+	                    <input type="text" id="bankCardPerson" name="bankCardPerson"  placeholder="请输入持卡人姓名" maxlength="10"/>
+	                </a>
+	            </li>
+	            <li>
+	                <a href="javascript:;">
+	                    <span>身份证号</span>
+	                    <input type="text" id="personIdCard" name="personIdCard" placeholder="请输入身份证号码" maxlength="18"/>
+	                </a>
+	            </li>
+	            <li>
+	                <a href="javascript:;">
+	                    <span>手机号</span>
+	                    <input type="tel" id="personTelephone" name="personTelephone" placeholder="请输入银行预留手机号" maxlength="11"/>
+	                </a>
+	            </li>
+	        </ul>
+	    </div>
+	    <div class="txt color-gray3 m-top" style="padding-left: .2rem;<%=(_user.type != 'business' && _user.type != 'SandB'?'display:none':'')%>">
+		    <label>
+		    	<input type="checkbox" style="display:none;" checked="checked"><i class="iconfont" style="margin-right:.1rem;"></i>同时将这张银行卡用于商家财富结算
+		    	<input type="hidden" name="syncBus" id="syncBus" value="false">
+		    </label>
+		</div>
+	   
+	    <p id="warn"></p>
+	    <div class="m-top20 submit">
+	        <button type="button" class="btn-block" id="present" disabled="disabled">提交</button>
+	    </div>
+    </form>
+    <div class="tips m-top50">
+        <span class="color-red m-top10"><i class="iconfont" style=" vertical-align: middle;">&#xe640;</i>小贴士</span>
+        <p class="color-gray9 m-top10">1、提现金额小于100元，收取1元手续费;</p>
+        <p class="color-gray9 m-top10">2、提现金额高于100元（含100元），提现免手续费;</p>
+        <p class="color-gray9 m-top10">3、每日最多可提现3次，每次最少提现2元，每日最多可提现5万元;</p>
+        <p class="color-gray9 m-top10">4、为了您的账户更安全，我们采用了同卡进出原则，支付与提现为您的同一张银行卡。</p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,103 @@
+<style type="text/css">
+    body,html{ background-color: #fff;}
+    .content{padding-top: 0!important; background: #f0efed; padding-bottom:1rem;}
+    .navbar{background: #df494a; border-bottom: 0; position: relative;}
+    .navbar a{ color: #fff;}
+    .nav-wrap-right a i{ font-size: .42rem;}
+    .balance{ padding:.3rem  .2rem; box-sizing: border-box; height: 2.3rem; background:#df494a;}
+    .balance>span{text-align: left; color: #FFf; font-size: .28rem; line-height: .6rem;}
+    .balance>a{ color: #fff;text-align: right;float: right; font-size: .26rem; line-height: .6rem; margin-top:.65rem;}
+    .balance>p{ color: #fff; font-size: .28rem; text-align: left; margin-top: .15rem;padding-bottom:.1rem;border-bottom: 1px solid #fff;}
+    .Revenue{ padding: .3rem .2rem; background: #f0efed;}
+    .Revenue span{font-size: .26rem; color: #666;}
+    .Revenue h2{ margin-top:.1rem;font-size: .28rem;}
+    .Revenue>ul>li{float:left; width:50%;padding-left: .5rem;box-sizing: border-box;}
+    .Revenue>ul>li:first-child{border-right:1px solid #e5e5e5; box-sizing:border-box;}
+    .fortune-list{ background: #fff; margin-bottom: .5rem;border-top: 1px solid #e5e5e5;}
+    .fortune-list ul{ padding: .2rem 0; margin-right: -1px;}
+    /*.fortune-list ul:first-child{border-bottom: 1px solid #e5e5e5;}*/
+    .fortune-list ul.oranger li h2{ color: #333;}
+    .fortune-list li{ float: left; width: 33.333%; text-align: center; border-right: 1px solid #e5e5e5; box-sizing: border-box;}
+    .fortune-list li>span{ font-size: .24rem; color: #666;}
+    .fortune-list li>h2{ font-size: .28rem!important; margin-top: .05rem; color: #666;}
+    .fortune-list li.cur h2{ color:#cc3333; }
+    .btn-wrapper{ box-sizing: border-box; padding:0 .2rem;}
+    .txtsize{padding:.15rem; font-size:.2rem; line-height:.35rem; margin-top:.1rem; color: #999; }
+    .btn-wrapper .btn{ box-sizing: border-box;}
+</style>
+<header class="navbar">
+    <div class="nav-wrap-left">
+        <a href="javascript:void(0);" onclick="history.go(-1);">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1">商家财富中心</span>
+</header>
+<div class="content">
+    <!--财富-->
+    <div class="balance">
+        <span>可结算金额（元）</span>
+        <p class="h3"><%=_datas.data.businessPurse.toFixed(2)%></p>
+	    <span style="font-size:.24rem;">
+	    	<%=(_datas.data.businessPurse > 0?"":"您还没有收入可提现，加油哦~")%>
+	    </span>
+    </div>
+    <%var totalBalance = _datas.data.balance%>
+    <!--累计收入-->
+    <div class="Revenue">
+        <ul class="clearfix">
+        	<li>
+        		<span>订单总额（元）</span>
+        		<h2 class="color-red"><%=(totalBalance?totalBalance.orderAmount.toFixed(2):"0.00")%></h2>
+        	</li>
+        	<li>
+        		<span>账单总额（元）</span>
+        		<h2 class="color-red"><%=(totalBalance?totalBalance.billAmount.toFixed(2):"0.00")%></h2>
+        	</li>
+        </ul>
+    </div>
+    <!--结算信息列表-->
+    <div class="fortune-list">
+        <ul class="clearfix">
+            <li>
+                <span>消费佣金（元）</span>
+                <h2><%=(totalBalance?totalBalance.consumeTips.toFixed(2):"0.00")%></h2>
+            </li>
+            <li>
+                <span>销售佣金（元）</span>
+                <h2><%=(totalBalance?totalBalance.sellTips.toFixed(2):"0.00")%></h2>
+            </li>
+            <li>
+                <span>推广佣金（元）</span>
+                <h2><%=(totalBalance?totalBalance.expandTips.toFixed(2):"0.00")%></h2>
+            </li>
+        </ul>
+        <ul class="clearfix oranger">
+            <li>
+                <span>手续费（元）</span>
+                <h2><%=(totalBalance?totalBalance.balanceFee.toFixed(2):"0.00")%></h2>
+            </li>
+            <li>
+                <span>平台补贴额（元）</span>
+                <h2><%=(totalBalance?totalBalance.subsidyamount.toFixed(2):"0.00")%></h2>
+            </li>
+            <li>
+            	<span>提现金额（元）</span>
+                <h2><%=(totalBalance?_datas.data.withdrawAmount.toFixed(2):"0.00")%></h2>
+            </li>
+        </ul>
+    </div>
+    <center class="btn-wrapper">
+        <a href="javascript:void(0);" class="btn-block" id="toCashBtn">我要提现</a>
+        <a href="#business/withdrawHistory" class="btn bd-red h6 m-top">提现历史</a>
+    </center>
+    <p class="txtsize">
+    	<span class="color-gray6">可结算金额</span>=订单总额+账单总额-推广佣金-销售佣金-消费佣金-手续费-平台补贴额-提现金额</br>
+    	消费佣金、销售佣金、推广佣金为商家已支付的佣金
+    </p>
+</div>
+
+
+
+

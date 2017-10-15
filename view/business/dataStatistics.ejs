@@ -1,0 +1,194 @@
+<style type="text/css">
+ header.navbar{z-index:11 !important;}
+ .content{ padding-top:1.8rem;}
+ .con-hd{background-color:#fff; position:fixed; padding:.2rem 0; top:.9rem; width:100%;min-width:320px; max-width:640px; border-bottom:1px solid #e8e8e8;z-index:11;}
+ .con-hd>ul>li{cursor:pointer;float:left; border-right:1px solid #e8e8e8; font-size:.28rem; height:.5rem;line-height:.5rem; width:33.33%; text-align:center; box-sizing:border-box;}
+ .con-hd>ul>li:last-child{border-right:0;}
+ .con-hd>ul>li.cur{color:#c92a29;}
+ .content>section{display:block;margin-top: .7rem;}
+ .content>section:nth-of-type(1){margin-top:0;}
+ .content>section h5{padding:.15rem; border-bottom:1px solid #e8e8e8;border-top:1px solid #e8e8e8; margin-top:.1rem;}
+ .content>section h5 .select{color:#999;float:right;font-weight:normal;font-size:.26rem;position:relative; width: 1.5rem;}
+ .content>section h5 .select em{font-size:.18rem;margin-left:.05rem;}
+ .content>section h5 ul{position:absolute;display:block;background-color:#39a6e7;font-weight:normal;font-size:.26rem;z-index:1;top: .44rem;left: -.2rem;display:none;}
+ .content>section h5 ul>li{color:#fff;display:block;height:.44rem;line-height:.44rem;padding:0 .2rem;border-bottom:1px solid #fff;}
+ .content>section:nth-of-type(1) h5{margin:0;border-top:0px;}
+ .content>section .list-in{box-sizing:border-box; border-bottom:1px solid #e8e8e8; position:relative;}
+ .content>section:nth-of-type(1) .list-in{padding:.2rem; padding-left:1rem;}
+ .content>section .list-in>span{padding-right: .1rem;position:absolute;left:.15rem; line-height:.4rem; top:.25rem; width:.5rem; text-align:center; color:#999;border-right:1px solid #e8e8e8; box-sizing:border-box;} 
+ .content>section .list-in h6{line-height:.45rem;}
+ .content>section .list-in>ul>li{float:left; width:50%; text-align:left; text-align:center;}
+ .orderTrade,.offlineTrade,.peopleAccount{height:4rem;}
+ .time{background-color:#39a6e7;text-align:center;height:.6rem;line-height:.6rem;color:#fff;font-size:.24rem;cursor:pointer;top:.9rem;position: absolute;width: 100%;}
+ .time em{font-size:.18rem;margin-left:.05rem;}
+ .time ul{background-color:#fff;color:#666;position:absolute;z-index:1;top:.6rem;left:0;width:100%;display:none;}
+ .time ul>li{height:.8rem;line-height:.8rem;border-bottom:1px solid #ccc;}
+ .content>section .padding20{margin:.1rem 0;border-top:1px solid #e8e8e8;}
+ .content>section .padding20 em{font-size:.18rem;color:#999;margin-top:.1rem;display:block;}
+ .content>section .tips{margin:.2rem 0 .5rem;}
+ .content>section .tips div{font-size:.2rem;color:#666;margin:.1rem .2rem;display:block;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">数据统计</span>
+</header>
+<!--内容-->
+<div class="content">
+	<div class="con-hd page-fixed contentHeader">
+		<ul class="clearfix">
+			<li class="cur">统计</li>
+			<li>销售金额</li>
+			<li>会员</li>
+		</ul>
+		<div class="time select">
+			<div class="bar">
+				<span>7天</span>
+				<em>▼</em>
+			</div>
+			<ul><li>7天</li><li>30天</li><li>90天</li></ul>
+		</div>
+	</div>
+	<section class="data-bd">
+		<div>
+			<h5>订单交易</h5>
+			<div class="list">
+				<div class="list-in bg-white">
+					<span>今日</span>
+					<ul class="clearfix">
+						<li>
+							<h6>成交金额（元）</h6>
+							<h6><%=_datas.sum.orderAmountOfToday.toFixed(2) %></h6>
+						</li>
+						<li>
+							<h6>成交笔数</h6>
+							<h6><%=_datas.sum.orderCountOfToday %></h6>
+						</li>
+					</ul>
+				</div>
+				<div class="list-in bg-white">
+					<span>全部</span>
+					<ul class="clearfix">
+						<li>
+							<h6>成交金额（元）</h6>
+							<h6><%=_datas.sum.orderAmountOfAll.toFixed(2) %></h6>
+						</li>
+						<li>
+							<h6>成交笔数</h6>
+							<h6><%=_datas.sum.orderCountOfAll %></h6>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div>
+			<h5>线下支付</h5>
+			<div class="list">
+				<div class="list-in bg-white">
+					<span>今日</span>
+					<ul class="clearfix">
+						<li>
+							<h6>成交金额（元）</h6>
+							<h6><%=_datas.sum.billAmountOfToday.toFixed(2) %></h6>
+						</li>
+						<li>
+							<h6>成交笔数</h6>
+							<h6><%=_datas.sum.billCountOfToday %></h6>
+						</li>
+					</ul>
+				</div>
+				<div class="list-in bg-white">
+					<span>全部</span>
+					<ul class="clearfix">
+						<li>
+							<h6>成交金额（元）</h6>
+							<h6><%=_datas.sum.billAmountOfAll.toFixed(2) %></h6>
+						</li>
+						<li>
+							<h6>成交笔数</h6>
+							<h6><%=_datas.sum.billCountOfAll %></h6>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div>
+			<h5>会员数</h5>
+			<div class="list">
+				<div class="list-in bg-white">
+					<span>今日</span>
+					<ul class="clearfix">
+						<li>
+							<h6>新增人数</h6>
+							<h6><%=_datas.sum.vipCountOfToday %></h6>
+						</li>
+						<li>
+							<h6>交易人数</h6>
+							<h6><%=_datas.sum.busVipOfToday %></h6>
+						</li>
+					</ul>
+				</div>
+				<div class="list-in bg-white">
+					<span>全部</span>
+					<ul class="clearfix">
+						<li>
+							<h6>总会员数</h6>
+							<h6><%=_datas.sum.vipCountOfAll %></h6>
+						</li>
+						<li>
+							<h6>交易2次以上</h6>
+							<h6><%=_datas.sum.busVipOfAll %></h6>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="data-bd">
+		<div class="list-in bg-white padding20">
+			销售金额小计（元）：<i class="sumAmount"></i>
+			<em>销售金额=订单交易成交金额+线下支付成交金额</em>
+		</div>
+		<h5 class="bg-white">订单交易 <span class="order select"><span>成交金额</span><em>▼</em><ul><li>成交金额</li><li>成交笔数</li></ul></span></h5>
+		<div class="list-in bg-white orderTrade">
+		</div>
+		<h5 class="bg-white">线下支付 <span class="bill select"><span>成交金额</span><em>▼</em><ul><li>成交金额</li><li>成交笔数</li></ul></span></h5>
+		<div class="list-in bg-white offlineTrade">
+		</div>
+		<div class="tips">
+			<div>1.以上数据统计时间均截止到今日00:00</div>
+			<div>2.成交金额及成交笔数均为确认消费、确认收货后的统计数据</div>
+			<div>3.如果一笔订单内同时有未消费和已消费的消费码，则将已消费的金额计入成交金额，已消费的消费码个数计入成交笔数</div>
+		</div>
+	</section>
+	<section class="data-bd">
+		<div class="list-in bg-white padding20">
+			会员数小计：<i class="sumVip"></i>
+			<em>会员数=店铺收藏人数+订单交易人数（两者去重）</em>
+		</div>
+		<h5 class="bg-white">新增会员数</h5>
+		<div class="list-in bg-white peopleAccount">
+		</div>
+		<div class="tips">
+			<div>1.以上数据统计时间均截止到今日00:00</div>
+			<div>2.查看更多会员信息请到开店啦管理后台</div>
+		</div>
+	</section>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

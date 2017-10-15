@@ -1,0 +1,49 @@
+<style>
+    body,html{background-color: #fff;}
+    body{ padding-bottom: .3rem!important; }
+    .navbar2{ border-bottom: 1px solid #e5e5e5; background-image: none;}
+    .content{text-align: center;}
+    .content .hd{text-align: center; margin: .6rem 0;}
+    .content .hd .pic{ width: 1.2rem; height: 1.2rem; border-radius: 50%; background: url("./img/promotion_money_user@2x.png") no-repeat;  margin: 0 auto;    background-size: contain; overflow:hidden}
+    .content .hd .pic>img{width: 100%;}
+    .content .erweima{ width: 5rem; margin: 0 auto; position: relative;}
+    .content .erweima>img{width: 100%;}
+    .content .erweima .pto{ width: 1.4rem; height: 1.4rem; display: block; position: absolute; left: 50%; top: 50%; margin-top: -.7rem; margin-left: -.7rem;}
+    .content .erweima .pto>img{ width: 100%;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">邀请二维码</span>
+</header>
+<div class=" content">
+    <div class="hd">
+        <div class="pic">
+            <img src="./img/promotion_money_user@2x.png"/>
+        </div>
+        <!--用户头像，用户名称-->
+        <h3 class="m-top10" id="nickName">开店啦</h3>
+        <h3 class="color-gray6 m-top10">[开店啦]开启百姓消费致富时代</h3>
+    </div>
+    <div class="erweima m-top50">
+        </div>
+    </div>
+    <h3 class="m-top30" style="text-align:center;">扫一扫或长按识别图中二维码进入</h3>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,125 @@
+<style type="text/css">
+	.navbar2{background-image:none; border-bottom:1px solid #e5e5e5;}
+	.navbar2 .shoppingCar{ position:absolute; right:1.2rem; top:.2rem;}
+	.navbar2 .shoppingCar>a>span>i{font-size: .36rem;font-weight: 600;}
+	.navbar2 .shoppingCar>a{position: relative;color: #666;width: .5rem;height: .5rem;line-height: .5rem;}
+	.navbar2 .shoppingCar>a>span{z-index: 2;position: relative;}
+	/*类似商品*/
+	.similarClauses{padding:0 .2rem .1rem; box-sizing:border-box;}
+	.similarClauses>h5{position:relative; border-bottom:1px solid #999; height:.2rem;}
+	.similarClauses>h5>span{ position:absolute; left:50%; padding:0 .2rem;background:#f0f0f0;margin-left: -.75rem; height: .3rem;display: block;}
+	.similarClauses .goods-list{}
+	.similarClauses .goods-list>ul>li{ width:50%; float:left;box-sizing:border-box; margin-top:.1rem;}
+	.similarClauses .goods-list>ul>li:nth-child(odd){padding-right:.05rem;}
+	.similarClauses .goods-list>ul>li:nth-child(even){padding-left:.05rem;}
+	.similarClauses .goods-list>ul>li>a{display:block;border:1px solid #e5e5e5; border-radius:5px; overflow:hidden; background-color:#fff;}
+	.similarClauses .goods-list>ul>li>a>div.pic{border-radius:5px; overflow:hidden;}
+	.similarClauses .goods-list>ul>li>a>div.pic>img{width:100%;}
+	.similarClauses .goods-list>ul>li>a>div.txt{padding:.1rem; box-sizing:border-box;}
+	.similarClauses .goods-list>ul>li>a>div.txt>h6{ line-height: normal;}
+	.similarClauses .goods-list>ul>li>a>div.txt>div>span{font-size:.24rem;}
+	.similarClauses .goods-list>ul>li>a>div.txt>div>span:last-child{font-size:.23rem;letter-spacing: -1px; border: 1px solid #cc3333;border-radius: 3px; padding: 0 .05rem;}
+	.similarClauses .goods-list>ul>li>a>div.txt>p{font-size: .22rem;}
+</style>
+
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <div class="shoppingCar">
+    	<a href="#cart/shoppingCart">
+            <span class="nav-btn">
+                <i class="iconfont icon-info"></i>
+            </span>
+            <s></s>
+        </a>
+    </div>
+    <div class="nav-wrap-right">
+        <a href="javascript:;">
+            <span class="nav-btn">
+                <i class="iconfont icon-info">&#xe636; </i>
+            </span>
+            <s></s>
+        </a>
+    </div>
+    <div class="nav-dropdown">
+        <span class="triangle-up"></span>
+        <ul>
+            <li>
+                <a class="react" href="/">
+                    <i class="iconfont">&#xe602;</i>
+                    <space></space>首页
+                </a>
+            </li>
+            <li>
+                <a class="react" href="javascript:;">
+                    <i class="iconfont">&#xe603;</i>
+                    <space></space>搜索
+                </a>
+            </li>
+            <li>
+                <a class="react" href="javascript:;">
+                    <i class="iconfont">&#xe601;</i>
+                    <space></space>消息
+                    <em class="information">8+<s class="triangle-up"></s></em>
+                </a>
+            </li>
+        </ul>
+    </div>
+</header>
+<div class="content">
+ 	<%=REND("include/empty",{icon:"&#xe678;",tip:"该商品已下架",price:"1",display:"block",paddingbottom:"1"})%>
+    <div class="similarClauses m-top30">
+        <h5><span>类似商品</span></h5>
+        <div class="goods-list m-top30">
+	        <ul class="clearfix similarGoods">
+	        	<!--
+                <li>
+                    <a href="javascript:;">
+                        <div class="pic">
+                            <img src="https://ss0.baidu.com/73F1bjeh1BF3odCf/it/u=4056526008,1637868350&fm=96&s=85947E9144414F5104AF74CE0300A0F2"/>
+                        </div>
+                        <div class="txt">
+                            <h6 class="ellips1">精品肥牛</h6>
+                            <div class="clearfix m-top5">
+                                <span class="kdl-left color-red">￥25.00</span>
+                                <span class="kdl-right color-red">返￥23.00</span>
+                            </div>
+                            <p class="color-gray9 clearfix m-top10">
+                                <del class="kdl-left">￥858.00</del>
+                                <span class="kdl-right">销量100</span>
+                            </p>
+                        </div>
+                    </a>
+                </li>
+                -->
+                <%if(_datas.simGoodsList != null && _datas.simGoodsList.length > 0){%>
+                	<%for(var i = 0;i < _datas.simGoodsList.length;i++){%>
+                		<%var tempGoods = _datas.simGoodsList[i]%>
+	                	<li>
+		                    <a href="javascript:;">
+		                        <div class="pic">
+		                            <img src="<%=Config.imgPre + tempGoods.image%>"/>
+		                        </div>
+		                        <div class="txt">
+		                            <h6 class="ellips1"><%=tempGoods.name%></h6>
+		                            <div class="clearfix m-top5">
+		                                <span class="kdl-left color-red">￥<%=tempGoods.price%></span>
+		                                <span class="kdl-right color-red">返￥<%=tempGoods.consumeTips%></span>
+		                            </div>
+		                            <p class="color-gray9 clearfix m-top10">
+		                                <del class="kdl-left">￥<%=tempGoods.originalPrice%></del>
+		                                <span class="kdl-right">销量<%=tempGoods.sales%></span>
+		                            </p>
+		                        </div>
+		                    </a>
+		                </li>
+                	<%}%>
+                <%}%>
+            </ul>
+        </div>
+    </div>
+</div>

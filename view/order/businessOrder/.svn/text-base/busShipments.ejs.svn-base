@@ -1,0 +1,105 @@
+<link href="../../../css/base.css" rel="stylesheet"/>
+<style type="text/css">
+    body{ padding-bottom: 1rem!important;}
+    .content>div.hd>div{width: 70%;  line-height: .5rem; position: relative;}
+    .content>div.hd>div>h5{ color: #fff; padding-top: .4rem;}
+    /*商品*/
+    .con-list{ margin-bottom: .1rem; }
+    .con-list .bd>div{ padding: 0 .2rem; box-sizing: border-box; text-align: right; background-color: #fff; height: .8rem; line-height: .8rem;}
+    .con-list>ul>li{ padding: .2rem; min-height: 1.45rem; border-bottom: 1px solid #e5e5e5;}
+    .con-list>ul>li:last-child{ border-bottom: 0;}
+    .con-list>ul>li>a{ display: block; position: relative; padding:0 1.1rem 0 1.7rem; box-sizing: border-box; }
+    .con-list>ul>li>a>div.pic{ width: 1.5rem; border-radius: 3px; overflow: hidden; position: absolute;left: 0; top: 0;}
+    .con-list>ul>li>a>div.pic>img{width: 100%;}
+    .con-list>ul>li>a>div.jiage{ position: absolute; right: 0; top: 0; text-align: right;}
+    .con-list>ul>li>a>div.jiage>button{ margin-top: .05rem; padding:2px .3rem; border: 1px solid #e5e5e5; border-radius: 3px; color: #666;background-color: #fff;}
+     /*买家信息*/
+    .footer{ text-align: center; height: .9rem; line-height: .9rem; font-size: .36rem; width: 100%; min-width: 320px; max-width: 640px; position: fixed; bottom: 0;}
+    /*物流*/
+    .logistics>ul{ background-color: #fff;}
+    .logistics>ul>li{border-bottom: 1px solid #e5e5e5; padding: 0 .2rem; box-sizing: border-box; height: .8rem; line-height: .8rem;}
+    .logistics>ul>li>a{ display: block; position: relative;}
+    .logistics>ul>li:last-child>a{ padding-left: 1.2rem; box-sizing: border-box;}
+    .logistics>ul>li>a>span{ display: inline-block; position: absolute; left: 0; top: 0;}
+    .logistics>ul>li>a>input{ width: 100%; height: .6rem; line-height: .4rem; border: 1px solid #e5e5e5; border-radius: 3px; padding: .1rem; box-sizing: border-box;}
+    /*订单详情*/
+    .detail>h5{ height: .8rem; line-height: .8rem; padding-left: .2rem; box-sizing: border-box; color: #666;}
+    .detail>ul{ padding: 0 .2rem; background-color: #fff;}
+    .detail>ul>li{ min-height: .8rem; padding: .2rem 0; box-sizing: border-box; line-height: .4rem; position: relative; border-bottom: 1px solid #e5e5e5; color: #666;}
+    .detail>ul>li:last-child{ padding-left: 1rem; box-sizing: border-box; border-bottom: 0;}
+    .detail>ul>li:last-child>span{position: absolute; left: 0; top: .2rem;}
+    .detail>ul>li:last-child>textarea{ border: 1px solid #e5e5e5; min-height: 1rem; border-radius: 3px; height: .6rem; padding: .1rem; line-height: .4rem; box-sizing: border-box; background-color: transparent; width: 100%;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">发货</span>
+    <div class="nav-wrap-right">
+        <a href="javascript:;" class=" color-gray3">
+            <span class="nav-btn">
+                <i class="iconfont icon-info">&#xe601;</i>
+            </span>
+            <s></s>
+        </a>
+    </div>
+</header>
+<form action="<%=Config.basePath%>/order/busShipping.shtml" call="this.ctrl.submitCall">
+	<div class="content">
+		<input type="hidden" id="curExpressId" name="deliveryCorpId" value=""/>
+		<input type="hidden" name="orderId" value="<%=_datas.data.orderId%>"/>
+	    <div class="logistics">
+	        <ul>
+	            <li onclick="this.ctrl.toSelExpress(<%=_datas.data.orderId%>);">
+	                <a href="javascript:;">
+	                    物流公司
+	                    <cite class="kdl-right color-red"><span id="curExpressName">请选择快递</span></cite>
+	                </a>
+	            </li>
+	            <li>
+	                <a href="javascript:;">
+	                    <span>物流条码</span>
+	                    <input type="text" placeholder="请输入快递单号" id="trackingNo" name="trackingNo" onkeyup="inputValidate.onlyNumOrLetter(this)"  onblur="inputValidate.onlyNumOrLetter(this)" maxLength="20"/>
+	                </a>
+	            </li>
+	        </ul>
+	    </div>
+	    <div class="detail">
+	        <h5>订单详情</h5>
+	        <ul>
+	            <li>订单号：<%=_datas.data.sn%><span class="kdl-right"><%=$.Date(_datas.data.createDate).format("yyyy-MM-dd")%></span></li>
+	            <li>收货人：<%=_datas.data.consignee%><span class="kdl-right"><%=_datas.data.phone%></span></li>
+	            <li>收货地址：<%=_datas.data.address%></li>
+	            <li>邮编：<%=_datas.data.zipCode%></li>
+	            <li><span>备注：</span><textarea name="memo" maxLength="66"></textarea></li>
+	        </ul>
+	    </div>
+	    <div class="con-list">
+	        <ul>
+		        <%$.each(_datas.data.orderItems,function(index,orderItem){%>
+		            <li onclick="this.ctrl.toProductDetails(<%=orderItem.goodsId%>,<%=orderItem.shopId%>)">
+		                <a href="javascript:void(0);">
+		                    <div class="pic">
+		                        <img src="<%=Config.imgPre+orderItem.thumbnail%>"/>
+		                    </div>
+		                    <div class="txt">
+		                        <h6 class="color-gray6 ellips1"><%=orderItem.name%></h6>
+		                        <p class="color-gray9"><%=orderItem.skuValue%></p>
+		                    </div>
+		                    <div class="jiage">
+		                        <span class="color-gray3">￥<%=orderItem.price.toFixed(2)%></span>
+		                        <p class="color-gray6">x<%=orderItem.quantity%></p>
+		                    </div>
+		                </a>
+		            </li>
+		    	<%})%>
+	        </ul>
+	    </div>
+	</div>
+	<div class="footer bg-red color-white" onclick="this.ctrl.confirmShipping();">
+	    确认发货
+	</div>
+</form>

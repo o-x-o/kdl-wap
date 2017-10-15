@@ -1,0 +1,75 @@
+<style type="text/css">
+    .content>ul>li{ height: 1.1rem; border-bottom: 1px solid #e5e5e5; padding: .15rem .2rem; box-sizing: border-box;}
+    .content>ul>li>a{ display: block; position: relative; padding-left: 1rem; box-sizing: border-box;}
+    .content>ul>li>a>span{ position: absolute; left: 0; top: 0; width: .8rem; height: .8rem; border-radius:50%; color: #fff;}
+    .content>ul>li>a>span.iconfont{border-radius:4px;line-height: .8rem;text-align: center; font-size: .55rem;}
+    .content>ul>li>a>span>img{ width: 100%;border-radius:50%; }
+    .content>ul>li>a>span>i{
+    display: block;
+    position: absolute;
+    width: .15rem;
+    height: .15rem;
+    border-radius: 50%;
+    background: #f62b2d;
+    top: -.05rem;
+    right: -.02rem;
+    border: 1px solid #fff;
+    }
+    .content>ul>li>a>h5{line-height: .4rem; position: relative; padding-right: 1.4rem; box-sizing: border-box;}
+    .content>ul>li>a>h5>span{ position: absolute; right: 0; top: 0; font-size: .24rem; color: #999;}
+    .content>ul>li>a>p{ color: #666; padding-right: .5rem; box-sizing: border-box;}
+    .content>ul>li>a>cite{ position: absolute;left: .5rem;top: 0; background: #f62b2d;z-index: 3;border-radius: 9px;padding: 0 3px;font-size: .24rem; color: #fff;min-width: .2rem;text-align: center;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">我的消息</span>
+</header>
+<div class="content">
+	<input type="hidden" id="senderId"/>
+	<ul class="bg-white">
+		<%if(_datas.data.userType == "member"){%>
+		 	<li onclick="GO('activity/merchantsDynamic')">
+		 		<a href="javascript:;">
+		        <span class="iconfont" style="background-color:#ff8932;">
+		        	&#xe698;
+		        	<%if(!_datas.data.isRead){%>
+		        		<i></i>
+		        	<%}%>
+		        </span>
+			        <h5 class="ellips1">商家动态<span><%=_datas.data.activityCreateDate%></span></h5>
+			        <p class="ellips1"><%=(_datas.data.activityTitle?_datas.data.activityTitle:"暂无动态")%></p>
+			    </a>
+			</li>
+		<%}%>
+		<li onclick="GO('message/systemMessages',{userType:'<%=_datas.data.userType%>'})">
+	 		<a href="javascript:;">
+	        <span class="iconfont" style="background-color:#fe727d;">
+	        	&#xe6a2;
+	        	<%if(!_datas.data.localInfoIsRead){%>
+	        		<i></i>
+	        	<%}%>
+	        </span>
+		        <h5 class="ellips1">系统消息<span><%=_datas.data.localInfoCreateDate%></span></h5>
+		        <p class="ellips1"><%=(_datas.data.localInfoTitle?_datas.data.localInfoTitle:"暂无动态")%></p>
+		    </a>
+		</li>
+	</ul>
+    <ul id="messageList" class="bg-white">
+        <!--
+    	<li>
+            <a href="javascript:;">
+                <span>
+                    <img src="./img/user_shopkeeper_img2@2x.png"/>
+                </span>
+                <h5>用户名称<span>2016-01-24 21:25:30</span></h5>
+                <p class="ellips1">最后条消息</p>
+            </a>
+        </li>
+        -->
+    </ul>
+</div>

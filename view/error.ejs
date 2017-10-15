@@ -1,0 +1,59 @@
+<% window._errorStack.unshift(window._errorCurrent=_param); %>
+<style>
+.error-wrap{
+	background-color: rgb(175, 227, 240);
+}
+.error-bg{
+	width:5.71rem;
+	height:100%;
+	margin:auto;
+	position:relative;
+	background-image: url("img/error.jpg");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.error-bg h1 {
+	color: #fff;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: 1.1rem;
+	margin-left: -.9rem;
+	font-weight: 400;
+}
+.error-bg h6 {
+	color: rgb(57, 67, 77);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: 1.9rem;
+	margin-left: -.5rem;
+	cursor: pointer;
+}
+.error-bg p {
+	color: rgb(57, 67, 77);
+	position: absolute;
+	top: 50%;
+	margin-top: 2.7rem;
+	word-break: break-word;
+	padding: 0 .8rem;
+	width: 4.3rem;
+}
+}
+</style>
+<center class="error-wrap">
+	<header class="navbar navbar3">
+		<div class="nav-wrap-left">
+			<a href="javascript:history.go(-1);">
+				<i class="iconfont"></i>
+				<s></s>
+			</a>
+		</div>
+	</header>
+	<div class="error-bg">
+		<h1>哎呀！出错了！</h1>
+		<h6 onclick="GO('index')">返回首页</h6>
+		<p><%=((_param.ctrl&&(_param.ctrl._name+" : ")||"")+(_param.errorMsg||_param.message||""))||"......"%></p>
+	</div>
+</center>

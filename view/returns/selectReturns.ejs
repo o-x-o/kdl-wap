@@ -1,0 +1,148 @@
+<style type="text/css">
+    .con-list{ margin-bottom: .1rem;}
+    .con-list:last-child{margin-bottom:0;}
+    .con-list>ul>li{ position:relative; padding: .2rem; min-height: 1.42rem; border-bottom: 1px solid #ddd;padding-left: .7rem;}
+    .con-list>ul>li>i{position:absolute; left:.18rem;}
+    .con-list>ul>li>i.iconfont{top:.7rem; color:#999; font-size:.36rem;}
+    .con-list>ul>li>i.character{width:.3rem; font-size:.24rem; color:#999;top:.4rem; text-align:center;}
+    .con-list>ul>li>a{ display: block; position: relative; padding:0 .8rem 0 1.7rem; box-sizing: border-box; height: 1.42rem; }
+    .con-list>ul>li>a>div.pic{ width: 1.5rem; border-radius: 3px; overflow: hidden; position: absolute;left: 0; top: 0; height: 1.42rem; background: url("./img/list-ptobg.jpg") no-repeat; background-size: contain;}
+    .con-list>ul>li>a>div.pic>img{width: 100%; height:100%;}
+    .con-list>ul>li>a>div.jiage{ position: absolute; right: 0; top: 0; text-align: right;}
+    .con-list .bd>div{ padding: 0 .2rem; box-sizing: border-box; text-align: right; background-color: #fff; height: .8rem; line-height: .8rem;}
+    .con-list .bd>div:first-child{border-bottom: 1px solid #e5e5e5;}
+    .con-list .bd>div>button{ padding: .07rem 0; color: #666; width: 1.5rem;margin-left: .2rem; border-radius: 3px; border: 1px solid #e5e5e5; background-color: transparent;}
+    .con-list .bd>div>button.cur{ border: 1px solid #cc3333; color: #cc3333;}
+    .con-list .bd>ul>li{ position: relative;}
+    .content .hd{padding:.15rem;position: relative;}
+    .content .hd>span{position:absolute; right:.15rem;bottom:.15rem; padding:.05rem .1rem; font-size:.24rem; border-radius:3px; border:1px solid #ddd; color:#ddd;}
+	.content .hd>span.cur{border:1px solid #cc3333; color:#cc3333;}
+	span.amount{ position: absolute; left: 2.4rem;bottom: .2rem; width: 2rem; display: block; float: right; height: .45rem; line-height: .45rem; border-radius: 3px; background-color: transparent;}
+	span.amount>input{ margin:0 .1rem; box-sizing: border-box; width: .6rem!Important; font-size: .26rem; color: #666!important;}
+	span.amount>input,span.amount>button{ font-size: .24rem;border-radius: 3px; color: #999;border:1px solid #ddd; background-color:#fff; float: left; width: .5rem; height: .45rem; line-height: .45rem; text-align: center;}
+	span.amount>button:disabled{background-color:#eee;}
+	.footer{ height:.9rem; line-height:.9rem;width:100%; min-width:320px; max-width:640px; position:fixed; bottom:0;}
+	.footer>ul>li{width:50%;float:left; text-align:center; background-color:#ccc;}
+	.footer>ul>li>a{display:inline-block; color:#fff; font-size:.28rem;}
+	.NoData{ margin-top:1.5rem; text-align:center; color:#666; padding-bottom:1.5rem;}
+	.NoData>img{width:3.5rem;}
+	
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">售后服务</span>
+    <div class="nav-wrap-right">
+        <a href="#message/messageLists?userType=member" class=" color-gray3">
+            <span class="nav-btn">
+                <i class="iconfont icon-info">&#xe601;</i>
+            </span>
+            <s></s>
+        </a>
+    </div>
+</header>
+<div class="theme-popover-mask"></div>
+<form call="this.ctrl.submitCall">
+	<input type="hidden" name="orderId" value="<%=_datas.data.orderId%>"/>
+	<div class="content">
+		<div class="bg-white color-gray6 hd">
+			<div>订单编号：<%=_datas.data.sn%></div>
+			<div>下单时间：<%=_datas.data.createDate%></div>
+			<%if(_datas.data.returnsCount>0){%>
+				<span class="cur" onclick="this.ctrl.orderReturns(<%=_datas.data.orderId%>)">售后进度</span>
+			<%}else{%>
+				<span>售后进度</span>
+			<%}%>
+		</div>
+		<%if(_datas.data.isTimeout){%>
+			<div class="NoData">
+				<img src="http://img.kaidianlaa.com/upload/image/common/comelate.png"/>
+				<p class="h4 m-top30">交易成功10日内可申请退货</p>
+			</div>
+		<%}else{%>
+		    <div class="con-list">
+		        <ul>
+		        	<%$.each(_datas.data.orderItems,function(index,orderItem){%>
+			            <li>
+			            	<%if(orderItem.quantity>0){%>
+			            		<i  style="cursor:default" class="iconfont" onclick="this.ctrl.selectItem(this)">&#xe693;</i>
+			            	<%}else{%>
+			            		<i class="character">已申请</i>
+				            <%}%>
+			                <a href="javascript:void(0);"  onclick="this.ctrl.toProductDetails(<%=orderItem.goodsId%>,<%=orderItem.shopId%>,<%if(orderItem.specialtyContentId==null){%>null<%}else{%><%=orderItem.specialtyContentId%><%}%>)">
+			                    <div class="pic">
+			                        <img src="<%=Config.imgPre+orderItem.image%>"/>
+			                    </div>
+			                    <div class="txt">
+			                        <h6 class="color-gray6 ellips"><%=orderItem.name%></h6>
+			                    </div>
+			                </a>
+			                <%if(orderItem.quantity>0){%>
+				                <span class="amount">
+					                <input type="hidden" value="<%=orderItem.id%>_1"/>
+					                <button disabled="disabled" type="button" onclick="this.ctrl.minus(this,1,<%=orderItem.quantity%>)"><i class="iconfont h5"></i></button>
+					                <input type="tel" value="1" onblur="this.ctrl.inputInt(this)" onkeyup="this.ctrl.onlyInteger(this,1,<%=orderItem.quantity%>)"/>
+					                <button type="button" <%if(orderItem.quantity<2){%>disabled="disabled"<%}%> onclick="this.ctrl.add(this,1,<%=orderItem.quantity%>)"><i class="iconfont h5"></i></button>
+					            </span>
+				            <%}%>
+			            </li>
+		            <%})%>
+		            <!--
+		            <li>
+		            	<i class="iconfont color-red">&#xe694;</i>
+		                <a href="javascript;:">
+		                    <div class="pic">
+		                        <img src="./img/user_shopkeeper_img2@2x.png"/>
+		                    </div>
+		                    <div class="txt">
+		                        <h6 class="color-gray6 ellips">2016春秋季 韩版棒球服印花夹克棒球服</h6>
+		                    </div>
+		                </a>
+		                <span class="amount">
+			                <button><i class="iconfont h5"></i></button>
+			                <input type="tel" value="1">
+			                <button><i class="iconfont h5"></i></button>
+			            </span>
+		            </li>
+		            <li>
+		            	<i class="character">已申请</i>
+		                <a href="javascript;:">
+		                    <div class="pic">
+		                        <img src="./img/user_shopkeeper_img2@2x.png"/>
+		                    </div>
+		                    <div class="txt">
+		                        <h6 class="color-gray6 ellips">2016春秋季 韩版棒球服印花夹克棒球服</h6>
+		                    </div>
+		                </a>
+		                <span class="amount">
+			                <button><i class="iconfont h5"></i></button>
+			                <input type="tel" value="1">
+			                <button><i class="iconfont h5"></i></button>
+			            </span>
+		            </li>
+		            -->
+		        </ul>
+		    </div>
+		<%}%>
+	</div>
+</form>
+
+
+<div class="footer">
+	<ul>
+		<li id="toApply" onclick="this.ctrl.toSubmitOrder(this)" >
+			<a href="javascript:void(0);">
+				申请售后
+			</a>
+		</li>
+		<li class="bg-orange" onclick="this.ctrl.afterSaleHelp()">
+			<a href="javascript:void(0);">
+				售后帮助
+			</a>
+		</li>
+	</ul>
+</div>

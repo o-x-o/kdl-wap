@@ -1,0 +1,52 @@
+<!-- 外部要用的DOM：如果用户上传了图片 simplePhotoUrl.src将有值 simplePhotoSubmit为提交按钮 simplePhotoWrap为DOM父级DIV可以控制其显示隐藏 -->
+<!-- 注意这是公用的 不要随便改 -->
+<style>
+.photo-area{
+color: #cccccc;
+border: 2px solid #cccccc;
+border-radius: 15px;
+width: 5rem;
+height: 3rem;
+margin: .4rem auto .25rem;
+text-align:center;
+line-height:1.4;
+font-size: 2rem !important;
+background-repeat: no-repeat;
+background-size: contain;
+background-position: center center;
+}
+</style>
+
+<div class="cont-wrap photo-wrap" id="simplePhotoWrap">
+	<img class="uploadImgUrl hide" id="simplePhotoUrl"/>
+	<div class="photo-area bg-white iconfont" onclick="simplePhoto()">&#xe612;</div>
+	<center class="color-gray9 font-normal h4" onclick="simplePhoto()"><%=_data.brief||"上传图片"%><%=_datas.verifyCode%></center>
+	<button type="button" class="btn bg-red through m-top50 h2 padding10 photoSubmit" id="simplePhotoSubmit">提交</button>
+</div>
+
+<script>
+$LAB.js("js/extra.js");
+function simplePhoto(){
+	var area=$(".photo-area");
+	var imgUrl=$(".uploadImgUrl");
+	$.simpleUpload({
+		multiple:false,
+		size:"10M",
+		process:function(e,files){
+			area.html("").loadingWrap();
+			console.log(e.loaded/e.total*100+"%");
+		},
+		load:function(data){
+			var url=Config.imgPre+(data && data[0]);
+			if(url!=null){
+				imgUrl.attr("src",url).loadCall(function(){
+					area.loadingWrapCancel();
+				});
+				area.css("background-image","url("+url+")");
+			}else{
+				area.loadingWrapCancel().html("&#xe612;");
+			}
+		}
+	});
+}
+</script>

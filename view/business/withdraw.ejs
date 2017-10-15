@@ -1,0 +1,82 @@
+<style type="text/css">
+    .navbar .nav-header{ color: #333;}
+    .content{ padding-bottom: .5rem;}
+    .content .audit i{ font-size: .5rem;}
+    .content .card-info>h6{ line-height: .66rem; padding: 0 .2rem; box-sizing: border-box;}
+    .content .card-info>ul>li{padding: 0 .2rem; box-sizing: border-box; height: .8rem; line-height: .8rem; border-bottom: 1px solid #e5e5e5;}
+    .content .card-info>ul>li:last-child>a{border-bottom: 0;}
+    .content .card-info>ul>li>a{ display: block; border-bottom: 1px solid #e5e5e5; position: relative; padding-left: 1.5rem;}
+    .content .card-info>ul>li>a>span:first-child{ position: absolute; left: 0; top: 0;}
+    .content .card-info>ul>li>a>span{color: #333;}
+    .content .card-info>ul>li>a>input{ width: 100%; border: 0; font-size: .26rem; color: #666;text-align: right;}
+    .content .card-info>ul>li>a>span>em{ width: .4rem; width: .4rem;display: inline-block; margin-right: 5px;}
+    .content .card-info>ul>li>a>span>em>img{ width: 100%; height: 100%;}
+    .content .card-info>p{ height: .8rem; line-height: .8rem; color: #666; padding-left: .2rem; box-sizing: border-box;}
+	.tips>h5{position:relative; height:.1rem; border-bottom:1px solid #ccc; margin-bottom:.4rem;}
+	.tips>h5>span{ position:absolute; top:-.2rem; left:2.4rem; background-color:#f0f0f0; padding:0 .1rem;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1">商家结算金额提现</span>
+</header>
+<div class=" content">
+	<form id="form" action="<%=Config.basePath%>cash/saveBusinessCash.shtml" call="this.ctrl.submitCall">
+		<input type="hidden" name="bankCardId" value="<%=_datas.bankCard.id%>" />
+	    <div class="card-info">
+	        <ul class="bg-white">
+	            <li>
+	                <a href="javascript:;">
+	                    <span>提现银行卡</span>
+	                    <span class="color-gray6 kdl-right">
+	                    	<em><img src="<%=Config.imgPre+_datas.bankCard.bank.bankIcon%>"/></em>
+	                    	<%=_datas.bankCard.bank.bankName%>（<%=_datas.bankCard.code%>）
+	                    </span>
+	                </a>
+	            </li>
+	            <li>
+	                <a href="javascript:;">
+	                    <span>活期资产</span>
+	                    <span id="businessPurse" class="kdl-right">0.00</span>
+	                </a>
+	            </li>
+	        </ul>
+	        <p>今日可提现<span id="ableCashAmount">0.00</span>元</p>
+	        <ul class="bg-white">
+	            <li>
+	                <a href="javascript:;">
+	                    <span>提现金额</span>
+	                    <input type="tel" name="cashSums" id="cashSums" value="" style="width:90%;"placeholder="输入金额"/>
+	                    <em class="kdl-right">元</em>
+	                </a>
+	            </li>
+	        </ul>
+	
+	    </div>
+	    <div class="padding20 boxsizing">
+	        <button class="btn-block m-top20" id="Confirm" type="button">确认提现</button>
+	    </div>
+    </form>
+    <div class="tips m-top30 padding20 boxsizing">
+    	<h5><span class="color-gray6 m-top10"><i class="iconfont color-red" style=" vertical-align: middle; margin-right:.1rem;">&#xe640;</i>小贴士</span></h5>
+    	<p class="color-gray9 m-top10">1、商家提现免手续费</p>
+        <p class="color-gray9 m-top10">2、每日最多可提现3次，每次最少提现10元，每日最多可提现5万元;</p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

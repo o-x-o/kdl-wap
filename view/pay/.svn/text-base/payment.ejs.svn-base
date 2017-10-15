@@ -1,0 +1,54 @@
+<style type="text/css">
+    .content .hd{ height: 1.2rem; line-height: 1.2rem; padding-left: .3rem; font-size: .28rem;}
+    .content .hd>i{ margin-right: .1rem; font-size: .46rem; vertical-align: middle;}
+    .content .bd{ padding: 0 .2rem; box-sizing: border-box; height: 1rem;}
+    .content .bd>p{ font-size: .26rem;}
+    .content>ul{ width: 3.6rem; margin: 0 auto;}
+    .content>ul>li{width: 50%; float: left;}
+    .content>ul>li>a{display: block; height: .6rem; text-align: center; line-height: .6rem; border:1px solid #e5e5e5; background-color: #fff; margin:0 .1rem; color: #333;}
+</style>
+<header class="navbar">
+    <span class="nav-header h1">支付结果</span>
+</header>
+<!--内容-->
+<div class="content">
+    <div class="hd bg-white color-gray6">
+    	<%if(_datas.data.bill.status == 'complete'){%>
+    		<i class="iconfont color-red">&#xe63d;</i>您已支付成功
+    	<%}else{%>
+    		<i class="iconfont color-red">&#xe64d;</i>支付失败
+    	<%}%>
+    </div>
+    <!--支付失败隐藏BD下的P-->
+    <%if(_datas.data.bill.status == 'complete'){%>
+	    <div class="bd m-top30">
+	        <p class="color-gray6">支付金额：<%=_datas.data.bill.totalAmount %>元</p>
+	        <p class="m-top20 color-gray6">实付金额：<%=_datas.data.bill.payAmount %>元</p>
+	    </div>
+    <%}%>
+    <ul class="m-top40">
+        <li>
+        	<%if(_datas.data.bill.type == 'order'){%>
+        		<a href="javascript:GO('#',);">查看账单</a>
+        	<%}else{%>
+        		<a href="javascript:GO('#',);">查看订单</a>
+        	<%}%>
+        </li>
+        <li>
+            <a href="javascript:;">返回首页</a>
+        </li>
+    </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

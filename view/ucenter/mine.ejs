@@ -1,0 +1,208 @@
+<style type="text/css">
+    .setin{padding: .2rem; height: .8rem; line-height: .4rem; box-sizing: border-box;}
+    .banner>img{width: 100%; }
+    .content{padding-top: 0;}
+    .navbar2{ background-image: none;}
+    .navbar .nav-wrap-right{ top: .2rem; right: .35rem;}
+    .content .con-hd{padding-top: .8rem;  box-sizing: border-box; position: relative; min-height: 4rem; background-image: url("img/mine_bj_01.jpg");background-size: contain;}
+    .content .con-hd .ft{ position: absolute; bottom: 0; width: 100%; min-width: 320px; max-width: 640px; height: 1rem; padding: .1rem 0; box-sizing: border-box;}
+    .content .con-hd .ft .bg-ft{ position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-color: #000; opacity: 0.5;}
+    .content .con-hd .ft ul{ z-index: 2;    position: relative;}
+    .content .con-hd .ft ul>li{ width: 33.33%; float: left;}
+    .content .con-hd .ft ul>li>a{ display: block; color: #fff; text-align: center; font-size: .32rem;}
+    .nav-wrap-right>a>span.nav-btn>em{ z-index: 5;position: absolute;right: -14px;top: 3px;font-size: .22rem;background-color: #fff;color: red;border-radius: .1rem;height: .23rem;display: block!important;line-height: .23rem; padding: 0 3px;}
+    .content .con-hd  .portrait>div.pic{ width: 1rem; height: 1rem; margin: 0 auto; border-radius: 50%; background-color: #fff;overflow: hidden;}
+    .content .con-hd  .portrait>div.pic>img{width: 100%; height: 100%; }
+    .content .con-hd  .portrait{ text-align: center;}
+    .content .con-hd  .portrait>a{font-size: .28rem; margin-top: .2rem; text-align: center; color: #fff; display: block;}
+    .kdl-right .iconfont{vertical-align: top;}
+    .nav-wrap-left{ width: 1rem; position: relative;}
+    .nav-wrap-left>a>span{ position: absolute; right: 0; top: 0;}
+    .action .message {
+    	position:relative;
+    }
+    .action .message em{
+    	z-index: 5;
+        position: absolute;
+        right: -.1rem;
+        top: 0;
+        font-size: .22rem;
+        border-radius: 50%;
+        height: .23rem;
+        width: .23rem;
+        display: block;
+        line-height: .23rem;
+        padding:0;
+        background-color: #f62b2d !important;
+    }
+</style>
+<header class="navbar navbar2 navbar3">
+    <div class="nav-wrap-left">
+        <a href="#pay/bill" class="color-white">
+            <i class="iconfont">&#xe688;</i>
+            <span>账单</span>
+        </a>
+    </div>
+</header>
+<div class="content">
+    <div class="con-hd">
+        <div class="portrait">
+            <div class="pic" onclick="GO('<%=_user?"ucenter/personalInformation":"passport/login"%>')">
+                 <img src="<%=_user&&Config.imgPre + _user.icon||"./" + Config.user_avatar%>"/>
+            </div>
+            <a href="<%=_user?"#ucenter/userSet":"#passport/login"%>"><%=_user?(_user.nickName||_user.username):"点击登录"%>
+            	<%if(_user &&  _user.userRank && _user.userRank.icon){%>
+            		<img src="<%=Config.imgPre+_user.userRank.icon%>" style=" height: .35rem; margin-left: .05rem; margin-top: -2px;">
+            	<%}%>
+            </a>
+        </div>
+        <div class="ft">
+            <div class="bg-ft"></div>
+            <ul class="clearfix">
+                <li>
+                    <a href="#ucenter/collect">
+                        <!--这里需要做判断，当登录的时候显示收藏数量，未登录显示收藏图标-->
+                        <span class="iconfont">&#xe619;</span>
+                        <p class="m-top5">商品收藏</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#ucenter/shopCollection">
+                        <span class="iconfont">&#xe605;</span>
+                        <p class="m-top5">店铺收藏</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#ucenter/footprint">
+                        <span class="iconfont">&#xe62b;</span>
+                        <p class="m-top5">浏览足迹</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--订单-->
+    <div class="order bg-white">
+        <a href="#order/userOrders" class="color-gray3">全部订单<span class="kdl-right color-gray9 p">查看全部订单<i class="iconfont color-gray6">&#xe608;</i></span></a>
+        <ul class="clearfix">
+            <li>
+                <a href="#order/userOrders?statusStr=pePay" id="pePay">
+                    <i class="iconfont">&#xe622;</i>
+                    <p>待付款</p>
+                </a>
+            </li>
+            <li>
+                <a href="#order/userOrders?statusStr=hasShi" id="hasShi">
+                    <i class="iconfont">&#xe61f;</i>
+                    <p>待收货</p>
+                </a>
+            </li>
+            <li>
+                <a href="#order/userOrders?statusStr=peEvaluate" id="peEvaluate">
+                    <i class="iconfont">&#xe623;</i>
+                    <p>待评价</p>
+                </a>
+            </li>
+            <li>
+                <a href="#order/userOrders?statusStr=noCon" id="noCon">
+                    <i class="iconfont">&#xe62c;</i>
+                    <p>未消费</p>
+                </a>
+            </li>
+            <li>
+                <a href="#returns/returnsList">
+                    <i class="iconfont">&#xe628;</i>
+                    <p>退款/售后</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!--我的钱包-->
+    <div class="order wallet bg-white m-top10">
+        <a href="#ucenter/purse" class="color-gray3">我的钱包<span class="kdl-right color-gray9 p">查看我的钱包<i class="iconfont color-gray6">&#xe608;</i></span></a>
+        <ul class="clearfix">
+            <li>
+                <a href="#ucenter/bakMoneyLog?toReturn=mine">
+                    <i class="iconfont">&#xe629;</i>
+                    <p>总资产</p>
+                </a>
+            </li>
+            <li>
+                <a href="#ucenter/bankCards">
+                    <i class="iconfont">&#xe620;</i>
+                    <p>银行卡</p>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" class="color-greyc">
+                    <i class="iconfont">&#xe627;</i>
+                    <p>积分</p>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" class="color-greyc">
+                    <i class="iconfont">&#xe621;</i>
+                    <p>联盟卡</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!--功能-->
+    <div class="action bg-white m-top10">
+        <ul class="clearfix">
+            <li>
+                <a href="#business/merchant">
+                    <i class="iconfont" style="color: #ff8f1a">&#xe624;</i>
+                    <p>商家中心</p>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <!--<i class="iconfont" style="color: #f97664">&#xe61d;</i>-->
+                    <i class="iconfont" style="color: #cccccc;">&#xe61d;</i>
+                    <p>积分商城</p>
+                </a>
+            </li>
+            <li>
+                <a href="#ucenter/cardBag">
+                    <i class="iconfont" style="color: #bc86ff">&#xe62a;</i>
+                    <p>卡券包</p>
+                </a>
+            </li>
+            <li>
+                <a href="#message/messageLists?userType=member">
+                    <i class="iconfont message" style="color: #91c66a">&#xe61e;<%=localStorage.getItem("allRedpoint_"+(_user&&_user.id)) == "true"?'<em></em>':''%></i>
+                    <p>消息中心</p> 
+                </a>
+            </li>
+            <li>
+                <a href="#ucenter/feedback">
+                    <!--<i class="iconfont" style="color: #53bfe7">&#xe617;</i>-->
+                    <i class="iconfont" style="color: #53bfe7">&#xe617;</i>
+                    <p>意见反馈</p>
+                </a>
+            </li>
+            <li>
+               <a href="#message/chitchat?targetId=3999">
+	                <i class="iconfont" style="color:#0d86ff">&#xe62f;</i>
+	                <p>在线客服</p>
+                </a>
+            </li>
+            <li>
+                <a href="#message/chitchat?targetId=3999">
+	                
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!--设置-->
+    <div class="setin m-top10 color-gray3 bg-white" onclick="GO('ucenter/userSet')">
+        设置
+        <a href="javascript:;" class="kdl-right color-gray9"><i class="iconfont color-gray6">&#xe608;</i></a>
+    </div>
+</div>

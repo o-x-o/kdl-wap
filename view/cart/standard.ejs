@@ -1,0 +1,68 @@
+        <span class="iconfont" onclick="closeSkuPanel()">&#xe64d;</span>
+        <div class="hd">
+            <div class="pic">
+                <img id="skuImage" src="<%=Config.imgPre+data.currentSku.image%>"/>
+            </div>
+            <div class="txt">
+                <h2 class="color-red m-top10">￥<span id="skuPrice"><%=data.currentSku.price%></span></h2>
+                <h6 class="m-top10 color-gray6">库存<span id="skuStock"><%=data.currentSku.stock%></span>件</h6>
+                <p class="m-top5 color-gray6">
+                  	<%if(data.skuGroupList != null && data.skuGroupList.length > 0){%>
+                		请选择您需要的商品规格！
+                	<%} else{%>
+                		该商品暂无多种规格可选！
+                	<%}%>
+                </p>
+            </div>
+        </div>
+         <%if(data.skuGroupList != null && data.skuGroupList.length > 0){%>
+        	<%for(var i = 0;i<data.skuGroupList.length;i++){%>
+	        	<%var skuGroupTemp = data.skuGroupList[i]%>
+		        <div class="tone m-top20">
+		            <h5><%=skuGroupTemp.name%></h5>
+		            <ul class="clearfix m-top20">
+		            	<%for(var j = 0;j<skuGroupTemp.skuItemValues.length;j++){%>
+		            		<%var skuItemTemp = skuGroupTemp.skuItemValues[j]%>
+		            		<%var isCur = "skuItemId='"+skuItemTemp.id+"'"%>
+		            		<%for(var k = 0;k<data.defSkuItemList.length;k++){%>
+		            			<%var defSkuTemp = data.defSkuItemList[k]%>
+		            			<%if(skuItemTemp.id == defSkuTemp.id){isCur += " class='cur'"}%>
+		            		<%}%>
+			                <li <%=isCur%>>
+			                    <a href="javascript:;" onclick="this.ctrl.chooseItem(this,<%=data.currentSku.goodsId%>,<%=data.shopId%>)"><%=skuItemTemp.value%></a>
+			                </li>
+		                <%}%>
+		            </ul>
+		        </div>
+	        <%}%>
+	    <%}%>
+        <div class="subbtn">
+            <a id="makeChoose" onclick="addCart(this)" type="" href="javascript:;" style="display:block" url="cart/update.shtml?shopId=<%=data.shopId%>&quantity=1&currentSkuId=<%=data.currentSku.id%>&skuId=<%=data.currentSku.id%>">确定</a>
+            <!--<ul id="chooseOperation" class="clearfix">
+                <li>
+                    <a id="toCardUrl" href="javascript:;" class="bg-orange">加入购物车</a>
+                </li>
+                <li>
+                    <a id="toBuyUrl" href="javascript:;">立即购买</a>
+                </li>
+            </ul>-->
+        </div>
+ <script>
+  /*关闭规格选择页面*/
+  function closeSkuPanel(){
+     $(".theme-popover-mask").hide();
+     $(".standard-con").hide();
+  }
+   /*加入购物车*/
+  function addCart(obj){
+       $.get($(obj).attr("url"),function(data){
+    	   //关闭选择规格面板
+    	   $(".theme-popover-mask").hide(300);
+    	   $(".standard-con").hide(50);
+          if(data.status == "1"){
+	    	    GO("cart/shoppingCart");
+            	alert("加入购物车成功",2000);
+          }
+       })
+  }
+</script>

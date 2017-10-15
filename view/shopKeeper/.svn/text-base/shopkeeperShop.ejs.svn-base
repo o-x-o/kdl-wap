@@ -1,0 +1,127 @@
+<style>
+    body{ padding-bottom: 0;}
+    .content{ padding-top: 1.66rem;}
+    .navbar2{background-image: none; border-bottom: 1px solid #e5e5e5;}
+    .navbar2 .box-search input{ font-size: .24rem; text-indent: .2rem; width: 100%; height: .5rem; line-height: .5rem; border: 0; border-radius: 5px; background-color: #f0f0f0;}
+    .navbar2 .nav-wrap-right>a>span{ color: #999; width: .7rem;top: 0; background-color: #f0f0f0; height: .5rem; line-height: .5rem;border-radius: 3px;}
+    .navbar2 .box-search i{font-size: .26rem;}
+    .content .hd{ position: fixed;top: .9rem; width: 100%; min-width: 320px; max-width: 640px;z-index: 3;}
+    .content .hd>ul{ padding: .15rem 0; box-sizing: border-box; margin-left: -1px; border-bottom: 1px solid #e5e5e5;}
+    .content .hd>ul>li{ width: 33.33%; float: left; height: .45rem; line-height: .45rem; border-left: 1px solid #e5e5e5; box-sizing: border-box;}
+    .content .hd>ul>li>a{ display: block; color: #333; text-align: center;}
+    .content .hd>ul>li.cur>a{ color: #cc3333;}
+    .content>ul{background-color: #fff;}
+    .content>ul>li{ border-bottom: 1px solid #e5e5e5;}
+    .content>ul>li>div.tit{ position: relative;  padding-left: 1.4rem;box-sizing: border-box;}
+    .content>ul>li>div.tit .pic{position: absolute; left: .2rem; top:.2rem;  width: 1rem;height: 1rem;display: inline-block;border-radius: 50%;overflow: hidden;}
+    .content>ul>li>div.tit .pic>img{width: 100%;}
+    .content>ul>li>div.tit .txt{padding-top: .2rem;}
+    .content>ul>li>div.tit .txt>img{height: .4rem;    margin: .1rem 0;}
+    .tit-con{ padding:.2rem; box-sizing: border-box; position: relative ;padding-left: 1.4rem; box-sizing: border-box;}
+    .tit-con .txt{ position: absolute; left: .2rem; top: .2rem;}
+    .tit-con>ol>li{ width: 1.5rem; margin-right: .15rem; float: left;}
+    .tit-con>ol>li:last-child{ margin-right: 0;}
+    .tit-con>ol>li>a{ display: block; position: relative;}
+    .tit-con>ol>li>a>div.pto{width: 1.5rem; height:1.4rem; border-radius: 3px; overflow: hidden;}
+    .tit-con>ol>li>a>div.pto>img{ width: 100%; height:100%;}
+    .tit-con>ol>li>a>div.mask{ position: absolute; bottom: 0; width: 100%; background-color: #000; z-index: 1; opacity: 0.5; height: .45rem;}
+    .tit-con>ol>li>a>p{ line-height: .5rem;position: absolute; bottom: 0; width: 100%; color: #fff; z-index: 2; text-align: center;}
+    .content>h6{ position: relative; height: .4rem;border-bottom: 1px solid #e5e5e5; margin-bottom: 1.5rem;}
+    .content>h6>span{ padding: 0 .2rem; background-color: #f0f0f0; position: absolute; left: 50%; margin-left: -1.1rem; top: .25rem;}
+    .bottomBtn{position: fixed;bottom: 0px;width: 6.4rem;z-index: 5;}
+    .bottomBtn button{border-radius:0;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+        </a>
+    </div>
+    <div class="box-search" style="margin-left: 1rem;">
+        <a href="javascript:;" class=" color-gray3">
+            <input class="single-line" id="keyword" type="text" placeholder="搜索店主小铺"/>
+        </a>
+    </div>
+    <div class="nav-wrap-right">
+        <a href="javascript:;" onclick="this.ctrl.chooseOrderType()">
+            <span class="nav-btn iconfont">
+                &#xe603;
+            </span>
+        </a>
+    </div>
+</header>
+<div class="theme-popover-mask"></div>
+<div class="content">
+    <div class="hd bg-white page-fixed">
+        <ul class="clearfix">
+            <li class="cur" orderType="user.sumSellTips">
+                <a href="javascript:;" onclick="this.ctrl.chooseOrderType('user.sumSellTips')">
+                    销售收入
+                </a>
+            </li>
+            <li orderType="shop.ordersCount">
+                <a href="javascript:;" onclick="this.ctrl.chooseOrderType('shop.ordersCount')">
+                    订单量
+                </a>
+            </li>
+            <li orderType="shop.shopRankId">
+                <a href="javascript:;" onclick="this.ctrl.chooseOrderType('shop.shopRankId')">
+                    等级
+                </a>
+            </li>
+        </ul>
+    </div>
+    <ul id="shopContent">
+    	<!--
+        <li>
+            <div class="tit">
+                <div class="pic">
+                    <img src="./img/icon_back_now.png"/>
+                </div>
+                <div class="txt">
+                    <h5 class="color-gray6">云裳饰衣（上地三街专卖店）</h5>
+                    <img src="./img/bg-grade.png"/><span class="color-gray9 kdl-right" style="margin-top: .15rem;">订单量（888）</span>
+                    <h6 class="color-gray6">销售收入：<cite class="color-red">￥888.00</cite></h6>
+                </div>
+            </div>
+            <div class="tit-con">
+                <div class="txt color-gray6">店主推荐</div>
+                <ol class="clearfix">
+                    <li>
+                        <a href="javascript:;">
+                            <div class="pto">
+                                <img src="./img/user_shopkeeper_img2@2x.png"/>
+                            </div>
+                            <div class="mask"></div>
+                            <p class="color-white">返￥66.00</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <div class="pto">
+                                <img src="./img/user_shopkeeper_img2@2x.png"/>
+                            </div>
+                            <div class="mask"></div>
+                            <p class="color-white">返￥66.00</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <div class="pto">
+                                <img src="./img/user_shopkeeper_img2@2x.png"/>
+                            </div>
+                            <div class="mask"></div>
+                            <p class="color-white">返￥66.00</p>
+                        </a>
+                    </li>
+                </ol>
+            </div>
+        </li>
+        -->
+    </ul>
+    <%=REND("include/empty",{icon:"&#xe61c;",tip:"sorry,未找到相关的店铺~",price:"2",display:"none"})%>
+    <h6><span id="loadMore" onclick="this.ctrl.loadMore();">加载更多</span></h6>
+    <div class="bottomBtn page-fixed">
+        <button class="btn-block" id="aboutXiaoPu" onclick="this.ctrl.aboutXiaoPu()">开启小铺</button><!-- 我的小铺 -->
+    </div>
+</div>

@@ -1,0 +1,106 @@
+<style type="text/css">
+    body{ padding-bottom: 1rem!important;}
+    .ellips{line-height: .35rem;}
+	.con-hd{padding:.2rem .15rem; font-size:.28rem; border-bottom:1px solid #e8e8e8;}
+    .con-txt{position:relative; border-top:1px solid #e8e8e8; border-bottom:1px solid #e8e8e8;}
+    .con-txt>span{ position:absolute; right:.15rem; bottom:.15rem;}
+    .con-txt>textarea{ width:100%; height:3rem; line-height:.35rem;border:0; padding:.15rem; color:#333; font-size:.24rem;}
+    .con-pic{padding:.35rem .15rem;}
+    .con-pic>ul>li{ width:1.2rem; margin-right:.3rem; position:relative; height:1.2rem; border-radius:3px;  background-size: cover;background-position: center; float:left;}
+    .con-pic>ul>li>i{ top: -.2rem;position: absolute;right: -.15rem;cursor: pointer; font-size:.42rem;}
+    .con-pic>ul>li:last-child{background-color:#ddd;border-radius:50%;text-align: center; margin-top:.1rem; width:1rem; height:1rem;}
+    .con-pic>ul>li:last-child>i{ font-size:.52rem; text-align:center;line-height:1rem; width:1rem;    position: relative;right: 0;top: 0;}
+	.con-phone>input{width:100%; padding:.2rem .15rem;font-size:.24rem; border:0;}
+	.con-btn{text-align:center;}
+	.con-btn>button{ width:3rem; text-align:center; border:0; height:.9rem; line-height:.9rem; color:#fff; font-size:.32rem;}
+	.theme-popover-mask{ z-index:999;}
+	form{position:relative;}
+	.boolean{width:5rem; marign:0 auto; z-index:9991; position:absolute; top:50%; margin-top:-3.2rem; left:.7rem; display:none;}
+	.boolean>h5{ height:.9rem; line-height:.9rem; text-align:center;}
+	.boolean>ul>li{ height:.9rem; line-height:.9rem;font-size:.28rem; border-top:1px solid #e8e8e8; padding:0 .15rem;}
+	.boolean>ul>li>i{font-size:.46rem; color:#999;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">意见反馈</span>
+    <div class="nav-wrap-right">
+        <a href="javascript:;" class=" color-gray3">
+            <span class="nav-btn">
+                <i class="iconfont icon-info">&#xe636; </i>
+            </span>
+        </a>
+    </div>
+    <div class="nav-dropdown">
+        <span class="triangle-up"></span>
+        <ul>
+            <li>
+                <a class="react" href="/">
+                    <i class="iconfont">&#xe602;</i>
+                    <space></space>首页
+                </a>
+            </li>
+            <li>
+                <a class="react" href="javascript:;">
+                    <i class="iconfont">&#xe601;</i>
+                    <space></space>消息
+                    <em class="information">8+<s class="triangle-up"></s></em>
+                </a>
+            </li>
+            <li>
+                <a class="react" href="javascript:;" >
+                    <i class="iconfont">&#xe62f;</i>
+                    <space></space>客服
+                </a>
+            </li>
+        </ul>
+    </div>
+</header>
+<form id="form" action="<%=Config.basePath%>/suggest/save.shtml" call="this.ctrl.submitCall">
+	<input type="hidden" id="images" name="images" />
+	<!--默认是功能意见类型-->
+	<input type="hidden" id="type" name="type" value="functions"/>
+	<div class="content">
+		<div class="con-hd  color-gray3 bg-white">
+			反馈类型
+			<span class="kdl-right"><span id="suggestType">功能意见</span><i class="iconfont color-gray6 h5">&#xe608;</i></span>
+		</div>
+		<div class="con-txt m-top20 bg-white">
+			<textarea id="content" name="content" placeholder="请输入您的意见，我们将不断优化体验" onkeyup="this.ctrl.checkForm()"></textarea>
+			<span class="color-gray9 p">0/150</span>
+		</div>
+		<div class="con-pic">
+			<ul class="clearfix">
+				<li>
+					<i class="addPicture iconfont color-white"></i>
+				</li>
+			</ul>
+		</div>
+		<div class="con-phone bg-white">
+			<input type="text" name="contact" id="contact" placeholder="请输入手机号/邮箱"/>
+		</div>
+		<div class="con-btn m-top50">
+			<!--颜色切换class bg-red -->
+			<button class="bg-grayc" type="button" id="submitBtn" onclick="this.ctrl.submitForm()">提交</button>
+		</div>
+		
+	</div>
+	
+	<div class="theme-popover-mask"></div>
+	<div class="boolean bg-white">
+		<h5 class="color-red h4">请选择反馈类型</h5>
+		<ul>
+			<%for(var i=0;i<_datas.types.length;i++){%>
+				<li><span><%=eval("Config.message.suggest.type."+_datas.types[i])%></span><i class="iconfont kdl-right" type=<%=_datas.types[i]%>>&#xe64f;</i> </li>
+			<%}%> 
+		</ul>
+	</div>
+</form>
+
+
+
+

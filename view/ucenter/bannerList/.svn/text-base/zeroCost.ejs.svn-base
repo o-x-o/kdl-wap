@@ -1,0 +1,29 @@
+<style type="text/css">
+    .navbar2{ background-image: none;}
+    .content>img{ width: 100%;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">零成本开店</span>
+</header>
+<div class="content">
+    <img src="http://img.kaidianlaa.com/upload/image/201605/30/wap_list_zeroCost.jpg"/>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

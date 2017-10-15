@@ -1,0 +1,339 @@
+<style type="text/css">
+    body{ padding-bottom: 0!important;}
+    .navbar2{background-image: none; border-bottom: 1px solid #e5e5e5;}
+    /*轮播*/
+    .banner img{ width: 100%; }
+    .banner .headline{ padding: .1rem .2rem .2rem; box-sizing: border-box; background-color: #fff; border-bottom: 1px solid #e5e5e5;}
+    #slider{width:100%;position: relative;}
+    #slider .swipe-wrap{position: relative; overflow: hidden; display:block; width:8000px; float:left;}
+    #slider .swipe-wrap .wrap{float: left; position: relative;}
+    #slider img{width: 100%; height: auto; min-width:320px;max-width:640px;}
+    #slider .swipe-wrap div{float:left;}
+    #slider .swipe-wrap div a{display:block;}
+    #circle{position: absolute; height:.15rem; left:50%; z-index: 8; bottom:.25rem;margin-left:-.34rem;}
+    #circle li{ cursor: pointer; width:.18rem;height: .18rem; float:left; border-radius:50%; margin:0 8px; background-color:#fff; }
+    #circle li.current{background-color:#cc0000;}
+    /*分享*/
+    .share{ border-bottom: 1px solid #e5e5e5;}
+    .share .hd{ padding: .2rem; box-sizing: border-box;}
+    .share>ul{margin-left: -1px; height: .8rem; line-height: .8rem; border-top: 1px solid #e5e5e5;}
+    .share>ul>li{ float: left; width: 50%; border-left: 1px solid #e5e5e5; box-sizing: border-box;}
+    .share>ul>li>a{display: block; text-align: center; font-size: .3rem;}
+    .share>ul>li>a>i{ font-size: .34rem;}
+    /*活动时间*/
+    .activity,.info{ padding: .2rem; box-sizing: border-box;}
+    .activity>p{ line-height: .4rem;}
+    .activity>h5,.info>h5{ border-bottom: 1px solid #e5e5e5; padding-bottom: .1rem;}
+    .activity>ul{ padding: .2rem 0; box-sizing: border-box;}
+    .activity>ul>li{ line-height: .45rem;  color: #666;}
+    /*商家信息*/
+    .info .heading{ position: relative; padding-left: 1.4rem; box-sizing: border-box; min-height: 1.2rem;}
+    .info .heading .pic{ width: 1.2rem; position: absolute; left: 0; top: 0; display: inline-block;}
+    .info .heading img{ width: 100%;}
+    .info .heading .pto{ width: .9rem; height: .5rem; margin-top: .1rem;}
+    .info>p{font-size: .26rem; color: #666;}
+    .info>p>i{ margin-left: .1rem;}
+    .info .btn-bg{ padding: .2rem .4rem; box-sizing: border-box;}
+    .info .btn-bg>ul>li{float: left; width: 50%;}
+    .info .btn-bg>ul>li>a{ display: block; margin: 0 .2rem; border: 1px solid #e5e5e5; border-radius: 3px; width: 80%; padding: .1rem 0; text-align: center;font-size: .28rem;}
+    /*获奖名单*/
+    .Winners{padding: .2rem; box-sizing: border-box;}
+    .Winners>h5{border-bottom: 1px solid #e5e5e5; padding-bottom: .1rem;}
+    .Winners .autoScroll{overflow:hidden;min-height:.2rem;max-height: 2rem; margin-top: 10px;}
+    .autoScroll ul li {float: left; width: 50%;  line-height: .5rem; color: #666;}
+    /*任务帮助*/
+    .help{ padding: 1rem .2rem 0; width: 6rem; position: fixed; top: 3rem; z-index: 11; left: 50%; margin-left:-3rem;box-sizing: border-box; display: none;}
+    .help>i{ font-size: .5rem; position: absolute;right: .2rem; top: .2rem;}
+    .help .help-con{ padding: .2rem; box-sizing: border-box; border: 1px solid #e5e5e5;}
+    .help>button{ height: 1rem; line-height: 1rem; background-color: transparent; color: #333; font-size: .26rem; text-align: center; border: 0; border-top: 1px solid #e5e5e5; display: block; width: 100%;}
+    /*分享弹窗*/
+    .theme-popover-mask{display: block;z-index: 9;}
+    .popup{ position: fixed; bottom: 0; width: 100%; min-width: 320px; max-width: 640px; height: 5rem; z-index: 11;}
+    .popup>div{ width: 4.5rem; margin: 0 auto; margin-top: 1rem;}
+    .popup>i{ position: absolute; right: .3rem; top: .2rem; color: #fff; font-size: .4rem;font-size: .6rem;}
+    .popup>div>img{ width: 100%;}
+    .popup>span{position: absolute; width:1.48rem; height: .43rem; display: inline-block;bottom: .88rem; left: 2.71rem; border-radius: .2rem;}
+    /*立即下载*/
+    .content.cur{padding-top: 1.7rem!important;}
+    .navbar{ top:.8rem;}
+    .RegisterNow{ border-bottom: 1px solid #e5e5e5; position: fixed; width: 100%; min-width: 320px; max-width: 640px;top: 0; z-index: 20; height: .8rem; line-height: .8rem; background-color: #e7f4fd; color: #333; padding: 0 .2rem; box-sizing: border-box;}
+    .RegisterNow>a{ border: 1px solid #e5e5e5; display: inline-block; background-color: transparent; border-radius: 3px; color: #cc3333;height:.5rem; line-height:.5rem; text-align:center; width:1.2rem;margin-top: .13rem;}
+    .RegisterNow>span{ width: .5rem; height: .6rem; display: inline-block;}
+    .RegisterNow>span>img{ width: 100%;}
+    .RegisterNow>i{ font-size: .42rem;vertical-align: middle; color: #0884ff;    display: inline-block;}
+    .higao{ height:.9rem;}
+</style>
+<div class="RegisterNow">
+    <i class="iconfont">&#xe652;</i>
+    <span><img src="./img/promotion_money_logo@2x.png"/></span>
+    开店啦，服务你身边
+    <a class="kdl-right" href="#ucenter/guidanceDownload">立即下载</a>
+</div>
+<div class="higao"></div>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <span class="nav-city">
+                <i class="iconfont">&#xe60b;</i>
+            </span>
+        </a>
+    </div>
+    <!--这个标题你给设置12个字，多出用...-->
+    <span class="nav-header h1 color-gray3">
+    <%var shopName = _datas._data.shop.shopName%>
+    <%if(shopName.length > 12){%>
+    	<%=shopName.substr(0,12)%>...
+    <%}else{%>
+    	<%=shopName%>
+    <%}%>
+    </span>
+    <div class="nav-wrap-right">
+        <a href="javascript:void(0);">
+            <span class="nav-btn">
+                <i class="iconfont icon-info">&#xe636; </i>
+            </span>
+            <s></s>
+        </a>
+    </div>
+    <div class="nav-dropdown">
+        <span class="triangle-up"></span>
+        <ul>
+            <li>
+                <a class="react" href="/">
+                    <i class="iconfont">&#xe602;</i>
+                    <space></space>首页
+                </a>
+            </li>
+            <li>
+                <a class="react" href="javascript:;">
+                    <i class="iconfont">&#xe601;</i>
+                    <space></space>消息
+                    <em class="information">8+<s class="triangle-up"></s></em>
+                </a>
+            </li>
+        </ul>
+    </div>
+</header>
+<!--任务帮助1-->
+<div class="theme-popover-mask" id="taskHelp" <%=_param.type=='share_gift'?'':'style="display:none;"'%>></div>
+<div id="helpDiv" class="help bg-white">
+    <i class="iconfont color-gray6 cose">&#xe652;</i>
+    <div class="help-con">
+        <p class="m-top10 color-gray6">
+            <%if(_datas._data.isLogged){%>
+        		<span>
+        			已完成分享
+        			<cite class="color-red count">
+        				<%=_datas._data.count%>
+        			</cite>
+        			次
+        		</span>
+        	<%}else{%>
+        		<span>
+        			已完成分享
+        			<cite class="color-red">
+        				0
+        			</cite>次
+        		</span>
+        	<%}%>
+            <span class="kdl-right">
+            	分享任务总次数
+            	<cite class="color-red">
+            		<%=_datas._data.forwardingGifts.taskNumber%>
+            	</cite>
+            	次
+            </span>
+        </p>
+    </div>
+    <h4 class="m-top30">
+    	完成指定任务分享后，以注册所用的手机号前去兑换！
+    </h4>
+    <button class="m-top20 cose">确定</button>
+</div>
+
+<!-- 参与活动 -->
+<div class="theme-popover-mask" id="activityTask" <%=_param.type=='share_gift'?'':'style="display:none;"'%>></div>
+<div id="activityTaskDiv" class="help bg-white" style="padding-top:.2rem; top:3.5rem;">
+    <h4 class="m-top30">
+    	请通过微信右上角里的分享参与活动，或通过开店啦App参与活动！
+    </h4>
+    <button class="m-top20 cose">确定</button>
+</div>
+
+<!--弹窗-->
+<div class="popup" <%=_param.type=='share_gift'?'':'style="display:none;"'%>>
+    <i class="iconfont">&#xe652;</i>
+    <span></span>
+    <div>
+        <img onclick="GO('passport/register')" src="http://img.kaidianlaa.com/upload/image/201605/30/wap_forwardingDetails.png"/>
+    </div>
+</div>
+<div class="content cur">
+    <!--轮播图-->
+    <section class="banner clearfix">
+        <div id="slider" class="clearfix" >
+            <div class="swipe-wrap">
+            	<%$.each(_datas._data.forwardingGifts.imageSrcs,function(i,o){%>
+            		<div class="wrap">
+                    <a href="javascript:;">
+                        <img src="<%=Config.imgPre+o.src%>"/>
+                    </a>
+                	</div>
+            	<%})%>
+            </div>
+            <ul id="circle">
+                <li class="current"></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="headline">
+            <h6 class="ellips color-gray6 share_title" title="<%=_datas._data.forwardingGifts.title%>"><%=_datas._data.forwardingGifts.title%></h6>
+            <p class="color-gray6">
+            	剩余礼品数：
+            	<cite class="color-red">
+            		<%=_datas._data.forwardingGifts.leftGiftNumber%>
+            	</cite>
+            </p>
+        </div>
+    </section>
+    <!--兑奖分享-->
+    <div class="share m-top10 bg-white">
+        <div class="hd">
+        	<%if(_datas._data.isLogged && _datas._data.mobilePhone){%><p class="m-top10 color-gray6">兑奖者手机号：<%=_datas._data.mobilePhone%></p><%}%>
+    		<p class="m-top10 color-gray6">
+            	<%if(_datas._data.isLogged){%>
+            		<span>
+            			已完成分享
+            			<cite class="color-red count">
+            				<%=_datas._data.count%>
+            			</cite>
+            			次
+            		</span>
+            	<%}else{%>
+            		<span>
+            			已完成分享
+            			<cite class="color-red">
+            				0
+            			</cite>次
+            		</span>
+            	<%}%>
+                <span class="kdl-right">
+                	分享任务总次数
+                	<cite class="color-red">
+                		<%=_datas._data.forwardingGifts.taskNumber%>
+                	</cite>
+					次
+				</span>
+            </p>
+        </div>
+        <ul class="clearfix">
+            <li class="task">
+                <a href="javascript:;">
+                    <i class="iconfont color-orange">&#xe617;</i>
+					任务帮助
+                </a>
+            </li>
+            <li class='activityTask'>
+                <a href="javascript:;">
+                    <i class="iconfont color-red">&#xe61a;</i>
+					立即参与
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!--活动时间-->
+    <div class="activity bg-white m-top10">
+        <h5 class="color-gray6">活动时间</h5>
+        <p class="m-top10 color-gray6">
+        	开始时间：<%=_datas._data.forwardingGifts.beginDate%>
+        </p>
+        <p class="m-top10 color-gray6">
+        	结束时间：<%=_datas._data.forwardingGifts.endDate%>
+        </p>
+        <p class="m-top10 color-gray6">
+        	礼品领取结束时间：<%=_datas._data.forwardingGifts.receiveEndDate%>
+        </p>
+    </div>
+    <!--活动内容-->
+    <div class="activity bg-white m-top10">
+        <h5 class="color-gray6">活动内容</h5>
+        <p class="m-top10 color-gray6">
+        	<%=_datas._data.forwardingGifts.activityRule %>
+        </p>
+    </div>
+    <!--活动要求-->
+    <div class="activity bg-white m-top10">
+        <h5 class="color-gray6">活动要求</h5>
+        <ul>
+            <li style="white-space: pre-wrap;"><%=_datas._data.forwardingGifts.requirements%></li>
+        </ul>
+    </div>
+    <!--商家信息-->
+    <div class="info bg-white m-top10">
+        <h5 class="color-gray6">商家信息</h5>
+        <div class="heading m-top20">
+            <div class="pic">
+                <img src="<%=Config.imgPre+_datas._data.shop.shopImage%>"/>
+            </div>
+            <div class="txt">
+                <h5 class="color-gray6 ellips1"><%=_datas._data.shop.shopName%></h5>
+                <div class="pto">
+                    <img src="<%=Config.imgPre+_datas._data.shop.shopRank.icon%>"/>
+                </div>
+            </div>
+        </div>
+        <p class="m-top10">
+        	<a href="tel:<%=_datas._data.shop.shopPhone%>">咨询电话：<%=_datas._data.shop.shopPhone%>（<%=_datas._data.shop.shopContacts%>）
+                <i class="iconfont color-orange">
+                    &#xe61b;
+                </i></a>
+        </p>
+        <p class="m-top10">
+        	营业时间：
+        	<%if(_datas._data.shop.officeTime != ""){%>
+        		<%=_datas._data.shop.officeTime %>
+        	<%}else{%>
+        		09:00~18:00
+        	<%}%>
+        </p>
+        <p class="m-top10">
+        	所在地：
+	        <%=_datas._data.shop.shopAddress%>
+	        <i class="iconfont color-orange">
+	        	&#xe616;
+	        </i>
+	    </p>
+        <div class="btn-bg">
+            <ul class="clearfix">
+                <li>
+                    <a href="#message/chitchat?shopId=<%=_datas._data.shop.id%>">
+                        <i class="iconfont">&#xe667;</i>
+						客服
+                    </a>
+                </li>
+                <li>
+                    <a href="#shop/shops?shopId=<%=_datas._data.shop.id%>">
+                        <i class="iconfont">&#xe61c;</i>
+ 						进店逛逛
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--获奖名单-->
+    <%if(_datas.activityPersons.list && _datas.activityPersons.list.length>0){%>
+    <div class="Winners bg-white m-top10">
+        <h5>获奖名单</h5>
+        <div class="autoScroll">
+            <ul class="autoScrollone clearfix">
+            	<%$.each(_datas.activityPersons.list,function(i,o){%>
+            		 <li><%=o%></li>
+            	<%})%>
+            </ul>
+            <ul class="autoScrolltwo clearfix">
+            </ul>
+        </div>
+    </div>
+    <%}%>
+</div>

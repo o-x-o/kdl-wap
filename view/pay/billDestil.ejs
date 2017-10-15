@@ -1,0 +1,142 @@
+<style type="text/css">
+    .content{padding-bottom: .2rem;}
+    .content>ul{background-color: #fff;}
+    .content>ul>li{border-bottom: 1px solid #e5e5e5; display: block; position: relative; color: #666; padding:.2rem .2rem .2rem 1.2rem;box-sizing: border-box; font-size: .26rem;}
+    .content>ul>li>cite{ position: absolute; width: 1rem;  display: inline-block; top: .25rem; left: .2rem; text-align: left; font-size: .24rem;}
+    .content>ul>li>span{width:5rem;text-align:right;display: block;}
+    .content>div{text-align: center; margin-top: .5rem;}
+    .content>div>button{ width: 2rem; height: .7rem; line-height: .7rem; border: 0; border-radius: 3px; text-align: center; font-size: .26rem;    margin: 0 .1rem;}
+    .content>div>button:first-child{ background-color: #fff; border: 1px solid #e5e5e5; color: #333;}
+    .content>div>button:last-child{ color: #fff;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">账单详情</span>
+</header>
+<!--内容-->
+<div class="content m-top10">
+	<%if(_datas.data.bill.type == 'order' || _datas.data.bill.type == 'line'){%>
+		<ul>
+	       <li>
+	          	 <cite>总金额</cite>
+				<span class="color-gray3 h6"><%=_datas.data.bill.totalAmount %></span>
+	       </li>
+	       <%if(_datas.data.bill.discountAmount > 0){%>
+				<li>
+				<cite>优惠金额</cite>
+					<span class="color-gray3"><%=_datas.data.bill.discountAmount %></span>
+		        </li>
+	       <%}%>
+	       <%if(_datas.data.bill.purseAmount > 0){%>
+				<li>
+				<cite>所用余额</cite>
+		            <span class="color-gray3"><%=_datas.data.bill.purseAmount %></span>
+		        </li>
+	       <%}%>
+	       <li>
+	       <cite>实际支付金额</cite>
+				<span class="color-gray3"><%=_datas.data.bill.payAmount %></span>
+	       </li>
+	       <%if(_datas.data.paymentPluginName != null && _datas.data.paymentPluginName != ''){%>
+				<li>
+				<cite>支付方式</cite>
+		            <span class="color-gray3"><%=_datas.data.paymentPluginName %></span>
+		        </li>
+	       <%}%>
+	       <%if(_datas.data.bill.type == 'line'){%>
+				<li>
+				<cite>店铺名称</cite>
+					<span class="color-gray3">
+						<%=_datas.data.shopName%>
+					</span>
+				</li>
+	       <%}%>
+	       <li>
+	       <cite>当前状态</cite>
+	            <span class="color-gray3">
+	            	<%if(_datas.data.bill.status == 'pePay'){%>
+	            		待支付
+	            	<%}else if(_datas.data.bill.status == 'close'){%>
+	            		交易关闭
+	            	<%}else if(_datas.data.bill.status == 'complete'){%>
+	            		已完成
+	            	<%}%>
+	            </span>
+	        </li>
+	        <li>
+	        <cite>创建时间</cite>
+	            <span class="color-gray9"><%=_datas.data.bill.createDate %></span>
+	        </li>
+	        <li>
+	        <cite>账单号</cite>
+	            <span class="color-gray9"><%=_datas.data.bill.sn %></span>
+	        </li>
+	        <%if(_datas.data.bill.orderSn != null && _datas.data.bill.orderSn != ''){%>
+	        	<li>
+	        	<cite>订单号</cite>
+		            <span class="color-gray9"><%=_datas.data.orderSn %></span>
+		        </li>
+	        <%}%>
+	        
+	    </ul>
+	<%}else{%>
+		<ul>
+	       <li>
+	       	<cite>总金额</cite>
+	           <span class="color-gray3 h6"><%=_datas.data.bill.totalAmount %></span>
+	       </li>
+	        <li>
+	        <cite>当前状态</cite>
+	            <span class="color-gray3">
+	            	<%if(_datas.data.bill.status == 'pePay'){%>
+	            		待支付
+	            	<%}else if(_datas.data.bill.status == 'close'){%>
+	            		交易关闭
+	            	<%}else if(_datas.data.bill.status == 'complete'){%>
+	            		已完成
+	            	<%}%>
+	            </span>
+	        </li>
+	        <li>
+	        <cite>创建时间</cite>
+	            <span class="color-gray9"><%=_datas.data.bill.createDate %></span>
+	        </li>
+	        <li>
+	        <cite>账单号</cite>
+	            <span class="color-gray9"><%=_datas.data.bill.sn %></span>
+	        </li>
+	        <%if(_datas.data.bill.type == 'cashFai' && _datas.data.bill.memo != ''){%>
+	        <li>
+	        <cite>备注：</cite>
+	            <span class="color-gray9" style="text-align:left;"><%=_datas.data.bill.memo %></span>
+	        </li>
+	        <%}%>
+	    </ul>
+	<%}%>
+    <%if(_datas.data.bill.status == 'pePay'){%>
+        <div>
+            <button onclick="this.ctrl.cancleBill('<%=_datas.data.bill.sn %>')">取消交易</button>
+            <button class="bg-red"  onclick="GO('pay/cashierDesk',{sn:'<%=_datas.data.bill.sn %>'})">立即付款</button>
+        </div>
+    	<p class="text-center m-top10 color-gray9 h6">6小时后自动关闭交易</p>
+    <%}%>
+    <!--<%=REND("include/empty",{icon:"&#xe66f;",tip:"sorry,还没有账单清单哦~",price:"1",display:"block",emptyId:"",paddingbottom:"1"})%>-->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

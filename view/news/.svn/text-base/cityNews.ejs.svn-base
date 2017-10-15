@@ -1,0 +1,146 @@
+<style>
+    body{ padding-bottom: 0;}
+    .navbar2{background-image: none;border-bottom: 1px solid #e5e5e5;}
+    img{width: 100%;}
+    .activity>h5{ height: .8rem; line-height: .8rem; padding:0 .2rem; box-sizing: border-box;}
+    .activity>h5>a{ display: block; position: relative;}
+    .activity>ul>li{box-sizing: border-box; padding: .2rem; padding-left: 1.5rem;  position: relative; padding-bottom: 0;}
+    .activity>ul>li:last-child>a{ border-bottom: 0;}
+    .activity>ul>li>a{ border-bottom: 1px solid #e5e5e5; display: block; padding-bottom: .2rem;}
+    .activity>ul>li>div.hd{position: absolute; left: .2rem; top: .2rem;}
+    .activity>ul>li>div.hd .pic{ border-radius: 50%; width: 1rem; height: 1rem; display: block; overflow: hidden; background-color: #f0f0f0;}
+    .activity>ul>li>div.hd h6{ width: 1rem; font-size: .24rem;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">同城资讯</span>
+    <div class="nav-wrap-right">
+        <a href="javascript:;" class=" color-gray3">
+            <span class="nav-btn">
+                <i class="iconfont icon-info">&#xe601; </i>
+            </span>
+        </a>
+    </div>
+</header>
+<div class=" content">
+    <div class="activity">
+        <h5><a href="javascript:;" class="more">促销活动<span class="color-gray6 kdl-right p" style="margin-right: .3rem;">查看更多</span></a></h5>
+        <ul class="bg-white">
+            <li>
+                <div class="hd">
+                    <a href="javascript:;">
+                        <div class="pic">
+                            <img src="./img/home_img3@2x .png"/>
+                        </div>
+                        <h6 class="color-gray6 ellips m-top10">KEF版棒球服印花球服印花夹克</h6>
+                    </a>
+                </div>
+                <a href="javascript:;">
+                    <h6 class="ellips">2016春秋季 韩版棒球服印花夹克棒球衫爆款</h6>
+                    <p class="color-gray9 m-top5">04-01 22:03<cite class="kdl-right">16km</cite></p>
+                    <img class="m-top10" src="./img/home_img3@2x .png"/>
+                </a>
+            </li>
+            <li>
+                <div class="hd">
+                    <a href="javascript:;">
+                        <div class="pic">
+                            <img src="./img/home_img3@2x .png"/>
+                        </div>
+                        <h6 class="color-gray6 ellips m-top10">KEF版棒球服印花球服印花夹克</h6>
+                    </a>
+                </div>
+                <a href="javascript:;">
+                    <h6 class="ellips">2016春秋季 韩版棒球服印花夹克棒球衫爆款</h6>
+                    <p class="color-gray9 m-top5">04-01 22:03<cite class="kdl-right">16km</cite></p>
+                    <img class="m-top10" src="./img/home_img3@2x .png"/>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="activity">
+        <h5><a href="javascript:;" class="more">相关资讯<span class="color-gray6 kdl-right p" style="margin-right: .3rem;">查看更多</span></a></h5>
+        <ul class="bg-white">
+            <li>
+                <div class="hd">
+                    <a href="javascript:;">
+                        <div class="pic">
+                            <img src="./img/home_img3@2x .png"/>
+                        </div>
+                        <h6 class="color-gray6 ellips m-top10">KEF版棒球服印花球服印花夹克</h6>
+                    </a>
+                </div>
+                <a href="javascript:;">
+                    <h6 class="ellips">2016春秋季 韩版棒球服印花夹克棒球衫爆款</h6>
+                    <p class="color-gray9 m-top5">04-01 22:03<cite class="kdl-right">16km</cite></p>
+                    <img class="m-top10" src="./img/home_img3@2x .png"/>
+                </a>
+            </li>
+            <li>
+                <div class="hd">
+                    <a href="javascript:;">
+                        <div class="pic">
+                            <img src="./img/home_img3@2x .png"/>
+                        </div>
+                        <h6 class="color-gray6 ellips m-top10">KEF版棒球服印花球服印花夹克</h6>
+                    </a>
+                </div>
+                <a href="javascript:;">
+                    <h6 class="ellips">2016春秋季 韩版棒球服印花夹克棒球衫爆款</h6>
+                    <p class="color-gray9 m-top5">04-01 22:03<cite class="kdl-right">16km</cite></p>
+                    <img class="m-top10" src="./img/home_img3@2x .png"/>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="activity">
+        <h5 class="color-gray3 text-center">商铺动态</h5>
+        <ul class="bg-white">
+            <li>
+                <div class="hd">
+                    <a href="javascript:;">
+                        <div class="pic">
+                            <img src="./img/home_img3@2x .png"/>
+                        </div>
+                    </a>
+                </div>
+                <a href="javascript:;">
+                    <h6 class="ellips1">2016春秋季 韩版棒球服印花夹克棒球衫爆款</h6>
+                    <p style="line-height: .4rem;">韩版棒球服印花夹克棒球衫爆款韩版棒球服印花夹克棒球衫爆款韩版棒球服印花夹克棒球衫爆款韩版棒球服印花夹克棒球衫爆款韩版棒球服印花夹克棒球衫爆款韩版棒球服印花夹克棒球衫爆款韩版棒球服印花夹克棒球衫爆款</p>
+                    <p class="color-gray9 m-top5">04-01 22:03<cite class="kdl-right">354<i class="iconfont praise">&#xe607;</i></cite></p>
+                </a>
+            </li>
+            <li>
+                <div class="hd">
+                    <a href="javascript:;">
+                        <div class="pic">
+                            <img src="./img/home_img3@2x .png"/>
+                        </div>
+                    </a>
+                </div>
+                <a href="javascript:;">
+                    <h6 class="ellips1">2016春秋季 韩版棒球服印花夹克棒球衫爆款</h6>
+                    <p style="line-height: .4rem;">韩版棒球服印花夹克棒球衫爆款韩版棒球服印花夹克棒球衫爆款韩版棒球服印花夹克棒球衫爆款韩版棒球服印花夹克棒球衫爆款韩版棒球服印花夹克棒球衫爆款韩版棒球服印花夹克棒球衫爆款韩版棒球服印花夹克棒球衫爆款</p>
+                    <p class="color-gray9 m-top5">04-01 22:03<cite class="kdl-right">354<i class="iconfont praise">&#xe607;</i></cite></p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

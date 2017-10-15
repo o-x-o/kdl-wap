@@ -1,0 +1,215 @@
+	<style>
+	    body{ padding-bottom: .9rem!important;}
+	    .navbar2{background-image: none;border-bottom: 1px solid #e5e5e5;}
+	    img{width: 100%;}
+	    .activity{position:relative; box-sizing: border-box; padding: .2rem; padding-left: 1.2rem; padding-right:1rem;  position: relative;background-color: #fff; border-bottom: 1px solid #e5e5e5;}
+	    .activity >a{ border-bottom: 1px solid #e5e5e5; display: block; padding-bottom: .2rem; padding-left: .8rem; box-sizing: border-box}
+	    .activity >div.hd>a .pic{position: absolute; left: .2rem; top: .2rem; border-radius: 50%; width: .7rem; height: .7rem; display: block; overflow: hidden; background-color: #f0f0f0;}
+	    .activity>i{ position:absolute; right:.2rem; top:.3rem; font-size:.38rem;}
+	    .activity >div.hd h6{font-size: .24rem;}
+	    .activity-con{ padding: .2rem; box-sizing: border-box; background-color: #fff;}
+	    .activity-con .tit>ul>li{ color: #999; position: relative; line-height: .4rem; min-height: .4rem; padding-left: 1.2rem; box-sizing: border-box;}
+	    .activity-con .tit>ul>li>span:first-child{ position: absolute; left: 0; top: 0;}
+	    .footers{height:.9rem; padding:.1rem 0; border-top:1px solid #e5e5e5;    box-sizing: border-box;}
+	    .footers>a{width:33.33%; float:left; text-align:center; border-left:1px solid #e5e5e5; box-sizing:border-box;}
+	    .footers>a:first-child{border-left:0;}
+	    /*商品列表*/
+	    .commodityList{}
+	    .commodity1{ padding: .2rem; box-sizing: border-box; padding-bottom: 0;}
+	    .commodity1>ul>li{ padding: .1rem; box-sizing: border-box; background-color: #fff; min-height: 2.1rem;margin-top: .1rem;}
+	    .commodity1>ul>li:first-child{ margin-top:0;}
+	    .commodity1>ul>li>a{ display: block; position: relative; padding-left: 2.2rem;}
+	    .commodity1>ul>li>a .pic{ position: absolute; left: 0; top: 0; width: 2rem; border-radius: 2px; overflow: hidden;}
+	    .commodity1>ul>li>a .pic>img{width: 100%;}
+	    .commodity1>ul>li>a .pic>span{height: .5rem; background-color: #000000; opacity: 0.5; position: absolute; bottom: 0; width: 100%;left:0}
+	    .commodity1>ul>li>a .pic>h6{ height: .5rem; line-height: .5rem; text-align: center; color: #fff; position: absolute; bottom: 0; width: 100%;text-shadow: 1px 2px 3px #333;}
+	    .commodity1>ul>li>a .txt>h3>span{ padding:2px .1rem; border-radius: 3px; border: 1px solid #cc3333; color: #cc3333; margin-left: .2rem; font-size: .24rem;}
+	    .commodity1>ul>li>a .txt>h5{ min-height: .8rem;}
+	
+	    .commodity2{ padding: .2rem; box-sizing: border-box; padding-bottom: 0;}
+	    .commodity2>ul>li{ position: relative; margin-top: .2rem;}
+	    .commodity2>ul>li:first-child{ margin-top: 0;}
+	    .commodity2>ul>li>a{ display: block; position: relative;}
+	    .commodity2>ul>li>a .pic{ width: 100%; position: relative;}
+	    .commodity2>ul>li>a .pic>img{width: 100%;}
+	    .commodity2>ul>li>a .pic>span{height: .6rem; background-color: #000000; opacity: 0.5; position: absolute; bottom: 0; width: 100%;left:0}
+	    .commodity2>ul>li>a .pic>h6{ height: .6rem; line-height: .6rem; text-align: center; color: #fff; position: absolute; bottom: 0; width: 100%;text-shadow: 1px 2px 3px #333;}
+	    .commodity2>ul>li>a .hd{position: relative; padding:.1rem; box-sizing: border-box; background-color: #fff;}
+	    .commodity2>ul>li>a .hd .txt>h5{padding-right: .2rem; box-sizing: border-box;  min-height: .8rem;}
+	    .commodity2>ul>li>a>.txt{ background-color: #fff;padding: .1rem;}
+	    .commodity2>ul>li>a .txt>h3>del{ margin-left: .2rem; font-size: .24rem;}
+	    .commodity2>ul>li>a .hd>div:last-child{width: 30%; border-left: 1px solid #e5e5e5; box-sizing: border-box;text-align: center;min-height: 1.3rem;}
+	    .commodity2>ul>li>a .hd>div:last-child>p{text-align: center; font-size: .26rem;}
+	    .commodity2>ul>li>a .hd>div:first-child{width: 70%; border-left: 0px; text-align: left;}
+	    .commodity2>ul>li>button{padding: .1rem .2rem; border: 0; border-radius: 3px; position: absolute; right: .2rem; bottom: .1rem;}
+	
+	    .commodity3{ padding: .15rem; padding-left: 0; box-sizing: border-box; padding-top: 0;}
+	    .commodity3>ul>li{ float: left; width: 50%; padding-left: .15rem; box-sizing: border-box; margin-top: .15rem;}
+	    .commodity3>ul>li>a{ display: block; position: relative; background-color: #fff; border-radius: 3px;overflow: hidden;}
+	    .commodity3>ul>li>a .pic{ width: 100%; position: relative;}
+	    .commodity3>ul>li>a .pic>img{width: 100%;height: 2.84rem;}
+	    .commodity3>ul>li>a .pic>span{height: .5rem; background-color: #000000; opacity: 0.5; position: absolute; bottom: 0; width: 100%;left:0}
+	    .commodity3>ul>li>a .pic>h6{ height: .5rem; line-height: .5rem; text-align: center; color: #fff; position: absolute; bottom: 0; width: 100%;text-shadow: 1px 2px 3px #333;}
+	    .commodity3>ul>li>a .txt{ padding: .1rem .1rem .2rem; box-sizing: border-box; height: 2.19rem;}
+	    .commodity3>ul>li>a .txt>span{padding:2px .1rem; border-radius: 3px; border: 1px solid #cc3333; color: #cc3333;  font-size: .24rem; display: inline-block;}
+		
+	</style>
+	<header class="navbar navbar2">
+	    <div class="nav-wrap-left">
+	        <a href="javascript:history.go(-1);" class="color-gray3">
+	            <i class="iconfont">&#xe60b;</i>
+	        </a>
+	    </div>
+	    <span class="nav-header h1 color-gray3">促销活动详情</span>
+	</header>
+	<div class=" content">
+	    <div class="activity">
+	    	<i class="iconfont color-orange" onclick="GO('message/chitchat',{shopId:<%=_datas.shopId%>})">&#xe601; </i>
+	        <div class="hd">
+	            <a href="#shop/shops?shopId=<%=_datas.shopId%>">
+	                <div class="pic">
+	                    <img src="<%=Config.imgPre + _datas.shopAvatar%>"/>
+	                </div>
+	                <h6 class="ellips1"><%=_datas.shopName%></h6>
+	                <p class="color-gray9 m-top5 ellips1"><%=_datas.shopAddress%></p>
+	            </a>
+	        </div>
+	    </div>
+	    <div class="activity-con">
+	        <div class="tit">
+	            <h5><%=_datas.title%></h5>
+	            <ul>
+	                <li>
+	                    <span>活动时间:</span>
+	                    <%=_datas.beginDate%>-<%=_datas.endDate%>
+	                </li>
+	                <li>
+	                    <span>咨询电话:</span>
+	                    <a href="tel:<%=_datas.shopPhone%>"><%=_datas.shopPhone%><i class="iconfont color-orange">&#xe61b;</i></a>
+	               </li>
+	               <%if(_datas.orderValidity){%>
+	                	<li>
+		                    <span>订单有效期:<%=_datas.orderValidity %></span>
+		                </li>
+	                <%}%>
+	            </ul>
+	        </div>
+	        <%if(_datas.description){%>
+		        <div class="con-txt">
+		            <p class="m-top10 color-gray6"> <%=_datas.description%></p>
+		        </div>
+		    <%}%>
+	    </div>
+	    <div class="commodityList">
+	    	<%if(_datas.goodsList != null && _datas.goodsList.length > 0){%>
+		    	<div class="commodity1">
+		    		<ul>
+		    			<li>
+		    				<a href="javascript:;" onclick="GO('goods/details',{goodsId:<%=_datas.goodsList[0].goodsId%>});">
+			    				<div class="pic">
+				    				<img src="<%=Config.imgPre + _datas.goodsList[0].goodsImage%>">
+			    				</div>
+			    				<div class="txt">
+				    				<h5 class="ellips"><%=_datas.goodsList[0].goodsName%></h5>
+				    				<h3 class="color-red m-top20">￥<%=_datas.goodsList[0].price%>
+				    					<%=(_datas.goodsList[0].goodsCowrieStatus == "pass"?"<span>返￥"+_datas.goodsList[0].consumeTips+"</span>":(_datas.goodsList[0].activityPrice?"<span>促￥"+_datas.goodsList[0].activityPrice+"</span>":""))%>
+				    				</h3>
+				    				<del class="color-gray9">￥<%=_datas.goodsList[0].originalPrice%></del>
+			    				</div>
+		    				</a>
+		    			</li>
+		    		</ul>
+		    	</div>
+		    	<%if(_datas.goodsList.length > 1){%>
+			    	<div class="commodity2">
+				    	<ul>
+					    	<li>
+						    	<a href="javascript:;" onclick="GO('goods/details',{goodsId:<%=_datas.goodsList[1].goodsId%>});">
+							    	<div class="pic">
+								    	<img src="<%=Config.imgPre + _datas.goodsList[1].goodsImage%>">
+							    	</div>
+							    	<div class="hd clearfix">
+								    	<div class="txt kdl-left clearfix">
+									    	<h5 class="ellips"><%=_datas.goodsList[1].goodsName%></h5>
+									    	<h3 class="color-red m-top10">￥<%=_datas.goodsList[1].price%><del class="color-gray9">￥<%=_datas.goodsList[1].originalPrice%></del></h3>
+								    	</div>
+								    	<div class="kdl-left">
+								    		<%if(_datas.goodsList[1].goodsCowrieStatus == "pass"){%>
+										    	<p class="color-red">￥<%=_datas.goodsList[1].consumeTips%></p>
+										    	<p class="color-red">返现</p>
+										    <%}else if(_datas.goodsList[1].goodsCowrieStatus != "pass" && _datas.goodsList[1].activityPrice){%>
+											    <p class="color-red">￥<%=_datas.goodsList[1].activityPrice%></p>
+										    	<p class="color-red">促销</p>
+										    <%}%>
+								    	</div>
+							    	</div>
+						    	</a>
+					    		<button class="color-white bg-red m-top10" onclick="GO('goods/details',{goodsId:<%=_datas.goodsList[1].goodsId%>});">立即抢购</button>
+					    	</li>
+				    	</ul>
+			    	</div>
+			    <%}%>
+			    <%if(_datas.goodsList.length > 2){%>
+			    	<div class="commodity3">
+			    		<ul class="clearfix">
+				    		<%for(var i = 2;i < _datas.goodsList.length;i++){%>
+				    			<%var tempGoods = _datas.goodsList[i];%>
+				    			<li>
+				    				<a href="javascript:;" onclick="GO('goods/details',{goodsId:<%=tempGoods.goodsId%>});">
+				    					<div class="pic">
+				    						<img src="<%=Config.imgPre + tempGoods.goodsImage%>">
+				    					</div>
+				    					<div class="txt">
+				    						<h5 class="ellips"><%=tempGoods.goodsName%></h5>
+				    						<h3 class="color-red m-top20">￥<%=tempGoods.price%></h3>
+				    						<%=(tempGoods.goodsCowrieStatus == "pass"?"<span class='m-top10'>返￥"+tempGoods.consumeTips+"</span>":(tempGoods.activityPrice?"<span class='m-top10'>促￥"+tempGoods.activityPrice+"</span>":""))%>
+				    					</div>
+				    				</a>
+				    			</li>
+					    	<%}%>
+				    	</ul>
+			    	</div>
+		    	<%}%>
+		    <%}%>
+	    </div>
+	</div>
+	<div class="m-top20 footers coversbottom bg-white">
+		<a href="javascript:;">
+			<i class="iconfont">&#xe69d;</i>
+			<p>浏览量（<%=_datas.activityViewCount%>）</p>
+		</a>
+		<a href="javascript:;">
+			<i class="iconfont" id="praise">&#xe607;</i>
+			<p>赞（<span><%=_datas.activityPraiseCount%></span>）</p>
+		</a>
+		<a href="javascript:;" onclick="GO('activity/comment',{activityId:<%=_datas.activityId%>})">
+			<i class="iconfont">&#xe698;</i>
+			<p>评论（<%=_datas.activityEvluationCount%>）</p>
+		</a>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

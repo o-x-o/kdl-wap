@@ -1,0 +1,54 @@
+<style type="text/css">
+	.content>table{margin-top:.1rem;}
+	.content>table th{height:.6rem; line-height:.6rem; color:#333; text-align:center; font-weight:500;font-size: .26rem;}
+	.content>table td{padding:.1rem; box-sizing:border-box; color:#666;font-size: .24rem;}
+	.content>table td>input{width:100%; border:1px solid #ddd; text-align:center;color: #666; font-size:.24rem; height:.6rem; line-height:.6rem;background-color: transparent;}
+	.content>table td>span{margin-right:.15rem;}
+	.content>table>tbody>tr{height: 1rem; padding-left:.1rem;}
+	.footers{ height:.9rem; line-height:.9rem;}
+	.footers>button{border:0; font-size:.32rem; width:100%; text-align:center; color:#fff; background-color: transparent;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:void(0);" onclick="this.ctrl.back();" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">变更促销价格/库存</span>
+</header>
+
+<!--内容-->
+<div class="content">
+	<input type="hidden" id="goodsId" name="goodsId" value="" />
+	<input type="hidden" id="activityId" name="activityId" value="" />
+	<table>
+		<thead>
+			<tr>
+				<th style="width:50%; text-align:left; text-indent:.2rem;">规格</th>
+				<th style="width:25%;">销售价</th>
+				<th style="width:25%;">原库存</th>
+			</tr>
+		</thead>
+		<tbody id="skuBody">
+			
+		</tbody>
+	</table>
+</div>
+<div class="footers coversbottom bg-red color-white">
+	<button onclick="this.ctrl.sureChange();">完成</button>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

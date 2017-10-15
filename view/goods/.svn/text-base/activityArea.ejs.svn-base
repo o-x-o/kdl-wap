@@ -1,0 +1,70 @@
+<style type="text/css">
+    .navbar{ position: fixed;}
+    img{width: 100%;}
+    .navbar2{background-image: none;    border-bottom: 1px solid #e5e5e5;}
+    .content .hd-title{ padding: .2rem; box-sizing: border-box;}
+    /*商品列表*/
+    .commodityList{}
+    /*版式1*/
+    .commodity1{ padding: .2rem; box-sizing: border-box; padding-bottom: 0;padding-top: .1rem;}
+    .commodity1>ul>li{ padding: .1rem; box-sizing: border-box; background-color: #fff; min-height: 2.1rem;margin-top: .1rem;}
+    .commodity1>ul>li:first-child{ margin-top:0;}
+    .commodity1>ul>li>a{ display: block; position: relative; padding-left: 2.2rem;}
+    .commodity1>ul>li>a .pic{ position: absolute; left: 0; top: 0; width: 2rem; border-radius: 2px; overflow: hidden;}
+    .commodity1>ul>li>a .pic>img{width: 100%;}
+    .commodity1>ul>li>a .pic>span{height: .5rem; background-color: #000000; opacity: 0.5; position: absolute; bottom: 0; width: 100%;}
+    .commodity1>ul>li>a .pic>h6{ height: .5rem; line-height: .5rem; text-align: center; color: #fff; position: absolute; bottom: 0; width: 100%;}
+    .commodity1>ul>li>a .txt>h3>span{ padding:2px .1rem; border-radius: 3px; border: 1px solid #cc3333; color: #cc3333; margin-left: .2rem; font-size: .24rem;}
+    .commodity1>ul>li>a .txt>h5{ min-height: .8rem;}
+    /*版式2*/
+    .commodity2{ padding: .2rem; box-sizing: border-box; padding-bottom: 0; padding-top: .1rem;}
+    .commodity2>ul>li{ position: relative; margin-top: .2rem;}
+    .commodity2>ul>li:first-child{ margin-top: 0;}
+    .commodity2>ul>li>a{ display: block; position: relative;}
+    .commodity2>ul>li>a .pic{ width: 100%; position: relative;}
+    .commodity2>ul>li>a .pic>img{width: 100%;}
+    .commodity2>ul>li>a .pic>span{height: .6rem; background-color: #000000; opacity: 0.5; position: absolute; bottom: 0; width: 100%;}
+    .commodity2>ul>li>a .pic>h6{ height: .6rem; line-height: .6rem; text-align: center; color: #fff; position: absolute; bottom: 0; width: 100%;}
+    .commodity2>ul>li>a .hd{position: relative; padding:.1rem; box-sizing: border-box; background-color: #fff;}
+    .commodity2>ul>li>a .hd .txt>h5{padding-right: .2rem; box-sizing: border-box;  min-height: .8rem;}
+    .commodity2>ul>li>a .txt>h3>del{ margin-left: .2rem; font-size: .24rem;}
+    .commodity2>ul>li>a .hd>div:first-child{width: 70%;}
+    .commodity2>ul>li>a .hd>div:last-child{width: 30%; border-left: 1px solid #e5e5e5; box-sizing: border-box;text-align: center;min-height: 1.3rem;}
+    .commodity2>ul>li>a .hd>div:last-child>p{text-align: center; font-size: .26rem;}
+    .commodity2>ul>li>button{padding: .1rem .2rem; border: 0; border-radius: 3px; position: absolute; right: .2rem; bottom: .1rem;}
+    /*版式3*/
+    .commodity3{ padding: .15rem; padding-left: 0; box-sizing: border-box; padding-top: 0;}
+    .commodity3>ul>li{ float: left; width: 50%; padding-left: .15rem; box-sizing: border-box; margin-top: .15rem;}
+    .commodity3>ul>li>a{ display: block; position: relative; background-color: #fff; border-radius: 3px;overflow: hidden;}
+    .commodity3>ul>li>a .pic{ width: 100%; position: relative;}
+    .commodity3>ul>li>a .pic>img{width: 100%;}
+    .commodity3>ul>li>a .pic>span{height: .5rem; background-color: #000000; opacity: 0.5; position: absolute; bottom: 0; width: 100%;}
+    .commodity3>ul>li>a .pic>h6{ height: .5rem; line-height: .5rem; text-align: center; color: #fff; position: absolute; bottom: 0; width: 100%;}
+    .commodity3>ul>li>a .txt{ padding: .1rem .1rem .2rem; box-sizing: border-box;}
+    .commodity3>ul>li>a .txt>span{padding:2px .1rem; border-radius: 3px; border: 1px solid #cc3333; color: #cc3333;  font-size: .24rem; display: inline-block;}
+
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);">
+            <i class="iconfont color-gray3">&#xe60b;</i>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3" id="subtitle"></span>
+</header>
+<div class="content" style="background-color: #f0f0f0!important;">
+    <section>
+        <img id="bannerImage" src=""/>
+    </section>
+    <div class="hd-title bg-white">
+        <h5>活动/店铺介绍</h5>
+        <p class="m-top5" id="introduce"></p>
+    </div>
+    <div class="commodityList">
+    </div>
+    <div class="warn"></div>
+</div>
+
+
+
+

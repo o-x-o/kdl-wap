@@ -1,0 +1,62 @@
+<style type="text/css">
+    .navbar{background-color: transparent; position: absolute;}
+    .content{ padding-top: 5rem!important; background-color: #e0d1bb; background-image: url("./img/home_booth2@2x.png"); background-position: top center; background-size: contain; min-height:5rem; background-repeat: no-repeat; }
+    /*商品列表*/
+    .commodityList{}
+    .commodity1{ padding: .2rem; box-sizing: border-box; padding-bottom: 0;}
+    .commodity1>ul>li{ padding: .1rem; box-sizing: border-box; background-color: #fff; min-height: 2.1rem;margin-top: .1rem;}
+    .commodity1>ul>li:first-child{ margin-top:0;}
+    .commodity1>ul>li>a{ display: block; position: relative; padding-left: 2.2rem;}
+    .commodity1>ul>li>a .pic{ position: absolute; left: 0; top: 0; width: 2rem; border-radius: 2px; overflow: hidden;}
+    .commodity1>ul>li>a .pic>img{width: 100%;}
+    .commodity1>ul>li>a .pic>span{height: .5rem; background-color: #000000; opacity: 0.5; position: absolute; bottom: 0; width: 100%;left:0}
+    .commodity1>ul>li>a .pic>h6{ height: .5rem; line-height: .5rem; text-align: center; color: #fff; position: absolute; bottom: 0; width: 100%;text-shadow: 1px 2px 3px #333;}
+    .commodity1>ul>li>a .txt>h3>span{ padding:2px .1rem; border-radius: 3px; border: 1px solid #cc3333; color: #cc3333; margin-left: .2rem; font-size: .24rem;}
+    .commodity1>ul>li>a .txt>h5{ min-height: .8rem;}
+
+    .commodity2{ padding: .2rem; box-sizing: border-box; padding-bottom: 0;}
+    .commodity2>ul>li{ position: relative; margin-top: .2rem;}
+    .commodity2>ul>li:first-child{ margin-top: 0;}
+    .commodity2>ul>li>a{ display: block; position: relative;}
+    .commodity2>ul>li>a .pic{ width: 100%; position: relative;}
+    .commodity2>ul>li>a .pic>img{width: 100%;}
+    .commodity2>ul>li>a .pic>span{height: .6rem; background-color: #000000; opacity: 0.5; position: absolute; bottom: 0; width: 100%;left:0}
+    .commodity2>ul>li>a .pic>h6{ height: .6rem; line-height: .6rem; text-align: center; color: #fff; position: absolute; bottom: 0; width: 100%;text-shadow: 1px 2px 3px #333;}
+    .commodity2>ul>li>a .hd{position: relative; padding:.1rem; box-sizing: border-box; background-color: #fff;}
+    .commodity2>ul>li>a .hd .txt>h5{padding-right: .2rem; box-sizing: border-box;  min-height: .8rem;}
+    .commodity2>ul>li>a>.txt{ background-color: #fff;padding: .1rem;}
+    .commodity2>ul>li>a .txt>h3>del{ margin-left: .2rem; font-size: .24rem;}
+    .commodity2>ul>li>a .hd>div:last-child{width: 30%; border-left: 1px solid #e5e5e5; box-sizing: border-box;text-align: center;min-height: 1.3rem;}
+    .commodity2>ul>li>a .hd>div:last-child>p{text-align: center; font-size: .26rem;}
+    .commodity2>ul>li>a .hd>div:first-child{width: 70%; border-left: 0px; text-align: left;}
+    .commodity2>ul>li>button{padding: .1rem .2rem; border: 0; border-radius: 3px; position: absolute; right: .2rem; bottom: .1rem;}
+
+    .commodity3{ padding: .15rem; padding-left: 0; box-sizing: border-box; padding-top: 0;}
+    .commodity3>ul>li{ float: left; width: 50%; padding-left: .15rem; box-sizing: border-box; margin-top: .15rem;}
+    .commodity3>ul>li>a{ display: block; position: relative; background-color: #fff; border-radius: 3px;overflow: hidden;}
+    .commodity3>ul>li>a .pic{ width: 100%; position: relative;}
+    .commodity3>ul>li>a .pic>img{width: 100%;height: 2.84rem;}
+    .commodity3>ul>li>a .pic>span{height: .5rem; background-color: #000000; opacity: 0.5; position: absolute; bottom: 0; width: 100%;left:0}
+    .commodity3>ul>li>a .pic>h6{ height: .5rem; line-height: .5rem; text-align: center; color: #fff; position: absolute; bottom: 0; width: 100%;text-shadow: 1px 2px 3px #333;}
+    .commodity3>ul>li>a .txt{ padding: .1rem .1rem .2rem; box-sizing: border-box; height: 2.19rem;}
+    .commodity3>ul>li>a .txt>span{padding:2px .1rem; border-radius: 3px; border: 1px solid #cc3333; color: #cc3333;  font-size: .24rem; display: inline-block;}
+	.navbar .h1.nav-header{text-shadow: 1px 2px 3px #333;}
+	.navbar i.iconfont{text-shadow: 1px 2px 3px #333;}
+</style>
+<header class="navbar">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);">
+            <i class="iconfont color-white">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1" id="subtitle"></span>
+</header>
+<div class="content">
+    <div class="commodityList">
+    </div>
+</div>
+
+
+
+

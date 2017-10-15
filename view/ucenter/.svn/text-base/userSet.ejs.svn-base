@@ -1,0 +1,86 @@
+<style type="text/css">
+    .navbar .nav-header{ color: #333;}
+    .content{ padding-bottom: 1rem;}
+    .content>ul>li{padding:0 .2rem; box-sizing: border-box; height: .8rem; line-height: .8rem; border-bottom: 1px solid #e5e5e5;}
+    .content>ul>li>a{ display: block; position: relative; color: #333;}
+    .content>ul>li>a>i{ margin-right: .1rem;}
+    .content>ul>li.disable>a{color:#ccc;cursor:not-allowed;}
+    /*退出登录按钮*/
+    button.footer{position: fixed; bottom: 0; height: 1rem; line-height: 1rem; width: 100%; min-width: 320px;max-width: 640px; text-align: center; display: block; border: 0; font-size: .36rem; }
+
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="#ucenter/mine" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1">设置</span>
+    <div class="nav-wrap-right">
+        <a href="javascript:;" class=" color-gray3">
+            <span class="nav-btn">
+                <i class="iconfont icon-info">&#xe636; </i>
+            </span>
+            <s></s>
+        </a>
+    </div>
+    <div class="nav-dropdown">
+        <span class="triangle-up"></span>
+        <ul>
+            <li>
+                <a class="react" href="/">
+                    <i class="iconfont">&#xe602;</i>
+                    <space></space>首页
+                </a>
+            </li>
+            <li>
+                <a class="react" href="javascript:;">
+                    <i class="iconfont">&#xe603;</i>
+                    <space></space>搜索
+                </a>
+            </li>
+            <li>
+                <a class="react" href="javascript:;">
+                    <i class="iconfont">&#xe601;</i>
+                    <space></space>消息
+                    <em class="information">8+<s class="triangle-up"></s></em>
+                </a>
+            </li>
+        </ul>
+    </div>
+</header>
+<div class="content">
+    <ul class="bg-white">
+        <li>
+            <a href="#ucenter/personalInformation">
+               <i class="iconfont">&#xe60c;</i>个人信息
+            </a>
+        </li>
+        <li>
+            <a href="#ucenter/accountSecurity">
+                <i class="iconfont">&#xe60d;</i>账户安全
+            </a>
+        </li>
+        <li class="disable">
+            <a href="javascript:;">
+                <i class="iconfont">&#xe65a;</i>消息通知提醒
+            </a>
+        </li>
+    </ul>
+    <ul class="m-top10 bg-white">
+        <li class="disable">
+            <a href="javascript:;">
+                <i class="iconfont">&#xe601;</i>意见反馈
+            </a>
+        </li>
+        <li>
+            <a href="#aboutUs/aboutUs">
+                <i class="iconfont">&#xe689;</i>关于我们
+            </a>
+        </li>
+    </ul>
+
+</div>
+<button class="footer color-red bg-white" onclick="$.post('ucenter/signOut.shtml').always(function(r,s,q){if(s=='success'){GO('passport/login',{backUrl:'#ucenter/mine'});localStorage.removeItem('accessToken');window._user=null;$.removeCookie('accessToken');}else{alert(r.errorMsg);}});">退出登录</button>
+

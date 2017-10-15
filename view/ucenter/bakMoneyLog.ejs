@@ -1,0 +1,97 @@
+<style type="text/css">
+    body,html{ background-color: #fff;}
+    .content{padding-top: 0!important; background: #f0efed;}
+    .navbar{background: #df494a; border-bottom: 0; position: relative;}
+    .navbar a{ color: #fff;}
+    .nav-wrap-right a i{ font-size: .42rem;}
+    .balance{ padding:.3rem  .2rem; box-sizing: border-box; height: 2.3rem; background:#df494a;}
+    .balance>span{text-align: left; color: #FFf; font-size: .28rem; line-height: .6rem;}
+    .balance>a{ color: #fff;text-align: right;float: right; font-size: .26rem; line-height: .6rem; margin-top:.65rem;}
+    .balance>p{ color: #fff; font-size: .28rem; text-align: left; margin-top: .15rem;padding-bottom:.1rem;border-bottom: 1px solid #fff;}
+    .Revenue{ padding: .3rem .2rem; background: #f0efed;}
+    .Revenue span{font-size: .26rem; color: #666;}
+    .Revenue h2{ margin-top:.1rem;font-size: .28rem;}
+    .fortune-list{ background: #fff; margin-bottom: .5rem;border-top: 1px solid #e5e5e5;}
+    .fortune-list ul{ padding: .35rem 0; margin-left: -1px;}
+    .fortune-list ul:first-child{border-bottom: 1px solid #e5e5e5;}
+    .fortune-list ul.oranger li h2{ color: #333;}
+    .fortune-list li{ float: left; width: 33.333%; text-align: center; border-left: 1px solid #e5e5e5; box-sizing: border-box;}
+    .fortune-list li>span{ font-size: .26rem; color: #666;}
+    .fortune-list li>h2{ font-size: .28rem; margin-top: .05rem; color: #666;}
+    .fortune-list li.cur h2{ color:#cc3333; }
+    .btn-wrapper{ box-sizing: border-box; padding:0 .2rem;}
+    .txtsize{padding:.15rem; font-size:.2rem; line-height:.35rem; margin-top:.1rem; color: #999; }
+    .btn-wrapper .btn{ box-sizing: border-box;}
+</style>
+<header class="navbar">
+    <div class="nav-wrap-left">
+        <a href="javascript:void(0);" onclick="this.ctrl.retBtn();">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1">财富中心</span>
+    <div class="nav-wrap-right">
+        <a class="react" href="#ucenter/withdrawalNounsExplain">
+             <span class="nav-btn">
+                 <i class="iconfont">&#xe640;</i>
+             </span>
+        </a>
+    </div>
+</header>
+<div class="content">
+    <!--财富-->
+    <div class="balance">
+        <span>总资产（元）</span><!-- <a  href="javascript:;">查看明细&gt;</a> -->
+        <p><%=_datas.data.purse.toFixed(2)%></p>
+        <%if(_datas.data.ableCashMoney<=0){%>
+	        <span style="font-size:.24rem;">您还没有收入可提现，加油哦~</span>
+        <%}%>
+        
+    </div>
+    <!--累计收入-->
+    <div class="Revenue">
+        <span>累计收入（元）</span>
+        <h2 class="color-red"><%=_datas.data.sumTips.toFixed(2)%></h2>
+    </div>
+    <!--列表-->
+    <div class="fortune-list">
+        <ul class="clearfix">
+            <li class="cur">
+                <span>待收收益（元）</span>
+                <h2>0.00</h2>
+            </li>
+            <li>
+                <span>分享赚钱（元）</span>
+                <h2><%=_datas.data.noCashMoney.toFixed(2)%></h2>
+            </li>
+            <li>
+                <span>已提现（元）</span>
+                <h2><%=_datas.data.hasCashMoney.toFixed(2)%></h2>
+            </li>
+        </ul>
+        <ul class="clearfix oranger">
+            <li>
+                <span>消费收入（元）</span>
+                <h2 id="consumeTips"><%=_datas.data.consumeTips.toFixed(2)%></h2>
+            </li>
+            <li>
+                <span>销售收入（元）</span>
+                <h2 id="sellTips"><%=_datas.data.sellTips.toFixed(2)%></h2>
+            </li>
+            <li>
+                <span>推广收入（元）</span>
+                <h2 id="expandTips"><%=_datas.data.expandTips.toFixed(2)%></h2>
+            </li>
+        </ul>
+    </div>
+    <center class="btn-wrapper">
+        <a href="javascript:void(0);" class="btn-block" id="toCashBtn">我要提现</a>
+        <a href="#ucenter/withdrawHistory" class="btn bd-red h6 m-top">提现历史</a>
+    </center>
+    <p class="txtsize">买家确认收货后，立即获得佣金。平台结算期（7天）后，佣金收入立即生效，佣金可提现。结算期内，买家退货，佣金将自动扣除。</p>
+</div>
+
+
+
+

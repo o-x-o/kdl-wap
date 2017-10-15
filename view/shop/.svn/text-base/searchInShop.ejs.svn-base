@@ -1,0 +1,57 @@
+<style>
+    body{ padding-bottom: 0;}
+    .navbar2{background-image: none;}
+    .navbar2 .box-search input{ font-size: .24rem; text-indent: .2rem; width: 100%; height: .5rem; line-height: .5rem; border: 0; border-radius: 5px; background-color: #f0f0f0;}
+    .navbar2 .nav-wrap-right>a>span{ color: #999; width: .7rem;top: 0; background-color: #f0f0f0; height: .5rem; line-height: .5rem;border-radius: 3px;}
+    .navbar2 .box-search i{font-size: .26rem;}
+    .content{padding-top: .98rem;}
+    .content>div.hot>ul{ padding-left: .1rem; box-sizing: border-box;}
+    .content>div.hot>ul>li{ padding:0 .1rem; box-sizing: border-box;  float: left; margin-bottom: .2rem;}
+    .content>div.hot>ul>li>a{color: #333; display: block; border: 1px solid #999; border-radius: 5px; padding: .15rem .2rem; text-align: center; font-size: .26rem;}
+    .content>div.hot>h5{ line-height: 1rem; padding-left: .2rem; box-sizing: border-box;}
+    /*商品店铺搜索切换*/
+    .searchbox{ display: none; position:absolute; top:.5rem; left:-.2rem;z-index: 99; background-color:#3F3F3F; color:#fff; border-radius:3px; opacity: 0.9;}
+    .searchbox ul li{ height: .6rem;line-height: .6rem;width: 1.5rem;text-align:center; cursor: pointer;font-size: .28rem;}
+    .searchbox ul li>i{ margin-right: .1rem;font-size:.32rem!important;}
+    .searchbox ul li:first-child{ border-bottom: 1px solid #fff;}
+    .box-search .arrow{ width:0; height:0; border-width:.1rem; border-color: transparent transparent  #3F3F3F transparent ; border-style: dashed dashed solid dashed; position:absolute;top: -.17rem;left: .5rem;}
+    .con-list{background-color: #fff; padding-top: .1rem;}
+    .con-list>ul>li{ min-height: 1.8rem;}
+    .con-list>ul>li>a{display:block; position: relative; padding:0  0 .1rem 2.5rem;  box-sizing: border-box;}
+    .con-list>ul>li>a .pic{width:2.3rem; position: absolute; left: .1rem; top: 0;}
+    .con-list>ul>li>a>div.pic>img{width:100%;}
+    .con-list>ul>li>a .txt{ padding:0 .15rem;  box-sizing:border-box; border-bottom: 1px solid #e5e5e5; padding-bottom: .1rem;}
+    .con-list>ul>li>a .txt>h6{ line-height: .4rem;}
+    .con-list>ul>li>a .pic .bt{ position: absolute; bottom: 0; width: 100%; height: .6rem; line-height: .6rem;}
+    .con-list>ul>li>a .pic .bt>div{ width: 100%; display: block; background-color: transparent; opacity: 0.5; height: .6rem;}
+    .con-list>ul>li>a .pic .bt>p{ display: block; color: #fff;height: .6rem; text-align: center; position: absolute;top: 0;z-index: 2; width: 100%;}
+    .con-list>ul>li>a .txt>h5>button{ border: 1px solid #cc3333; color: #cc3333; font-size: .24rem; border-radius: 3px; margin-left: .2rem; background: transparent; padding: 0 2px;}
+    .con-list>ul>div.pic>img{ width: 100%;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+        </a>
+    </div>
+    <div class="box-search" style="margin-left: 1rem;">
+        <a href="javascript:;" class=" color-gray3">
+            <input class="single-line" onkeydown="this.ctrl.monitor();" id="searchValue" type="text" placeholder="请输入商品名称"/>
+        </a>
+    </div>
+    <div class="nav-wrap-right" id="searchBtn" onclick="this.ctrl.toSearch(this)">
+        <a id="searchUrl" href="javascript:;" searchUrl="search/goodsSearch">
+            <span class="nav-btn iconfont">
+                &#xe603;
+            </span>
+        </a>
+    </div>
+</header>
+<div class="theme-popover-mask"></div>
+<div class="content">
+      <!--商品列表-->
+    <div class="con-list">
+	    <ul id="goodsListUl" class="clearfix">
+        </ul>
+    </div>
+</div>

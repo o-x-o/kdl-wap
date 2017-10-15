@@ -1,0 +1,49 @@
+<style type="text/css">
+    .content{padding-bottom:1rem!important;}
+    .content .audit{ padding:.4rem  .2rem; box-sizing:border-box; border-bottom:1px solid #e5e5e5;}
+    .content .audit i{ font-size: .36rem; margin-right:.1rem;}
+    .content .list>ul>li{ border-bottom:1px solid #e5e5e5; height:.8rem; line-height:.8rem; padding:0 .2rem; box-sizing:border-box; color:#666;}
+    .content .list>div{ border-bottom:1px solid #e5e5e5;line-height:.8rem; padding:0 .2rem; box-sizing:border-box; color:#666; padding-bottom:.5rem;}
+    .content .list>div .pic{width:100%; border-radius:.1rem; overflow:hidden; position:relative;}
+    .content .list>div .pic>img{width:100%;}
+    .content .list>div .pic>img.none{ position:absolute; left:0; top:0; width:100%; height:100%; z-index: 2;}
+    .footer{ height:1rem; line-height:1rem; text-align:center; font-size:.36rem; position:fixed; bottom:0; width:100%; min-width:320px; max-width:640px;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);">
+            <i class="iconfont color-gray3">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">商家认证失败详情</span>
+</header>
+<form id="form" action="<%=Config.basePath%>business/recertification.shtml" call="this.ctrl.submitCall">
+	<div class="content" <%=_datas.reason.length < 12?"style='text-align:center'":""%>>
+	    <div class="audit bg-white color-red">
+	        <i class="iconfont">&#xe64d;</i><!--&#xe63d;-->
+	        <span class="color-gray6 h5">认证未通过</span><!--成功-->
+	        <p class="color-red m-top20">原因：<%=_datas.reason%></p>
+	    </div>
+	    <div class="list bg-white">
+	        <ul class="m-top10">
+	            <li>
+	                <%=_datas.shopName%>
+	            </li>
+	            <li>
+	            	<%=_datas.shopSubtitle%>
+	            </li>
+	        </ul>
+	        <div class="uploadPic">
+	            相关资料
+	            <div class="pic">
+	            	<img class="none" src="./img/certificationDetails-none.png"/>
+	                <img src="<%=Config.imgPre + _datas.licenseImage%>"/>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	<button class="footer bg-red color-white">
+	    重新认证
+	</button>
+</form>

@@ -1,0 +1,66 @@
+<style type="text/css">
+    .navbar .nav-header{ color: #333;}
+    .content{ padding-bottom: .5rem;}
+    .content .searchBox{position: relative; padding: .1rem .2rem; box-sizing: border-box; background-color: #fff;}
+    .content .searchBox>input{ width: 100%; height: .6rem; line-height: .6rem; text-indent:.55rem; border-radius: 5px; border:0; background-color: #f0f0f0; font-size: .26rem; border-bottom: 1px solid #e5e5e5;}
+    .content .searchBox>i{position: absolute; left: .25rem; top: .1rem;  width: .5rem; height: .6rem; text-align: center; line-height: .6rem; color: #999;}
+    .content>div>h4{margin-top: .2rem; height: .6rem; line-height: .6rem; padding-left: .2rem; box-sizing: border-box;}
+    .content>div>ul{ padding-right: .2rem; box-sizing: border-box;}
+    .content>div>ul>li{width: 33.33%; float: left; padding-left: .2rem; box-sizing: border-box; margin-bottom: .1rem;}
+    .content>div>ul>li>a{ background-color: #fff; border: 1px solid #e5e5e5; border-radius: 3px; text-align: center; display: block; height: .6rem; line-height: .6rem;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1">选择城市</span>
+</header>
+<div class=" content">
+	<!-- 
+    <div class="searchBox">
+        <input type="text" placeholder="请输入您要搜索的城市" name="content"/>
+        <i class="iconfont">&#xe603;</i>
+    </div> -->
+    <div class="theme-popover-mask" style="top: 1.8rem;"></div>
+    <p class="m-top30 color-gray6" style="padding-left: .2rem; box-sizing: border-box;" id="warn"></p>
+    <div class="matchAreas">
+    </div>
+    <div>
+        <h4>当前城市</h4>
+        <ul class="clearfix">
+            <li>
+                <a href="javascript:;">
+                    <%=Config.shopArea.name%>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="openAreas">
+        <h4>开放城市</h4>
+        <ul class="clearfix">
+	        <% $.each(_datas.openCitys||[],function(i,o){ %>
+		        <li>
+		            <a href="javascript:;">
+		                <%=o.name%>
+		            </a>
+		        </li>
+		    <% }); %>
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

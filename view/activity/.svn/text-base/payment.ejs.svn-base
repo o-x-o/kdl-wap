@@ -1,0 +1,53 @@
+<style type="text/css">
+	.content .hd{ padding:.3rem .2rem; border-bottom:1px solid #e5e5e5;}
+	.content .bd{padding:.15rem;}
+	.content .bd p{line-height:.45rem; font-size:.28rem!important;}
+	.btns{text-align:center;}
+	.btns a{padding:0 .25rem; margin:0 .1rem; height:.6rem; line-height:.6rem;display: inline-block;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left"><!-- onclick="this.ctrl.back();" -->
+        <a href="javascript:void(0);"  class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">支付结果</span>
+</header>
+<!--内容-->
+<div class="content">
+	<div class="hd bg-white">
+		<%if(_datas.status == 'paid' || _datas.status == 'hasCom'){%>
+    		<i class="iconfont color-red">&#xe63d;</i>您已支付成功
+    	<%}else{%>
+    		<i class="iconfont color-red">&#xe64d;</i>支付失败
+    	<%}%>
+	</div>
+	<div class="bd m-top20">
+		<p>支付金额：<%=_datas.totalPrice.toFixed(2) %>元</p>
+		<p>购买次数：<%=_datas.number %>次</p>
+	</div>
+	<div class="btns m-top40">
+		<a href="javascript:;" class="bg-orange color-white" onclick="this.ctrl.toolOrderDetails('<%=_datas.toolOrderSn %>');">查看账单</a>
+		<a href="javascript:;" onclick="this.ctrl.toList('<%=_datas.toolPluginType %>')" class="bg-red color-white">
+			<%if(_datas.toolPluginType == 'businessPush'){%>
+    			返回广告推送
+	    	<%}else if(_datas.toolPluginType == 'cityNews'){%>
+	    		返回同城商讯
+	    	<%}%>
+		</a>
+	</div>
+</div> 
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,48 @@
+<style>
+    body{ padding-bottom: 0;}
+    .navbar2{background-image: none;}
+    .list>ul{margin-top: .1rem;}
+    .list>ul>li>a{display: block; position: relative; padding-left:2.2rem; box-sizing: border-box;}
+    .list>ul>li>a>div.pic{ position: absolute; left: .2rem; top: .15rem; width: 1.8rem;}
+    .list>ul>li>a>div.pic>img{width: 100%;}
+    .list>ul>li>a>div.txt{padding-top:.15rem; padding-bottom: .1rem; padding-right: .2rem;box-sizing: border-box;}
+    .list>ul>li>a>div.txt>img{ margin: .1rem 0;}
+    .victy{position: relative; padding-left: -2.2rem; box-sizing: border-box; border-bottom: 1px solid #e5e5e5; border-top: 1px solid #e5e5e5;}
+    .victy>ul{margin-left: -1px;}
+    .victy>ul>li{ float: left; width: 33.33%; border-left: 1px solid #e5e5e5; box-sizing: border-box;}
+    .victy>ul>li>a{display: block; line-height: .8rem; text-align: center;}
+    .victy>ul>li>a>i{ margin-left: .05rem;}
+    .content{ padding-top: 0;}
+    section>img{ width: 100%;}
+    .gexian{ height: 30px; line-height: 30px; text-align: center;border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5;}
+    .content>h6{ position: relative; height: .4rem;border-bottom: 1px solid #e5e5e5; margin-bottom: 1rem;}
+    .content>h6>span{ padding: 0 .2rem; background-color: #f0f0f0; position: absolute; left: 50%; margin-left: -1.1rem; top: 100%;margin-top: -.12rem;}
+    .fixed{position: fixed;width: 6.4rem;top:0;}
+    .fixz1{z-index: 1;position: fixed;width: 6.4rem;top:0;}
+    .gexian.bg-white{top: 300px;}
+    .dituList{margin-top:333px;}
+
+</style>
+<header class="navbar navbar2 navbar3 page-fixed">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-white">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+</header>
+<div class="content">
+  	<section class="fixz1">
+  		<div id="dituContent"></div>
+    </section>
+    <div class="gexian bg-white fixz1">
+        <h1>=</h1>
+    </div>
+    <div class="dituList list">
+        <ul>
+        </ul>
+    </div>
+    <div class="warn"></div>
+    <center class="load_more" style="padding: .15rem 0;">正在加载</center>
+    <h6 id="warn" style="display:none"><span>亲，已经到底啦~~</span></h6>
+</div>

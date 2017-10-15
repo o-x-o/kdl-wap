@@ -1,0 +1,48 @@
+<style type="text/css">
+    body, html { height: 100%;}
+    #container { position: relative;height: 100%; width: 100%; min-height: 4rem; margin-top: 2rem;}
+    #container button {padding: 20px;border: none;background: transparent;display: block; position: relative;z-index: 3;margin: 0 auto;}
+    .dot {height: 2px;width: 2px; border-radius: 50%; -moz-border-radius: 50%; -webkit-border-radius: 50%;position: absolute;z-index: 0;animation: sploosh 50s cubic-bezier(0.165, 0.84, 0.44, 1);background: transparent; }
+    @keyframes sploosh {
+        0% {
+            box-shadow: 0 0 0 .5rem rgba(66, 166, 223, 0.7);
+            background: rgba(66, 166, 223, 0.7);
+            -moz-border-radius:  0 0 0 .5rem rgba(66, 166, 223, 0.7); /* Firefox */
+            -webkit-border-radius: 0 0 0 .5rem rgba(66, 166, 223, 0.7);/* Safari 和 Chrome */
+        }
+        100% {
+            box-shadow: 0 0 0 4rem rgba(66, 166, 223, 0);
+            background: rgba(66, 166, 223, 0);
+            -moz-border-radius:  0 0 0 4rem rgba(66, 166, 223, 0);/* Firefox */
+            -webkit-border-radius: 0 0 0 4rem rgba(66, 166, 223, 0);/* Safari 和 Chrome */
+        }
+    }
+    body{background-color: #3a3e49; }
+    .navbar{ background-color: #323642;}
+    .content .ptos{ width: 1.2rem; position: absolute; text-align: center;top: 4.3rem;left: 50%;margin-left: -.6rem; z-index: 99;}
+    .content .ptos>img{ width: 100%;}
+    .con-swish{height: 100%;}
+    .con-swish>h3{ position: absolute;text-align: center;top: 6rem;left: 50%;margin-left: -2rem; z-index: 99; width: 4rem;font-size: .26rem !important;}
+</style>
+<header class="navbar">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-white">
+            <span class="nav-city">
+                <i class="iconfont">&#xe60b;</i>
+            </span>
+        </a>
+    </div>
+    <span class="nav-header h1">嗖一下</span>
+</header>
+<div class="content">
+    <div class="con-swish">
+        <div id="container">
+
+        </div>
+        <div class="ptos">
+            <img src="./img/sou_icon.png"/>
+        </div>
+        <h3 class="color-white">您在各商家嗖出的“嗖券”,可进店扫码支付抵现或线上购物抵现</h3>
+    </div>
+
+</div>

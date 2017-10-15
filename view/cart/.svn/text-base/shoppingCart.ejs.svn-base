@@ -1,0 +1,111 @@
+<style type="text/css">
+    .content{ padding-bottom: 1rem; height:100%;}
+    /*购物车无商品*/
+    .noData{display: none;  width: 3rem; height: 3rem; margin: 0 auto; text-align: center; margin-top: 2.5rem;}
+    .noData>i{ font-size: 1.5rem; color: #999;}
+    .noData>button{ width: 80%; background-color: transparent; margin: 0 auto; border: 1px solid #7a7a7a; color: #666; height: .6rem; line-height: .6rem; text-align: center; border-radius: 5px;}
+    /*购物车列表*/
+    .cart-con .cart-con-h>div.hd{ background-color: #fff; color: #666; height: .8rem; line-height: .8rem; padding: 0 .2rem; box-sizing: border-box;}
+    .cart-con .cart-con-h>div.hd>i{ color: #999; margin-right: .1rem;}
+    .cart-con .cart-con-h>div.hd i{ margin-right: .05rem;}
+    .cart-con .cart-con-h>div.bd{ margin-bottom: 3px; background-color: #f0f0f0; padding: .2rem 0; position: relative; padding-left: .6rem; min-height: 1.25rem;}
+    .cart-con .cart-con-h>div.bd>i{ position: absolute; left: .2rem; top:.6rem; color: #999;}
+    .cart-con .cart-con-h>div.bd .bd-l{ position: relative; min-height:1.2rem; padding-left: 1.5rem; box-sizing: border-box; padding-right: 1.2rem;}
+    .cart-con .cart-con-h>div.bd .bd-l .pic{ position: absolute; left: 0; top: 0; width: 1.3rem;height: 1.15rem;border-radius: 3px; overflow:hidden; }
+    .cart-con .cart-con-h>div.bd .bd-l .pic>img{ width: 100%; border-radius: 5px; height:100%;}
+    .cart-con .cart-con-h>div.bd .bd-l .jiage{ position: absolute; right: .2rem; top: 0; line-height: .4rem;}
+    .cart-con .cart-con-h>div.bd .bd-l .txt .ellips{ line-height: .35rem;}
+    .cart-con .cart-con-h>div.bd .bd-l .del{ display: none; text-align: center; position: absolute; right: 0; top: -.2rem; height: 1.66rem; width: .8rem; color: #fff; line-height: 1.66rem;}
+    .numadd{display: none;}
+    .numadd .numbox{ position: relative; margin-bottom: .2rem;}
+    .numadd .numbox input{font-size: .26rem; border: 1px solid #e5e5e5;text-align: center; width: 100%; height: .5rem; line-height: .5rem; }
+    .numadd .numbox>i{ color: #999; position: absolute; width: .5rem; text-align: center; line-height: .5rem; height: .5rem; left: 0; top: 0; display: inline-block; border-right: 1px solid #e5e5e5;}
+    .numadd .numbox>span{ color: #999; position: absolute; width: .5rem; text-align: center; line-height: .5rem; height: .5rem; right: 0; top: 0; display: inline-block; border-left: 1px solid #e5e5e5;}
+    .con-footer{border-bottom: 1px solid #e5e5e5; position: fixed; bottom: .98rem; width: 100%; min-width: 320px; max-width: 640px;background-color: #fff; height: 1rem;}
+    .con-footer>a{display: block; width: 2rem; text-align: center; line-height: 1rem; color: #fff;}
+    .con-footer>span{position: absolute;top: .3rem; left: .2rem; color: #666;}
+    .con-footer>span>i{ margin-right: .1rem; color: #999999;  vertical-align: middle;}
+    .con-footer>a.cur{background-color: #f0f0f0; color: #fff;}
+    .con-footer .txt{ padding-right: .2rem; text-align: right; padding-top: .15rem; box-sizing: border-box;}
+    /*规格*/
+    .standard-con{padding:.1rem; box-sizing: border-box; background-color: #fff;}
+    .standard-con .hd{ position: relative; min-height: 1.8rem; padding-left: 2.5rem; box-sizing: border-box; padding-bottom: .3rem; border-bottom: 1px solid #e5e5e5;}
+    .standard-con .hd .pic{ position: absolute; left: 0; top:-.55rem; box-sizing: border-box; border-radius: 5px; border: 3px solid #fff; overflow: hidden; width: 2.4rem; height:2.3rem;}
+    .standard-con .hd .pic>img{ width: 100%; height:100%;}
+    .standard-con .tone{ border-bottom: 1px solid #e5e5e5; padding-bottom: .2rem;}
+    .standard-con .tone>ul>li{ float: left; margin-right: .15rem;}
+    .standard-con .tone>ul>li>a{ display:inline-block; padding: .06rem .3rem; border-radius: 5px; border: 1px solid #e5e5e5; font-size: .24rem;}
+    .standard-con .tone>ul>li.cur a{border: 1px solid #F72B2E; background-color: #F72B2E; color: #fff;}
+    .standard-con .tone>ul>li.hui a{ background-color: #f0f0f0;}
+    .amount{ margin: .2rem 0; border-bottom: 1px solid #e5e5e5; padding-bottom: .2rem;}
+    .amount>span{ width: 1.5rem; display: block; float: right; height: .45rem; line-height: .45rem; border-radius: 3px; background-color: #f0f0f0;}
+    .amount>span>input{ border-left: 2px solid #fff!Important; border-right: 2px solid #fff!Important; box-sizing: border-box; width: .6rem!Important; font-size: .26rem; color: #666;}
+    .amount>span>input,.amount>span>button{ font-size: .24rem; color: #999; background-color:transparent; float: left; width: .45rem; height: .45rem; line-height: .45rem; text-align: center; border: 0;}
+    .standard-con{ display: none;}
+    .standard .standard-con>span{ position: absolute; right: .2rem; top:-.16rem; font-size: .45rem; display: inline-block; color: #ccc;}
+    .standard-con{ position: fixed; width: 100%; bottom: 0; min-width: 320px; max-width: 640px; z-index: 12;}
+    .standard-con>ul{margin: .2rem 0;}
+    .standard-con>ul>li{ width: 50%; float: left; box-sizing: border-box;}
+    .standard-con>ul>li:first-child{padding-right: .2rem; }
+    .standard-con>ul>li:last-child{padding-left: .2rem; }
+    .standard-con>ul>li>a{ display: block; height: .45rem; line-height: .45rem; border:1px solid #e5e5e5; text-align: center;}
+    .standard-con>ul>li>a>em{font-size: .2rem;}
+    .standard-con>ul>li.cur>a{ border: 1px solid #FF8486; background-color: #FF8486; color: #fff;}
+    .standard-con .subbtn a{ height: .8rem; line-height: .8rem; width: 100%; background-color: #F72B2E; color: #fff; display: block; text-align: center;}
+    .standard-con .subbtn>ul>li{ float: left; width: 50%;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">购物车</span>
+    <div class="nav-wrap-right">
+        <a href="javascript:;" class=" color-gray3">编辑</a>
+        <a href="#message/messageLists?userType=member" class=" color-gray3">
+            <span class="nav-btn">
+                <i class="iconfont icon-info">&#xe601; </i>
+            </span>
+        </a>
+    </div>
+</header>
+<input type="hidden" id="currentSkuId" value="" />
+<input type="hidden" id="currentQuantity" value="" />
+<div class="content">
+    <!--购物车无商品-->
+    <div class="noData" <%if(!_datas.shopCartItems || _datas.shopCartItems.length==0){%>style="display:block"<%}%>>
+        <i class="iconfont">&#xe604;</i>
+        <p class="m-top30 color-gray9">您的购物车还没有商品哦~</p>
+        <button class="m-top20" onclick="GO('/')">去逛逛</button>
+    </div>
+    <!--购物车列表-->
+    <div class="cart-con bg-white">
+    	<%if(_datas.shopCartItems && _datas.shopCartItems.length>0){%>
+    		<%=REND("cart/cartItems",{list:_datas.shopCartItems})%>
+    	<%}%>
+    </div>
+</div>
+<div class="con-footer" id="footerId">
+    <span><i class="iconfont">&#xe64f;</i>全选</span>
+    <span style="display:none"><i class="iconfont">&#xe64f;</i>全选</span>
+    <!--置灰，去掉bg-red，加上cur类-->
+    <a class="bg-red kdl-right" href="#order/retailOrder">结算（<span id="totalNum">0</span>）</a>
+    <a class="bg-red kdl-right" href="javascript:;" style="display:none" onclick="this.ctrl.batchDeleteSku()">删除</a>
+    <div class="txt kdl-right">
+        <h6 class="color-gray6">合计：<em class="color-red">￥<span id="totalPrice">0</span></em></h6>
+        <p class="color-gray9">不含运费</p>
+        <!--<p class="color-red h6 m-top10">移入收藏夹</p>-->
+    </div>
+    <div class="txt kdl-right" style="display:none">
+    	<p class="color-red h6 m-top10" onclick="this.ctrl.batchAddGoodsFavorite()">移入收藏夹</p>
+    </div>
+</div>
+<div class="theme-popover-mask"></div>
+<div class="standard">
+	<div class="standard-con">
+	</div>
+</div>
+
+

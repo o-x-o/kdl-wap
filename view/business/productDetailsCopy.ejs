@@ -1,0 +1,352 @@
+<header class="navbar navbar2 navbar3">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <div class="nav-wrap-right">
+        <a href="javascript:;" class=" color-gray3">
+            <span class="nav-btn">
+                <i class="iconfont icon-info">&#xe636; </i>
+            </span>
+            <s></s>
+        </a>
+    </div>
+    <div class="nav-dropdown">
+        <span class="triangle-up"></span>
+        <ul>
+            <li>
+                <a class="react" href="/">
+                    <i class="iconfont">&#xe602;</i>
+                    <space></space>首页
+                </a>
+            </li>
+            <li>
+                <a class="react" href="javascript:;">
+                    <i class="iconfont">&#xe603;</i>
+                    <space></space>搜索
+                </a>
+            </li>
+            <li>
+                <a class="react" href="javascript:;">
+                    <i class="iconfont">&#xe601;</i>
+                    <space></space>消息
+                    <em class="information">8+<s class="triangle-up"></s></em>
+                </a>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<div class="content">
+    <!--banner-->
+    <section class="banner clearfix">
+        <div id="slider" class="clearfix" >
+            <div class="swipe-wrap" >
+                <div class="wrap" >
+                    <a href="register.ejs">
+                        <img src="./img/kdl_banner_1.png" alt="新手指南"/>
+                    </a>
+                </div>
+                <div class="wrap" >
+                    <a href="javascript:;">
+                        <img src="./img/kdl_banner_2.png" alt="零成本开店"/>
+                    </a>
+                </div>
+            </div>
+            <ul id="circle">
+                <li class="current"></li>
+                <li class=""></li>
+            </ul>
+        </div>
+    </section>
+    <div  class="product_con">
+        <div class="hd clearfix  bg-white">
+            <div class="kdl-left">
+                <h5 class="ellips1 m-top10"><%=_datas.goods.name%></h5>
+                <p class="color-gray9 m-top10 ellips1"><%=_datas.goods.caption%></p>
+                <h3 class="color-red m-top10">￥<%=_datas.goods.price.toFixed(2)%></h3>
+                <del class="color-gray9 p m-top10">￥<%=_datas.goods.originalPrice.toFixed(2)%></del>
+            </div>
+            <div class="kdl-right">
+                <div class="color-red">
+                    <h6 class="color-red">￥23.22</h6>
+                    <p>返现</p>
+                </div>
+            </div>
+        </div>
+        <div class="tally  bg-white">
+            <ul class="clearfix color-gray9">
+                <li class="color-gray6">快递：自提</li>
+                <li>销量：<%=_datas.goods.sales%></li>
+                <li>发货地：<%=_datas.goods.area.name%></li>
+            </ul>
+        </div>
+        <div class="motif color-gray6">
+            <ul class="clearfix">
+            	<%if(_datas.goods.labels != null	&& _datas.goods.labels.length > 0){%>
+	            	<%for(var i = 0;i<_datas.goods.labels.length;i++){%>
+		    			<li><i class="iconfont color-orange"><%_datas.goods.labels[i].icon%></i><%=_datas.goods.labels[i].name%></li>
+		    		<%}%>
+            	<%}%>
+            </ul>
+        </div>
+        <div class="recurrent bg-white">
+            <ul class="color-gray6">
+                <li><i class="iconfont" style="color:#ee3132;">&#xe63a;</i>下单后立即返现，每件<span class="color-red">￥23.22</span></li>
+                <li><i class="iconfont" style="color:#dc51d8;">&#xe639;</i>推广给好友，您赚佣金<span class="color-red">￥0.80</span></li>
+                <li><i class="iconfont" style="color:#0680e8;">&#xe63a;</i>他人消费，您赚佣金<span class="color-red">￥0.28</span></li>
+            </ul>
+        </div>
+        <a href="javascript:;" id="standard" class="m-top10 bg-white color-gray3" style="padding:.2rem;display: block; ">
+            选择商品规格
+            <em class="kdl-right"> ></em>
+        </a>
+    </div>
+    <div class="evaluate bg-white m-top10">
+        <h4>商品评价（666）<span class="kdl-right">好评率<em class="color-red">100%</em></span></h4>
+        <div class="evaluate-con">
+            <div class="list">
+                <h5>
+                    <em></em>
+                    天苍苍野
+                    <div class="star kdl-right">
+                        <span class="vote-star"><i style="width:75%"></i></span>
+                    </div>
+                </h5>
+                <p class="m-top20">一个微笑加一个“贾森”，你便拥有全部，贾森牌泳装，一个微笑加一个“贾森”，你便拥有全部。贾森牌泳装，一个微笑。。。</p>
+                <div class="pic clearfix m-top20">
+                    <span><img src="./img/kdl_banner_2.png"/></span>
+                    <span><img src="./img/kdl_banner_2.png"/></span>
+                    <span><img src="./img/kdl_banner_2.png"/></span>
+                    <span><img src="./img/kdl_banner_2.png"/></span>
+                </div>
+                <div class="list-info m-top30 color-gray9 clearfix">
+                    <span class="kdl-left">2016-04-20  17:29:22</span>
+                    <span class="kdl-right">颜色：白色</span>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <button class="btn-border bgtransparent m-top30">查看全部评价</button>
+            </div>
+        </div>
+    </div>
+    <div class="m-top10 Infomation bg-white">
+        <h4>供应商信息<a href="#shop/shops?shopId=<%=_datas.goods.shopId%>" class="kdl-right color-red">进店逛逛 ></a></h4>
+        <div class="Infomation-hd">
+            <div class="pic">
+                <img src="<%=_datas.shop.avatar%>"/>
+            </div>
+            <div class="txt">
+                <h5><%=_datas.shop.shopName%> <i class="iconfont color-orange">&#xe61b;</i></h5>
+                <p class="color-gray6 m-top5"><%=_datas.shop.shopRank.name%></p>
+                <p class="color-gray6 m-top5"><%=_datas.shop.shopAddress%><i class="iconfont color-orange">&#xe616;</i></p>
+            </div>
+        </div>
+        <div class="Infomation-bd m-top30 clearfix">
+            <ul>
+                <li>
+                    <span class="color-gray3 newGoodsCount">50</span>
+                    <p class="color-gray9">全部商品</p>
+                </li>
+                <li>
+                    <span class="color-gray3 sellingGoodsCount">50</span>
+                    <p class="color-gray9">人在卖</p>
+                </li>
+                <li>
+                    <span class="color-gray3 attentionPeoples">50</span>
+                    <p class="color-gray9">收藏人数</p>
+                </li>
+            </ul>
+            <ul>
+                <li>商品描述<span class="color-red"><%=_datas.shop.description.toFixed(2)%></span></li>
+                <li>服务态度<span class="color-red"><%=_datas.shop.service.toFixed(2)%></span></li>
+                <li>发货速度<span class="color-red"><%=_datas.shop.logistics.toFixed(2)%></span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="m-top10 treasure bg-white">
+        <ul class="treasureTab clearfix">
+            <li class="cur">
+                <a href="javascript:;">图文详情</a>
+            </li>
+            <li>
+                <a href="javascript:;">商品参数</a>
+            </li>
+        </ul>
+        <div class="treasureTab1 m-top20 ">
+	        <%if(_datas.goods.introduction != "" && _datas.goods.introduction != null && _datas.goods.imageSrc !=null && _datas.goods.imageSrc.length > 0){%>
+	            <p class="color-gray6"><%=_datas.goods.introduction%></p>
+	            <div class="pic m-top10">
+	            	<%if(_datas.goods.imageSrc != null && _datas.goods.imageSrc.length > 0){%>
+		            	<%for(var i = 0;i<_datas.goods.imageSrc.length;i++){%>
+		            		<img src="<%=_datas.goods.imageSrc[i].src%>"/>
+		    			<%}%>
+	                <%}%>
+	            </div>
+			    <%} else{%>
+			        <div class="treasureTab2none m-top50">
+				        <div class="pic">
+				            <img src="./img/productDetails-noinfo.png"/>
+				        </div>
+				        <h5 class="m-top30">Sorry,店铺老板太懒了</h5>
+				    </div>
+				<%}%>
+		 </div>
+    	<div class="treasureTab2 m-top20">
+        	<%if(_datas.parameters != null && _datas.parameters.length > 0){%>
+	            <table border="1" cellpadding="0" cellspacing="0">
+	                <tbody>
+	                	<%for(var i = 0;i<_datas.parameters.length;i++){%>
+		                    <tr >
+		                        <th colspan="2" ><%=_datas.parameters[i].pgroup%></th>
+		                    </tr>
+		                    <%var goodsPara = _datas.parameters[i].goodsParameter%>
+		                    <%for(var j = 0;j<goodsPara.length;j++){%>
+			                    <tr>
+			                        <td><%=goodsPara[j].parameterName%></td>
+			                        <td><%=goodsPara[j].parameterValue%></td>
+			                    </tr>
+		                    <%}%>
+	                    <%}%>
+                    </tbody>
+	            </table>
+		    <%} else{%>
+		        <div class="treasureTab2none m-top50">
+			        <div class="pic">
+			            <img src="./img/productDetails-noinfo.png"/>
+			        </div>
+			        <h5 class="m-top30">Sorry,店铺老板太懒了111</h5>
+			    </div>
+		    <%}%>
+        </div>
+    </div>
+    <div class="similarClauses m-top30">
+        <h5><span>相似商品</span></h5>
+        <div class="goods-list m-top30">
+	        <ul class="clearfix similarGoods">
+	        	<!--
+	                <li>
+	                    <a href="javascript:;">
+	                        <div class="pic">
+	                            <img src="https://ss0.baidu.com/73F1bjeh1BF3odCf/it/u=4056526008,1637868350&fm=96&s=85947E9144414F5104AF74CE0300A0F2"/>
+	                        </div>
+	                        <div class="txt">
+	                            <h6 class="ellips1">精品肥牛</h6>
+	                            <div class="clearfix m-top5">
+	                                <span class="kdl-left color-red">￥25.00</span>
+	                                <span class="kdl-right color-red">返￥23.00</span>
+	                            </div>
+	                            <p class="color-gray9 clearfix m-top10">
+	                                <del class="kdl-left">￥858.00</del>
+	                                <span class="kdl-right">销量100</span>
+	                            </p>
+	                        </div>
+	                    </a>
+	                </li>
+	            -->
+            </ul>
+        </div>
+    </div>
+</div>
+<!--规格-->
+<div class="theme-popover-mask"></div>
+<div class="standard">
+    <div class="standard-con">
+        <span class="iconfont" id="cose">&#xe64d;</span>
+        <div class="hd">
+            <div class="pic">
+                <img src="http://img.kaidianlaa.com/upload/image/201506/ead64834-f00e-4e60-89d3-205e8e85ffcc.jpg"/>
+            </div>
+            <div class="txt">
+                <h2 class="color-red m-top10">￥129.00</h2>
+                <h6 class="m-top10 color-gray6">库存888件</h6>
+                <p class="m-top5 color-gray6">请选择颜色 尺寸</p>
+            </div>
+        </div>
+        <div class="tone m-top20">
+            <h5>颜色</h5>
+            <ul class="clearfix m-top20">
+                <li class="cur">
+                    <a href="javascript:;">白色</a>
+                </li>
+                <li>
+                    <a href="javascript:;">淡紫色</a>
+                </li>
+                <li class="hui">
+                    <a href="javascript:;">此商品已售完</a>
+                </li>
+            </ul>
+        </div>
+        <div class="tone m-top20">
+            <h5>尺寸</h5>
+            <ul class="clearfix m-top20">
+                <li class="cur">
+                    <a href="javascript:;">M</a>
+                </li>
+                <li>
+                    <a href="javascript:;">L</a>
+                </li>
+                <li>
+                    <a href="javascript:;">XL</a>
+                </li>
+            </ul>
+        </div>
+        <div class="amount clearfix">
+            购买数量
+            <span>
+                <button><i class="iconfont">&#xe64e;</i></button>
+                <input type="tel" value="5"/>
+                 <button><i class="iconfont">&#xe63e;</i></button>
+            </span>
+        </div>
+        <ul class="clearfix">
+            <li class="cur">
+                <a href="javascript:;">包邮</a>
+            </li>
+            <li>
+                <a href="javascript:;">自提<em>(减5.00元)</em></a>
+            </li>
+        </ul>
+        <div class="subbtn">
+            <!--<a href="javascript:;">确定</a>-->
+            <ul class="clearfix">
+                <li>
+                    <a href="javascript:;" class="bg-orange">加入购物车</a>
+                </li>
+                <li>
+                    <a href="javascript:;">立即购买</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="footer clearfix">
+    <div class="kdl-left">
+        <ul>
+            <li>
+                <a href="javascript:;">
+                    <i class="iconfont">&#xe62f;</i>
+                    <p>客服</p>
+                </a>
+            </li>
+            <li>
+                <a href="#shop/shops?shopId=<%=_datas.goods.shopId%>">
+                    <i class="iconfont">&#xe605;</i>
+                    <p>店铺</p>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" id="enshrine">
+                    <i class="iconfont">&#xe619;</i>
+                    <p>收藏</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="kdl-right">
+        <a href="javascript:;"  class="bg-orange">代销</a>
+        <a href="javascript:;"  class="bg-red">上架</a>
+    </div>
+</div>

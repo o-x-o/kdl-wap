@@ -1,0 +1,159 @@
+<style type="text/css">
+    .content{padding-bottom:.9rem;}
+	.middle-hd{padding:.1rem .2rem;margin-bottom: .1rem;box-sizing:border-box;position: relative;}
+	.middle-hd .line{margin:.1rem -.2rem;display:block;height:1px;line-height:1px;background:#f0f0f0;}
+	.middle-hd>section{position:relative; padding-left:1.5rem; box-sizing:border-box;height:.6rem;cursor:pointer;}
+	.middle-hd>section>span,.middle-hd>section>a{display:inline-block; line-height:.6rem;}
+	.middle-hd>section>label{display:inline-block; border:1px solid;font-size:.24rem;padding: .07rem .17rem;margin-top: .1rem;}
+	label.red{color:#cc3333;border-color:#cc3333;}
+	label.gray{color:#999;border-color:#999;}
+	label.orange{color:#ff9933;border-color:#ff9933;}
+	.middle-hd>section>span.title{position:absolute; top:0; left:0; width:1.2rem; }
+	.items{margin-bottom: .1rem;}
+	.items>.item{padding:.2rem;border-bottom:1px solid #f0f0f0;position:relative;}
+	.items>.item img{width: 1.6rem;border-radius: .05rem;}
+	.items>.item:last-child{border-bottom:0px;}
+	.items>.item .center{width: 2.75rem;margin: .05rem 0 0 .15rem;position: relative;height: 1.5rem;}
+	.items>.item .ellips{line-height: .3rem;}
+	.items>.item .bottom{position: absolute;bottom: 0;}
+	.items>.item .price{width:1.5rem;line-height: .4rem;text-align: right;}
+	.evaluate textarea{width:4rem;height:1.4rem;font-size:.24rem;padding:.1rem;border-color:#ddd;}
+	.evaluate .upload{width:1.6rem;height:1.6rem;float:right;line-height:1.5rem;border:1px solid #ddd;background-color:#eee;color:#999;text-align:center;cursor:pointer;font-size: 1.2rem;}
+	.evaluate p{margin:.2rem 0;}
+	ul.imgs{height:1.5rem;}
+	.imgs>li{width:1.2rem;height:1.2rem;float:left;margin:.15rem;border-radius: .1rem;background-size: cover;background-position: center center;position:relative;}
+	.imgs>li>.close{
+	color: #cc3333;
+    border-radius: 50%;
+    width: .3rem;
+    height: .3rem;
+    display: block;
+    text-align: center;
+    line-height: .3rem;
+    position: absolute;
+    right: -.1rem;
+    top: -.1rem;
+    z-index: 1;
+    cursor:pointer;
+    }
+	button.footer {
+    position: fixed;
+    bottom: 0;
+    height: 1rem;
+    line-height: 1rem;
+    width: 100%;
+    min-width: 320px;
+    max-width: 640px;
+    text-align: center;
+    display: block;
+    border: 0;
+    font-size: .36rem;
+	}
+	.reasons {
+	background: #fff;
+    width: 4.6rem;
+    margin: auto;
+	}
+	
+	.reasons>div,.reasons>p{
+	cursor:pointer;
+	padding: .15rem;
+    border-bottom: 1px solid #ccc;
+    font-size: .24rem;
+	}
+	.reasons>div{
+	color:#999;
+	font-size: .26rem;
+	cursor:default;
+	}
+	.reasons>p>i{
+	float: right;
+    border-radius: 50%;
+    border: 1px solid #999;
+    width: .24rem;
+    height: .24rem;
+	}
+	.reasons>p.cur>i{
+	background:#00bf55;
+	}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">申请售后</span>
+    <div class="nav-wrap-right">
+        <a href="#message/messageLists?userType=member">
+            <span class="nav-btn">
+                <i class="iconfont icon-info"> </i>
+            </span>
+        </a>
+    </div>
+</header>
+<form action="<%=Config.basePath%>returns/submitReturns.shtml" call="this.ctrl.submitCall">
+	<input type="hidden" name="id" value="<%=_datas.data.orderId%>"/>
+	<input type="hidden" name="reason" value="" id="returnsReson"/>
+	<input type="hidden" name="returnsMethodId" value="1"/>
+	<input type="hidden" name="shippingMethodId" id="shippingMethodId" value="2"/>
+	<div class="middle content">
+		<div class="bg-white color-gray6 middle-hd">
+			<section><span class="title">退款总额</span><span class="color-gray3">￥<%=_datas.data.returnsAmount.toFixed(2)%></span></section>
+			<%if(_datas.data.discountReduce>0){%>
+				<div class="line"></div>
+				<section><span class="title">优惠折扣</span><span class="color-gray3">￥<%=_datas.data.discountReduce.toFixed(2)%></span></section>
+			<%}%>
+			<div class="line"></div>
+			<section><span class="title">服务类型</span><label class="orange">退货退款</label></section>
+			<div class="line"></div>
+			<section><span class="title">退款方式</span><label class="red">原路返回</label></section>
+			<div class="line"></div>
+			<section id="selShipping"><span class="title">退货方式</span><label class="red" name="2">上门送货</label> &nbsp;&nbsp;<label name="1" class="gray">快递配送</label></section>
+		</div>
+		<div class="bg-white color-gray6 items">
+			<%$.each(_datas.data.orderItems,function(index,orderItem){%>
+				<input type="hidden" name="orderItems[<%=index%>].id" value="<%=orderItem.id%>"/>
+				<input type="hidden" name="orderItems[<%=index%>].quantity" value="<%=orderItem.quantity%>"/>
+				<div class="item clearfix" onclick="this.ctrl.toProductDetails(<%=orderItem.goodsId%>,<%=orderItem.shopId%>,<%if(orderItem.specialtyContentId==null){%>null<%}else{%><%=orderItem.specialtyContentId%><%}%>)">
+					<div class="kdl-left">
+						<img src="<%=Config.imgPre+orderItem.image%>"/>
+					</div>
+					<div class="kdl-left center">
+						<p class="ellips"><%=orderItem.name%></p>
+						<p class="bottom color-graya">数量：<span><%=orderItem.quantity%></span></p>
+					</div>
+					<div class="kdl-right price">
+						￥<%=orderItem.price.toFixed(2)%>
+					</div>
+				</div>
+			<%})%>
+		</div>
+		<div class="bg-white color-gray6 middle-hd">
+			<section onclick="this.ctrl.selectReason()">
+				<span class="title">退货原因</span>
+				<span class="color-graya curReason">选择退货原因</span>
+				<input class="reasonValue" type="hidden" name=""/>
+				<a href="javascript:;" class="kdl-right"><span class="iconfont color-gray9"></span></a>
+			</section>
+		</div>
+		<div class="bg-white color-gray6 middle-hd evaluate">
+			<div>
+				<textarea id="resonValue" placeholder="买家留言，最多150字。"></textarea>
+				<span class="upload iconfont" onclick="this.ctrl.toUpload();">&#xe618;</span>
+			</div>
+			<p class="color-gray9">最多四张图片，每张不超过5M，支持jpg、bmp、png</p>
+			<ul class="imgs clearfix">
+			</ul>
+		</div>
+		<button type="button" onclick="this.ctrl.toSubmitReturns();" class="footer color-white bg-red" >提交申请</button>
+		<div class="reasons" style="display:none;">
+			<div class="title">退货原因</div>
+			 <%for(var i=0;i<_datas.data.returnReasons.length;i++){%>
+			 	<p value=""><span><%=_datas.data.returnReasons[i].content%></span><i></i></p>
+			 <%}%>
+		</div>
+	</div> 
+</form>
+

@@ -1,0 +1,28 @@
+<%if(data.forwardingGiftsItems && data.forwardingGiftsItems.length>0){%>
+	<ul>
+	<% $.each(data.forwardingGiftsItems,function(i,o){ %>
+   			<li>
+                <a href="#forwardingGifts/forwardingDetails?forwardingGiftsId=<%=o.id%>">
+                    <img src="<%=o.imageSrcs[0].src%>"/>
+                    <div class="txt">
+                        <h5><%=o.shop.shopName%></h5>
+                        <p class="ellips"><%=o.title%></p>
+                    </div>
+                </a>
+            </li>	
+	<%});%>
+	<ul>
+<%}else{%>
+     <%if(data.status=="start"){%>
+	 	<i class="iconfont color-gray9">&#xe668;</i>
+	 	<h2 class="m-top40 color-gray6"> 目前还没有进行中的活动哦</h2>
+	 <%}else if(data.status=="nostart"){%>
+	 	<i class="iconfont color-gray9">&#xe665;</i>
+	 	<h2 class="m-top40 color-gray6"> 目前还没有未开始活动哦</h2>
+	 <%}else if(data.status=="end"){%>
+	 	<i class="iconfont color-gray9">&#xe664;</i>
+	 	<h2 class="m-top40 color-gray6"> 目前还没有已结束的活动哦</h2>
+	 <%}%>
+<%}%>
+
+

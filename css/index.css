@@ -1,0 +1,79 @@
+/*立即注册*/
+.content.cur{padding-top: 1.7rem!important;}
+.navbar{ top:.8rem;}
+.RegisterNow{ border-bottom: 1px solid #e5e5e5; position: fixed; width: 100%; min-width: 320px; max-width: 640px;top: 0; z-index: 20; height: .8rem; line-height: .8rem; background-color: #e7f4fd; color: #333; padding: 0 .2rem; box-sizing: border-box;}
+.RegisterNow>a{ border: 1px solid #e5e5e5; display: inline-block; background-color: transparent; border-radius: 3px; color: #cc3333;height:.5rem; line-height:.5rem; text-align:center; width:1.2rem;margin-top: .13rem;}
+.RegisterNow>a.red{width:.8rem;margin-right:.1rem;background-color:#df494a;color:#fff;border-radius: 4px;}
+.RegisterNow>span{ width: .5rem; height: .6rem; display: inline-block;}
+.RegisterNow>span>img{ width: 100%;}
+.RegisterNow>i{ font-size: .42rem;vertical-align: middle; color: #0884ff;    display: inline-block;}
+/*轮播*/
+.banner img{ width: 100%; }
+.banner .carousel{ position: relative; height: 100%;}
+#slider{width:100%;position: relative;}
+#slider .swipe-wrap{position: relative; overflow: hidden; display:block; width:8000px; float:left;}
+#slider .swipe-wrap .wrap{float: left; position: relative;}
+#slider img{width: 100%; height: auto; min-width:3.2rem;max-width:6.4rem;height:3.88rem;}
+#slider .swipe-wrap div{float:left;}
+#slider .swipe-wrap div a{display:block;}
+#circle{position: absolute; height:.15rem; left:50%; z-index: 8; bottom:.25rem;margin-left:-.34rem;}
+#circle li{ cursor: pointer; width:.18rem;height: .18rem; float:left; border-radius:50%; margin:0 8px; background-color:#fff; }
+#circle li.current{background-color:#cc0000;}
+/*功能模块*/
+.in-nav{ background-color: #fff;}
+.in-nav>ul{padding:.05rem 0; box-sizing:border-box;}
+.in-nav>ul>li{ height: 1.45rem; width: 20%; float: left;  box-sizing: border-box;}
+.in-nav>ul>li>a{ display: block; padding-top: 1px; box-sizing: border-box; margin-top:.1rem;}
+.in-nav>ul>li>a>span{ height: .8rem; display: block;text-align: center; width: 1.26rem;}
+.in-nav>ul>li>a>span>img{ height: 100%;}
+.in-nav>ul>li>a>p{ font-size: .24rem; color: #666666; text-align: center; margin-top: .05rem;}
+/*同城头条*/
+.headline{ position:relative; height: 1.3rem; padding: .22rem .26rem; box-sizing: border-box; border-bottom: 1px solid #e5e5e5; border-top: 1px solid #e5e5e5;}
+.headline .pic{ width:1.2rem; height:100%; display: block; padding: 0 .28rem 0 0; border-right: 1px solid #e5e5e5; float: left; box-sizing: border-box;}
+.headline .pic>img{ width: 100%; height: 100%;}
+.headline .txt{ float: left; width:3.8rem;}
+.headline .txt>ol{ height: .8rem; overflow: hidden;}
+.headline .txt>ol>li{ position: relative; padding-left: .14rem; line-height:.4rem; box-sizing: border-box;}
+.headline .txt>ol>li>a{color: #666; font-size: .24rem; display: block;line-height: .4rem;}
+.headline .txt>ol>li>i{ position: absolute; left: .08rem; top:.11rem; width: .1rem; height: .1rem; border-radius: 50%; background-color: #cc0000;}
+.headline>a{position: absolute; right: .2rem; width: .1rem;padding-right: .5rem; border-left: 1px solid #ddd;padding-left: .2rem; height: .75rem; line-height: .35rem; padding-top: .05rem;color: #999;}
+/*推荐模块*/
+.recommend{ height: 3.24rem;}
+.recommend .re-l{ width: 40%; height: 3.24rem;  float: left;  border-right:1px solid #e5e5e5; box-sizing:border-box;}
+.recommend .re-l>a{ margin-left: -1px;}
+.recommend a>.txt{ position: absolute; left: .3rem; top: .2rem;}
+.recommend a>.txt span{ color: #ff9933; font-size: .28rem; }
+.recommend a>.txt p{ font-size: .24rem; color: #666666; margin-top: .1rem;}
+.recommend .re-r{ float: left; width:60%;}
+.recommend .re-r>a,.recommend .re-l>a{ display: block; position: relative;}
+.recommend .re-r>a:first-child{ height:1.61rem; width: 100%;  border-bottom:1px solid #e5e5e5; box-sizing:border-box;}
+.recommend a>img{ width: 100%; height: 100%;}
+.recommend .re-r>a:last-child{ height:1.63rem; width: 100%; }
+/*超级返现*/
+.fanxian{ min-height: 3.7rem; padding: .2rem; box-sizing: border-box;}
+.fanxian .hd{ position: relative; height: .3rem; line-height: .3rem; width: 100%;}
+.fanxian .hd>h3{}
+.fanxian .hd>a{ position: absolute; right: 0; top:0; font-size: .26rem; color: #999;}
+.fanxian .bd{ margin-top: .28rem;}
+.fanxian .bd>li{ width: 33.33%; float:left;}
+.fanxian .bd>li>a{ display: block;}
+.fanxian .bd>li>a>.pic{ width: 1.9rem;}
+.fanxian .bd>li>a>.pic>img{ width: 100%;}
+.fanxian .bd>li>a>.txt>p{  margin: .1rem 0;}
+.fanxian .bd>li>a>.txt>p>del{ font-size: .22rem; color: #999; }
+.fanxian .bd>li>a>.txt>span{font-size: .24rem; border: 1px solid #ff9933 ; padding: .05rem .06rem; border-radius: .05rem; }
+.fanxian .bd>li>a>.txt>span>em{ font-size: .28rem;}
+/*广告*/
+.advertising>div>h1{ height:.88; line-height:.88rem; text-indent: .2rem; font-size: .3rem!important;}
+.advertising>div>h1>span{ margin-right: .2rem;}
+.advertising>div>a>img{ width: 100%;}
+
+
+/* 遮罩 */
+.index-cose{position: absolute;right: 1rem;top: .04rem;display: inline-block; width: .5rem; height: .5rem;}
+.index-mask{position: fixed; z-index: 99; bottom:0;}
+.index-mask>cite{width:1.42rem;height:1.42rem; display:inline-block;cursor:pointer; position:absolute; left:50%; bottom:0; margin-left:-.78rem;}
+
+
+
+

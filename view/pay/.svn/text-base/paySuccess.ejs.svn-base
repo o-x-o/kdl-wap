@@ -1,0 +1,51 @@
+<style type="text/css">
+    .content .hd{ height: 1.2rem; line-height: 1.2rem; padding-left: .3rem; font-size: .28rem;}
+    .content .hd>i{ margin-right: .1rem; font-size: .46rem; vertical-align: middle;}
+    .content .bd{ padding: 0 .2rem; box-sizing: border-box; height: 1rem;}
+    .content .bd>p{ font-size: .26rem;}
+    .content>ul{ width: 3.6rem; margin: 0 auto;}
+    .content>ul>li{width: 50%; float: left;}
+    .content>ul>li>a{display: block; height: .6rem; text-align: center; line-height: .6rem; border:1px solid #e5e5e5; background-color: #fff; margin:0 .1rem; color: #333;}
+    .content>ul.money{ width: 5.6rem; margin: 0 auto;}
+    .content>ul.money>li{width: 100%; float: none; color: #666; margin-top: .2rem;}
+</style>
+<header class="navbar">
+    <span class="nav-header h1">支付结果</span>
+</header>
+<!--内容-->
+<div class="content">
+    <div class="hd bg-white color-gray6">
+        <i id="payFail" style="display:none;" class="iconfont color-red">
+        	&#xe64d;
+        </i>
+        <i id="paySuccess" style="display:none;" class="iconfont color-red">
+        	&#xe63d;
+        </i>
+        <span id="showTxt">支付失败</span>
+    </div>
+    <ul class="money">
+    	<li>总金额:<span id="totalAmount">元</span></li>
+    	<li>支付金额:<span id="payAmount">元</span></li>
+    </ul>
+    <ul class="m-top40">
+        <li>
+            <a href="javascript:;" id="showBtn">查看订单</a>
+        </li>
+        <li onclick="this.ctrl.toShopping();">
+            <a href="javascript:;">继续购物</a>
+        </li>
+    </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

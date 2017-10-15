@@ -1,0 +1,102 @@
+<style type="text/css">
+    .navbar .nav-header{ color: #333;}
+    .content{ padding-bottom: 1rem;}
+    .content>ul{ padding-left: .2rem; box-sizing: border-box;}
+    .content>ul>li.pic{ height: 1.2rem; line-height: 1.2rem;}
+    .content>ul>li.banner{ height: 1.5rem; line-height: 1.5rem;}
+    .content>ul>li{ height: .8rem; line-height: .8rem; border-bottom: 1px solid #e5e5e5;}
+    .content>ul>li>a{ display: block; position: relative; color: #333;}
+    .content>ul>li>a>div.pt{ position: absolute; right: .5rem; top:0; color: #999; line-height:.8rem;}
+    .content>ul>li>a>div.pt>i{ color: #666;}
+    .content>ul>li>a>div.pt .pic{width: 1rem; height: 1rem; display: block; position: absolute; top: .1rem; right: 0; border-radius: 50%; overflow: hidden;}
+    .content>ul>li>a>div.pt .pic>img{ width: 100%; height: 100%;}
+    .content>ul>li>a>div.pt .banner>img{
+    height: 1.3rem;
+    display: block;
+    position: absolute;
+    top: .1rem;
+    right: 0;
+    overflow: hidden;
+    }
+    .more:after{right:.2rem;}
+    .content>ul>li>a>div.pt .ellips1{line-height:.8rem;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="<%=(_param.type=='sKeeper'?'#shopKeeper/shopKeeperInfo':'#business/merchant')%>" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1">店铺设置</span>
+    <div class="nav-wrap-right">
+        <a href="javascript:;" class=" color-gray3">
+        	<%if(_param.type != "business"){%>
+        		<span class="nav-btn" onclick="GO('shopKeeper/shopKeeperShops',{shopId:<%=_datas.shop.id%>})">预览</span>
+        	<%}else{%>
+        		<span class="nav-btn" onclick="GO('shop/shops',{shopId:<%=_datas.shop.id%>})">预览</span>
+        	<%}%>
+        </a>
+    </div>
+</header>
+
+<div class="content">
+    <ul class="m-top10 bg-white">
+        <li class="pic">
+            <a href="javascript:;" class="uploadPic more" url="shop/setShopIcon.shtml" clip="640:640">
+               	 店铺头像
+                <div class="pt">
+                    <span class="pic">
+                        <img src="<%=Config.imgPre + _datas.shop.avatar%>"/>
+                    </span>
+                </div>
+            </a>
+        </li>
+        <li class="banner">
+	        <a href="javascript:;" class="uploadPic more" url="shop/setShopImage.shtml" clip="640:200">
+	            	店铺背景
+	            <div class="pt">
+	            	<span class="banner">
+	            		<img src="<% if(_datas.shop.background){%><%=Config.imgPre + _datas.shop.background %><%}else{%>./img/shopkeeperShops-banner.jpg<%}%>"/>
+	            	</span>
+	            </div>
+	        </a>
+	    </li>
+	    <%if(_param.type != "business"){%>
+	    	<li>
+	            <a href="#shop/shopName?shopName=<%=_datas.shop.shopName%>&type=<%=_datas.shop.shopType%>" class="more">
+	                	店铺名称
+	                <div class="pt">
+	                    <%=_datas.shop.shopName%>
+	                </div>
+	            </a>
+	        </li>
+	    <%}%>
+        <li>
+            <a href="#shop/shopSubtitle?shopSubtitle=<%=_datas.shop.shopSubtitle%>&type=<%=_datas.shop.shopType%>" class="more">
+				店铺标题
+                <div class="pt">
+	                <span class="ellips1"><%=_datas.shop.shopSubtitle%></span>
+                </div>
+            </a>
+        </li>
+        <%if(_datas.shop.shopType == "sKeeper"){%>
+	        <li>
+		        <a href="#shopKeeper/gradeDetails">
+		            	店铺等级
+		            <div class="pt">
+			            <image src="<%=Config.imgPre + _datas.shop.shopRank.icon%>"/>
+		            </div>
+		        </a>
+		    </li>
+	    <%}%>
+	    <!--
+        <li>
+            <a href="javascript:;" class="more">
+                微信号（敬请期待）
+                <div class="pt">
+                </div>
+            </a>
+        </li>-->
+    </ul>
+</div>

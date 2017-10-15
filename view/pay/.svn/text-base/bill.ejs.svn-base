@@ -1,0 +1,43 @@
+<style type="text/css">
+    .con-none{ margin-top: 2.5rem; text-align: center;}
+    .con-none>i{ font-size: 1.5rem; color: #999;}
+    .content>ul{background-color: #fff;}
+    .content>ul>li{border-bottom: 1px solid #e5e5e5;}
+    .content>ul>li>a{ display: block; position: relative; padding:.2rem 1.2rem .2rem 1.3rem;box-sizing: border-box;}
+    .content>ul>li>a>div.pic{position:absolute; left:.15rem;top:.1rem;}
+    .content>ul>li>a>div.pic>img{width:1rem; border-radius:50%;}
+    .content>ul>li>a>span{ position: absolute; width: 1rem;  display: block; top: .25rem; right: .2rem; text-align: right;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="#ucenter/mine" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">账单</span>
+</header>
+<!--内容-->
+<div class="content">
+    <div class="con-none" style="display: none;">
+        <i class="iconfont">&#xe66f;</i>
+        <p class="color-gray6 m-top40 h5">sorry,还没有账单清单哦~</p>
+    </div>
+    <ul id="dataList">
+       
+    </ul>
+    <%=REND("include/empty",{icon:"&#xe66f;",tip:"sorry,还没有账单哦~",price:"2.5",display:"none",emptyId:"noData",paddingbottom:"1"})%>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

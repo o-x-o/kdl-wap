@@ -1,0 +1,136 @@
+<style type="text/css">
+    .navbar .nav-header{ color: #333;}
+    .content{ padding-bottom: .5rem;}
+    .content .audit{ text-align: center; padding: .2rem 0;}
+    .content .audit i{ font-size: .5rem;}
+    .content .card-info>h6{ line-height: .66rem; padding: 0 .2rem; box-sizing: border-box;}
+    .content .card-info>ul>li{padding: 0 .2rem; box-sizing: border-box; height: .66rem; line-height: .66rem;}
+    .content .card-info>ul>li:last-child>a{border-bottom: 0;}
+    .content .card-info>ul>li>a{ display: block; border-bottom: 1px solid #e5e5e5; position: relative; padding-left: 1.2rem;}
+    .content .card-info>ul>li>a>span:first-child{ position: absolute; left: 0; top: 0;}
+    .content .card-info>ul>li>a>span{color: #333;}
+    .tips{padding:0 .2rem; box-sizing:border-box;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1">银行卡详情</span>
+    <div class="nav-wrap-right">
+        <a href="javascript:;" class=" color-gray3">
+            <span class="nav-btn">
+                <i class="iconfont icon-info">&#xe636; </i>
+            </span>
+            <s></s>
+        </a>
+    </div>
+    <div class="nav-dropdown">
+        <span class="triangle-up"></span>
+        <ul>
+            <li>
+                <a class="react" href="/">
+                    <i class="iconfont">&#xe602;</i>
+                    <space></space>首页
+                </a>
+            </li>
+            <li>
+                <a class="react" href="javascript:;">
+                    <i class="iconfont">&#xe601;</i>
+                    <space></space>消息
+                    <em class="information">8+<s class="triangle-up"></s></em>
+                </a>
+            </li>
+        </ul>
+    </div>
+</header>
+<div class=" content">
+    <div class="audit bg-white color-red">
+        <i class="iconfont">
+        <%if(_datas.bankCard.status=="pass"){%>
+        &#xe63d;
+		<%}else if(_datas.bankCard.status=="nopass"){%>
+		&#xe64d;
+		<%}else if(_datas.bankCard.status=="audit"){%>
+		&#xe636;
+		<%}%>
+        </i>
+        <h5 class="color-red">
+        	<%if(_datas.bankCard.status=="pass"){%>
+        		审核成功
+        	<%}else if(_datas.bankCard.status=="nopass"){%>
+        		审核未通过
+        	<%}else if(_datas.bankCard.status=="audit"){%>
+        		审核中
+        	<%}%>
+        </h5>
+    </div>
+    <div class="card-info">
+        <h6 class="color-gray9">银行卡信息</h6>
+        <ul class="bg-white">
+            <li>
+                <a href="javascript:;">
+                    <span>卡号</span>
+                    <span><%=_datas.bankCard.code%></span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <span>银行卡</span>
+                    <span><%=_datas.bankCard.bank.bankName%></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="card-info">
+        <h6 class="color-gray9">个人信息</h6>
+        <ul class="bg-white">
+            <li>
+                <a href="javascript:;">
+                    <span>持卡人</span>
+                    <span><%=_datas.bankCard.bankCardPerson%></span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <span>身份证号</span>
+                    <span><%=_datas.bankCard.personIdCard%></span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <span>手机号</span>
+                    <span><%=_datas.bankCard.personTelephone%></span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <span>审核状态</span>
+                    <span><%=Config.message.bankCard.status[_datas.bankCard.status]%></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="tips m-top50">
+        <span class="color-red m-top10"><i class="iconfont" style=" vertical-align: middle;">&#xe640;</i>小贴士</span>
+        <p class="color-gray9 m-top10">1、提现金额小于100元，收取1元手续费;</p>
+        <p class="color-gray9 m-top10">2、提现金额高于100元（含100元），提现免手续费;</p>
+        <p class="color-gray9 m-top10">3、每日最多可提现3次，每次最少提现2元，每日最多可提现5万元;</p>
+        <p class="color-gray9 m-top10">4、为了您的账户更安全，我们采用了同卡进出原则，支付与提现为您的同一张银行卡。</p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

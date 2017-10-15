@@ -1,0 +1,172 @@
+<style type="text/css">
+    .content {padding-top: 0; }
+    .navbar2{ background-image: none;}
+    .navbar .nav-wrap-right{ top: .2rem; right: .35rem;}
+    .banner>img{width: 100%; }
+    .nav-wrap-right>a>span.nav-btn>em { z-index: 5;  position: absolute;  right: -14px; top: 3px;font-size: .22rem; border-radius: .1rem; height: .23rem;display: block; line-height: .23rem; padding: 0 3px; }
+    .navbar3 .nav-wrap-left>a>s{ background-color: transparent;}
+    .content .con-hd{padding-top: .8rem; min-height: 2.8rem; padding-left: 1.8rem;  box-sizing: border-box; position: relative; background-image: url("img/woshishangjia_banner_01.jpg");background-repeat: no-repeat; background-size: cover;}
+    .content .con-hd>span{position: absolute; left: .2rem; bottom: .2rem; width: 1.2rem; height: 1.2rem; border-radius: 50%; display: inline-block;overflow: hidden; border: 3px solid #fff;}
+    .content .con-hd>span>img{ width: 100%; height: 100%;}
+    .content .con-hd .txt{ position: absolute; bottom: .5rem; color: #fff;text-shadow: #33332A 1px 1px 2px;}
+    .content .income .income-hd{ position: relative; display: block; padding:.1rem .2rem; box-sizing: border-box; border-bottom: 1px solid #e5e5e5;}
+    .content .income .income-hd>i{ position: absolute; right: .2rem; top: .25rem; display: block;}
+    .content .income>ul{ padding: .15rem 0; margin-left: -1px;}
+    .content .income>ul>li{ float: left; width: 33.33%; border-left: 1px solid #e5e5e5; box-sizing: border-box;}
+    .content .income>ul>li>a{ display: block; text-align: center;}
+    .content .income>ul>li>a>span{ color: #333;}
+    .action>a{ height: .8rem; line-height: .8rem; text-align: center; display: block; background-color: #fff; border-bottom: 1px solid #e5e5e5;}
+    .action>a>i{ margin-right: 5px;}
+    .action>ul{ margin-left: -3px;}
+    .action>ul>li{ float: left; width: 25%; padding-left: 3px;padding-bottom:3px; box-sizing: border-box;}
+    .action>ul>li>a{ min-height: 1.64rem; display: block; text-align: center; padding: .2rem; box-sizing: border-box; background-color: #fff;}
+    .action>ul>li>a>i{ font-size: .42rem; color: #fff; width: .8rem; margin-bottom: .1rem; height: .8rem; display: inline-block; line-height: .8rem; text-align: center; border-radius: 50%; background-color: pink;}
+    /*小铺头条*/
+    .mini-shop{ border-top: 1px solid #e5e5e5; position:relative; height:.4rem; padding:.2rem; background:#fff;}
+    .mini-shop .pic{position: absolute;left: .15rem; top: .15rem; height: .4rem; width: 1.3rem;}
+    .mini-shop .pic img{width:100%; height:100%;}
+    .mini-shop .txt-list{ padding-left:1.5rem;}
+    .mini-shop .txt-list ul>li{border-left:1px solid #DADADA; font-size:.26rem; text-indent: .2rem;line-height: .4rem;}
+    .mini-shop .txt-list ul{height: .4rem;line-height: .4rem;overflow: hidden;padding-right:.4rem;}
+    .more:after{ right: .3rem;}
+    /*添加*/
+    .opo{ display: none; box-sizing: border-box; padding:.4rem .2rem; position:fixed; text-align:center; z-index:9; width:5rem; height:4.2rem; background:#fff; border-radius:.1rem;left:50%; margin-left:-2.5rem; top:50%; margin-top:-2.1rem;}
+    .opo .hd{text-align: left; position:relative; padding-left:1.2rem; margin-bottom:.5rem;}
+    .opo .hd p{ color: #999;}
+    .opo .hd .pic{ position:absolute; left:0; top:0; width:1rem; height:1rem; border-radius:50%;}
+    .opo .hd .pic img{width:100%; height:100%;}
+    .opo .btn{text-align:center; font-size: .28rem;}
+    .opo>span{position: absolute;display: inline-block;top: .15rem;right: .15rem;font-size: .42rem; color: #333;}
+</style>
+<header class="navbar navbar2 navbar3">
+    <div class="nav-wrap-right">
+        <a href="#message/messageLists?userType=member">
+            <span class="nav-btn">
+                <i class="iconfont icon-info">&#xe601;</i>
+                <em class="information color-white bg-red">8+</em>
+            </span>
+            <s></s>
+        </a>
+    </div>
+</header>
+<div class="content">
+    <!--商家信息-->
+    <div class="con-hd">
+        <span>
+            <img src="<%=Config.imgPre + _datas.shopAvatar%>"/>
+        </span>
+        <div class="txt">
+            <h4 class="color-white"><%=_datas.shopName%></h4>
+        </div>
+    </div>
+    <!--累计收入-->
+    <div class="income bg-white">
+        <a class="income-hd" href="#ucenter/bakMoneyLog?toReturn=shopKeeper">
+            <p>累计收入（元）</p>
+            <h1 class="m-top10 color-red"><%=_datas.sumTips.toFixed(2)%></h1>
+            <i class="iconfont">&#xe608;</i>
+        </a>
+        <ul class="clearfix">
+            <li>
+                <a href="javascript:;">
+                    <span><%=_datas.todayAmount.toFixed(2)%></span>
+                    <p>今日收入</p>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <span><%=_datas.ordersCount%></span>
+                    <p>订单量</p>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <span><%=_datas.browseCount%></span>
+                    <p>访问量</p>
+                </a>
+            </li>
+        </ul>
+        <!-- 小铺头条 -->
+        <div class="mini-shop clearfix">
+            <a href="#shopKeeper/shopTop" class="clearfix" style=" display: block;">
+                <div class="pic"><img src="./img/xiaoputoutiao@2x.png"></div>
+                <div class="txt-list more more-weak ">
+                    <ul id="headLine">
+                    	<%if(_datas.shopTopList != null && _datas.shopTopList.length > 0){%>
+                    		<%for(var i = 0;i<_datas.shopTopList.length;i++){%>
+                    			<li><%=_datas.shopTopList[i].title%></li>
+                    		<%}%>
+                    	<%}%>
+                    </ul>
+                </div>
+            </a>
+        </div>
+    </div>
+    <!--功能模块2-->
+    <div class="action m-top10">
+        <a href="javascript:;" class="color-red" id="addMerchandise"><i class="iconfont">&#xe651;</i>添加宝贝</a>
+        <ul class="clearfix">
+            <li>
+                <a href="#shopKeeper/toGoodOfManage">
+                    <i class="iconfont" style="background-color: #e95d68;">&#xe648;</i>
+                    <p>宝贝管理</p>
+                </a>
+            </li>
+            <li>
+                <a href="#order/sKeeperOrders">
+                    <i class="iconfont" style="background-color: #4bbcc2;">&#xe647;</i>
+                    <p>订单管理</p>
+                </a>
+            </li>
+            <li>
+                <a href="#shopKeeperManage/shopKeeperShops">
+                    <i class="iconfont" style="background-color: #f3b24c;">&#xe644;</i>
+                    <p>我的店铺</p>
+                </a>
+            </li>
+            <li>
+                <a href="#ucenter/bankCards?backUrl=shopKeeper/shopKeeperInfo">
+                    <i class="iconfont" style="background-color: #ee5858;">&#xe63f;</i>
+                    <p>银行卡</p>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="iconfont" style="background-color: #cccccc;">&#xe61c;</i>
+                    <p>店铺装饰</p>
+                </a>
+            </li>
+            <li>
+                <a href="#shop/shopSet?type=sKeeper">
+                    <i class="iconfont" style="background-color: #5fbecf;">&#xe643;</i>
+                    <p>店铺设置</p>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="theme-popover-mask"></div>
+<div class="opo">
+    <div class="hd">
+        <div class="pic"><img src="./img/recommend@2x.png"></div>
+        <h5>你，值得拥有</h5>
+        <p class="m-top10">在这里，快速找到你想要的！</p>
+    </div>
+    <div class="hd">
+        <div class="pic"><img src="./img/consignment@2x.png"></div>
+        <h5>0成本做甩手掌柜</h5>
+        <p class="m-top10">无需进货发货，支持全渠道推广，行动起来吧！</p>
+    </div>
+    <button class="btn bg-red" onclick="GO('shopKeeper/cowrieCategory')">开始添加</button>
+    <span class="iconfont">&#xe652;</span>
+</div>

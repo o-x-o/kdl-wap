@@ -1,0 +1,28 @@
+<style>
+.navbar .nav-wrap-left{display:none !important;}
+.RegisterNow{display:none; border-bottom: 1px solid #e5e5e5; position: fixed; width: 100%; min-width: 320px; max-width: 640px;top: 0; z-index: 20; height: .8rem; line-height: .8rem; background-color: #e7f4fd; color: #333; padding: 0 .2rem; box-sizing: border-box;}
+.RegisterNow>a{ border: 1px solid #e5e5e5; display: inline-block; background-color: transparent; border-radius: 3px; color: #cc3333;height:.5rem; line-height:.5rem; text-align:center; width:1.2rem;margin-top: .13rem;}
+.RegisterNow>span{ width: .5rem; height: .6rem; display: inline-block;}
+.RegisterNow>span>img{ width: 100%;}
+.RegisterNow>i{ font-size: .42rem;vertical-align: middle; color: #0884ff; display: inline-block;}
+</style>
+<div class="RegisterNow">
+    <i class="iconfont">&#xe652;</i>
+    <span><img src="./img/promotion_money_logo@2x.png"/></span>
+    开店啦，服务你身边
+    <a class="kdl-right" href="#ucenter/guidanceDownload">立即下载</a>
+</div>
+<%=REND("include/header",{_title:_title})%>
+<div class="content" style="padding-top:0;">
+	<div style="height:.9rem;">
+	</div>
+    <div class="pic">
+        <img src="img/guide.jpg"/>
+        <button type="button" class="click1"></button>
+        <button type="button" class="click2"></button>
+        <button class="btn1" onclick="GO('ucenter/applyShopKeeper')"></button>
+        <!--<button class="btn2" onclick="GO('ucenter/applyBusiness')"></button>-->
+        <button class="btn2" onclick="GO('business/busCreate')"></button>
+        <button class="btn3" onclick="GO('index')"></button>
+    </div>
+</div>

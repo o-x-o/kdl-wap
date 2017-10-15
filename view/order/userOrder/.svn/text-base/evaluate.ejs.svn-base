@@ -1,0 +1,200 @@
+<style type="text/css">
+    body{ padding-bottom: 1rem!important;}
+    .ellips{line-height: .35rem;}
+    .content .con{ position: relative; padding: .2rem; box-sizing: border-box; min-height:1.4rem; padding-left: 1.4rem; border-bottom: 1px solid #e5e5e5}
+    .content .con .pic{position: absolute; left: .2rem; top: .2rem; width: 1rem; height: 1rem; overflow:hidden;}
+    .content .con .pic>img{ width: 100%; border-radius: 3px;}
+    .content .con .txt{}
+    .content .con .txt>p{  line-height: .35rem;}
+    /*评价*/
+    .con-evaluate>ul{ padding: .3rem 0; box-sizing: border-box;}
+    .con-evaluate>ul>li{ width: 33.33%; float: left; padding: 0 .35rem; box-sizing: border-box;}
+    .con-evaluate>ul>li>a{ display: block; height: .6rem; line-height: .6rem;border-radius: .3rem; padding: 0 .1rem; box-sizing: border-box;}
+    .con-evaluate>ul>li>a>i{ width: .6rem; height: .6rem; border-radius: 50%; line-height: .6rem; color: #fff; display: inline-block;text-align: center;}
+    /**/
+    .character{ padding: .2rem; box-sizing: border-box; position: relative; padding-right: 1.4rem; }
+    .character>span{ width: 1rem; font-size: .5rem; height: 1rem; display: inline-block; line-height: 1rem; background-color: #ddd; color: #666; text-align: center; position: absolute; right: .2rem; top: .2rem;}
+    .character>textarea{ width: 100%; height: 1rem; line-height: .4rem; padding: .1rem; box-sizing: border-box; border: 1px solid #e5e5e5; border-radius: 3px; font-size:.24rem;}
+    /**/
+    .Comment{ padding: .2rem; box-sizing: border-box;}
+    .Comment>h5>i{margin-right: .1rem;}
+    .Comment li{position: relative; padding-left: 1.4rem; box-sizing: border-box; height: .8rem; line-height: .8rem; color: #666; font-size: .26rem;}
+    .Comment li>span{ position: absolute; left: .1rem; top: 0;}
+    .Comment .star>i{margin: 0 .05rem; float: left; color: #ccc; font-size: .42rem;}
+    /*上传图片显示*/
+    .ptos{ padding: .2rem; box-sizing: border-box; padding-top: 0;}
+    .ptos>ul>li{ float: left; width: 1.2rem; border-radius: 5px; margin-right: .1rem;    width: 1.2rem;
+	    height: 1.14rem;
+	    background-size: cover;
+	    background-position: center;
+	    position: relative;
+	}
+	.ptos>ul>li>span.close{
+	color: #fff;
+    border-radius: 50%;
+    width: .4rem;
+    height: .4rem;
+    display: block;
+    text-align: center;
+    line-height: .4rem;
+    position: absolute;
+    right: -.1rem;
+    top: -.1rem;
+    z-index: 1;
+    background-color: #f62b2d;}
+    .ptos>ul>li>img{width: 100%;}
+    .footer{ height: .9rem; line-height: .9rem; text-align: center; font-size: .42rem; position: fixed; width: 100%; bottom: 0; min-width: 320px; max-width: 640px;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">评价</span>
+    <div class="nav-wrap-right">
+        <a href="javascript:;" class="color-gray3">
+            <span class="nav-btn">
+                <i class="iconfont icon-info">&#xe601;</i>
+            </span>
+            <s></s>
+        </a>
+    </div>
+</header>
+<form action="<%=Config.basePath%>order/evaluate.shtml" call="this.ctrl.submitCall">
+	<input type="hidden" name="orderId" value="<%=_datas.data.orderId%>"/>
+	<div class="content">
+		<%if(_datas.data.type=='geOrd'){%>
+			<%$.each(_datas.data.orderItems,function(index,orderItem){%>
+				<input type="hidden" name="evaluateItems[<%=index%>].goodsId" value="<%=orderItem.goodsId%>">
+				<input type="hidden" name="evaluateItems[<%=index%>].skuValue" value="<%=orderItem.skuValue%>">
+			    <div class="con bg-white" onclick="this.ctrl.toGoodsDetails(<%=orderItem.goodsId%>,<%=orderItem.shopId%>)">
+			        <div class="pic">
+			            <img src="<%=Config.imgPre+orderItem.thumbnail%>"/>
+			        </div>
+			        <div class="txt">
+			            <p class="ellips"><%=orderItem.name%></p>
+			            <p>￥<%=orderItem.price%></p>
+			        </div>
+			    </div>
+			    <div class="con-evaluate bg-white">
+			        <ul class="clearfix">
+			            <li score="5">
+			                <a href="javascript:;" class="bg-red color-white">
+			                    <i class="iconfont bg-red">&#xe673;</i>
+			                    好评
+			                </a>
+			            </li>
+			            <li score="3">
+			                <a href="javascript:;" class="color-orange">
+			                    <i class="iconfont bg-orange">&#xe673;</i>
+			                    中评
+			                </a>
+			            </li>
+			            <li score="1">
+			                <a href="javascript:;" class="color-gray9">
+			                    <i class="iconfont bg-grayc">&#xe673;</i>
+			                    差评
+			                </a>
+			            </li>
+				        <input type="hidden" inputType="score" name="evaluateItems[<%=index%>].score" value="5">
+			        </ul>
+			    </div>
+			    <div class="character bg-white">
+			        <textarea placeholder="亲，写点什么吧，您的意见对其他淘友有很大帮助！" name="evaluateItems[<%=index%>].content"></textarea>
+			        <span class="iconfont" onclick="this.ctrl.toUpload(this,<%=index%>)">&#xe618;</span>
+			    </div>
+			    <div class="ptos bg-white">
+			        <ul class="clearfix">
+			        </ul>
+			    </div>
+		    <%})%>
+		<%}else{%>
+				<input type="hidden" name="evaluateItems[0].goodsId" value="<%=_datas.data.orderItems[0].goodsId%>">
+				<input type="hidden" name="evaluateItems[0].skuValue" value="<%=_datas.data.orderItems[0].skuValue%>">
+			    <div class="con bg-white" onclick="this.ctrl.toGoodsDetails(<%=_datas.data.orderItems[0].goodsId%>,<%=_datas.data.orderItems[0].shopId%>)">
+			        <div class="pic">
+			            <img src="<%=Config.imgPre+_datas.data.orderItems[0].thumbnail%>"/>
+			        </div>
+			        <div class="txt">
+			            <p class="ellips"><%=_datas.data.orderItems[0].name%></p>
+			            <p>￥<%=_datas.data.orderItems[0].price%></p>
+			        </div>
+			    </div>
+			    <div class="con-evaluate bg-white">
+			        <ul class="clearfix">
+			            <li score="5">
+			                <a href="javascript:;" class="bg-red color-white">
+			                    <i class="iconfont bg-red">&#xe673;</i>
+			                    好评
+			                </a>
+			            </li>
+			            <li score="3">
+			                <a href="javascript:;" class="color-orange">
+			                    <i class="iconfont bg-orange">&#xe673;</i>
+			                    中评
+			                </a>
+			            </li>
+			            <li score="1">
+			                <a href="javascript:;" class="color-gray9">
+			                    <i class="iconfont bg-grayc">&#xe673;</i>
+			                    差评
+			                </a>
+			            </li>
+				        <input type="hidden" inputType="score" name="evaluateItems[0].score" value="5">
+			        </ul>
+			    </div>
+			    <div class="character bg-white">
+			        <textarea placeholder="亲，写点什么吧，您的意见对其他淘友有很大帮助！" name="evaluateItems[0].content"></textarea>
+			        <span class="iconfont" onclick="this.ctrl.toUpload(this,0)">&#xe618;</span>
+			    </div>
+			    <div class="ptos bg-white">
+			        <ul class="clearfix">
+			        </ul>
+			    </div>
+		<%}%>
+	    <div class="Comment m-top10 bg-white">
+	        <input type="hidden" name="isNoName" value="false"/>
+	        <h5 class="color-gray6"><i class="iconfont" id="selIsNoName">&#xe632;</i>匿名评论</h5>
+	        <ul class="m-top10">
+	            <li>
+	                <span>描述相符</span>
+	                <div class="star clearfix">
+	                    <i class="iconfont">&#xe642;</i>
+	                    <i class="iconfont">&#xe642;</i>
+	                    <i class="iconfont">&#xe642;</i>
+	                    <i class="iconfont">&#xe642;</i>
+	                    <i class="iconfont">&#xe642;</i>
+	                    <input type="hidden" name="description" value=""/>
+	                </div>
+	            </li>
+	            <li>
+	                <span>卖家服务</span>
+	                <div class="star clearfix">
+	                    <i class="iconfont">&#xe642;</i>
+	                    <i class="iconfont">&#xe642;</i>
+	                    <i class="iconfont">&#xe642;</i>
+	                    <i class="iconfont">&#xe642;</i>
+	                    <i class="iconfont">&#xe642;</i>
+	                    <input type="hidden" name="service" value=""/>
+	                </div>
+	            </li>
+	            <li>
+	                <span>物流服务</span>
+	                <div class="star clearfix">
+	                    <i class="iconfont">&#xe642;</i>
+	                    <i class="iconfont">&#xe642;</i>
+	                    <i class="iconfont">&#xe642;</i>
+	                    <i class="iconfont">&#xe642;</i>
+	                    <i class="iconfont">&#xe642;</i>
+	                    <input type="hidden" name="logistics" value=""/>
+	                </div>
+	            </li>
+	        </ul>
+	    </div>
+	</div>
+	<div class="footer bg-red color-white" onclick="this.ctrl.evaluateBtn();">
+	    发表评价
+	</div>
+</form>

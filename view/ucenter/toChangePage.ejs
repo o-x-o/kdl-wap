@@ -1,0 +1,100 @@
+<style type="text/css">
+	body{padding-bottom:1rem!important;}
+    .navbar .nav-header{ color: #333;}
+    .content{ padding: .2rem; box-sizing: border-box; padding-bottom: 0;padding-top:.9rem;}
+    .content>h6{ height: .66rem; line-height: .66rem;}
+    .content>h6>i.ico{margin: 0 .05rem;background-size: cover; width: .35rem; height: .35rem;background-color:#fff; vertical-align: middle; display: inline-block; border-radius: 50%; background-image: url("<%=Config.imgPre+_datas.bankCard.bank.bankIcon%>");}
+    .content>ul{ padding: 0 .2rem; box-sizing: border-box;}
+    .content>ul>li{ border-bottom: 1px solid #e5e5e5; line-height: .8rem;}
+    .content>ul>li:last-child{border-bottom: 0;}
+    .content>ul>li>a{ display: block; position: relative; color: #333;}
+    .content>ul>li>a>i{ position: absolute; right: 0;}
+    .content>a{ margin-left: .2rem; line-height: .66rem; color: #225aed; font-size: .24rem; text-decoration: underline;}
+    .box1{ border-radius: .1rem; background-color: #f0f0f0; padding: .2rem; box-sizing: border-box; display: none;}
+    .box1 li{ line-height: .6rem; font-size: .26rem; color: #666;}
+    .box1>p{ line-height: .4rem; font-size: .23rem; color: #999;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1">更换银行卡</span>
+    <div class="nav-wrap-right">
+        <a href="javascript:;" class=" color-gray3">
+            <span class="nav-btn">
+                <i class="iconfont icon-info">&#xe636; </i>
+            </span>
+            <s></s>
+        </a>
+    </div>
+    <div class="nav-dropdown">
+        <span class="triangle-up"></span>
+        <ul>
+            <li>
+                <a class="react" href="/">
+                    <i class="iconfont">&#xe602;</i>
+                    <space></space>首页
+                </a>
+            </li>
+            <li>
+                <a class="react" href="javascript:;">
+                    <i class="iconfont">&#xe601;</i>
+                    <space></space>消息
+                    <em class="information">8+<s class="triangle-up"></s></em>
+                </a>
+            </li>
+        </ul>
+    </div>
+</header>
+<div class="content bg-white">
+    <h6 class="color-gray6">当前银行卡位:<i class="ico"></i><%=_datas.bankCard.bank.bankName%>（<%=_datas.bankCard.code%>）</h6>
+    <p class="color-gray9">请选择更换银行卡原因：</p>
+    <ul class="bg-white m-top20">
+        <li>
+            <a href="javascript:;">
+                银行卡可用，想换新卡<i class="iconfont">&#xe609;</i>
+            </a>
+            <div class="box1">
+                <p>您的银行卡还在本人手中，并没有丢失或注销，只希望更换一张银行卡使用，请按照以下步骤换卡：</p>
+                <ol>
+                    <li>① 账号资产提现至原银行卡</li>
+                    <li>② 绑定新的银行卡</li>
+                    <li>③ 更换成功</li>
+                </ol>
+                <button class="btn-block m-top20" id="firstBtn">换卡</button>
+            </div>
+        </li>
+        <li>
+            <a href="javascript:;">
+                银行卡已丢失或已注销<i class="iconfont">&#xe609;</i>
+            </a>
+            <div class="box1">
+                <p>您的银行卡因丢失、注销、办理补卡等原因，需要使用新卡号重新更换新银行卡才可以使用，请按以下流程申请换卡：</p>
+                <ol>
+                    <li>① 确认一张新的银行卡</li>
+                    <li>② 提交您的身份证明材料</li>
+                    <li>③ 等待客服审核</li>
+                    <li>④ 更换成功</li>
+                </ol>
+                <button class="btn-block m-top20" id="secondBtn">换卡</button>
+            </div>
+        </li>
+    </ul>
+    <a href="tel:4009960024">客服电话400-996-0024</a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

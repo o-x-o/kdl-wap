@@ -1,0 +1,124 @@
+<link href="../../../css/base.css" rel="stylesheet"/>
+<style type="text/css">
+    body{ padding-bottom: 0!important;}
+    .more:after{ right: .2rem;}
+    /*交易状态*/
+    .content>div.hd{position: relative; background-color: #dd2726; font-size: .26rem; height: 1.8rem; line-height: 1.8rem; padding: 0 .5rem; box-sizing: border-box; color: #fff;}
+    .content>div.hd>i{ font-size: 1.5rem; float: right; color:#f0f0f0; opacity: 0.3;}
+    /*商品*/
+    .con-list{ margin-bottom: .1rem; }
+    .con-list .hd{ height: .8rem; line-height: .4rem; padding: .2rem; box-sizing: border-box;}
+    .con-list .hd>a{ font-size: .26rem;}
+    .con-list .hd>a>span{ width: .4rem; height: .4rem; display: inline-block;}
+    .con-list .hd>a>span>img{ width: 100%;}
+    .con-list .bd>div{ padding: 0 .2rem; box-sizing: border-box; text-align: right; background-color: #fff; height: .8rem; line-height: .8rem;}
+    .con-list>ul>li{ padding: .2rem; min-height: 1.45rem; border-bottom: 1px solid #e5e5e5;}
+    .con-list>ul>li:last-child{ border-bottom: 0;}
+    .con-list>ul>li>a{ display: block; position: relative; padding:0 1.1rem 0 1.7rem; box-sizing: border-box; }
+    .con-list>ul>li>a>div.pic{ width: 1.5rem; border-radius: 3px; overflow: hidden; position: absolute;left: 0; top: 0;}
+    .con-list>ul>li>a>div.pic>img{width: 100%;}
+    .con-list>ul>li>a>div.jiage{ position: absolute; right: 0; top: 0; text-align: right;}
+    .con-list>ul>li>a>div.jiage>button{ margin-top: .05rem; padding:2px .3rem; border: 1px solid #e5e5e5; border-radius: 3px; color: #666;background-color: #fff;}
+   /*商品总价*/
+    .orderinfo{ position: relative;}
+    .orderinfo>div{ padding: .2rem; box-sizing: border-box;}
+    .orderinfo>div>p{ color: #666; line-height: .35rem;}
+    .orderinfo>div>h5{ margin-bottom: .1rem;}
+    .orderinfo>div>h5>i{ margin-right: .1rem;}
+    .orderinfo>button{position: absolute; right: .2rem; top: .2rem; border:1px solid #e5e5e5; border-radius: 3px; padding: 2px .3rem; color: #666; background-color: transparent;}
+    .content>div.Logistics{ padding: .2rem; box-sizing: border-box; min-height:1rem; position: relative; border-bottom: 1px solid #e5e5e5;}
+    .content>div.Logistics>i{ position: absolute; left: .2rem; top: .2rem; line-height: .6rem; font-size: .42rem; color: #999;}
+    .content>div.Logistics>p{ line-height: .3rem; padding-left: .6rem; box-sizing: border-box; font-size: .24rem;}
+    /*买家信息*/
+    .datils-info{ padding: .2rem; box-sizing: border-box; background-color: #fff; border-bottom: 1px solid #e5e5e5;}
+    .datils-info>p{ line-height: .4rem; font-size: .26rem; color: #666;}
+    .datils-info>div{ position: relative; padding-left: .8rem; box-sizing: border-box;}
+    .datils-info>div>span{ position: absolute; left:0rem; top: 0rem; width: .8rem; color: #666}
+    .datils-info>div>textarea{ border: 1px solid #e5e5e5; min-height: 1rem; border-radius: 3px; height: .6rem; padding: .1rem; line-height: .4rem; box-sizing: border-box; background-color: transparent; width: 100%;}
+    .consume>ul{ padding: .1rem .2rem; box-sizing: border-box;}
+    .consume>ul>li{ height: .8rem; line-height: .8rem; color: #666;}
+    .consume>ul>li>input{ border: 1px solid #e5e5e5; border-radius: 3px; background-color: #f0f0f0; color: #333;  font-size: .24rem; text-align: center; width: 2rem; height: .6rem; padding: .1rem 0; box-sizing: border-box;}
+    .consume>ul>li>button{ width: 1.4rem; height: .6rem; line-height: .6rem; text-align: center; border: 0; border-radius: 3px; margin-top: .1rem;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">订单详情</span>
+    <div class="nav-wrap-right">
+        <a href="javascript:;" class=" color-gray3">
+            <span class="nav-btn">
+                <i class="iconfont icon-info">&#xe601;</i>
+            </span>
+            <s></s>
+        </a>
+    </div>
+</header>
+<div class="content">
+    <div class="orderinfo bg-white">
+        <div>
+            <h5 class="color-gray6"><i class="iconfont color-gray9">&#xe677;</i>未消费</h5><!--已消费 &#xe676;-->
+            <p>订单金额：<cite class="color-red h5">￥85.90</cite></p>
+            <p>订单编号：5582154551638523</p>
+            <p>创建时间：2016-05-17  10:54:12</p>
+        </div>
+    </div>
+    <div class="datils-info m-top10">
+        <p>买家昵称：张宇</p>
+        <p>手机号：18600264531</p>
+       <div>
+           <span> 备注：</span>
+           <textarea placeholder="给商家留言(50字以内)"></textarea>
+       </div>
+    </div>
+    <div class="con-list">
+        <div class="hd bg-white">
+            <a href="javascript:;">
+                <span class="iconfont color-orange">
+                    &#xe601;
+                </span>
+                联系买家
+            </a>
+        </div>
+        <ul>
+            <li>
+                <a href="javascript;void(0):">
+                    <div class="pic">
+                        <img src="./img/user_shopkeeper_img2@2x.png"/>
+                    </div>
+                    <div class="txt">
+                        <h6 class="color-gray6">2016年春秋季韩版棒球服印花夹克棒球衫</h6>
+                        <p>颜色分类：黑白</p>
+                    </div>
+                    <div class="jiage">
+                        <span class="color-gray3">￥23.00</span>
+                        <p class="color-gray6">x2</p>
+                    </div>
+                </a>
+            </li>
+        </ul>
+        <div class="bd">
+            <div>
+                共2件商品 实付：<cite class="h5">￥55.90</cite>(运费:￥0)
+            </div>
+        </div>
+    </div>
+    <div class="consume m-top10 bg-white">
+        <ul>
+            <li>
+                消费码：
+                <input type="tel" placeholder="输入消费码">
+                <button class="bg-red color-white kdl-right">确认消费</button>
+            </li>
+            <li>
+                消费码：
+                123456152
+                <button class="bg-gray color-gray6 kdl-right">已消费</button>
+            </li>
+        </ul>
+    </div>
+
+</div>

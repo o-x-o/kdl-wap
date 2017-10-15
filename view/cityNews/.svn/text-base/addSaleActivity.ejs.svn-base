@@ -1,0 +1,209 @@
+<style type="text/css">
+    .navbar .nav-header{ color: #333;}
+    .content{ padding-bottom: 2rem;}
+	.content .wrap{background:#fff;border-bottom:1px solid #ccc;padding:.1rem 0 .4rem;margin-bottom:.1rem;}
+	.content .wrap p{
+		padding:.2rem;
+		padding-right:0;
+	}
+	.content .wrap p:after{
+		content:'';
+	    visibility:hidden;
+	    height:0;
+	    display:block;
+	    clear:both;
+    }
+	.content .wrap p .top{vertical-align: .8rem;}
+	.content .wrap input,textarea{border:1px solid #aaa;line-height:.58rem;padding:0 .15rem;width:4.2rem;margin-left:.2rem;border-radius:0;}
+	.content .wrap input{height:.58rem;}
+	.content .pic {position:relative;float:left;margin: 0 .2rem 0 0;}
+	.content .close{
+		position: absolute;
+		right: .3rem;
+		top: .1rem;
+	    cursor: pointer;
+	    font-size: .35rem;
+	    line-height: .35rem;
+	    width: .36rem;
+	    height: .36rem;
+	    border: 1px solid #df494a;color: #df494a;border-radius:50%;display: block;text-align: center;
+	}
+	.content .pic img{width:1.2rem;height:1.2rem;border-radius: .04rem;}
+	.content .addActivityX{
+		background-color:#ccc;
+		color:#fff;
+		font-size:.6rem;
+		width:1rem;
+		height:1rem;
+		line-height: .95rem;
+		margin: .125rem .375rem .375rem .175rem;
+		border-radius:50%;
+		float: left;
+		cursor:pointer;
+		text-align: center;
+	}
+	.content .addActivity{
+		background-color: #ccc;
+	    color: #fff;
+	    font-size: .6rem;
+	    width: 5rem;
+	    height: .6rem;
+	    line-height: .66rem;
+	    margin: .3rem .7rem .4rem .7rem;
+	    cursor: pointer;
+	    text-align: center;
+	    display: block;
+	}
+	button.footer {
+	    border: 0;
+	    width: 100%;
+	    min-width: 320px;
+	    max-width: 640px;
+	    position: fixed;
+	    bottom: 0;
+	    height: .9rem;
+	    line-height: .9rem;
+	    font-size: .32rem;
+	    color: #fff;
+	    background-color: #f62b2d;
+	}
+	#goodsImage{
+		background-color:#fff;
+	}
+	.content .list>p{
+		position:relative;
+		background:#fff;
+		border-bottom:1px solid #ccc;
+		height:1.3rem;
+		padding:.2rem;
+	}
+	.content .list>p:last-of-type{
+		border-bottom:0px;
+	}
+	.content .list>p .kdl-left{
+		width: 3.9rem;
+	}
+	.content .list>p .kdl-left .ellips{
+		line-height: .3rem;
+	}
+	.content .list>p .kdl-left .btn{
+		border: 1px solid #ccc;
+		border-radius: 0;
+		color: #666;
+		margin-top: .2rem;
+	}
+	.content .list>p .kdl-left .input{
+		width: 1.1rem;
+		height: .4rem;
+		line-height: .4rem;
+		margin: .1rem;
+		padding: 0 .1rem;
+		color: #666;
+		border-radius:0;
+		display:inline-block;
+	}
+	.content .list>p .kdl-left input{
+		border: 1px solid #ccc;
+	}
+	.content .list>p .kdl-left .inputs{
+		display:block;
+		margin-top: .2rem !important;
+		color: #666 !important;
+	}
+	.content .wrap p.date{padding:0 .2rem;}
+	.content .wrap p.date>.line{border-bottom:1px solid #ccc;display:block; padding: .2rem 0;	}
+	.content .wrap p.date input{border:0;width: 2.3rem;color: #666;height:.4rem;padding:0;}
+	.content .wrap p.date select{border:0;width: 1.25rem;color: #666;height:.4rem;font-size: .24rem;background: transparent;vertical-align: bottom;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:void(0);" onclick="this.ctrl.back();" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1">添加商讯</span>
+</header>
+<div class=" content">
+	<form id="form" action="<%=Config.basePath%>/cityNews/addSalesActivity.shtml" call="this.ctrl.submitCall">
+		<input type="hidden" id="goods" name="goods" value="" />
+		<input type="hidden" id="beginDate" name="beginDate" value="" />
+		<input type="hidden" id="endDate" name="endDate" value="" />
+		<input type="hidden" id="orderValidity" name="orderValidity" value="" />
+		<div class="wrap">
+			<p>
+				<span>商讯标题：</span>
+				<input id="title" name="title" maxlength=30 placeholder="此处最多30字"/>
+			</p>
+			
+			<p class="date">
+				<span class="line">
+					<span>活动开始时间：</span>
+					<input type="date" id="beginDateInput" value=""/>
+					<select id="beginTime">
+						<% for(var i=9;i<23;i++){ %>
+							<option><%=i<10?"0"+i:i%>:00</option>
+							<% if(i < 22){%>
+								<option><%=i<10?"0"+i:i%>:30</option>
+							<%}%>
+						<% } %>
+					</select>
+				</span>
+			</p>
+			<p class="date">
+				<span class="line">
+					<span>活动结束时间：</span>
+					<input type="date" id="endDateInput" value=""/>
+					<select id="endTime">
+						<% for(var i=9;i<23;i++){ %>
+							<option><%=i<10?"0"+i:i%>:00</option>
+							<% if(i < 22){%>
+								<option><%=i<10?"0"+i:i%>:30</option>
+							<%}%>
+						<% } %>
+					</select>
+				</span>
+			</p>
+			<p class="date">
+				<span class="line">
+					<span>促销消费时间限制：</span>
+					<span class="kdl-right">
+						<label onselectstart="return false;">
+							<input id ="orderValidityOpen" type="checkbox" class="ios-switch tinyswitch" onclick="this.ctrl.setOrderValidity(this)" />
+							<span>
+								<span></span>
+							</span>
+						</label>
+					</span>
+					
+				</span>
+			</p>
+			<p class="date">
+				<span id="orderValiditySpan" class="line" style="display:none;">
+					<span>订单有效期：&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<input type="date" value="" id="orderValidityInput"/>
+					<select id="orderValidityTime">					
+						<% for(var i=0;i<24;i++){ %>
+							<option><%=i<10?"0"+i:i%>:00</option><option><%=i<10?"0"+i:i%>:30</option>
+						<% } %>
+					</select>
+				</span>
+			</p>
+			<p>
+				<span class="top">商讯描述：</span>
+				<textarea name="description" id="description" maxlength=500 placeholder="请输入商讯描述" maxlength=500></textarea>
+			</p>
+		</div>
+		
+		<div id="selectGoodsList" class="list">
+			
+		</div>
+		<span onclick="this.ctrl.addGoods()" class="addActivity">+</span>
+		
+	</form>
+
+</div>
+
+<button class="footer" type="button" onclick="this.ctrl.submitForm()">保存</button>
+
+

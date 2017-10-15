@@ -1,0 +1,62 @@
+<style type="text/css">
+    .content>ul>li>a{ display: block; position: relative;}
+    .content>ul>li>a>img{width: 100%;}
+    .content>ul>li>a>div.txt{ position: absolute; left: 1.6rem; top: .6rem;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">卡券包</span>
+    <div class="nav-wrap-right">
+        <a href="#message/messageLists?userType=member" class=" color-gray3">
+            <span class="nav-btn">
+                <i class="iconfont icon-info">&#xe601;</i>
+            </span>
+            <s></s>
+        </a>
+    </div>
+</header>
+<div class="content">
+    <ul>
+        <li>
+            <a href="#ucenter/whooshTicketList">
+                <img src="./img/whoosh.png"/>
+                <div class="txt">
+                    <h4 class="color-white">嗖券</h4>
+                    <p class="color-white m-top5">"嗖一下"里的惊喜</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="#ucenter/discount">
+                <img src="./img/favorable.png"/>
+                <div class="txt">
+                    <h4 class="color-white">优惠券</h4>
+                    <p class="color-white m-top5">优惠不断，惊喜连连</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="#ucenter/cardCoupons">
+                <img src="./img/consortium.png"/>
+                <div class="txt">
+                    <h4 class="color-white">联盟卡</h4>
+                    <p class="color-white m-top5">满足你的多种需求</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="#ucenter/membershipCard">
+                <img src="./img/membershipcard.png"/>
+                <div class="txt">
+                    <h4 class="color-white">会员卡</h4>
+                    <p class="color-white m-top5">vip特权</p>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>

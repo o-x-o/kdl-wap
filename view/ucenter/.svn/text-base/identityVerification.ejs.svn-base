@@ -1,0 +1,74 @@
+<style type="text/css">
+    body,html{ background-color: #fff;}
+    .navbar .nav-header{ color: #333;}
+    .content{ padding-bottom: .5rem;}
+    .content .card-info{ padding: .2rem; padding-top: 0; box-sizing: border-box;}
+    .content .card-info>ul>li{margin-top: .2rem;}
+    .content .card-info>ul>li>a{ display: block; height: .8rem; line-height: .8rem; }
+    .content .card-info>ul>li>a{position: relative; padding-right: 2rem; box-sizing: border-box;}
+    .content .card-info>ul>li>a>button{color: #333; position: absolute; right: 0; top: 0; height: .8rem; line-height: .8rem; width: 1.85rem; font-size: .24rem; color:#df494b; display: inline-block; background-color: transparent; border: 1px solid #df494b; border-radius: 5px; }
+    .content .card-info>ul>li>a>input{ border: 1px solid #e5e5e5; border-radius: 5px;height: .8rem; line-height: .4rem; padding: .2rem; box-sizing: border-box; width: 100%; font-size: .26rem;}
+    button:disabled{border:1px solid #e5e5e5!important; background-color:#f0f0f0!important;}
+    button:disabled>span{color:#666;}
+   .yanzi>img{width:100%; height:100%;vertical-align: baseline;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1">核实身份</span>
+</header>
+<div class="content ">
+	<form class="form-horizontal" action="ucenter/validateOldPhone.shtml" method="POST" call="this.ctrl.submitCall">
+		<input type="hidden" id="oldPhone" name="oldPhone"/>
+	    <div class="card-info bg-white">
+	        <ul>
+	            <li id="pagePhoneLi" style="display:none;">
+	                <a href="javascript:;">
+	                    <input type="tel" id="phoneNum" name="pagePhone" maxlength="11" placeholder="请输入新手机号"/>
+	                </a>
+	            </li>
+	            <li class="clearfix" id="captchaLi">
+	                <a href="javascript:;">
+	                    <button  type="button" style="border:0;">
+		                    <span></span>
+	                    	<span class="yanzi">
+	                    		<img id="captchaImage" class="captchaImage" src="./passport/captcha.shtml">
+                    		</span>
+	                    </button>
+	                    <input type="text" id="captcha" placeholder="请输入验证码"/>
+	                </a>
+	            </li>
+	            <li class="clearfix">
+	                <a href="javascript:;">
+	                    <button id="sendCodeBtn" type="button" onclick="this.ctrl.sendCode(this)">
+		                    <span id="btnCount"></span>
+	                    	<span id="btnValue">获取短信码</span>
+	                    </button>
+	                    <input type="tel" name="verifyCode" maxlength="6" val="$.md5(this.value)" placeholder="请输入短信码"/>
+	                </a>
+	            </li>
+	            
+	        </ul>
+	    </div>
+	    <div class="padding20 boxsizing">
+	        <button class="btn-block m-top20">验证</button>
+	    </div>
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

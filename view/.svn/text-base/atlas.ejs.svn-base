@@ -1,0 +1,135 @@
+ <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=e53e463d097f2a084e06b07441bc7048&plugin=AMap.AdvancedInfoWindow"></script>
+ <script type="text/javascript">
+ 		$.getMaxWrap().loadingWrap();
+		$("#dituContent").height($(window).outerHeight(true)-$("header").outerHeight(true));
+		$(function() {
+			$(".amap-info").css({"width":"5rem","margin-left":"-2.5rem"});
+			$.get("shop/atlas.shtml",{shopId:_param.shopId},function(data){
+				var shop = data.data.shop;
+				$("#shopAddress").text(shop.shopAddress);
+				var windowsArr = [];
+    		    var marker = [];
+    		    var map;
+    		    (function initMap(){
+        			if(window.AMap==null || window.AMap.Map==null || window.AMap.AdvancedInfoWindow==null){
+            			setTimeout(initMap,200);
+            			return;
+            		}
+        			$.getMaxWrap().loadingWrapCancel();
+	    		    //基本地图加载
+	    		    map = new AMap.Map("dituContent");
+	    		    map.plugin(["AMap.ToolBar"],function(){
+	    			    //加载工具条
+	    			    var tool = new AMap.ToolBar();
+	    			    map.addControl(tool);   
+	    			});
+	    			//比例尺
+	    		    map.plugin(['AMap.Scale'],function(){
+	    		   		var scale = new AMap.Scale();
+	    		   		map.addControl(scale);
+	    		   	});
+	    		    cloudSearch(shop.gaodeId);
+        		})();
+	    		//根据数据id查询数据详情
+	    		function cloudSearch(id) {
+	    			map.clearMap();
+	    			var search;
+	    			AMap.service(["AMap.CloudDataSearch"], function() {
+	    				search = new AMap.CloudDataSearch('577f95bc7bbf1936b142344a');  //构造云数据检索类
+	    				//根据id查询
+	    				search.searchById(id, function(status, result) {
+	    					cloudSearch_CallBack(result);
+	    				});
+	    			});
+	    		}
+	    		function addmarker(i, d) {
+	    			var lngX = d._location.getLng();
+	    			var latY = d._location.getLat();
+	    			var markerOption = {
+	    					map: map,
+	    					icon: Config.basePath+"/img/marker.png",
+	    					position: [lngX, latY]
+	    			};
+	    			var mar = new AMap.Marker(markerOption);
+	    			marker.push([lngX, latY]);
+	    			
+    				var infoWindow = new AMap.AdvancedInfoWindow({
+    					content:'<div style="margin:0;line-height:.35rem;padding:.12rem;padding-top:.24rem; font-size:.2rem;">' +
+    					'<img src="'+Config.imgPre+shop.shopImage+'" alt="" style="float:right;zoom:1;overflow:hidden;width:1.2rem;margin-left:3px;"/>' +
+    					''+shop.shopName+'('+shop.shopSubtitle+')<br/>地址：'+shop.shopAddress+'<br/>联系人：'+shop.shopContacts+'<a href="tel:'+shop.shopPhone+'">'+shop.shopPhone+'</a>' +
+    					'</div>',
+    					size: new AMap.Size(0, 0),
+    					autoMove: true,
+    					offset: new AMap.Pixel(0, -30),
+    					placeSearch: true,
+    					asOrigin: true,
+    					asDestination: true,
+    					enableSendToPhone: true
+    				});
+    				windowsArr.push(infoWindow);
+    				var aa = function() {
+    					infoWindow.open(map, mar.getPosition());
+    				};
+    				mar.on( "click", aa);
+	    		}
+	    		//回调函数
+	    		function cloudSearch_CallBack(data) {
+	    			var resultArr = data.datas;
+	    			if(resultArr && resultArr.length>0){
+	    				var resultNum = resultArr.length;
+	    				for (var i = 0; i < resultNum; i++) {
+	    					addmarker(i, resultArr[i]);
+	    				}
+	    				map.setFitView();
+	    			}
+	    		}
+	    		//回调函数
+	    		function errorInfo(data) {
+	    			resultStr = data.info;
+	    		}
+	    		//根据id打开搜索结果点tip
+	    		function openMarkerTipById1(pointid, thiss) {
+	    			thiss.style.background = '#CAE1FF';
+	    			windowsArr[pointid].open(map, marker[pointid]);
+	    		}
+	    		//鼠标移开后点样式恢复
+	    		function onmouseout_MarkerStyle(pointid, thiss) {
+	    			thiss.style.background = "";
+	    		}    	
+	    	})
+	    });
+ </script>
+ <header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3" style="width: 4rem;display: inline-block;padding-left: 1rem;" id="shopAddress"></span>
+    <div class="nav-wrap-right">
+        <a href="javascript:;" class=" color-gray3">
+            <span class="nav-btn">
+                <i class="iconfont icon-info">&#xe636; </i>
+            </span>
+        </a>
+    </div>
+    <div class="nav-dropdown">
+        <span class="triangle-up"></span>
+        <ul>
+            <li>
+                <a class="react" href="/">
+                    <i class="iconfont">&#xe602;</i>
+                    <space></space>首页
+                </a>
+            </li>
+            <li>
+                <a class="react" href="javascript:;">
+                    <i class="iconfont">&#xe601;</i>
+                    <space></space>消息
+                    <em class="information">8+<s class="triangle-up"></s></em>
+                </a>
+            </li>
+        </ul>
+    </div>
+</header>
+<div id="dituContent" style="margin-top:.9rem;"></div>

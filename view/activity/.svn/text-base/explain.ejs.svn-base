@@ -1,0 +1,82 @@
+<style type="text/css">
+	.content ul{padding:.2rem; line-height:.5rem; color:#333;}
+	.content ul>li>i{font-size: .36rem;vertical-align: middle;}
+	.content table{width:4rem; margin:.3rem auto;}
+	.content tr,.content th,.content td{border:1px solid #ddd; text-align:center;height:.5rem; line-height:.5rem;}
+	.content th{font-weight:500;}
+	.content td{color:#666;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">说明</span>
+</header>
+
+<!--内容-->
+<div class="content">
+	<ul>
+		<li>
+			<i class="iconfont color-orange">&#xe680;</i>
+			单次购买<cite class="color-red">5</cite>元/次
+		</li>
+		<li>
+			<i class="iconfont color-orange">&#xe67a;</i>
+			广告推送每日只限推送<cite class="color-red">1</cite>次，请合理安排推送时间，建议早上推送的效果会更好哟
+		</li>
+		<li>
+			<i class="iconfont color-orange">&#xe67d;</i>
+			每月推送次数不超过<cite class="color-red">10</cite>次
+		</li>
+		<li>
+			<i class="iconfont color-orange">&#xe67e;</i>
+			每月获赠免费<cite class="color-red">1</cite>次推送
+		</li>
+		<li>
+			<i class="iconfont color-orange">&#xe67f;</i>
+			购买次数累计折扣
+		</li>
+	</ul>
+	<table border="0">
+		<thead>
+			<tr>
+				<th>次数</th>
+				<th>折扣</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1-10</td>
+				<td>9.6折</td>
+			</tr>
+			<tr>
+				<td>11-30</td>
+				<td>9.2折</td>
+			</tr>
+			<tr>
+				<td>31-50</td>
+				<td>8.6折</td>
+			</tr>
+			<tr>
+				<td>51以上</td>
+				<td>8.0折</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

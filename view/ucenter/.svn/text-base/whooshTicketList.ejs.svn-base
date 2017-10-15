@@ -1,0 +1,70 @@
+<style type="text/css">
+    .content{ padding-top: 1.7rem;}
+    .content .hd{ position: fixed; top: .9rem; width: 100%; min-width: 320px; max-width: 640px; z-index:10;}
+    .content .hd>ul{ margin-left: -1px; padding: .2rem 0; line-height: .4rem; border-bottom: 1px solid #e5e5e5;}
+    .content .hd>ul>li{ float: left; width: 33.33%; border-left: 1px solid #e5e5e5; box-sizing: border-box;}
+    .content .hd>ul>li.cur>a{ color: #cc3333;}
+    .content .hd>ul>li>a{ display: block; text-align: center;}
+    .content .bd{ padding: .1rem .2rem; box-sizing: border-box;}
+    .content .bd>ul>li{ background-color: #aaaaaa; margin-bottom: .1rem; padding: .5rem 0; position: relative; padding-left: 1.85rem; height: 1.9rem; box-sizing: border-box;}
+    .content .bd>ul>li .dl{ position: absolute; left: 0; top:.3rem; width: 1.7rem; border-right: 1px dashed #e5e5e5; height: 1.3rem; display: block; text-align: center;}
+    .content .bd>ul>li .dl>p{ font-style: italic;}
+    .content .bd>ul>li .dl>img{ position: absolute; left: .2rem; top: 0; width: 1.2rem;}
+    .content .bd>ul>li .txt{margin-top: -.1rem;}
+    .content .bd>ul>li>span{width: .25rem; height: .25rem; border-radius: 50%; background-color: #f0f0f0; display: inline-block; position: absolute;left: 1.6rem;}
+    .radiu-top{top: -.1rem; }
+    .radiu-bottom{bottom: -.1rem;}
+    .content .bd:first-child>ul>li{ background-color: #0cc0b4;}
+    .whoosh-none{text-align: center; margin-top: 2rem; display: none; z-index: 9;}
+    .whoosh-none>i{ font-size: 1.5rem; color: #999;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">嗖券</span>
+    <div class="nav-wrap-right">
+        <a href="#message/messageLists?userType=member" class=" color-gray3">
+            <span class="nav-btn">
+                <i class="iconfont icon-info">&#xe601;</i>
+            </span>
+            <s></s>
+        </a>
+    </div>
+</header>
+<div class="content">
+    <div class="hd bg-white contentHeader">
+        <ul class="clearfix">
+            <li class="cur">
+                <a href="javascript:;">
+					未使用
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+					已过期
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+					已使用
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!--无数据-->
+   <div class="whoosh-none">
+         <!--<i class="iconfont">&#xe66a;</i>
+        <h4 class="m-top10 color-gray9">您还没有嗖券哦~</h4>
+        <h4 class="color-gray9">赽快去玩嗖一下~</h4>-->
+    </div>
+    <div class="con-list">
+        <div class="bd">
+            <ul>
+            </ul>
+        </div>
+    </div>
+</div>

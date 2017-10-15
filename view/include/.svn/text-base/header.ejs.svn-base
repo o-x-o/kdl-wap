@@ -1,0 +1,10 @@
+<header class="navbar">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-white">
+        	<i class="iconfont">&#xe60b;</i>
+        </a>
+    </div>
+    <div class="nav-header h1 color-white">
+        <%=_data._title%>
+    </div>
+</header>

@@ -1,0 +1,145 @@
+<style>
+    body{ padding-bottom: 0;}
+    img{width: 100%;}
+    .activity>ul>li{box-sizing: border-box; padding: .2rem; padding-left: 1.5rem;  position: relative; padding-bottom: 0;}
+    .activity>ul>li:last-child>a{ border-bottom: 0;}
+    .activity>ul>li>a{ border-bottom: 1px solid #e5e5e5; display: block; padding-bottom: .2rem;}
+    .activity>ul>li>div.hd{position: absolute; left: .2rem; top: .2rem;}
+    .activity>ul>li>div.hd .pic{ border-radius: 50%; width: 1rem; height: 1rem; display: block; overflow: hidden; background-color: #f0f0f0;}
+    .shopPromotion .hd .txt{min-height:.75rem;}
+    .activity>ul>li>div.hd h6{ width: 1rem; font-size: .24rem;}
+    .content .hd>ul>li{width:50%; float:left; text-align:center; height:.8rem; line-height:.8rem;}
+    .content .hd>ul>li>a{color:#333; font-size:.28rem; width:1.8rem;display:inline-block;}
+    .content .hd>ul>li.cur>a{border-bottom:2px solid #cc3333;}
+    
+    .shopPromotion>ul>li>div{position:relative; padding:.15rem; padding-right:0; }
+    .shopPromotion>ul>li>div>p{padding-right:.15rem; box-sizing:border-box;}
+    .shopPromotion .hd{padding-left:1rem;position:relative; min-height:.95rem;padding-right:.7rem;}
+    .shopPromotion .hd>span{position:absolute; right:.2rem; top: .25rem;}
+    .shopPromotion .hd .pic{position:absolute; left:0; top:0; width:.8rem;}
+    .shopPromotion .hd .pic>img{width:100%;}
+    .shopPromotion ol>li{width: 31.5%;height:1.9rem; float:left;margin-right:.1rem;margin-bottom:.1rem;}
+    .shopPromotion ol>li>img{width:100%; height:100%;}
+    .bd .anniu{float:right; margin-right:.15rem;}
+    .bd .anniu>button{background-color:#fff; border:1px solid #ddd; color:#999; border-radius:.2rem; padding:.02rem .1rem;}
+    .bd .anniu>button>i{margin-right:.05rem;font-size:.26rem;}
+    .bd .anniu>button.color-red{border:1px solid #cc3333;}
+    .popup{z-index:9; display:none;}
+    .popup>ul>li{background-color:#fff; border-bottom:1px solid #ddd; color:#333; text-align:center; height:.7rem; line-height:.7rem;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">商家动态</span>
+</header>
+<div class="theme-popover-mask"></div>
+<div class="popup coversbottom">
+	<ul class="bg-silver">
+		<li onclick="this.ctrl.toChitchat()">
+			<a href="javascript:;">联系卖家</a>
+		</li>
+		<li class="m-top10" onclick="this.ctrl.deleteActivity()">
+			<a href="javascript:;" class="color-red">删除</a>
+		</li>
+	</ul>
+</div>
+
+<div class=" content">
+	<div class="hd bg-white">
+		<ul class="clearfix">
+			<li class="cur">
+				<a href="javascript:;">店铺促销</a>
+			</li>
+			<li>
+				<a href="javascript:;">店铺活动</a>
+			</li>
+		</ul>
+	</div>
+	<div class="shopPromotion m-top10 bg-white">
+		<ul id="salesContent">
+			<!--
+			<li>
+				<div>
+					<div class="hd">
+						<div class="pic">
+							<img src="http://img.kaidianlaa.com//upload/image/201609/06/2aa92194-d656-4daa-99d7-1bb7dca6ff1c.jpg"/>
+						</div>
+						<div class="txt">
+							<h5 class="ellips">米乐乐水果专卖店</h5>
+							<p class="color-gray6">最新</p>
+						</div>
+						<span class="iconfont color-gray9">&#xe609;</span>
+					</div>
+					<p class="color-gray6">店铺上新，惊喜连连，优惠不断...</p>
+					<ol class="clearfix m-top10">
+						<li>
+							<img src="http://img.kaidianlaa.com//upload/image/201609/06/2aa92194-d656-4daa-99d7-1bb7dca6ff1c.jpg"/>
+						</li>
+						<li>
+							<img src="http://img.kaidianlaa.com//upload/image/201609/06/2aa92194-d656-4daa-99d7-1bb7dca6ff1c.jpg"/>
+						</li>
+						<li>
+							<img src="http://img.kaidianlaa.com//upload/image/201609/06/2aa92194-d656-4daa-99d7-1bb7dca6ff1c.jpg"/>
+						</li>
+						<li>
+							<img src="http://img.kaidianlaa.com//upload/image/201609/06/2aa92194-d656-4daa-99d7-1bb7dca6ff1c.jpg"/>
+						</li>
+						<li>
+							<img src="http://img.kaidianlaa.com//upload/image/201609/06/2aa92194-d656-4daa-99d7-1bb7dca6ff1c.jpg"/>
+						</li>
+						<li>
+							<img src="http://img.kaidianlaa.com//upload/image/201609/06/2aa92194-d656-4daa-99d7-1bb7dca6ff1c.jpg"/>
+						</li>
+					</ol>
+					<div class="bd">
+						<span class="color-gray9"><i class="iconfont" style=" margin-right: .1rem;vertical-align: middle;">&#xe69c;</i>8.8万<span>
+						<div class="anniu">
+							<button class="color-red"><i class="iconfont">&#xe607;</i>8888</button>
+							<button><i class="iconfont">&#xe698;</i>8888</button>
+						</div>
+					</div>
+				</div>
+			</li>
+			-->
+		</ul>
+	</div>
+    <div class="activity m-top10" style="display:none;">
+        <ul id="shopContent" class="bg-white">
+            <!--
+            <li>
+                <div class="hd">
+                    <a href="javascript:;">
+                        <div class="pic">
+                            <img src="./img/home_img3@2x .png"/>
+                        </div>
+                        <h6 class="color-gray6 ellips m-top10">KEF版棒球服印花球服印花夹克</h6>
+                    </a>
+                </div>
+                <a href="javascript:;">
+                    <h6 class="ellips">2016春秋季 韩版棒球服印花夹克棒球衫爆款</h6>
+                    <p class="color-gray9 m-top5">04-01 22:03</p>
+                    <img class="m-top10" src="./img/home_img3@2x .png"/>
+                </a>
+            </li>
+            -->
+        </ul>
+    </div>
+    <%=REND("include/empty",{icon:"&#xe678;",tip:"sorry，暂无相关动态 ",price:"1",display:"none",paddingbottom:"1"})%>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

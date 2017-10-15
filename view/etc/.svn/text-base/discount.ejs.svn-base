@@ -1,0 +1,120 @@
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <span class="nav-city">
+                <i class="iconfont">&#xe60b;</i>
+            </span>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">附近折扣</span>
+</header>
+<!---->
+<div class="theme-popover-mask"></div>
+<div class="content">
+    <div class="hd">
+        <ul class="clearfix">
+            <li id="classify">
+                <a href="javascript:void(0);">全部<i class="iconfont">&#xe609;</i></a>
+            </li>
+            <li id="sort">
+                <a href="javascript:void(0);">综合排序<i class="iconfont">&#xe609;</i></a>
+            </li>
+            <li id="region">
+                <a href="javascript:void(0);">全城<i class="iconfont">&#xe609;</i></a>
+            </li>
+        </ul>
+    </div>
+    <div class="list bg-white" id="contentid">
+        <div id="categoryDiv" class="classify">
+            <div class="con">
+                <div class="classifylist">
+                    <div id="firstDiv">
+                        <ul id="firstList">
+                            <!--商品二级分类列表-->
+                            <li class="cur">
+                                <a href="javascript:void(0)">中外名酒</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">进口食品</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--默认排序-->
+        <div class="sort" style="display: none" id="sortDiv">
+            <ul>
+                <li>
+                    <a href="javascript:void(0);">默认排序</a>
+                </li>
+            </ul>
+        </div>
+        <!--全城地区-->
+        <div class="region">
+            <ul class="clearfix" id="cityDiv">
+                <li>全城<span></span></li>
+                <li>新抚区<span></span></li>
+            </ul>
+        </div>
+        <ul class="clearfix">
+            <li>
+                <a href="javascript:;">
+                    <div class="con">
+                        <div class="pic kdl-left">
+                            <img src="http://img.kaidianlaa.com/upload/image/201604/18/e99e7db3-f6c8-4d1a-8bc2-739f373a2d66.jpg"/>
+                        </div>
+                        <div class="txt kdl-left">
+                            <h2>肯德基</h2>
+                            <div class="star">
+                                <span class="vote-star"><i style="width:75%"></i></span>
+                            </div>
+                            <div class="clearfix m-top20">
+                                <span class="color-red h3 kdl-left"> 8.5折</span>
+                                <span class="kdl-right color-gray9"><i class="color-orange iconfont" style="font-size: .4rem;">&#xe616;</i> 200m</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <div class="con">
+                        <div class="pic kdl-left">
+                            <img src="http://img.kaidianlaa.com/upload/image/201604/18/e99e7db3-f6c8-4d1a-8bc2-739f373a2d66.jpg"/>
+                        </div>
+                        <div class="txt kdl-left">
+                            <h2>肯德基</h2>
+                            <div class="star">
+                                <span class="vote-star"><i style="width:50%"></i></span>
+                            </div>
+                            <div class="clearfix m-top20">
+                                <span class="color-red h3 kdl-left"> 8.5折</span>
+                                <span class="kdl-right color-gray9"><i class="color-orange iconfont" style="font-size: .4rem;">&#xe616;</i> 200m</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <div class="con">
+                        <div class="pic kdl-left">
+                            <img src="http://img.kaidianlaa.com/upload/image/201604/18/e99e7db3-f6c8-4d1a-8bc2-739f373a2d66.jpg"/>
+                        </div>
+                        <div class="txt kdl-left">
+                            <h2>肯德基</h2>
+                            <div class="star">
+                                <span class="vote-star"><i style="width:85%"></i></span>
+                            </div>
+                            <div class="clearfix m-top20">
+                                <span class="color-red h3 kdl-left"> 8.5折</span>
+                                <span class="kdl-right color-gray9"><i class="color-orange iconfont" style="font-size: .4rem;">&#xe616;</i> 200m</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

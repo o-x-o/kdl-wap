@@ -1,0 +1,56 @@
+<style type="text/css">
+    .content{padding-top: .9rem!important; padding-bottom:1rem;}
+    .content .con-tit{ padding:.15rem; box-sizing:border-box; line-height:.4rem; border-bottom:1px solid #e5e5e5;}
+    .content .con-bd{ padding:.5rem .15rem; box-sizing:border-box;}
+    .content .con-bd>h5{line-height:.4rem;}
+    .content .con-bd>h5>i{margin-right:.1rem;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:void(0);" onclick="history.go(-1);">
+            <i class="iconfont color-gray3">&#xe60b;</i>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">审核进度</span>
+</header>
+<div class="content">
+  <!--商家认证-->
+  <%var busStatus = this._param.busStatus%>
+  <%var shopStatus = this._param.shopStatus%>
+  <div>
+  	<h5 class="bg-white con-tit">商家认证<em class="color-gray6 p">&nbsp;(第一步)</em></h5>
+    <div class="bg-white m-top20 con-bd">
+    	<%if(busStatus == "pass"){%>
+   			<h5 class="text-center"><i class="iconfont color-green h1">&#xe63d;</i>认证通过</h5>
+   		<%}else if(busStatus == "pending"){%>
+   			<h5 class="text-center"><i class="iconfont color-green h1">&#xe68e;</i>认证中...</h5>
+   		<%}else{%>
+   			<h5 class="text-center"><i class="iconfont color-red h1">&#xe64d;</i>认证未通过</h5>
+			<div>
+				<p class="m-top10 text-center">原因：<%=this._param.busReason%></p>
+				<button class="btn-inlineblock m-top30 bg-orange" onclick="GO('business/busCreate',{flag:'update',busLicenseImg:'<%=_param.busLicenseImg%>'})">重新认证</button>
+			</div>
+		<%}%>
+    </div>
+  </div>
+  <!--店铺认证-->
+  <div>
+  	<h5 class="bg-white con-tit m-top20">实体店铺认证<em class="color-gray6 p">&nbsp;(第二步)</em></h5>
+    <div class="bg-white m-top20 con-bd">
+    	<%if(shopStatus == "audit"){%>
+			<h5 class="text-center"><i class="iconfont color-green h1">&#xe68e;</i>认证中...</h5>
+		<%}else{%>	
+	   		<h5 class="text-center"><i class="iconfont color-red h1">&#xe64d;</i>认证未通过</h5>
+			<div>
+				<p class="m-top10 text-center">原因：<%=this._param.shopReason%></p>
+				<button class="btn-inlineblock m-top30 bg-orange" onclick="GO('shop/shopCreate',{flag:'update'})">重新认证</button>
+			</div>
+		<%}%>
+    </div>
+  </div>
+</div>
+
+
+
+
+

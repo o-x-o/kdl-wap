@@ -1,0 +1,41 @@
+<style type="text/css">
+    .nav-wrap-right a{ width: .8rem;}
+    .navbar .box-search{ margin-right: 1.3rem;}
+    .content>ul>li{ background-size: cover;min-height: 2rem;background-position: center center;box-shadow: 0px -2px 10px 0px #333; }
+    .content>ul>li>a{ color: #fff; padding: .6rem .2rem; box-sizing: border-box; display: block; position: relative;}
+    .content>ul>li>a>h3>span{ font-size: .24rem;}
+    .content>ul>li>a>p{text-indent: 2em;}
+    .more:after{ right: .2rem;  border-left: .04rem solid #fff; border-bottom: .04rem solid #fff; }
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+        </a>
+    </div>
+    <div class="box-search" style="margin-left: 1rem;">
+        <a href="javascript:;" onclick="this.ctrl.toSearch()" class=" color-gray3">
+            <i class="iconfont icon-search">&#xe603;</i>
+            <span class="single-line">搜索店内商品/服务</span>
+        </a>
+    </div>
+    <div class="nav-wrap-right">
+        <a href="#shopKeeper/positioning?flag=1" class=" color-gray3">
+            <span class="nav-btn">
+                <%=Config.shopArea==null ? Config.area.name : Config.shopArea.name%>∨
+            </span>
+        </a>
+    </div>
+</header>
+<div class="content">
+    <ul>
+	    <%$.each(_datas.data.category,function(i,o){%>
+	        <li style="background-image: url('<%=Config.imgPre+o.image%>');">
+	            <a href="#shopKeeper/noRequiredCowrielist?categoryId=<%=o.id%>&areaId=<%=Config.shopArea==null ? Config.area.id : Config.shopArea.id%>" class="more" >
+	                <h3 class="color-white"><%=o.name%><span>（<%=o.orders%>件）</span></h3>
+	                <p class="m-top10"><%=o.introduction%></p>
+	            </a>
+	        </li>
+	    <%});%>
+    </ul>
+</div>

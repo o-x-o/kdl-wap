@@ -1,0 +1,68 @@
+<style type="text/css">
+    body{ padding-bottom: 0!important;}
+    .content{padding-top:1.8rem;}
+    .con-list .hd{ height: .8rem; line-height: .4rem; padding: .2rem; box-sizing: border-box;}
+    .con-list .hd>a{ font-size: .26rem;}
+    .con-list .hd>a>span{ width: .4rem; height: .4rem; display: inline-block;margin-right:.1rem;}
+    .con-list .hd>a>span>img{ width: 100%;}
+    .con-list{ margin-bottom: .1rem;}
+    .con-list:last-child{margin-bottom:0;}
+    .con-list>ul>li{ padding: .2rem; min-height: 1.42rem; border-bottom: 1px solid #e5e5e5;}
+    .con-list>ul>li:last-child{ border-bottom: 0;}
+    .con-list>ul>li>a{ display: block; position: relative; padding:0 1.1rem 0 1.7rem; box-sizing: border-box; height: 1.42rem; }
+    .con-list>ul>li>a>div.pic{ width: 1.5rem; border-radius: 3px; overflow: hidden; position: absolute;left: 0; top: 0; height: 1.42rem; background: url("./img/list-ptobg.jpg") no-repeat; background-size: contain;}
+    .con-list>ul>li>a>div.pic>img{width: 100%; height:100%;}
+    .con-list>ul>li>a>div.jiage{ position: absolute; right: 0; top: 0; text-align: right;}
+    .con-list .bd>div{ padding: 0 .2rem; box-sizing: border-box; text-align: right; background-color: #fff; height: .8rem; line-height: .8rem;}
+    .con-list .bd>div:first-child{border-bottom: 1px solid #e5e5e5;}
+    .con-list .bd>div>button{ padding: .07rem 0; color: #666; width: 1.5rem;margin-left: .2rem; border-radius: 3px; border: 1px solid #e5e5e5; background-color: transparent;}
+    .con-list .bd>div>button.cur{ border: 1px solid #cc3333; color: #cc3333;}
+    .con-list .bd>ul>li{ position: relative;}
+    .hdList{z-index:9;position: fixed;min-width:320px;top:.9rem; max-width:640px; width: 100%; height:.8rem; line-height:.8rem; margin-bottom:.2rem;}
+    .hdList>ul>li{ width:50%; float:left;text-align:center; font-size:.28rem;}
+    .hdList>ul>li.cur>a{color:#cc3333!important; border-bottom:2px solid #cc3333; padding:0 .5rem;display: inline-block;}
+	.reimburseList{}
+	.reimburseList>ul>li{ border-bottom:1px solid #e5e5e5; padding:.15rem;}
+	.reimburseList>ul>li .hd{line-height:.45rem;}
+	.reimburseList>ul>li .hd>cite{width:.45rem; height:.45rem; border-radius:50%; overflow:hidden; display: inline-block; vertical-align: middle;margin-right: .1rem;}
+	.reimburseList>ul>li .hd>cite>img{width:100%; height:100%;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="#ucenter/mine" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">退款/售后</span>
+    <div class="nav-wrap-right">
+        <a href="#message/messageLists?userType=member" class=" color-gray3">
+            <span class="nav-btn">
+                <i class="iconfont icon-info">&#xe601;</i>
+            </span>
+            <s></s>
+        </a>
+    </div>
+</header>
+<div class="theme-popover-mask"></div>
+<div class="content">
+	<div class="hdList contentHeader">
+		<ul class="clearfix bg-white">
+			<li class="cur">
+				<a href="javascript:;">
+					退货
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;">
+					退款
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div class="bigbox">
+		<div class="goodsList">
+		</div>
+		<div class="warn"></div>
+	</div>
+</div>

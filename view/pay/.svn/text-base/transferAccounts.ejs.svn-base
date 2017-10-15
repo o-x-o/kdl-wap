@@ -1,0 +1,119 @@
+<style type="text/css">
+   .more:after{ right: .2rem; border-left: .04rem solid #999; border-bottom: .04rem solid #999;}
+   .content .hd{padding: .2rem 0; box-sizing: border-box;}
+   .content .hd>a{ display: block; position: relative; padding-left: 2.2rem; box-sizing: border-box;height: 1.5rem;}
+   .content .hd>a>div.pic{ position: absolute; left: .2rem; top: 0; width: 1.8rem; border-radius: 3px; overflow: hidden;}
+   .content .hd>a>div.pic>img{ width: 100%;}
+   .content .hd>a>div.txt>img{ height: .5rem;}
+   .content>ul>li{ height: 1rem; line-height: .8rem; padding: .1rem 0; box-sizing: border-box; border-bottom: 1px solid #e5e5e5; padding-left: .2rem; padding-right: .5rem; font-size: .26rem; position: relative;}
+   .content>ul>li>input{ border: 1px solid #e5e5e5; width: 3rem; font-size:.24rem; height: .5rem; line-height: .5rem;margin-left: .1rem; text-indent: .1rem;}
+   .content>ul>li>a{ display: block;}
+   /*footer*/
+   .footer{ position: fixed; min-width: 320px;max-width: 640px; width: 100%; background: #fff; bottom: 0;}
+   .footer>div{ height: .8rem; line-height: .8rem;border-bottom: 1px solid #e5e5e5; position: relative;}
+   .footer>div.money{ padding: 0 .2rem; box-sizing: border-box; color: #666;}
+   .footer>div.money>i{ margin-right: .1rem; color: #999;}
+   .footer>div:last-child{ height: 1rem; line-height: 1rem;  position: relative; padding-right: 2rem; box-sizing: border-box;}
+   .footer>div:last-child>button{border: 0; display: block;  position: absolute; right: 0; top: 0; height: 1rem; width: 2rem; font-size: .3rem;}
+   .footer>div:last-child>span{ margin-right: .2rem; font-size: .26rem;}
+   /*优惠券*/
+   .ticket{display: none; position: fixed; bottom: 0;  width: 100%; min-width: 320px;max-width: 640px; z-index: 22;}
+   .ticket>ul{background-color: #fff;}
+   .ticket>ul>li{ line-height: .8rem; border-bottom: 1px solid #e5e5e5; padding:0 .2rem; box-sizing: border-box;}
+   .ticket>ul>li>div>li{border-bottom:1px solid #e5e5e5;},
+   .ticket>ul>li>a>i{float: right; display: none;}
+   .ticket>ul>li.cur>a>i{display: none;float:right;}
+   .ticket>ul>li:last-child{border-bottom: 0;}
+   .ticket>ul>li>a{ display: block;}
+   .ticket>button{ height: .8rem; line-height: .8rem; text-align: center;  font-size: .28rem; display: block; width: 100%; min-width: 320px;max-width: 640px; border: 0;}
+	#randomCardList{max-height: 3.7rem;overflow:auto;}
+</style>
+<header class="navbar">
+    <div class="nav-wrap-left">
+        <a href="#ucenter/mine" class="color-white">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1">转账</span>
+</header>
+<form id="transferForm" action="bill/createBill.shtml" method="post" call="this.ctrl.submitCall" onkeydown="if(event.keyCode==13)return false;">
+    <!--内容-->
+    <div class=" content">
+        <input type="hidden" id="shopId" name="shopId" value="<%=_datas.data.shop.id %>" />
+        <input type="hidden" id="randomCardUserId" name="randomCardUserId" value="" />
+        <input type="hidden" id="isPurse" name="isPurse" value="false" />
+        <input type="hidden" id="purse" name="purse" value="0" />
+        <input type="hidden" id="discountPrice" name="discountPrice" value="" />
+        <input type="hidden" id="payAmount" name="payPrice" value="" />
+        <input type="hidden" id="totalPrice" name="totalPrice" value="" />
+        <!--店铺信息-->
+        <div class="hd">
+            <a href="javascript:;">
+                <div class="pic">
+                    <img src="<%=Config.imgPre + _datas.data.shop.shopImage %>"/>
+                </div>
+                <div class="txt">
+                    <h5><%=_datas.data.shop.shopName %></h5>
+                    <img src="<%=Config.imgPre + _datas.data.shop.shopRank.icon%>"/>
+                    <p class="m-top10"><%=_datas.data.shop.shopPhone%></p>
+                </div>
+            </a>
+        </div>
+        <ul class="bg-white">
+            <li class="color-gray6">
+               	 金额：<input id="price" autocomplete="off" onkeyup="this.ctrl.getSureRandomCardUser(this);" value="" />
+            </li>
+            <li class="color-gray6 more favorable">
+               <a href="javascript:;">
+			                    优惠券(<span id="randomCardUserSize">0</span>
+			                    张可用)
+                    <span class="kdl-right" id="isRandomCard">未使用</span>
+               </a>
+            </li>
+        </ul>
+    </div>
+    <!--遮罩-->
+    <div class="theme-popover-mask"></div>
+    <!--弹出支付-->
+    <div class="">
+
+    </div>
+    <!--优惠券-->
+    <div class="ticket" style="display: none;">
+        <ul>
+            <li>
+                <a href="javascript:void(0)">
+                    	优惠券
+                </a>
+            </li>
+            <li>
+                <div id="randomCardList">
+                </div>
+            </li>
+
+            <li onclick="this.ctrl.checkRandomCard('',0,this)">
+                <a href="javascript:;">
+					不使用优惠券
+                    <i class="iconfont color-red kdl-right"></i>
+                </a>
+            </li>
+        </ul>
+        <button class="bg-red color-white" onclick="this.ctrl.checkTicket()" type="button">确定</button>
+    </div>
+    <!--底部-->
+    <div class="footer">
+        <div class="money">
+            <i class="iconfont" ></i>
+			使用余额（账号当前余额为：<span><%=_datas.data.purse.toFixed(2) %>元）</span>
+        </div>
+        <div class="color-gray6">
+            <span class="kdl-right">
+            	实付款：<cite class="color-red">￥<span id="payAmountTxt">0.00</span></cite>
+            </span>
+            <button type="button" onclick="this.ctrl.submitForm();" class="color-white bg-red">立即支付</button>
+            <!--<input class="color-white bg-red" type="submit" value="立即支付" />-->
+            <!--<button class="color-white bg-red" type="button">提交订单</button>-->
+        </div>
+    </div>
+</form>

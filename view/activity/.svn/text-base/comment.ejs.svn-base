@@ -1,0 +1,80 @@
+	<style type="text/css">
+		.navbar .nav-header{ color: #333;}
+		.content{padding-bottom:.9rem;}
+		.content .unit{background-color: #fff;padding:.2rem;border-bottom:1px solid #ccc;}
+		.content .unit h5 img{width:.4rem;height:.4rem;border-radius:50%;margin:.05rem .2rem .2rem 0;}
+		.content .unit h5 .name{margin:.05rem 0;}
+		.content .unit .detail{margin:.2rem 0;line-height: .3rem;color: #666;word-break: break-word;}
+		div.footer {
+		    border-top: 1px solid #ccc;
+		    width: 100%;
+		    min-width: 320px;
+		    max-width: 640px;
+		    position: fixed;
+		    bottom: 0;
+		    font-size: .26rem;
+		    background-color: #fff;
+		}
+		div.footer .comment{
+			border:1px solid #999;
+			margin:.15rem .2rem;
+			padding:.15rem;
+			width: 4.7rem;
+			white-space: pre-wrap;
+		}
+		div.footer .send{
+			cursor: pointer;
+			margin-top: .35rem;
+			display: inline-block;
+		}
+	</style>
+	<header class="navbar navbar2">
+	    <div class="nav-wrap-left">
+	        <a href="javascript:history.go(-1);" class="color-gray3">
+	            <i class="iconfont">&#xe60b;</i>
+	            <s></s>
+	        </a>
+	    </div>
+	    <span class="nav-header h1">评论</span>
+	</header>
+	
+	<!--内容-->
+	<div class="content">
+		<%if(_datas.evaluateList != null && _datas.evaluateList.length > 0){%>
+			<%for(var i = 0;i < _datas.evaluateList.length;i++){%>
+				<%var evaluate = _datas.evaluateList[i]%>
+				<div class="unit">
+					<h5 class="clearfix">
+						<div class="kdl-left"><img src="<%=Config.imgPre + evaluate.userIcon%>"/></div>
+						<div><div class="name"><%=evaluate.username%></div><p class="color-graya"><%=evaluate.createDate%></p></div>
+					</h5>
+					<p class="detail"><%=evaluate.content%></p>
+				</div>
+			<%}%>
+		<%}%>
+		<!--
+		<div class="unit">
+			<h5 class="clearfix">
+				<div class="kdl-left"><img src="http://img.kaidianlaa.com//upload/image/201608/29/6d69a070-c763-4d11-bf19-d094315e43a7.png"/></div>
+				<div><div class="name">天苍苍野茫茫</div><p class="color-graya">08-30 17:30:22</p></div>
+			</h5>
+			<p class="detail">评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论</p>
+		</div>
+		-->
+	</div>
+	<div class="footer">
+		<div class="comment kdl-left color-graya" contenteditable="true">随便说两句</div>
+		<span class="send" onclick="this.ctrl.send(this,'<%=_datas.userIcon%>','<%=_datas.username%>')">发布</span>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+	

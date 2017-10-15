@@ -1,0 +1,71 @@
+<style type="text/css">
+    body{ padding-bottom: 0!important;}
+    .con-list .hd{ height: .8rem; line-height: .4rem; padding: .2rem; box-sizing: border-box;}
+    .con-list .hd>a{ font-size: .26rem;}
+    .con-list .hd>a>span{ width: .4rem; height: .4rem; display: inline-block;}
+    .con-list .hd>a>span>img{ width: 100%;}
+    .con-list{ margin-bottom: .1rem;}
+    .con-list:last-child{margin-bottom:0;}
+    .con-list>ul>li{ padding: .2rem; min-height: 1.42rem; border-bottom: 1px solid #e5e5e5;}
+    .con-list>ul>li:last-child{ border-bottom: 0;}
+    .con-list>ul>li>a{ display: block; position: relative; padding:0 1.1rem 0 1.7rem; box-sizing: border-box; height: 1.42rem; }
+    .con-list>ul>li>a>div.pic{ width: 1.5rem; border-radius: 3px; overflow: hidden; position: absolute;left: 0; top: 0; height: 1.42rem; background: url("./img/list-ptobg.jpg") no-repeat; background-size: contain;}
+    .con-list>ul>li>a>div.pic>img{width: 100%;}
+    .con-list>ul>li>a>div.jiage{ position: absolute; right: 0; top: 0; text-align: right;}
+    .con-list .bd>div{ padding: 0 .2rem; box-sizing: border-box; text-align: right; background-color: #fff; height: .8rem; line-height: .8rem;}
+    .con-list .bd>div:first-child{border-bottom: 1px solid #e5e5e5;}
+    .con-list .bd>div>button{ padding: .07rem 0; color: #666; width: 1.5rem;margin-left: .2rem; border-radius: 3px; border: 1px solid #e5e5e5; background-color: transparent;}
+    .con-list .bd>div>button.cur{ border: 1px solid #cc3333; color: #cc3333;}
+    .con-list .bd>ul>li{ position: relative;}
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1 color-gray3">售后进度</span>
+    <div class="nav-wrap-right">
+        <a href="#message/messageLists?userType=member" class=" color-gray3">
+            <span class="nav-btn">
+                <i class="iconfont icon-info">&#xe601;</i>
+            </span>
+            <s></s>
+        </a>
+    </div>
+</header>
+<div class="theme-popover-mask"></div>
+<div class="content">
+	<%$.each(_datas.data.orderReturns,function(index,returns){%>
+	    <div class="con-list">
+	        <div class="hd bg-white">
+	            <span class="color-gray6">申请时间：<%=returns.createDate%></span>
+	            <span class="kdl-right color-red"><%=Config.message.returns.status[returns.status]%></span>
+	        </div>
+	        <ul onclick="this.ctrl.toDetails(<%=returns.returnsId%>);">
+	        	<%$.each(returns.returnsItems,function(index,reItem){%>
+		            <li>
+		                <a href="javascript:void(0);">
+		                    <div class="pic">
+		                        <img src="<%=Config.imgPre+reItem.image%>"/>
+		                    </div>
+		                    <div class="txt">
+		                        <h6 class="color-gray6 ellips"><%=reItem.name%></h6>
+		                    </div>
+		                    <div class="jiage">
+		                        <span class="color-gray3">￥<%=reItem.price.toFixed(2)%></span>
+		                    </div>
+		                    <p class="color-gray9 m-top30">数量：<%=reItem.quantity%></p>
+		                </a>
+		            </li>
+		    	<%})%>
+	        </ul>
+	        <div class="bd">
+	            <div>
+	               	 退款总额：<cite class="h5 color-red">￥<%=returns.returnsAmount.toFixed(2)%></cite>
+	            </div>
+	        </div>
+	    </div>
+    <%})%>
+</div>

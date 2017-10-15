@@ -1,0 +1,78 @@
+<style type="text/css">
+   .navbar .nav-header{ color: #333;}
+   .nav-wrap-right>a{ width:1.1rem;}
+   .personnelRecords>ul>li{border-bottom:1px solid #e5e5e5;}
+   .personnelRecords>ul>li>a{position:relative; padding:.15rem; box-sizing:border-box;display:block; padding-left:1.1rem;}
+   .personnelRecords>ul>li>a .pic{width:.8rem; height:.8rem; border-radius:50%; overflow:hidden; position:absolute; top:.15rem; left:.15rem;}
+   .personnelRecords>ul>li>a .pic>img{width:100%; height:100%;}
+	.con-list{ margin-top:.15rem;height: .4rem; line-height: .4rem;padding:.15rem; border-top:1px solid #e5e5e5;border-bottom:1px solid #e5e5e5;}
+	.con-list>span{float:right;}
+	.btnBox{ padding:.2rem; box-sizing:border-box; }
+	/*.btns{text-align:center;}
+	.btns>button{ width:4rem; margin-top:.2rem;height:.8rem; line-height:.8rem; text-align:center; border:0; background-color:#ddd; color:#fff;}*/
+</style>
+<header class="navbar navbar2">
+    <div class="nav-wrap-left">
+        <a href="javascript:history.go(-1);" class="color-gray3">
+            <i class="iconfont">&#xe60b;</i>
+            <s></s>
+        </a>
+    </div>
+    <span class="nav-header h1">详细资料</span>
+   
+</header>
+
+<div class="content">
+	<input type="hidden" id="shopPerosnnelId" value="<%=_datas.data.shopPersonnel.id %>">
+   <div class="personnelRecords">
+   		<ul class="bg-white">
+   			<li>
+   				<a href="javascript:;">
+   					<div class="pic">
+   						<img src="<%=Config.imgPre+_datas.data.shopPersonnel.user.icon %>"/>
+   					</div>
+   					<div class="list-txt">
+   						<h6>
+   							<%if(_datas.data.shopPersonnel.memo){ %>
+			   					<%=_datas.data.shopPersonnel.memo %>
+			   				<%}else{%>
+			   					暂无备注
+			   				<%}%></h6>
+   						<p class="color-gray6 m-top10">
+   							<span class="color-gray3">
+   								 <%if(_datas.data.shopPersonnel.status == "able"){%>
+	   								已启用
+   								 <%}else{%>
+   								 	未启用
+   								 <%}%>
+   							</span>
+   							<%=_datas.data.shopPersonnel.user.username %>
+   						</p>
+   					</div>
+   				</a>
+   			</li>
+   		</ul>
+   		<div class="con-list bg-white color-gray3" onclick="this.ctrl.toUpdateShopPersonnel(<%=_datas.data.shopPersonnel.id%>,'<%=_datas.data.shopPersonnel.memo%>')">
+   			备注名称
+   			<span>
+   				<%if(_datas.data.shopPersonnel.memo){ %>
+   					<%=_datas.data.shopPersonnel.memo %>&nbsp;&nbsp;>
+   				<%}else{%>
+   					暂无备注&nbsp;&nbsp;>
+   				<%}%>
+   			</span>
+   		</div>
+   		<div class="con-list bg-white color-gray3" onclick="this.ctrl.toTakeGoodsLog();">
+   			查看对单记录<span> ></span>
+   		</div>
+   		
+   		<div class="m-top50 btnBox">
+			<%if(_datas.data.shopPersonnel.status == "able"){%>
+				<button class="bg-red color-white btn-block" onclick="this.ctrl.updateShopPersonnelStatus('pause')">暂停员工权限</button>
+			<%}else{%>
+			 	<button class="bg-red color-white btn-block" onclick="this.ctrl.updateShopPersonnelStatus('able')">启用该员工权限</button>
+			<%}%>
+   			<button class="m-top20 color-gray3 btn-block btn-border-gray bg-white" onclick="this.ctrl.updateShopPersonnelStatus('invalid')">删除该员工</button>
+   		</div>
+   </div>
+</div>

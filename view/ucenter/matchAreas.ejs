@@ -1,0 +1,39 @@
+<script>
+  $(".matchAreas ul li a").click(function(){
+  	   var obj = this;
+       var isOpening = $(obj).attr("isOpening");
+       var msg = "";
+       if(isOpening == "true"){
+       	   msg = "选择"+$(obj).html()+"为当前城市";	
+       }else{
+       	   msg = "亲,该城市暂未开放,确认切换到该城市!";
+       }
+       alert(msg,function(flag){
+            if(flag){
+            	$.post("area/setUserCity.shtml",{cityName:$(obj).html()},function(data){
+            		if(!data){
+                     	GO("/");
+                    }
+            		if(data.status == "1"){//设置当前城市成功
+            			Config.area = data.data.area;
+            			GO("/");
+            		}else if(data.status == "0"){
+            			alert("系统正忙，稍后重试");
+            		}
+            	});
+            }
+       },true);
+ })	
+</script>
+<%if(list.length != 0){%>
+      <h4>搜索结果</h4>
+      <ul class="clearfix">
+	  <% $.each(list,function(i,o){ %>
+      	 <li>
+            <a href="javascript:;" isOpening="<%=o.isOpening%>">
+               <%=o.name%>
+            </a>
+         </li>
+      <%});%>
+      </ul>
+<%}%>   
