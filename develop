@@ -1,4 +1,4 @@
-ctrls自动检查
+ctrls自动检查fdsafsda
 
 只有DO方法调用或从不在pageContainer显示的ctrl 可以不用在ctrls配置 警告 但最好配置。
 避免ctrl名重复
